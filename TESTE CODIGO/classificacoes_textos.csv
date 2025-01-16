@@ -1,0 +1,1438 @@
+ID,Texto,Classificação
+0,Eu te odeio,Insulting
+1,Obrigado pela ajuda,None
+0,"Yes, prepared statements are on my todo list. I don't need them myself, so unfortunately they kind of linger at the bottom of the list unless somebody wants to sponsor some of my time to work on the feature.
+That being said, the SQL based approach looks interesting as a stop-gap solution for the short term.",None
+1,"How does https://github.com/sidorares/nodejs-mysql-native handle this? Any reason not to just borrow parts of the way it's done over there?
+I'm still somewhat struggling with the number of different MySQL drivers for Node.JS. I think Node makes it way too fun to write network protocol code. :P Maybe in a year or so the community will have coalesced around one or two really solid libraries.",None
+2,"> How does https://github.com/sidorares/nodejs-mysql-native handle this?
+It seems to implement the parts of the protocol that are required for prepared statements.
+> Any reason not to just borrow parts of the way it's done over there?
+Yes, I didn't have the time to work on this yet. I'm also not in the business of copying code unless it's up to my personal coding standards. So even with good inspiration like this, it will still take me some time.
+> Maybe in a year or so the community will have coalesced around one or two really solid libraries.
+This library is solid. It just does not implement all features.",None
+3,Couldn't we just prepare and execute statements using SQL instead of raw packets?,None
+4,"@dresende the SQL method still winds up tampering with values to make them safe (escaping quotes, etc), whereas the protocol method explicitly separates query from values so tampering is not necessary. To be fair, as long as its impossible to smuggle a query in as a value, the driver is plenty secure enough. I suppose I'm just being a nitpicky ex-PHP developer who wants everything to be conceptually elegant. :P",None
+5,Imagine thinking anyone cares about design flaws.,Mocking
+6,Imagine thinking anyone cares about Open Source being a joint effort.,Mocking
+7,Imagine thinking open source means other people work for you for free.,"Ironic Insulting, but more specifically: Insulting"
+8,"If you set up some task this way:
+before 'deploy', 'some_task', And in some_task you simply read the ""latest_release"" variable (in a puts line for instance), then:
+Current results:
+a) If it's the first deploy ever in capistrano (the www folder doesn't exist), capistrano breaks completely, it cannot deploy.
+b) If it's not the first deploy, then it will make capistrano change its behaviour with regards to the ""current"" symlink, because it will point to the previous release instead of the last one (after the deploy happened).
+Expected results:
+a) It should work.
+b) It should point current to the latest release.
+This is a big fuckup IMHO.",Vulgarity
+9,"Because you don't offer a patch, and profanity really pisses me off.",Vulgarity
+10,"Mutable programming pisses me off even more.
+Anyway, the point of github issues is to have a bug tracker.
+The contributions comes in the pull-requests tab.",Bitter Frustration
+11,"I understand that latest_release may not have the proper value when it's queried at the wrong time... but CHANGING BEHAVIOUR???? Sorry for the caps, but really finding out this bug has put me on my nerves.
+In regards to your backwards-compatibility policy: fair enough, I understand if you prefer to accept only a patch to fix this in master rather than the 2.0.x branch, but:
+a) I never proposed to fix it in a branch.
+b) This bug is not fixed yet on any branch, so it should be reopened. Otherwise people confused about it will not be able to find it.
+This is, my friend, how bug trackers work.",Bitter Frustration
+12,Then leave this issue open until the end of times.,Bitter Frustration
+13,That doesn't respect the Robust principle ;) http://en.wikipedia.org/wiki/Robustness_principle,Irony
+14,"It's a shame you couldn't provide an answer. Pointing to a documentation page that has no response to the original question isn't useful at all. Equally, it's pretty useless having something that draws a map with a big blue border around every country and no explanation as to how to remove it.",Bitter Frustration
+15,"@abrice This kind of passive-aggressiveness is disrespectful towards maintainers.
+I suggest reading [""How To Ask Questions The Smart Way""](http://www.catb.org/esr/faqs/smart-questions.html) and [""How to Report Bugs Effectively""](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) so you can make good bug reports in the future.",Insulting
+16,"Hi, im running node-mysql latest on node-latest.
+Somebody using the acunetix vulnerability scanner has triggered this error:
+UNKNOWN COLUMN '$acunetix' IN WHERE CLAUSE.
+The query: SELECT id, email FROM accounts WHERE username = ?
+How is this possible? Its very dangerous to our application, please respond quickly.",Impatience
+17,I can't see how it's the type system's fault when programmers assume that a mechanism that looks like prepared statements will defuse any data they pass in. Let's at least blame it at the programmers for trusting visual similarity instead of reading the manual thoroughly.,Insulting
+18,"xBRZ makes textures and sprites ugly, I rather have Nearest.",Insulting
+19,"xBR/xBRZ looks ugly only in your subjective opinion. Nearest-neighbor is primitive technique which looks blurry and pixelated,",Insulting
+20,"xBR/xBRZ are ugly because computers are not artists, they ruin the artwork of games.",Insulting
+21,"I am not sure what you mean but not everyone wants to use emulators with ugly native graphics.
+PCSX2 already has option to increase internal resolution but xBR/xBRZ would be very useful for 2D sprites, pre-rendered backgrounds and textures.",None
+22,yes that's true ratchet and clank games have this problem and are very ugly only works in software mode and it's freaking me out with a amd fx 8350 ¬¬ a points of fps of 20 or 30,Insulting
+23,"You mean Native graphics, most of which created professionally by artist then you want to ruin it with an over-exaggerated interpolation.",Insulting
+24,Developers certainly not want to apply a silly image interpolation like xBR to ruin all their artwork,Mocking
+25,Prove they dont.,Bitter Frustration
+26,"If you take a SNES Game like Super Mario World, the developers created all the artwork pixel by pixel.. xBR simply adds unwanted pixels everywhere, ruining the sharp-crisp sprites, it's a silly gimmicky interpolation .",Mocking
+27,Snes games have huge blocky pixels because hardware was primitive and not because developers intended it to look that way. xBR is advanced upscaling algorithm not ''silly gimmicky interpolation'' show little respect to shader/filter developers.,Insulting
+28,"xBR is silly gimmicky interpolation because computers are not artists, you need an Artist to recreate the sprites and textures.",Insulting
+29,You are obsessed about computers not being artists but they dont need to be. Shader developers being artists is enough. Artists already created xBR/xBRZ.,Mocking
+30,xBR destroys Pixel art,Insulting
+31,Pixel art is term invented by nostalgia fetishists no such thing exists chunky pixels are result of low resolution forced by weak hardware.,Mocking
+32,"You continue to prove that you have no idea what you're talking about Monochrome,
+xBR is not a texture filter, it is a sprite filter.",Insulting
+33,At least xBRZ can be used for textures. PPSSPP is using it for textures so it can be done.,None
+34,"I prefer Nearest over xBRZ, I don't like my games looking like playdoh",Mocking
+35,Nearest-Neighbor is primitive garbage you may like what you want but I prefer games to not look like blurry blobs.,Insulting
+36,"This would be an interesting enhancement, in certain instances it can help reduce scaling artifacts in some PSP games, so it could possibly help games like FFX.
+https://i.imgur.com/as4jG1S.jpg
+https://i.imgur.com/8p76qGp.jpg
+Just a few things about this issue thread:
+1. Ratchet and Clank HD collection uses a similar smoothing filter for textures:
+https://imgur.com/a/Kc52r
+2. Squall, you're - like always - wrong, it can be used to filter textures - or any pixel based medium.
+Whether or not xBR texture filtering looks better is subjective, so there's no point arguing either way. Adding this would be nice for those who like it, it could help scaling artifacts, and implementing a way to add xBR filtering could mean other texture filters could be added too, so people could have a variety and go with what they like.",Insulting
+37,"SonofUgly,
+You're wrong for one key reason.
+xBR and xBRZ are per pixel filters, they can only operate on the inside of sprite if the renderer operates AT the pixel level.
+In the case of PS2 sprites, or textures, it will only filter the edges and no more.",Insulting
+38,"What are you on about. Are you talking specifically about how GSdx currently handles textures, now? Your previous condescending remarks sounded like you didn't think xBRZ could be used on textures at all - which you do realize PPSSPP uses it, right?
+""In the case of PS2 sprites, or textures, it will only filter the edges and no more.""
+http://i.imgur.com/p6OEJSp.png",Insulting
+39,nobody cares,Bitter Frustration
+40,"@LasagnaPie But older games were designed to be displayed on CRTs, where the sprites aren't sharp or crisp. :^)",None
+41,"Unfortunately, debian8 is DKMS still on 6.5.2, no update in the last three months. Any clue when this gets resolved?",Bitter Frustration
+42,"I haven't seen the problem for quite a while now (seemed to have gone since 0.6.5.6), but this morning I had the very same hung task with 0.6.5.7 (single occurrance) come up again. Sigh...",Bitter Frustration
+43,"@linkyndy Do you seriously think @Euraldius did not understand that those labels referred to Ruby objects? Let me slowly explain to you the point that was being made:
+When engineers use labels such as ""boy""/""girl"" in ways that reinforce toxic gender stereotypes, such engineers show their ignorance and (perhaps unconscious, perhaps latent) misogyny. So, stop. Think about how you use your language. And be considerate.
+Another related example: the widespread use of repulsive ""master""/""slave"" labels in software systems.
+Just fucking think about it for a second... bro.",Insulting
+44,"I feel hurt by the word Singleton because it reminds me of who I think I am.
+This message is not trollish intent to hurt anyone, rather a part of a philosophical debate. (cc @skatenerd)
+I wholeheartedly agree that we should fight any discrimination.",None
+45,"Came here because of a frustrating engineering problem, disappointed to see people are discussing irrelevant social issues.
+* Yes the social issues are important
+* No github issues is probably not the right place to discuss/debate them
+* Call the classes `Yob` and `Lrig`, I don't care, I need a solution to the inter-dependent factory objects",Bitter Frustration
+46,"> > should we instead add as a section in the tutorial here?
+> > We should reference it. But I don't see this as tutorial material because
+> it is outside the scope of scikit-learn. We can only give pointers
+> > That's an answer that the users really don't want to hear, because there
+> point of view is that they have a lump of data and they want it inside
+> scikit-learn. The answer is: this is not a problem that scikit-learn
+> solves, go see pandas if you have CSV, scikit-image if you have images,
+> database connectors (SQLAlchemy?) if you work on databases...
+> > I guess that we should have a sentence like this in the tutorial, where
+> you reference, with pointers.
+> > As a side note, the kind of errors hit by the users on the thread of this
+> issue (lack of basic knowledge of Python for instance) tells me that we
+> cannot solve their problem. They need to go to entry-level tutorials on
+> Python, and get a bigger picture. Maybe we should make sure that we give
+> pointers to these in the right spots, eg early on in the tutorial.
+Well, take it easy!!!
+I don't know whether you are one of scikit-learn staff or not, but I need
+to say that your way of talking is harming both scikit-learn staff and
+users (us), due to the two reasons:
+First reason, criticizing people (like what you did) and assuming that they
+are novice in Python so they don't know how to work with scikit-learn,
+means you or the staff are trying to blind their eyes to the truth that
+scikit-learn staff are not able to create a clear tutorial to allow loading
+the real data, at least. In addition, pretending that the tutorial of
+scikit-learn is perfect in spite all the questions regarding loading the
+real data (not the toy data as it is too easy to be imported comparing to
+the real data) is something needs to be reconsidered, and this means that
+scikit-learn staff don't care about the name of scikit-learn at all.
+Second, we can understand from your unsuitable way of talking that you
+already forgot that scikit-learn is a product, and we as users are
+customers, so either you or the staff of scikit-learn should respect all of
+us and thank us for any comment or bug fixing. This is the professional way
+of behavior. So I recommend you to think of your words before saying them. If
+you are knowing the way of loading the real data and you'd like to help,
+don't only say go see pandas, better you answer people's question nicely
+rather than hurting them with your words, but if you're simply not able to
+do that, so keep quite.
+On the other hand, regarding the question ""should we instead add as a
+section in the tutorial here?"", I would like to say ""_YES_"", you or
+scikit-learn staff should add a section in the official tutorial about how
+to load your own data either CSV, or ARFF or text or whatever, as users are
+interested to load their own data, this is very critical issue should be
+considered in the tutorial (not to be ignored). *If you rely on the user,
+then what is your work? *
+Nevertheless, for those who are still struggling with scikit-learn, I would
+like to say, this is not the end of the world, and as I mentioned
+previously, find another to tool make your life much easier. For this
+reason, and in order to save your time, I would like to recommend some
+tools to assist you in data mining procedures. For instance, Waikato
+Environment for Knowledge Analysis (WEKA),
+http://www.cs.waikato.ac.nz/ml/weka/, last version is WEKA 3-7-13, is a
+collection of machine learning algorithms for data mining tasks. WEKA
+allows you to use its schemes either from GUI or writing Java code, so its
+very easy for non-programmers. Additional to WEKA, R is also an excellent
+tool for data mining stuff, you can also perform tasks of R from WEKA or
+vice versa. However, if you have a patience to design a prediction process
+manually (drag/drop), RapidMiner is a great tool for this propose where you
+can design a very nice flow to achieve your target.
+Thanks David van Leeuwen for your support.
+Good luck in your analysis.
+Cheers,
+Martin
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/scikit-learn/scikit-learn/issues/3808#issuecomment-160153930
+> .",Insulting
+47,"I contacted support about this around the same time I chimed in here initially. Their response is that Vagrant uses curl to download things so they don't see this as a Vagrant problem. IMO that's an unprofessional cop-out because they chose to use curl, know that there are problems and aren't considering swapping out with an alternative to eliminate the problem for their users.",Bitter Frustration
+48,"While I am unsure of the origin of the problem, I really do wish that Hashicorp would get back to its unrelenting focus on user experience with this one. **Muli-hour downloads (that should take 1-10 minutes)==bad ux.**",Bitter Frustration
+49,I have been trying for 2 day's now and still can not get it to download... its a shame.. it is really not impressing new comers to laravel .. i can only get 34ks speed.........,Bitter Frustration
+50,"Sign me upp here, 100mb symmetric connection (Fiber) sloooow as shit, doing 150kb/s",Vulgarity
+51,"after looking at the years of complaints of slow download with no effort of resolving the issue,,, i think its time to start emailing Laravel to stop endorsing homestead until the issue is resolved..... maybe that will get their attention!!!! this is a real problem... 15 retries and then 4.6 hours to download a file is irresponsible on their part........",Bitter Frustration
+52,"This is painful to do anything on any more - On 100mbps synchronous connection and getting 168kb, either overloaded servers or throttling",Bitter Frustration
+53,Help. I have same problem. I can't wait 3 hours! Very slow! Stupid!,Insulting
+54,i gave up a year ago..download to slow.. problems after down load.. have to download for 3 hours again.... Vagrant will not fix the problem that has been there for several years now.. you would think that after 3 or 4 years of this problem they would address the issue.....,Bitter Frustration
+55,8 hours to download! I hate you all!,Insulting
+56,"Lol, I hate you too @daryn-k :)",Insulting
+57,Guys why is this issue closed? This is still an outstanding issue and needs to be addressed ASAP. I am experiencing the same issue.,Impatience
+58,Wow! Downloading boxes is painful please fix this. PLEASE?,Bitter Frustration
+59,"Downloading boxes used to be quick, now it's so slow it makes vagrant a no-go for quick and simple developer environments.",Bitter Frustration
+60,"Trying to download ubuntu/xenial64. Download speed maxes out at 150 KB/s on a 1 Gbps symmetrical fiber connection. WTF. Remaining time 1 hour? I could probably download the ISO, read the guide on how to set up my own box, and finish earlier.
+EDIT: Interestingly, speed went up by factor 10 when I tried to download the same box in the browser simultaneously.",Bitter Frustration
+61,"It honestly looks like they dont give a shit, rules this out as an option
+for me!
+On 3 Apr 2017 8:15 AM, ""Jacob Gadikian"" <notifications@github.com> wrote:
+> Hey, quick thought:
+>
+> If this uses curl (not libcurl) through some sort of ruby-controlled,
+> bash-mediated process, why not just remove curl for one of:
+>
+> - ipfs
+> - aria2
+>
+> Both would do the job better than curl.
+>
+> —
+> You are receiving this because you commented.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/mitchellh/vagrant/issues/5319#issuecomment-291019093>,
+> or mute the thread
+> <https://github.com/notifications/unsubscribe-auth/ABBAihR9ng4t2Jq1XTmAjMyMCnlEFtxRks5rsB4WgaJpZM4Deq5d>
+> .
+>",Vulgarity
+62,"I'm on a 150Mbps line.
+vagrant up = HOURS
+vagrant box add = HOURS
+browser download /wget = HOURS
+May not be a vagrant issue per se, BUT IT IS. If your infrastructure can't handle it then your product is broken.
+BAD UX",Bitter Frustration
+63,"Well, nothing has changed, it still downloads at a snail's pace given that i am on a 125 Mbps connection!",Bitter Frustration
+64,Sooooooooooooooo slowly！！！！:(,Impatience
+65,"Typical issue, been around for ages, everybody's moaning about it, and nothing is being done.",Bitter Frustration
+66,how is this closed? still a major issue,Bitter Frustration
+67,🍺 🍺 🍺 🍺 🍺 🍺 I'm just going to leave these here for any poor sod waiting for this download.,Mocking
+68,"@oncet Yep, very different! But for my use case, they're equivalent and commodified: Ways I can create and launch an isolated dev environment with just one or two commands. Docker Compose works great and is far simpler than Vagrant (note, this not just ""Docker"" per se, which only launches containers one by one) and I'd need to hear about a compelling reason to try a Vagrant+Docker solution, which sounds pretty damn complex. ;-)",Bitter Frustration
+69,Pain. This is a pain. I'll never be able to download the 5.0.1 I guess,Bitter Frustration
+70,"@dogweather Frankly, I don't see how your commentary on docker has anything to do with the issue at hand. Please stop taking this thread off-topic.",Impatience
+71,"@mankinskin I agree completely, and I feel your frustration; I share it, and it's got worse as rust has become more widely used. Rust's core team also have a very narrow view of what a bug is - one that with my software craftsmanship hat on I couldn't disagree with more strongly.
+Rust's development has been captured by the bureaucratically minded; the same mindset that has infested wikipedia, and parodied beautifully in [Brazil](https://www.youtube.com/watch?v=KZ-SdU53MnY).
+Personally, I find it rude; it shows disinterest in the views of those outside of the main development, and the idea that anyone can have a good idea.",Bitter Frustration
+72,very good feature :+1:,None
+73,:+1: would definitely be useful.,None
+74,Any updates?,None
+75,It hard to believe that this was opened three years ago.... I assumed it's not that complicated since I started with radarr. It's the only thing missing in sonarr to match radarr. Hope it will come soon.,Impatience
+76,"@gabordemooij
+You should be killed. Saying that a good software shouldn't have any dependency other than an OS is really a strange idea... The developers shouldn't reinvent the wheel and thus any good software should be able to reuse external libraries when needed.
+BTW: An OS is nothing more than a bunch of libraries and executable that were compiled to form a system fully usable. Does an OS shouldn't have any external dependencies?",Insulting
+77,"@sbrl don't use composer. Just don't. If you cannot manage your dependencies you have a very big problem and composer hides it. Updating bad code in zillions of libs will not magically improve the reliability and security of your code.
+- get rid of all libraries that are not crucial
+- remove all libs with dependecies, they are by definition created by idiots
+- keep things simple, if you need that much libraries, you failed at keeping things simple",Insulting
+78,"I don't do this usually but I had to screenshot this whole discussion. Guy doesn't use namespaces, uses single file for his projects and he bashes the practice of tracking your dependencies with - listen to this - **programs**. If anyone stumbles upon this page via google, please take time to read what @gabordemooij wrote and take note - NEVER justify your bad decisions by making stuff up.",Insulting
+79,"Updates often introduce new bugs and new vulnerabilities. So your just replacing old bugs with new bugs. Only right after an update 'you consider your software safe', but as time progresses it turns out the initial update was not safe at all but by then most developers pretend the software 'is now suddenly unsafe because it is old' - that's not true, it was already compromised right after the update. Besides that, dependency management systems make it worse, because you don't even know what you install anymore. There may be even some toxic packages among the dependencies:
+https://news.ycombinator.com/item?id=15272394
+https://news.ycombinator.com/item?id=11340510
+https://sensorstechforum.com/arch-linux-aur-repository-found-contain-malware/
+While I don't pretend that bug-free software can be written, a better solution might be to focus on simplicity. Dependency management systems compromise simplicity because they make it easy to solve the natural issues regarding dependencies. In a sense, they hide complexity - and paradoxically therefore they increase the risk of importing new bugs and vulnerabilities.
+So, I reverted the commit that removed the Composer file because, even though I am against it, I also don't really care, I just get a bit angry when Composer related problems (like what version string to use) creep into the RedBeanPHP repository. And yes, you make screenshots all you want and laugh about RedBeanPHP or me. I don't give a shit. Have fun.
+BTW, remember that this is an open source project, you can fork and nobody is forcing you to use RedBeanPHP so, if you don't like it:
+https://www.doctrine-project.org/
+bye bye!",Bitter Frustration
+80,"> Updates often introduce new bugs and new vulnerabilities. So your just replacing old bugs with new bugs. Updates also fix bugs and old vulnerabilities. Using a dependency manager lets you lock down to a specific version of a library. I can fork a library, perform changes, tag it, point my `composer.json` to it. I don't have to do anything manually. If I want to know which *version* I use, I don't have to dig through files.
+I could literally go through every single word you wrote and try to argue with you but it's pointless. You suffer from NIH syndrome, your practices are bad and as you wrote - you don't give a shit.
+You are spreading dangerous blatant lies in order to justify something you wish were true. That's the problem. The second problem, which is your personal problem, is your attitude. I know there's absolutely no way we can have a discussion, your opinion is set and I can tell you'll do anything to defend your POV. Yes, this is your project, you are entitled to opinion but in your world 1 + 1 yield 75, not 2. Ego is a dangerous thing. I won't insult you, there's no merit to that, we should be civilized after all. I'll just kindly ask you, just ASSUME you might be wrong. Just for abstract thinking's sake. I really believe there's no malicious intent behind what you wrote, but could there be a possibility you don't have all the information at hand to make statements such as ""dependencies suck"" or ""dependencies in libraries suck""? What would be the point of a library then? If I deal with SAML or OAuth2, I require a library which in turn requires encryption primitives. Should I rewrite those primitives and libraries to deal with SAML and OAuth2 so I'm ""safe"" and not an idiot?",Insulting
+81,"2015? :-( This will very likely never added then, that sucks.",Bitter Frustration
+82,Since 2015 and this still isn’t added yet? Come on. This would be such a useful feature.,Impatience
+83,2015-2020 is not create this function. qBit - Shit!,Vulgarity
+84,"> Your solution is for power users, has usability drawbacks, Fighting phishing emails is something everyone has to learn to do, no matter the occupation. I think it is reasonable to demand a certain level of proficiency and common sense.
+> and doesn't address the fact that malicious users are taking advantage of an easily fixable flaw in qBittorrent.
+""Malicious users are taking advantage of distracted/careless users"" would be a more accurate statement. Do you think the possibility of receiving phishing emails is a flaw of E-mail? If so, is the possibility of hearing the voice of a scammer in real life, believing what they say, and giving them money, a flaw of your ears? Should your auditory system should autoblock certain words/sentences on its own? Perhaps it should be the brain acting on the information instead.
+Furthermore, the greater issue of downloading these kinds of torrents should not be underestimated. You have to go out of your way, even when searching for illegal content, to find these kinds of torrents. And no, the `.exe` in RARBG torrents does not count as an example of this practice in a popular site; it is actually just a harmless text file with the `.exe` extension designed to prevent mirroring by software that, ironically, relies on ""file extensions"" to make assumptions about their content.
+Not to mention that if anyone actually accidentally clicks a dangerous exe, it should be caught by UAC anyway. If the user has disabled UAC or blindly clicks through it, then they either know what their doing or they ""know enough to be dangerous"", in which case whatever happens is their own fault and there's nothing we can really do.",Insulting
+85,"Issue not fixed in 30 days?
+Must be gone!",Threat
+86,"Always remember the style module so if you don't like the defaults it is very easy to override the ones you don't like.
+I think a 'tufte' style sheet would be a worthwhile thing to have even if it is not everyone's cup of tea.",None
+87,"I have to say that I find this change simply horrible. It removes the information where error bars end and thus renders them unusable without the caps. Consider the following example:
+![without_caps](https://user-images.githubusercontent.com/22542812/45039484-04e2f100-b064-11e8-9be0-704e66d698a9.png)
+![with_caps2](https://user-images.githubusercontent.com/22542812/45040016-3f995900-b065-11e8-8390-102fdadfb454.png)
+The first plot indicates that the errors of line1 are too small to be seen (hidden behind the marker) and thus negligible. The plot with caps however reveals that this is certainly not true. The vertical lines are arguable only visual clutter however they are a guide to the eye to find the actual errors.
+Obviously I can just change the settings (after finally finding out these things are called caps). I find this change however very dangerous, as in a less obvious case I am tricked into reading the plot wrong. This should never happen! Thus, I would argue to make the caps bigger than the actual marker by default.",Bitter Frustration
+88,"W/o wading through the religious war above, I think this behaviour would be an obvious one to expose via an rcParam if it’s not already. If it is an rcParam already, then I’m not sure what the problem is.",None
+89,"This thread is getting contentious and needlessly personal.
+It is the case that this behavior can be controlled both by an rcparam (for global control) and via a kwarg (for per-call control). It is also the case that we are not going to change the defaults.
+Given those three things I am going to lock this thread as I do not think further discussion is going to be productive.",Bitter Frustration
+90,"As a procedural note, was between ""resolved"" and ""too heated"" in the lock dialog. People with commit rights will still be able to comment and can unlock the thread.
+If anyone has issues with me locking this and either can not (or does not want to) comment here, send me an email.",None
+91,"A two kind of jokes are here, one with a smile(s), and another one for those who understands that a joke's salt not in the smile(s).
+Hover-activation is for the first only.
+Er... :-)
+PS.
+Just curious HOW is this stupid hover should work on the completely click-driven systems like Android phones. AFAIK there's no any mouse nor any other source of ""hover"" events. So WTF how this ""brilliant smart design piece"" decision been placed into production at all?",Insulting
+92,My biggest problem with all the UI bugs I reported is that nobody from Telegram bothers to respond to it.,Bitter Frustration
+93,"Sorry, I do not understand - what should happen when I click on it?
+What happens now: _hover_ - _toolbar appear_ - _click_ - _toolbar disappear_
+And all goes the same way on next _hover_, behavior is not changes.
+![vokoscreen-2017-04-17_21-10-37](https://cloud.githubusercontent.com/assets/860208/25098745/6c930ffa-23b2-11e7-8ae7-f5fc5d4ba8c7.gif)",None
+94,"1920×1080 isn't big enough?
+Tried with maximized window, of course. (GIF with that resolution too big to upload here)",Bitter Frustration
+95,"The smileyface is too close to the ""scroll to bottom"" thing and the hover thing always opens and instead of scroll to bottom, your cursor now points to a heart icon which is where the scroll to bottom buttom was before the hover thing appeared over it. Annoying.",Bitter Frustration
+96,I can't count the amount of times I have to try and retry and retry clicking something because the god damned hover smileys popped up.,Vulgarity
+97,"I'm here because of the stupid emoji menu that annoys the living daylight out of me. I NEVER use emoji or stickers or gifs, so the only purpose the emoji popup has for me is to drive me insane.",Bitter Frustration
+98,"It is just unbelievable...
+The only thing many people here need is a configurable hover timeout for damned emoji button. No bloody UI filosophy or UX ideology. Just one configurable timeout value. What the heck?",Bitter Frustration
+99,How has it taken nearly 3 years to just add a simple 250ms delay on that damn emoji button?,Bitter Frustration
+100,"@S-U-M-1 You're saying ""has taken"" as if it was done.",Impatience
+101,"@sivagollapalli Not the most elegant solution. But even so.
+PLEASE FIX it",Bitter Frustration
+102,"@sivagollapalli Are you crazy?
+```
+create_table :products do |t| t.string :price
+end ```
+At BEGIN
+```
+t.decimal :price, precision: 12, scale: 2
+```",Insulting
+103,The code in `lib/active_record/attribute_methods/query.rb#query_attribute(attr_name)` is incorrect to check Float value! Why are you trying to prove the opposite in every way?,Ironic
+104,"@anujaware Pure Ruby code:
+```
+p (0.9 === Numeric)
+p (0.9 !~ /[^0-9]/)
+p (0.9).to_i.zero?
+```
+result:
+```
+false
+true
+true
+```
+And now turn on the brain!",None
+105,"@matthewd No yelling.
+I just point to bug.
+Why do I still have to prove anything? Why do I have to write some other tests?
+It seems pretty clear, I explained the situation.",Bitter Frustration
+106,"@Sega100500 your report which had virtually no context and then you take people to task for not being able to reproduce the problem - even the variable name you use `@product` would tend to make people think that you were using a `Product` model. It's only 12 messages in where you provide the SQL which you have to read closely to infer that you're actually using the `Content` model and then `select`-ing the product columns onto that model. In fact you never even mention `select` anywhere in this thread. When you fail to provide the single piece of information that would allow people to reproduce the issue is it any wonder that the issue would be closed? When you were politely asked to provide exact code examples you just dismissively directed @sivagollapalli back to previous messages - at no point did you ever provide a model definition.
+It's only when you provide a bug test example in #22434 that it's immediately obvious what the problem is - this is why we always suggest doing one as it helps both you and us by focussing on the core problem and removing extraneous factors like gems, etc.
+On, one other thing - the code is `Numeric === value` not `value === Numeric` - you should check whether something is commutative before abusing them, e.g:
+``` irb
+>> Numeric === 0.9
+=> true ```",Insulting
+107,"@adrienpayen @vladimmi if I had a contribution graph like yours, I would refrain from complaining about a lack of contributions. You've done nothing to fix an issue that directly impacts you, so why would you expect people that are not impacted to do the work for you? Please stop the spamming and start being constructive.
+You could provide a failing test case, or use a debugger to pinpoint where the issue is.",Insulting
+108,"@greg0ire If I was such a tender snowflake, I would refrain from using public services having comments - especially bug trackers. And especially I would at least read ticket before posting anything there - because ""failing case"" was provided 7 years ago in the very first message and ""pinpointed where the issue is"" in the same day several messages later.",Insulting
+109,"Well then you can move on to the next step: fix it!
+If I had to read every thread when people ask for news, I wouldn't be able to make any progress. That being said, the first comment is not really what I meant by failing _test_ case. You can still work on that before attempting to fixing the bug. Make a PR with the code snippet above in a PHPUnit test.
+> tender snowflake
+Hmmmm… I think the discussion is too heated, don't you agree?",Mocking
+110,"@Evertt Not yet, and I won't until I get the green light from lead developers. I've invested a lot of time in other pull requests, that have been open for years and are still not merged. I can't waste any more time on this project I'm afraid!",Bitter Frustration
+111,"@Harrisonbro https://github.com/doctrine/doctrine2/milestones/3.0
+Let's please stop going further OT. If you have a question, make a new issue.",Impatience
+112,"@BenMorel With all due respect, I have to go r/quityourbullshit on you here:
+> I've invested a lot of time in other pull requests, that have been open for years and are still not merged. I can't waste any more time on this project I'm afraid!
+For Doctrine 2, [there are 26 pull requests from you](https://github.com/doctrine/doctrine2/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Abenmorel): 2 Open, 2 Closed without merge (one was fixed differently, one would introduce a lot of pain with future pull requests), and 22 merged.
+For DBAL, [there are 15 pull requests from you](https://github.com/doctrine/dbal/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Abenmorel): 1 open, 2 Closed without merge, and 12 merged. A quick peek into other repositories (common, annotations, bundle, etc.) shows merged pull requests only.
+Feel free to point out pull requests that you are waiting to get merged, but please don't say stuff like that without backing it up when other people sacrifice lots of free time to get you free software. Thank you.",Insulting
+113,"@alcaeus Thanks for investing your time investigating my contributions to this repository.
+You have already wonderfully pointed out my unmerged pull requests, you just forgot to mention their opening date:
+- doctrine/dbal#634 : opened 3 years ago
+- doctrine/doctrine2#949 : opened 3 years and 6 months ago
+I did invest quite a lot of time on these two pull requests, and since 2 years I am getting next to no feedback, despite multiple attempts to draw attention from the team.
+Yes, I had PRs merged as well (did I ever say I didn't?), but the lack of feedback on these last two blocked my motivation to contribute further to this project for now.
+> [...] please don't say stuff like that without backing it up when other people sacrifice lots of free time to get you free software.
+I hope I have backed it up to your taste, and rest assured that I know [quite well](https://github.com/BenMorel) what it's like to sacrifice some time on free software.
+Cheers.",Bitter Frustration
+114,"@BenMorel the way you made it sound was that people completely disregarded your work, which they don't. That's why I took the time to look through your contributions to see what's going on.
+As for the pull request you mentioned, (please keep in mind that I'm not an ORM guy) it looks like it's a fairly large pull request that touches transaction logic in the DBAL, affecting most of what it (and thus ORM) does. Pull requests like that take time to review and evaluate. I'm not trying to make excuses for other people here, I'm just hoping you can bear with the people maintaining it. That said, there is currently a development push going for 3.0, so maybe there's an opportunity to get those pull requests merged.
+Open source projects need contributors to move forward and evolve, especially when maintainers have little or in some cases no time for the project. However, writing pull requests is just a small part of that work - most of it is looking at issues, figuring out what's going on, evaluating pull requests and making sure your user base is not going to burn you at the stake because you messed up. That can be very time consuming and tiring, so unfortunately, large pull requests are often the first to stay open simply because of the effort it takes to review and merge them.",None
+115,"@BenMorel I agree with you. The Doctrine mantra I keep hearing seems to be along the line of ""Well, it kind of works in most cases and changing things is hard so let's not do it"".
+They say a picture says a thousand words and I think this picture sums up my feelings about Doctrine right now: ![](https://i.imgur.com/Rl0VmKc.jpg)
+Disclaimer: Owners, don't take offense - it's meant in a lighthearted way and is just my personal opinion. I know you work hard on this, and for that I thank you. I just disagree a bit with the general negativity that I personally see towards any major changes. I know you're working on 3.0 but Symfony and others are leaving you in the dust. If there's too much work, consider giving other contributors more rights or bumping the major version more often so that there can be BC breaks.",Bitter Frustration
+116,"@ryall I think that's the nail on the coffin then.
+Here's the exit:
+![selection_176](https://user-images.githubusercontent.com/154256/35387238-2c99dbda-01cf-11e8-8599-5740938bbc9d.jpg)
+Closing and locking.",None
+117,"Composer has nothing to do with how you compile PHP. It simply points out what it needs/expects. If your compiled version does not offer that, then either recompile, or use any of the common default binaries provided for Linux/OSX/Windows which do contain everything that is necessary.
+This issue is more about installing and configuring PHP though, so I'm closing it.",None
+118,"Composer is garbage this kind of mistake should not happen, error unacceptable.",Bitter Frustration
+119,"Are you kidding me ? Your code does not work on a few different servers with different operating systems and you telling me ""We don't care, the library is to blame"". The ""less than"" sign is a common case, which can occur in any text.",Bitter Frustration
+120,"@arielelkin I agree that Nokogiri should ""just work"", and in fact it generally DOES just work on Linux and Windows. OSX is the outlier, and it's because of the combinatorial explosions of configuration options, along with the fact that Apple has decided to deliver xcode (and xcode update) configurations that are hostile to developers maintaining non-trivial C extensions.
+I'm not sure what outcome you're hoping to achieve with an approach like the above -- rude, disrespectful, entitled -- but watch and hopefully learn as I treat you with more respect than you've treated Nokogiri maintainers.
+We believe at this point that the installation tutorial:
+```
+http://www.nokogiri.org/tutorials/installing_nokogiri.html
+```
+works for nearly all known configurations of OSX. Did you go through the tutorial and follow all the steps for OSX? If so, that would be useful information to note when opening a support request. If not, help me understand how we can better point people like you at that tutorial? In particular, the xcode bit is really required for Mac users at this point.
+If the tutorial doesn't address the problem you're having, then please make sure you provide both the output from `gem install` and also the `mkmf.log` file.
+I'll further note that above, you've tried to install three different versions of Nokogiri. I'll also point out that you've got permissions errors even when you sudo, which makes me think you've either got a really weirdly configured system, or else you're trolling.
+---
+I'd like to note that the Nokogiri Code of Conduct
+```
+https://github.com/sparklemotion/nokogiri/blob/master/CONTRIBUTING.md
+```
+asks everyone to be nice and reminds you that Nokogiri maintainers are volunteers, who don't get paid to work on it, and have personal lives and families. Your approach in this issue is offensive and rude, and in all honesty represents most of what I dislike about being an open source maintainer. You expect something for nothing, and heap abuse on volunteers who have spent hundreds of thankless hours working to get Nokogiri to work on OSX.
+If you've surmounted your personal communication and anger-management challenges and read this far, I'll ask that if you go through the installation tutorial and it doesn't address the problem you're having, that you open a new issue and respectfully provide enough information to help a maintainer diagnose the issue on your particular system.
+I'll be locking this issue both because your request violates the CoC, but also just to preserve Yet Another Disrespectful Request for posterity, and so that when I finally get fed up and ragequit open source, I'll have plenty of interesting Github Issues to point people at.
+Finally -- everyone in the Ruby community who saw this issue come in and didn't do anything to police it -- you're part of the problem, too. For every open-source maintainer who quits, y'all wring your hands and are full of regret; but these are the opportunities you miss to prevent that from happening. A community that doesn't police rudeness and disrepect is not a community I'm happy to be a part of.
+---
+@SUzB - sorry you got caught in the crossfire on this, but you've also made a very unconstructive post wherein the OP claims a problem and shows three very different logs for three different versions of Nokogiri, and you say, ""I am facing the same issue."" No, no you're not.
+Please feel free to open a new issue providing enough information for us to diagnose your issue. At the very least, info about your OS, and if you're OSX then we'll need to know more about xcode and will need to see your logs.",Insulting
+121,"> nvm is not intended to be global or system-wide - it's per-user, per-shell-session.
+You know, for an util that should eliminate version discrepancies and staff it sure does increase it a lot... I mean I have server that deploys web projects on git pushes via hooks (i.e user = git). But sometimes I need to log in and redeploy the same things manually by invoking the git hooks manually (user = me). And sometimes my colleagues have to do the same (user = foo)... And then there is a process manager (PM2) that should be central for everyone, but it relies on node as well...
+And everybody have it's own node&npm. Except root, so trying to sudo yields even less results, i.e ``node: command not found``. Ok, your util is the wrong one for these kind of things, but NPM in it's [official docs explicitely says to use nvm](https://docs.npmjs.com/getting-started/installing-node) to avoid permission problems that unavoidably accompany multiuser usage.",Bitter Frustration
+122,"I'm writing a PHP wrapper for a NodeJS binary and I have this exact same problem. PHP is running as ""www"" so it **has no home directory**.
+PHP can't ""see"" the NVM environment.
+I had this exact same problem with getting node running in crontab but at least there I could control the user to be anything.
+---
+Thank you @AndreSteenveld This is yet another example of open-source project maintainer arrogance. Your use case doesn't matter so jump through these hoops.",Insulting
+123,"@hparadiz that's pretty hostile. I'm not being arrogant here, nor am I saying the use case doesn't matter - I'm saying that this project explicitly does not support this use case. ""Arrogance"" would be assuming that free labor on an open source project you don't pay for is obligated to support your use case.",Insulting
+124,"Literally didn't even call anyone out by name other than the one person who helped and I THANKED them. This issue is still a problem. Hasn't been closed. @Spown makes a good point too.
+Yes, it *is* a project maintainer's hubris to dismiss people's use cases as invalid. Heck, I do it all the time. Just cause something is free doesn't excuse you from doing things people don't like. So it's free? I'm not allowed to complain about a vital feature being missing? I guess that makes me hostile. But remember for everyone 1 of me who bothered to write something here there's 99 others that find this page, get super annoyed, and move on with their day deciding on one solution or another.
+People want to use node, nvm, and npm **system-wide** in a **global** context. This isn't rocket science. Why do people have to install it manually for every user on a system?
+Like would it really kill you make a link in /usr/sbin and check the user that ran the command?
+Congrats your tool is now an instrumental part of NodeJS development. It's time to level up and make it a system-wide command.",Bitter Frustration
+125,"@hparadiz I would prefer people with that desire and use case to use a different tool, since that's not what nvm is designed for. Just because you want to cut down a tree doesn't mean a pocket knife is the right tool for the job.",Irony
+126,"Hey guys,
+A bit of heresy from me over here that relates to this thread.
+(but let's not launch the Spanish Inquisition (tm) just yet)
+We needed properly managed and stable node version on our bespoke in-team-dev machines as well as on some specific live use-cases, and for that have forged an Ansible role to do just that. You may call it a hack, or you may not, it's your free will, but we're using NVM as the drop in replacement for the distro's `node` package, accessible globally. NVM turned out to be heavens apart in terms of stability than any `apt + n` combination we tried. I appreciate the tool (kudos and big thanks to you @ljharb) so it's the solution we incorporated.
+For anyone interested (hope you don't mind sharing here bro):
+https://github.com/grzegorznowak/ansible-nvm-node
+For anyone else, please use the proper user-scoped approach. Whatever floats your servers chaps.",None
+127,"This problem exists when running node via cron as well since cron doesn't source any bash scripts and therefore won't see node installed via nvm. The solution for now tends to be to source the nvm bootstrap before every cron command:
+`* * * * * source .nvmrc; node /my/script.js`
+See: https://unix.stackexchange.com/questions/67940/cron-ignores-variables-defined-in-bashrc-and-bash-profile
+The _real_ solution is still to install node globally but what do I know? I'm just a silly user.",Ironic
+128,"@hparadiz there's no need for the passive-aggressive comments. If you want to install node globally, go for it - but nvm isn't the right tool for that job.",Insulting
+129,"@hparadiz , cron is notorious for that. Be it node or not. You would want to put in full paths to whatever binary you get to use inside a cron.
+Thanks to your question, I just realized cron doesn't even see /usr/local/bin, so will update my role to use the most common of paths: `/usr/bin/node`, and if you did similarly yourself then you could use the absolute path to your gulps etc, like:
+`/var/lib/nvm/versions/node/v8.11.3/bin/gulp`
+and the hack would be completed, I think.",None
+130,"Your assertion that nvm is the wrong tool for the job is a slap in the face of the paradigm created by BSD systems for the past three decades. If I install a binary on a machine it's expected that the binary is available to the entire system. Not just a single user. If I install ffmpeg on a machine I expect that I can run ffmpeg from my terminal but also from any running process. Expecting a process to source a bash script for every binary is madness. If everyone followed your paradigm the *nix eco system would be way worse off.
+Here's [documentation](https://www.freebsd.org/doc/handbook/dirstructure.html) on BSD directory structure. Here's a [pretty good discussion](https://unix.stackexchange.com/questions/11544/what-is-the-difference-between-opt-and-usr-local) on where user level packages should be installed. Sadly nvm follows none of these well documented installation paradigms. If you did we wouldn't be having this discussion.
+Furthermore if there are actually two users on a machine that need to use nvm you are duplicating binaries on-disk for each user for absolutely no reason. You could easily store them globally and link them to the user's home directory should you choose to continue to use your existing directory structure. My nvm folder on my Macbook Pro is already 479M with only two versions of node. If I told every developer to install node via nvm for every user I'd be looking at gigabytes of files on-disk for absolutely no reason. I tend to like efficiency and this is not it.
+The only reason people use nvm is because node's release schedule is very rapid and apt, yum, brew, and other built in system package managers choose to not update fast enough. For this reason you have people using nvm even though they need node installed globally on a machine.
+Which brings me to my next point: node is a run-time binary for running Javascript code. A run-time _should_ be installed globally. This is how literally every single run-time works.
+By default when someone claims to have a piece of software that is a ""version manager"" I would expect it to do that on my system, not just within my bash terminal.
+You might as well change the description of this project to:
+> Node Version Manager - Simple bash script to manage multiple active node.js versions (for the current terminal user in bash compatible shells only).
+You have multiple people in this thread asking for this and you claim that nvm isn't designed for this. Which is odd since nvm is obviously downloading node to a directory on the user's machine and managing directory links and aliases for them. Having it be global is a tiny additional feature on top of what you already have. You could simply soft link the directory where node is installed to /usr/local/ and be good to go (if root).
+Finally for security reasons Linux [explicitly supports users](https://www.tecmint.com/add-users-in-linux/) (section 6) without a home directory. A common one in Ubuntu is `www-data` for web servers. In this thread you are explicitly saying you won't support this completely valid use case.
+I'm not trying to be mean or passive aggressive. What you're sensing is disappointment.",Insulting
+131,"@grzegorznowak
+Yes, cron is notorious but that's only because most people have no idea that the cron running environment is completely different from their terminal bash environment.
+Make it tell you what's going on:
+```bash
+* * * * * (source ~/.bash_profile; node -v; date) >> ~/crontest.log
+```
+```
+$ tail -f ~/crontest.log v8.4.0
+Wed Sep 26 20:11:01 EDT 2018
+```
+You actually do *not* want full paths to the binaries in your crontab. Use [`env`](https://linux.die.net/man/1/env).
+You can actually make your JS files themselves executable!
+```bash
+printf '#!/usr/bin/env node\nconsole.log(process);' > myscript.js
+chmod +x myscript.js
+./myscript.js
+```
+And yea... it's pretty dope.
+<img width=""780"" alt=""image"" src=""https://user-images.githubusercontent.com/195216/46116560-bfc95f00-c1ca-11e8-9871-bcd1b9d7f375.png"">
+tldr; make your crons executables themselves and use env",None
+132,"@hparadiz that's not actually how BSD systems work. Installing a binary to a location provides the binary *only if it's available in the PATH*, and the PATH can be set per-user, or per shell session, so in fact contextual binary usage *is* the predominant paradigm - assuming that a binary is global everywhere is a slap in the face to how BSD systems work, and shows your ignorance of the same.
+That nvm may not follow some conventions is irrelevant; they're *conventions*, not requirements.
+I don't agree that a runtime should be installed globally, nor that it is. Many binaries are installed per-user.
+That multiple people are asking for (free labor) doesn't mean they're entitled to it; I continue to claim that if you want this feature, YOU SHOULD NOT USE NVM FOR IT. That you're unhappy with that isn't really my concern.
+If you're disappointed, I'm sorry for that - but there's no need to take that out on me, or this thread.",Insulting
+133,"@AdriVanHoudt ...I should probably take off that tag huh. The more I think about it, the more I realize I've *no idea* how npm4 even did this. @iarna might know but I've no clue :s",None
+134,"@Maistho If you want to stick with `~`, I recommend you set it in your _project_ config with `echo 'save-prefix=""~""' >> npmrc` (in your project dir). That'll set that to default.
+As for everything else? Well, that's the result of setting `--save` as the default across the CLI. This is the behavior as it's always been if you'd set `--save`.
+`update` is a command we've been intending to overhaul, and we know it's something where the warts start getting more obvious as soon as you start saving. I wish we'd had time to actually redesign it by the time npm5 came out, but we really just didn't have the bandwidth for it, and it seemed better to just get something out there asap and then do a proper redesign. The same goes for `npm outdated`, which is right now tied up directly with update.
+The stuff you're saying is super useful and sounds like a really good direction to take the command in. It's good to hear about the different expectations people have of this so we can make sure to write the thing people want this to be.
+If you care enough for it, it'd be great to get a more complete RFC filed that describes the `update` that you wish we had and that outlines your needs from it. If that sounds like too much, just hang tight -- we'll be getting to it soon. 👍 Thanks y'all for your commentary, and for your understanding!",None
+135,"I think that the changed behavior of NPM is really very dangerous. We very carefully monitor which module is being changed and we always use exact versioning for all modules. The fact that now `npm update` is changing `package.json` is totally a breaking change. It is absolutely unclear why this change was done. No docs, no arguments, ... nothing. 😟",Bitter Frustration
+136,"This is still a relatively major issue, but it seems the trail has gone cold for quite a few months. We want to keep very close tabs on our dependencies, where we mostly use tildes but not for everything. Every time we update, NPM is adding an unnecessary chance for human error should the developer forget to correct the change made to `package.json` before committing the changes. Sometimes it adds carats, sometimes it removes the prefix entirely. Why hasn't this gotten more attention?
+`npm -v 5.7.1`",Bitter Frustration
+137,"I've locked this thread to make it clear that this is no longer the place to have feature request discussions. This is not a bug.
+If anyone cares enough to see this behavior changed, please [file a formal RFC](https://github.com/npm/rfcs) with more details around expected behavior. We no longer have the time or bandwidth to discuss more informal, off-the-cuff ideas.
+Furthermore, if what you want to do is discuss ideas more openly without a formal proposal, with the understanding that the npm team won't really engage with you about it, you can also post in the [ideas category in npm.community](https://npm.community/c/ideas), which is a great place to brainstorm before filing an RFC.",None
+138,"The fact that you would argue beyond the DOM goes to show that you aren't trying to help, only to entrap.
+It's simple.
+@Falke-Design",Insulting
+139,It is not always that simple to understand what somebody else tries to explain. I hope for you that you find someone who wants to help you because I will not and I don't think that anyone is willing to help you if you keep that attitude.,Insulting
+140,"No, type hints are, in my opinion, an abomination that has no business being part of the Python language :)",Irony
+141,"> I'm expecting you will make a deal with static typing fans more and more.
+No way. Python is a powerful dynamic language. If I want static typing or a strong type system I will use C or go...or hell, Cython. I enjoy coding in those languages, too, but if I'm using Python I'm going to play to it's strengths.
+> IDE
+Peewee's design goals are composability and consistency -- learn once, apply everywhere -- precisely so that peewee will ""do what you expect"" without needing to check the docs.",None
+142,"This issue was opened nearly 5 years ago. In that time I've had plenty of opportunities to see python's type hinting in the wild. I still believe that it misses the mark, offerning none of the iron-clad guarantees you get from a statically-typed language, while being injurious to Python's inherent dynamism, readability, and simplicity. Since this issue tends to attract drive-by comments of little value, I'm going to close discussion for now.
+When I want static typing I reach for a statically-typed language. When I want expressiveness, simplicity and flexibility, I reach for Python.",Bitter Frustration
+143,"Why is this issue still assigned to the `2.5 milestone` when `ansible 2.5` is already release a long time ago ? See #44556 for outdated milestones.
+Please reassign to a current milestone, this is a really missing feature imo (especially the lack of rekeying functionality).",Impatience
+144,"Running into this issue again and it sucks. Please guys, this issue has been open for almost 2 years now and for people who really use ansible-vault, this is a major pain the butt.",Bitter Frustration
+145,"Since I gave my blessings before I want to actually qualify this somewhat. I have some stomach ulcers with this change. Ultimately I don't think it's particularly useful for users (it just drops one character), introduces some backwards incompatibility concerns and it undoes a learning I made back when Jinja2 was originally released.
+The reason the package renamed with 2.0 was that there was no way (and there still is no way) to have parallel installations of Python libraries that are incompatible unlike node or rust can. Because of that I think we're going to be sooner or later again in a stupid situation where Jinja 4.0 would need to be named ""Jinja4"" on pypi.
+So I think while this rename is somewhat okay I generally don't think anymore that it's a good idea. I think this change would be without concerns if the Python import system were to support imports with different versions which however I gave up hoping for.",Bitter Frustration
+146,"@coleifer I really have no idea what you're suggesting other than ""let's just revert this"". We won't release this as a patch/bugfix release, so I guess you are not happy that this will land in 2.11. Are you expecting us to release Jinja 3 for this? That would cause even more problems in a dependency tree that has multiple package dependant on Jinja.
+Honestly I find your behavior completely unacceptable and hope it will have consequences.",Insulting
+147,~fwiw we could also release a new (point) version of `jinja2` that reexports all of `jinja` (ie it is the shim). That usually works in Rust when you have multiple dependencies that depend on another package. You'd just have to update `jinja2` to make packages that depend on `jinja2` implicitly use the types from `jinja`.~ discard this. This is exactly what the shim is doing. I have no idea what the concern is.,Bitter Frustration
+148,"The word ""Caddy"" in the context of software is under a pending trademark application. By using the name Caddy in your repo, along with the associated logos, you're in violation of this trademark. Please remove all such references :)",None
+149,"Pretty disingenous for you to refer to yourself as a member of Caddy's ""we"" when so far as I can tell you're not involved: https://github.com/mholt/caddy/graphs/contributors",Insulting
+150,"I see. Well, in any case, be patient, and maybe also try contributing to your own web server?",Impatience
+151,"@lol768 As long as you're dolling out legal advice on the Internet, you might well quote the other relevant section of the Trade Marks Act of 1994.
+> A person may also infringe a registered trade mark where the sign is similar and the goods or services are similar to those for which the mark is registered and there is a likelihood of confusion on the part of the public as a result
+See: section 10(2)(b) http://euipo.europa.eu/pdf/mark/nl_uk_1_en.pdf
+I am not a lawyer, but I am somewhat versed in trademark law. Your dependence on ""commercial use"" may be unsupportable, but talk to an attorney for legal advice.
+LCL are actually doing the right thing to defend their mark by providing notice.",Ironic
+152,"Thanks for contributing your expertise @gonzopancho :) I do apologise for giving myself legal advice earlier.
+The start of section 10 (2) states:
+>A person infringes a **registered trade mark** if he uses **in the course of trade** a sign where
+because:
+Your quoted section (""10(2)(b)"") is indented **underneath the above**. Emphasis is mine.
+----------
+This is moot however, because I have already committed to change the name.",None
+153,">Frankly I'm not too convinced by the HN arguments
+My main concern, which you probably saw, is that your website is deceptive. Nothing's wrong with getting paid for your work, but your website is designed in bad faith.",Insulting
+154,"I'm confused at what this fork offers that Caddy doesn't... Is it the code that shows the headers that you removed all that's stopping you from using Caddy? You do realize that you can compile Caddy yourself without those headers in it, without forking it and maintaining a whole new project, right?
+From my point of view people are upset by 2 things. 1: They can't get pre-compiled binaries without the header and 2: if they can, they have to pay for it.
+If anything, this fork adds MORE work on you than what Caddy says to do to use it free of charge without the headers.",Insulting
+155,The bad faith part comes in because so far as I can tell you are *deliberately* misleading users.,Insulting
+156,"> I'm confused at what this fork offers that Caddy doesn't... Is it the code that shows the headers that you removed all that's stopping you from using Caddy?
+Removal of adware and binaries that can be freely distributed and are not subject to an EULA.
+> You do realize that you can compile Caddy yourself without those headers in it, without forking it and maintaining a whole new project, right?
+Yes, I didn't overlook that :)
+> From my point of view people are upset by 2 things. 1: They can't get pre-compiled binaries without the header and 2: if they can, they have to pay for it.
+> If anything, this fork adds MORE work on you than what Caddy says to do to use it free of charge without the headers.
+From my point of view (and from reading HackerNews) people are upset about the ads embedded in the webserver and served to the visitors. They're also upset about how the binaries are licensed.
+The fork is absolutely more work for me. The point is that I care enough about this that I'm willing to create the fork, remove the code I disagree with, cross-compile it and then make free (as in freedom) binaries available to everyone - including those who may not be technically adept enough to set up their own golang workspace and compile it themselves.",None
+157,"5 years later, fair to say this fork was created out of spite with no intentions to sustain it 😂
+Grandstanding sure is cheap.",Mocking
+158,They stopped the bad faith behavior upstream so there's no longer any reason for this fork to exist. Imagine sticking up for a company that you have nothing to do with when they go around being a trademark bully. You sure showed that petty FOSS volunteer the error of their defiance towards the honorable corporate entity!,Mocking
+159,"> They stopped the bad faith behavior upstream so there's no longer any reason for this fork to exist. Imagine sticking up for a company that you have nothing to do with when they go around being a trademark bully. You sure showed that petty FOSS volunteer the error of their defiance towards the honorable corporate entity!
+Imagine thinking that a solo developer trying to make a living from his work is some trademark bully and evil corporate entity, just because they have an LLC and premium support plans.",Mocking
+160,"Trying to make a living does not make it okay to be deceptive and misleading or to threaten others. There are plenty of ways to make a living without being deceptive, especially for a talented programmer. Get your moral compass re-calibrated.",Insulting
+161,"What's the current status of this? On March 25th someone said they thought implementation issues would be resolved ""in the next couple days"", and other bug reports have been closed due to being tracked here; but as of 2018.7.1 I still see the bug reported by Simon Percivall (indirect dependencies are always updated) and that bug hasn't been discussed since the original report. Is the problem still being tracked?
+(I'm currently living in a second-tier city in Senegal so my Internet is terrible and it would be a game changer not to blow my data cap on updating indirect dependencies if possible :P )
+PS: Thanks for making Pipenv, it's awesome <3",Impatience
+162,"I’m not that confident with my coding skill to estimate when the resolver would land :p Seriously, this is a completely volunteer project, and we don’t have a deadline mechanism as you would in commercial settings (we don’t even have a boss or a project manager or whatever you have in your company that decides when a thing needs to be done). If you want a thing to be done in a timeframe you desire, you need to do it yourself, or at least provide real motivation for others to do it.",Impatience
+163,"Same than @max-arnold , it's my first day using the tool in an existing project, and I have to say **I'm really disappointed**, before I started to use it, I checked the doc site and the video demo, it looked impressive to me, and now this: in real project, work with `pip` or `pipenv` is almost the same, i don't see the point, like many other said in the thread, if I have a lock file, why you are updating my other dependencies if there is no need to update them.
+Of course, ### if the update is mandatory, it's OK to update all the necessary dependencies, but just those, not all the outdated instead.
+Also the options `--selective-upgrade` and `--keep-outdated` are not clear for what are useful for, there is another issue highlighting this here #1554 , and nobody is able to respond what these options do, incredible.
+But my **major disappointing** is why this package was **recommended by the Python official documentation** itself, these recommendations should be more careful conducted, I know this can be a great project in the feature, have a lot of potential, but simple things like this (we are not talking about a bug or a minor feature), make this project not eligible for production environments, but suddenly because it was recommended by the Python docs, everybody are trying to use it, instead of looking for other tools that maybe work better, or just stick with `pip`, that doesn't solve also these issues, but at least it's very minimalist and it's mostly included in any environment (does not add extra dependencies).",Bitter Frustration
+164,"@uranusjr it's not trash, it's an opinion, and some times it's not an option, like my case, where somebody chose pipenv to create a project where I started to work now, and I have to deal with this.
+But things get worst just now, and what I going to say it's not an opinion, it's a fact.
+After trying to add one dependency that just I dismissed to avoid to deal with this issue (because it's a dev dependency, so I created a second environment with `pip` and the old `requirements-dev.txt` approach, just with that tool), I needed to add another dependency.
+The new dependency is PyYAML, let say the latest version. If you install it in any new environment with `pip`, you will see that the library does not add any dependency, so only PyYAML is installed, is that simple in these cases with Pip. But adding the dependency with Pipenv (because a project that I didn't create is managed with Pipenv) the same issue happened, despite PyYAML doesn't have any dependency, and it's not previously installed in the project (an older version), `pipenv` updates all my dependencies in the lock file and the virtual environment, but I don't want to update the others dependencies, I just one to add a single new module without any dependency.
+So the conclusion (and again an opinion, not a fact like pipenv broke all my dependencies) it's that Pipenv instead of help me to deal with the dependencies management, it turn it into hell.",Bitter Frustration
+165,"> Distutils is part of the standard library and setuptools is installed with pip now, so saying that there is no standard is a bit silly. Not to mention it uses the standard outlined in pep 345 for metadata, among others, and can also be used to specify build requirements.
+Yes, the build system is expected to output the PKG-INFO file described in PEP 345. This is a transfer format that goes in an sdist or wheel and is generated from a setup.py/setup.cfg, it is not a replacement as such for the user-facing metadata. PEP 518's usage of `pyproject.toml` is about supporting alternatives to distutils/setuptools as a build system, no one is trying to replace the sdist/wheel formats right now. Those replacement build systems need a place to put their metadata and fortunately PEP 517 reserved the `tool.` namespace for these systems to do so. It's not an assumption - **both flit and poetry have adopted this namespace for ""library definition metadata"".**
+> Try only defining a build system with no additional information about your project (i.e. no pep-345 compliant metadata) and upload it to pypi and let me know how that goes.
+How constructive.
+> Who is saying that applications don't require entry points? Pipenv has an entire construct to handle this.
+Where is this construct? I cannot even find the word ""entry"" on any page of the pipenv documentation at https://pipenv.readthedocs.io/en/latest/ so ""an entire construct"" sounds pretty far fetched? If you mean editable installs then we have reached the point I was making above - with pipenv deciding to couple itself to `pipenv install -e .` as the only way to hook into and develop an application as a package, for the foreseeable future pipenv's support here is coupled to setuptools. I think the entire controversy boils down to this point really and people (certainly me) are frustrated that we can now define libraries that don't use setuptools but can't develop on them with pipenv. To be perfectly clear this isn't strictly pipenv's fault (PEP 518 decided to punt on editable installs), but its refusal to acknowledge the issue has been frustrating in the discourse as poetry provides an alternative that does handle this issue in a way that's compliant with the `pyproject.toml` format. Pipenv keeps saying that poetry makes bad decisions but does not actually attempt to provide a path forward.",Bitter Frustration
+166,"> https://pipenv.readthedocs.io/en/latest/advanced/#custom-script-shortcuts
+> Please read the documentation.
+Entry points are a more general concept than just console scripts and this link is completely erroneous in addressing those concerns. `<soapbox>`Ban away - you're not the only maintainer of large open source projects on here and none of my comments have been a personal attack on you or the project. People commenting here are doing so because they want to use pipenv and appreciate a lot of what it does. My comment was not the first off topic post on this thread, yet is the only one marked. Your snarky comments indicating that you think I don't know what I'm talking about are embarrassing and toxic.",Insulting
+167,"In the project we maintain, we can soapbox. And yes, pip will support all compliant build systems which you both yourselves seem to full well understand will produce consumable metadata, and as pipenv uses pip as the backing tool to drive its installation process, as I described, yes, pipenv will support all compliant tooling. I already said this. So yeah, please take your toxicity somewhere else. Your attitude is not welcome here. Final warning. Persistent attempts to incite conflict won’t be tolerated.",Insulting
+168,The error code E722 was implemented in #592 / (#579) and I warned about it but sigmavirus24 wasn't interested and told that I did not read the whole thread....,Insulting
+169,"To be clear, pycodestyle doesn't do look-ahead's so we cannot silence this *if* there is a `raise` in the following block. That's just not how pycodestyle has ever worked and it would require a significant rewrite to enable that kind of behaviour.
+----
+Quoting the PEP
+```
+When catching exceptions, mention specific exceptions whenever possible instead of using a bare except: clause.
+For example, use:
+try:
+import platform_specific_module
+except ImportError:
+platform_specific_module = None
+A bare except: clause will catch SystemExit and KeyboardInterrupt exceptions, making it harder to interrupt a program with Control-C, and can disguise other problems. If you want to catch all exceptions that signal program errors, use except Exception: (bare except is equivalent to except BaseException:).
+A good rule of thumb is to limit use of bare 'except' clauses to two cases:
+1. If the exception handler will be printing out or logging the traceback; at least the user will be aware that an error has occurred.
+2. If the code needs to do some cleanup work, but then lets the exception propagate upwards with raise. try...finally can be a better way to handle this case.
+```
+As a *general* rule, this new check is good. There are specific cases where people will need to do general clean-up work, as described above. Since we cannot check for people re-raising the exception in the except block, it truly is up to the user to determine whether:
+1. This check is useful to them at all or whether they feel it should be ignored globally
+2. Their particular use of a bare `except` is necessary and it should be ignored in that particular case (e.g., with `# noqa` or `# noqa: E722`).
+I would hazard a guess that 90% of pycodestyle's users will find this check worthwhile, useful, and helpful. We can not ever satisfy 100% of our users so I am happy to settle for 90%.",None
+170,"> I'm not going to clutter my code with #noqa comments. I'm not sure if you're intentionally ignoring my suggestion to include it in the `ignore` list for your projects or if you just want to try to argue. Either way, I'm not here to argue with you. Pycodestyle is a tool used by novices and experts alike. Novices will learn from this and so will some experts. Since this is a style tool, there will always be places where some people disagree with the checks and will disable them. That's *normal*. Just because a handful of folks object to a rule doesn't mean we will put it in the `DEFAULT_IGNORE` list even if generally speaking it has value for everyone else.
+As for the suggestion that pyflakes entertain a *style* check, you can make that argument to them, but that is typically entirely against their philosophy.",Insulting
+171,"That's kind of a bad example though because you should be using `finally` to clean up resources. It could lead to novices getting a ""wrong"" idea, I agree, but they're already doing it wrong in the first place.",Insulting
+172,"No, as in @snoack's example, this is not an unconditional clean-up. In the happy path the file gets moved into a permanent location.",None
+173,"I'm with @sigmavirus24 on this one, but I'd take it a little further: a bare except is inherently unpythonic. Two important parts of python philosophy (`import this`) are 'Explicit is better than implicit' and 'Special cases aren't special enough to break the rules.'. I point these out because a bare except is a special, highly implicit case. Every other `except` has an 'argument', indicating the scope of the error to be handles. Even if that's 'everything', it's better to explicitly state that.
+'There should be one-- and preferably only one --obvious way to do it.' also applies, since you can accomplish the same thing for the low-low price of 14 characters. That's simply not enough of a 'savings' to make it worth it.
+There's also the fact that things like KeyboardInterrupt aren't caught by `Exception` for a reason. Those represent *very* exceptional cases - cases which shouldn't occur in normal (e.g. production) operation unless something has gone very wrong or the user is explicitly requesting an immediate shutdown.
+In regards to @lordmauve's case: Why do you want to clean up those temporary files in every possible exception case? `except:` tells me that you don't know what exceptions may be raised. In those (hopefully rare) cases, your app will certainly crash (unless you have a bare except that silences every possible exception, but that's a whole new level of bad design), and you will probably need to investigate why. A temporary file is part of the state of the application at the point in time, and therefore will be forensically valuable.
+If you know for sure that the temporary file will be forensically worthless, then `except Exception:` or `except BaseException:` makes that clear, and indicates that you're fully aware of the implications. If you're more worried about old temporary files accumulating in some way, consider having your app do cleanup as part of initialization. That idea comes from the [Crash-only software](https://lwn.net/Articles/191059/) pattern (It's a lot more reasonable than it sounds, I promise). Basically, it's a lot easier to assume that your app always terminates unexpectedly and code against that than to handle unexpected termination as a special case (i.e. Turning off the power is guaranteed to be an option, but a shut down command may fail or be unavailable).
+As a last resort, there's always ` # noqa`. If you absolutely must break from best practices, then 8 characters is a very small price to pay.
+edit: I r gud riter 😜",None
+174,"@hoylemd I appreciate the support.
+> Those represent very exceptional cases - cases which shouldn't occur in normal (e.g. production) operation unless something has gone very wrong or the user is explicitly requesting an immediate shutdown.
+This sounds like you're assuming all development is on continuously running applications on a remote server. Things like pycodestyle and flake8 are ""production"" applications that should handle `KeyboardInterrupt`. That said, both projects handle it explicitly. I think I understand your point, but it feels like it's imposing a false dichotomy around what is ""production"".
+> Why do you want to clean up those temporary files in every possible exception case?
+I can imagine a few cases where @lordmauve would want to (and should!) clean up the temporary files. Perhaps those temporary files contain some sensitive information and cleaning them up is the secure thing to do. In reality, neither of us know the details and I think we should be assuming that they know their constraints better than us. Of course having some non-sensitive temporary files lying around can be useful for debugging, but there are certainly valid cases where those shouldn't be left around no matter what exception happens.",None
+175,"@sigmavirus24 I think you're right re: imposing a false dichotomy - I'm primarily a web developer, where the dichotomy is pretty reliable.
+In regards to temporary files containing sensititive information, Wouldn't it be a risk to write them to disk at all? If the power is shut off at the right moment, the data would still be there on disk, and no exception handling would have a chance to clean it up. So that makes me think that a temporary file is the wrong tool in the first place. I'd want to keep that in something volatile (like memory) so that it's sort of fail-safe.
+You're more general point is a good one. - We can't know the real requirements on a project we're not a part of. But if those requirements do require a cleanup in all exception cases, I think we probably agree that it should be done explicitly.",None
+176,"> I'd want to keep that in something volatile (like memory) so that it's sort of fail-safe.
+Again, there are constraints where it makes sense. I agree with you in general, but there are always exceptions to the rule.
+Also we're getting off topic :smile:",None
+177,"> Pycodestyle isn't designed in a way that it can detect the raise, so that's a non-starter
+Or evidence that this check needs to be moved to Pyflakes, which does consider the AST, in order to eliminate this false positive.
+> As for steering novices away from naive changes, that's the purpose of code review, not linting. In a large organisation that is impossible. Junior people are often two or three steps removed from people who could confidently tell you what good practice looks like. We rely on linters to do this, and both the false positive and false negative rates are important. I'm not saying I'm not worried about the false negative. I'm arguing that this creates an undesirable false positive.
+> A better solution is to prevent [novices] from even knowing about it in the first place though [by putting #noqa on that line]
+You're assuming I'm writing code now for future novices to read. I'm concerned about the novices now maintaining the code I wrote 5 years ago when this check wasn't a thing.",None
+178,"Re #321, it's a different bug - as I said, ""the bug in bundle being masked by the bug in mas"" - regardless of your agreement, it's childish and hostile to immediately close and lock the ticket. Sorry to have bothered you with my effort.",Insulting
+179,"@paulp Calling someone who maintains software you use ""childish and hostile"" because they don't run their issue tracker in the way that you would like (not keeping issues open that we don't plan to work on) is rude. I've invested significantly more effort into this project (and Homebrew itself) over a long period of time than you or, at this point, frankly anyone. Would you consider apologising?",Insulting
+180,"@paulp I'll take that as a no, then.",Ironic
+181,soon-ish we approaching 1 y since this request was open and no progress so far ... any chance this get some attention @bcoca ? much thanks !,Impatience
+182,"@Kriechi ... please read the subject of this ticket, that is EXACTLY what we are tracking here",Impatience
+183,"If only unfixed issues aged like fine wine instead of like bait fish....
+But seriously is this ever going to either be fixed or closed as won't fix? The `has_pr` label typically indicates at fix is being gestated, but in this case there is no hint as to where we should be looking for the fix.",Bitter Frustration
+184,"Release builds are impossible to debug properly, therefore they're the broken ones. Debug builds work fine, they're a bit slower but are not broken by any plausible definition.
+Fix your buildbots instead. They're probably already setting a dozen variables, it's easy to add another one.",Insulting
+185,"No, I'm not going to fix every distro package that follows correct behavior of not setting `DEBUG` for release builds.
+You should just make this script.
+```
+#!/bin/sh
+./configure && make DEBUG=1
+```",Bitter Frustration
+186,"Can you please untag my PR with that ridiculous bs? Changes will not be made because this is the correct behavior and you just broke it, seriously why can't you just accept that you are wrong?",Insulting
+187,"I will admit I'm wrong when (if) I'm convinced I'm wrong. Right now, I believe you're just as wrong as you believe I am.
+Who says not setting debug is correct? Especially considering we defaulted to debug=yes a while ago, this is a regression (though probably an ancient one).
+Either you change your build scripts once and ignore it, or I have to remember RetroArch being _**SPECIAL**_ every single time I want to do anything. I don't see any advantages whatsoever to your approach.",Bitter Frustration
+188,"Debug behavior should be opt in, not opt out. This the standard pretty much everywhere for a damn good reason. The fact this has to be spelled out for you is not only insulting, its incredibly inane.",Insulting
+189,"If there is a ""damn good reason"" to default to undebuggable programs, post said reason and I'll consider it. Repeating variants of ""because I said so"" or ""because this person I'm conveniently not naming said so"" is not a valid argument.",Insulting
+190,"We need a written code of conduct. It should reference the relevant IETF code, and include anything we feel that we need here.
+In particular, we need some thing around roles:
+* Definition of what it means to be a project Member, and what behavioral standards Members are held to
+* Definition of what it means to be a project Collaborator, and what behavioral standards Collaborators are held to
+* What behavioral standards are expected of all participants
+And some things around discussions:
+* What sort of requirements exist for staying on-topic in an issue
+* How to bring an end to discussions where it is clear that there will not be consensus (the IETF sets the goal of ""rough consensus"", acknowledging that sometimes you can't get everyone's buy-in)
+I'm going to start this issue off locked until we figure out the best / least likely to explode way to take feedback on it.",None
+191,"SS4.0
+```php
+TextField::create(<name>, <value>); // OK
+HiddenField::create(<name>, <value>); // NOT OK. HiddenField::create(<name>)->setValue(<value>);
+```
+There is not reason to trip up new developers like this",Bitter Frustration
+192,"I am showing you code I have been implementing. On close examinatuion the second argument for TextField constructor chould be 'Title'
+BUT, having missed that, I passed a value as the second argument to create(..) and hey presto it is the value. Doing *exactly* the same pattern for HiddenField resulte in a different output.
+That is a bug. I have reproduced it Ad nauseam Perhaps the TextFiled interface is buggy, I do not know,. it is the way it is used in the lessons, perhaps they are buggy too. I do not know.
+But I do know this: The interfaces to the HiddenField and TextField's create method are different when they should be the same.
+I have made that clear in examples above. It is bnot a hypothesis but an observation.
+It may not seem like a bug to have idiosyncratic interfaces, but it makes life very difficult for new comers to the platform",Bitter Frustration
+193,"@gaurav42 Well, I would still consider whatever algorithm you guys are using broken because if I search for ""open in node modules"" I get these search results (some samples ~~randomly picked):
+| Rank | Ext. Name | Ext. Description | My comments |
+|--------|-------------|-----------------|----------------|
+| `#6` | [Node Exec](https://marketplace.visualstudio.com/items?itemName=miramac.vscode-exec-node) | Execute the current file or your selected code with node.js. | 80k downloads, but no mention of ""open"" or ""module(s)"" anywhere.
+| `#10` | [CSS Modules](https://marketplace.visualstudio.com/items?itemName=clinyong.vscode-css-modules) | Visual Studio Code extension for CSS Modules | 22k downloads, but no mention of ""open"" or ""node"" anywhere.
+| `#17` | [Node TDD](https://marketplace.visualstudio.com/items?itemName=prashaantt.node-tdd) | Ease test-driven development in Node and JavaScript | 9k downloads, no mention of ""module(s)"", but at least it has a few ""opened"" in its readme.
+| `#64` | [Open in Vim](https://marketplace.visualstudio.com/items?itemName=jonsmithers.open-in-vim) | Opens current file in vim | 2k downloads, this is not even mentioning ""node"" anywhere, let alone ""module(s)"". But at least it has ""open"" and ""in"" in it's title.
+| `#65` | [Open in node_modules](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-open-in-node-modules) | Open the current selection or arbitrary string in node_modules. | 2 downloads, it matches all the provided keywords, **in its title**.
+If I had to guess what's wrong with your approach I'd say:
+- Lack of stopwords, kind of meaningless keywords like ""vscode"" or ""in"" are given too much weight.
+- Poor query parsing, if keywords are joined in some sort or another the whole thing falls apart (vscode-foo-bar, foo_bar, GitLens etc.)
+- Maybe you're giving too much weight to downloads and ratings, the first thing to sort for is relevancy.
+> One way to improve your extension rank is to break word node_modules into separate words node modules. This will increase the string matching score and push your extension up in the result.
+I'm not going to rename the extension to something wrong (`node_modules` is a folder, I'm not talking about `node modules`, as in ""NPM packages"", here) just to work around this.",Bitter Frustration
+194,"I agree, the search ranking seems wierd.
+Some examples (when searching for ""python""):
+Py Files generator is above autoDocString, despite having about 50k less installs and 0 reviews
+Same thing with ladieratheme - it is above autoDocString despite having about 49k less installs and 3 less reviews
+Trustcode odo snippets and kvlang is above docker linter, despite having 47k less installs
+Python paste and indent has 3 stars but apparently it's 2k extra downloads trumps Python (pydev)'s 5 star rating. Seems like download count is weighted more heavily than rating in the ranking (or maybe python paste and indent has better keywords)
+Python Coding Conventions has 773 downloads and is unrated, yet somehow is above magicpython (with 742 _thousand_ downloads and 3.5 stars) and several other extensions with far more downloads / good ratings. So you could have a very popular or well-rated extension but if you don't have the right keywords you will still be ranked down.
+Wait..,. but looking at the Python Coding Conventions package.json, it doesn't even have any keywords!
+https://github.com/harip/python-coding-conventions/blob/master/package.json 🤔🤔🤔
+> While searching an extension, we also take into account the community inputs like number of downloads, You mean the download count that is _also_ the update count? This has been a outstanding issue ever since 2016 - when you release an update the marketplace shows your downloads as having increased.
+The update count should not effect the search ranking.
+> number of ratings and average rating That's good, but what algorithim are you using to calculate the weighted rating? Not sure if that is open source but hopefully it isn't something like RatingA - RatingB or RatingA/RatingB
+http://www.evanmiller.org/how-not-to-sort-by-average-rating.html",None
+195,"My only theory to how these are being ranked, is that the marketplace has grabbed 200 results and accidentally sorted them by trending-ness instead of search-query relevance.
+Since this is an upstream problem, is there a more direct repo we can reach out to? @auchenberg. If not then I agree with @octref, its been 2 months, it's probably time for the community to start building their own solution. I don't understand how something this critical can fail without tests catching it and a rollback being issued.",Bitter Frustration
+196,"is not misunderstanding, he randomly ban ppl from IRC, verbally abuse issue reportes, delete comments... i not know why he can moderate the project, he is very toxic in this community, this is not first time, like prometheanfire say is behaviour.",Insulting
+197,"no better place becaus you ban me from IRC. respond to criticism is lies, everyone who do not think like yourself you consider stupid",Insulting
+198,Abriendo* WTF dude?,Vulgarity
+199,"#### I'm opening this issue because:
+- [ ] npm is crashing.
+- [x] npm is producing an incorrect install.
+- [ ] npm is doing something I don't understand.
+- [ ] Other (_see below for feature requests_):
+#### What's going wrong?
+#19883 causes issues to production environment. Also https://github.com/npm/npm/issues/19883#issuecomment-367698802 describes a way the behavior introduced by 5.7.0 can be exploited to do things that are not intended.
+I understand that CVEs are usually assigned before a responsible disclosure, fix is delivered, but as this was publicly disclosed, the clock is ticking and people should be aware of.",None
+200,"(this lock is preemptive. We'll have an actual response once we talk about it, but I'm heading off the trolls that are still circling like sharks)",Mocking
+201,Fuck You,Vulgarity
+202,Shame on you.,Insulting
+203,"`Issues` is for issues tracking, not for spamming or showing how stupid you are. Stop doing that.",Insulting
+204,Please close this meaningless and useless `issue`.,Insulting
+205,In what world is this acceptable default behaviour? Please fix.,Bitter Frustration
+206,"@pathawks, why did you close this? It's not fixed and I'm not the one explicitely using Rouge. The maintainers of the project are using a dependency that is buggy, they should take care of this. What do you want me to do? I don't even know what Rouge is!",Bitter Frustration
+207,"> There is nothing in Jekyll’s code that can be changed to fix this issue; the fix will have to come from Rogue.
+That's not my point. You are the one using Rouge to implement a feature that you advertise explitely on your docs! That's your responsibility to take care of things that don't work as expected in the dependencies of your project. As a consumer of your product, I expect it to work as advertised:
+https://jekyllrb.com/docs/templates/#code-snippet-highlighting
+You are advertising syntax highlighting, you are supposed to deliver! And if you don't, you are supposed to take care of whatever is needed to have your product work as expected.",Entitlement
+208,Yes. Not sure it's a problem of git-tfs. @GuylianWasHier Are you really sure to know what is git-tfs and that you post your issue in the good project?,Mocking
+209,This is also happening for me also. When will you guys have a fix for this.,Impatience
+210,@aboone2000 They will probably have a fix when you stop to post in the first forum you see and provide a reproduction case in their slack channel. And also if you ask them more kindly than what you just did....,Insulting
+211,@pmiossec whats the problem. is there a fix or not. I am using this globally in my company and personal.,Impatience
+212,">whats the problem. is there a fix or not.
+Perhaps you are a little long to understand...
+I don't care!
+**You are in a forum not related in any way to gitkraken.**
+Perhaps you should improve your skills to find the support place of a software and not necessarily dumbly post in the first result provided by Google...
+But it seems you are not the only one with this lack of skill if it could console yourself.",Insulting
+213,"Omg, do you people have basic reading skills? This GitHub repo is not related to GitKraken in any way.",Insulting
+214,"The merge process last so long, and the pr is still not merged. So it there any alternative way to solve the problem of ""ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication authentication ""? I am nodejs startup and just want to connect to mysql 8.0 for demo.",Impatience
+215,"uuhhhh there was a bug with nokogiri its a scuffed gem ???? and annoying
+and not very user friendly for something that claims to be user friendly
+On Sat, Mar 17, 2018 at 1:52 AM, Mike Dalessio <notifications@github.com>
+wrote:
+> Closed #1736 <https://github.com/sparklemotion/nokogiri/issues/1736>.
+>
+> —
+> You are receiving this because you authored the thread.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/sparklemotion/nokogiri/issues/1736#event-1525697311>,
+> or mute the thread
+> <https://github.com/notifications/unsubscribe-auth/AjswfZK3YznF_VG0fzwDk6mYwB3YziqTks5te9GxgaJpZM4StTWR>
+> .
+>",Bitter Frustration
+216,"# Issue type
+- Questions about the server or its usage should be posted to the [users mailing list](http://freeradius.org/list/users.html).
+- Remote security exploits **MUST** be sent to security@freeradius.org.
+- [ ] Defect - Crash or memory corruption.
+- [ ] Defect - Non compliance with a standards document, or incorrect API usage.
+- [x] Defect - Unexpected behaviour (obvious or verified by project member).
+- [ ] Feature request.
+See [here](https://github.com/FreeRADIUS/freeradius-server/blob/v4.0.x/doc/bugs.md) for debugging instructions and how to obtain backtraces.
+NOTE: PATCHES GO IN PULL REQUESTS. IF YOU SUBMIT A DIFF HERE, THE DEVELOPMENT TEAM WILL HUNT YOU DOWN AND BEAT YOU OVER THE HEAD WITH YOUR OWN KEYBOARD. # Defect/Feature description
+## How to reproduce issue
+```
+udp
+src: 34665 tls
+dst: 1812 src: 37494
++----------+ +----------+ dst: 2083 +----------+ udp +-----------+
+| +------------> | | | | src: 46774 | |
+| radclient| | radsec +-----------> | radsec | dst: 1812 | freeradius|
+| | | proxy | | proxy +------------> | |
+| | | | | | | |
+| | | | <----------+ | <------------+ |
+| | <------------+ | | | | |
+| | | | | | | |
+| | | | | | | |
++----------+ +----------+ +----------+ +-----------+
+```
+I am writing a radsec proxy in go. When I created the topology shown above, everything works fine below v3.0.7 but post 3.0.7 radtest fails with:
+```
+radclient: Received reply to request we did not send. (id=119 socket3)
+```
+The `id` and `socket` number are printed the same as the request. Debugger shows that in the scenario above when it reaches the end of [`fr_packet_cmp`](https://github.com/FreeRADIUS/freeradius-server/blob/release_3_0_16/src/lib/packet.c#L79) the `dst` ports are different (`b->dst_port` is 1812 and the `a->dst_port` is some random number which corresponds to _none_ of the ports shown in the diagram above).
+git bisect traced the issue down to commit e4eca2dab. It looks like the code used to set the reply port in case of `server_port > 0`, but after the commit started doing that only for TCP connections. From the commit log it looks like the intent was to reset just the source IP for TCP, but I'm not sure if not setting the _port_ as well was an unintended consequence or not.
+(All versions compiled with `--with-udpfromto`)",None
+217,"> Usually, when waiting for a UDP reply the src port isn't taken into consideration. That's not how 99% of UDP protocols work. And definitely not how RADIUS works. This is all documented in RFC 2865.
+> The radsec RFC does not mention that the proxy should be rewriting/translating attributes and recalculating the message authenticator.
+That's how RADIUS works. This is also clear in RFC 2865. Nothing was changed in later RFCs.
+Your proxy might work for one RADIUS client. It definitely won't work for multiple RADIUS clients. Or, it will, but they all have to use the same shared secret.
+RFC 2865 explains that you find the shared secret by looking up the source IP of the packet. This means that all downstream servers will look up *your* proxy IP to get *one* shared secret. If the originating UDP clients use *multiple* shared secrets, it won't work.
+And no, you can't change shared secrets per packet. And no, you can't change shared secrets per destination.
+If you want to learn other UDP to TCP proxy issues, read RFC 6613. It explains all of these issues in excruciating detail.
+TBH, you can't just write a ""UDP to TCP"" translator for RADIUS and expect it to work. You MUST implement the RADIUS protocol correctly. This involves reading, and following, the RFCs.
+Any short-cut you take means that you have a toy implementation. It might work for simple tests, but it will fall over and die in any real-world environment.",Insulting
+218,"So you admit that your implementation is wrong.
+The *UDP* RADIUS clients will not have that shared secret. So simply taking UDP packets *as-is* and dropping them into a TCP / TLS connection will violate RFC 6614.
+You MUST implement RADIUS correctly. This means decoding and re-encoding all packets in/out of your proxy. Anything else is wasting everyones time.",Insulting
+219,"> Unless the very act of being wrong about something related to radius makes me insufferable.
+This is projecting.
+The *engineering* point (not an emotional one) is that you MUST read the specs and follow them. Taking short-cuts, and then *arguing* when told those short-cuts are wrong is simply the wrong thing to do.",Insulting
+220,"You didn't ask a follow-up question. You quoted RFC 6614 in an attempt to prove me wrong.
+This is changing the subject, and nit-picking. Then you made inappropriate comments about being ""offended"" and ""insufferable"".
+If you don't want to make it personal, then don't make it personal.
+Now stop arguing. Any further responses will result in you being blocked from the FreeRADIUS repo entirely.",Threat
+221,"With my aging eyes that orange color is increasingly hard to read against a black background, and there is no way to change it. Yes I can copy and paste it into another editor, but that shouldn't be necessary just to see a simple message.
+This is bad for accessibility and hard on your users. Please change to something more readable",Bitter Frustration
+222,"Here is the thing: the error text is still orange. Aside from tradition there is no good reason for that, and clearly tradition doesn't matter considering the changes you made on the code area.
+So please just make the error text white on black, or black on white. The color coding on the file:line part is fine.",Bitter Frustration
+223,"@per1234 No I knew exactly what you meant, and I am not against making error messages visually distinct. I am against doing it with colors that can be difficult to see.
+I am a 51 years old guy, with dyslexia and just the barest signs of macular degeneration and I cannot read the text in your screenshot without great difficulty. Make it more than a line or two and the only way I can cope is to copy the text and paste it into a text editor. I know I am not the only one from my own conversations.
+That is a broken UX
+By all means, make errors visually distinct. You could use bold or italics, you could make the words ""Error"", ""Warning"", etc a different color (which I mentioned as a possibility previously), or you could use other forms or text decorations. You have options other than simply changing the color.",None
+224,"OK it has been two years now and as I slowly develop cataracts I can read everything in the arduino IDE and yet I cannot read the error color. The idea that there is sufficient contrast or that it is accessible is just wrong. Nor should I have to load a theme just to be able to see errors.
+If you insist on keeping the error color there needs to be an option in the preferences dialog to *easily* change the color for those who find it unreadable, painful, etc",Bitter Frustration
+225,"I second most of the remarks above. Errors are unreadable, and this is really bad when you are with a laptop in a bright location. I always have to copy to notepad to see them.
+It is not possible that in all these years you have not fixed this that is really the ONE SINGLE thing that is NOT OK in the standard interface.
+It is really BAD that there is not a simple setting to change the error color (say to white - there is already the ORANGE bar when there are errors, maybe you may put one red square char at line start if you want to permanently mark in some ways the error, no matter the color the end user chooses).
+I tried by the way to change theme.txt including
+console.error.color = #ffdddd
+but errors keep to be that £%£$ng orange!!",Bitter Frustration
+226,It has been more than 4 years since I first brought this up and nothing has been done. It is disheartening that the app remains unfriendly to people with visual processing issues for what seems like the sake of tradition,Bitter Frustration
+227,"@per1234 And how many more years must we wait for accessibility to be a
+consideration in 2.0? My problem is that this has been sat on long enough for you to say lets sit on it longer. Does 2.0 have a release date? How long will 1.x be supported after 2.0 is out? Why wait any longer for the simple option of a high contrast/colorless option for people with visual disabilities?
+I do not say this lightly: it genuinely feels like you do not care, not in an active hostile way, but in the soft neglectful way that someone who doesn't actually understand the problem and thinks it is fine asking people underserved to wait even longer",Bitter Frustration
+228,"@jockm this sort of negative uncompromising attitude is counterproductive. If you only want to vent, do it somewhere else. If you actually want to work together to make this free open source project better, you need to find a different approach.",Insulting
+229,@per1234 and that is the kind of ablest rhetoric that is used when you don't understand the issue. Do better,Insulting
+230,"I migrate a mysql db to sqlAnywhere(sqla) to test my app developed with Doctrine2.
+Acces to sqla works,
+DQL like
+$query = $em->createQuery('SELECT e FROM countries e WHERE e.conlng = :lng );
+$query->setParameters(array(
+'lng' => 'DE'
+));
+$result = $query->getResult();
+also runs funny.
+$query = $em->createQuery('SELECT e FROM countries e WHERE e.connum = :num );
+$query->setParameters(array(
+'num' => '4'
+));
+$result = $query->getResult();
+also no problems!
+## BUT!
+$query = $em->createQuery('SELECT e FROM countries e WHERE e.conlng = :lng AND e.connum = :num');
+$query->setParameters(array(
+'lng' => 'DE',
+'num' => '4',
+));
+$result = $query->getResult();
+doesn't work!!
+$result = empty!
+with operator OR it's the same problem!
+Any idea!
+# #",Bitter Frustration
+231,"Interactive sql works!
+![grafik](https://user-images.githubusercontent.com/38318899/38720441-91189f92-3ef6-11e8-9d20-b188b7e0eb70.png)
+But if i change my test-pgm to this ..
+![grafik](https://user-images.githubusercontent.com/38318899/38721092-197090d2-3ef9-11e8-9c87-2db46a9e2065.png)
+look at the sql statement!
+## SELECT e FROM countries e WHERE e.conlng = :lng or e.connum = :num
+and the result in the sceenshot.
+It woorks with an OR operator??!
+## I'm very irritated !",Bitter Frustration
+232,"> `SELECT e FROM countries e WHERE e.conlng = :lng or e.connum = :num`
+Is this the same SQL statement that the ORM runs?
+Use a [`DebugStack`](https://github.com/doctrine/dbal/blob/0f23ed9ba28db2b392eeaaf5938ce804e52084b9/lib/Doctrine/DBAL/Logging/DebugStack.php) logger to see if the SQL statement is the same.
+The one difference I noticed is that sometimes your parameters are `string`, sometimes `int`: try looking for differences there as well as in the executed SQL string.
+> I'm very irritated !
+This is not a support hotline: if you need to get irritated over volunteers helping you out, you can instead hire somebody to help you out, and be (contractually) allowed to be irritated instead.",Bitter Frustration
+233,"## For your entertainment..
+`$query = $em->createQuery('SELECT e FROM countries e WHERE e.conlng = :lng AND e.connum = :num');`
+`$NUM = 4;`
+result ->
+![grafik](https://user-images.githubusercontent.com/38318899/38754410-01e1203a-3f62-11e8-8c54-a62626a5d075.png)
+## and now !
+`$query = $em->createQuery('SELECT e FROM countries e WHERE e.conlng = :lng or e.connum = :num');`
+` $NUM = '4';`
+result..
+![grafik](https://user-images.githubusercontent.com/38318899/38754495-627ebbbe-3f62-11e8-9078-388115a1b4fe.png)
+f****** web apps
+i think i continue programming midrange applications",Vulgarity
+234,"Closing: nobody's spare time is worth following up on this attitude.
+If you don't have the willpower to contribute to this conversation in a constructive way, then please consider hiring somebody doing it for you instead.",Insulting
+235,"By not doing what the command line tools do, you are varying from the expected behavior and breaking convention. THIS IS WRONG.
+Your belief that you're doing anyone a favor by varying from the expected command line tool behavior, you should turn in your commit per.issions and get a job in management where you don't have access to break things AGAIN.",Insulting
+236,"Potentially yes. However since all this law *really* achieves is feeding lawyers, I would prefer to not contribute any more to that for ideological reasons ;-)
+If anyone out there is already paying a lawyer to answer their GDPR questions, it would be nice if they could sneak in our questions though...",Irony
+237,"Everyone, please refrain from posting more links to pages ""that explain everything"". If you want to help out, do one of the following:
+* extend the privacy policy at https://www.dokuwiki.org/privacy
+** feel free to ask specific questions for things you can not answer (eg. details of the server setup)
+* post answers to the questions in the original post, with references to the exact text of the applicable laws",None
+238,"For your inspiration, I've edited Greebo (the installed release) to make the *DOKU_PREFS* cookie a session cookie. A session cookie means no permanent storage, so no user consent required.
+The second commit removes recording of IP addresses from the logs. Quite some places need code removal, still the result works just fine. All new changelog entries no longer receive the IP address, so nothing can go wrong. Some retrocompatibility code for dealing with older records is also included.
+As making a pull request on Github is a chore and Github refuses to accept patches, I made a Gist: https://gist.github.com/Traumflug/74fd0b4c8968fd0184e503d221b13310 with both patches.
+With these patches applied the privacy statement reduces to about this (DokuWiki markup):
+----
+==== General Data Protection Regulation (GDPR) ====
+We're neither interested in personal data, nor do we try to collect or use such data. In detail:
+* Pages at reprap-diy.com do not use trackers.
+* Visiting pages at reprap-diy.com stores up to three cookies in your browser to follow the session. These cookies get deleted when the session ends (when you close your browser).
+* Creating an account at reprap-diy.com stores your email address, content of the //Real name// field and an encrypted hash of your password.
+* Logging into an account and checking the //Remember me// checkbox stores another, permanent cookie (valid for one year) to keep you logged in. To remove this cookie, log out.
+* Each page edit stores the username of the user who did the edit. This information cannot get removed, but if the related account was removed, it also cannot be mapped to an email address or other personal data.
+* During page editing your IP address is used to lock the page against a competing edit. The address gets removed when the edit gets saved.
+* Some of the pages on reprap-diy.com may contain external videos. For YouTube we use the ""privacy enhanced"" youtube-nocookie.com domain that will not track your visit. Your IP address will be visible to the server providing the video, though. * To view the data stored about you at reprap-diy.com, look at your [[start?do=profile|user profile]].
+* To remove this data, go to your [[start?do=profile|user profile]] and delete your account.
+----
+Voilá, no user consent required, problem solved.
+The only issue which might remain is fighting spammers. No IP address, no entry into blacklists. But we all have secured account registration against spammers, right?
+----
+In case somebody doesn't believe that session cookies need no user consent, he may have a look at this pretty official page: http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm#section_2. It states:
+> Cookies clearly exempt from consent according to the EU advisory body on data protection include:
+>
+> * user‑input cookies (session-id) such as first‑party cookies to keep track of the user's input when filling online forms, shopping carts, etc., for the duration of a session or persistent cookies limited to a few hours in some cases
+> * authentication cookies, to identify the user once he has logged in, for the duration of a session
+user‑centric security cookies, used to detect authentication abuses, for a limited persistent duration
+> * multimedia content player cookies, used to store technical data to play back video or audio content, for the duration of a session
+> [...]",None
+239,"> The DOKU_PREFS cookie is not used for personally identifiable information
+The sheer existence of a cookie means personally identifiable information, because they come with and IP address / DNS entry attached. Content doesn't matter, much less encrypted content.
+> Sorry for posting more links, but these are more relevant
+D'oh. Those pages pointing to some volunteering efforts are more relevant than an official page. Ouch.
+I certainly see this GDPR panic mode everywhere. People try extremely hard to stick to what they're used to, providing endless text blobs in the hope to walk around the problem somehow with lawyer fineprint. Instead of simply fixing the software.",Irony
+240,"> The sheer existence of a cookie means personally identifiable information, because they come with and IP address / DNS entry attached.
+I don't think this specific cookie comes with IP address and DNS entry attached. That cookie and its contents is not stored on the server but only in the browser.
+> D'oh. Those pages pointing to some volunteering efforts are more relevant than an official page. Ouch.
+No need to become personal, especially not dissing ""volunteering efforts"" in any Open Source project.
+I meant it is much more relevant to us as in no-one else (apart from other version control software or services, like git or GitHub) deals with the one question which none of the official pages deal with: how to deal with user contributions that are intrinsic to the software.
+> Instead of simply fixing the software.
+If anyone of us would know what is needed to fix the software, we would do it. Can you point out what needs fixing? I don't think that is possible, most certainly not ""simple"".
+I have the feeling no-one really understands any specifics about GDPR (and that includes the big guys like Google and Facebook). I think the majority of what's out there is misinformation.
+I like how OpenStreetMap (who ""have received professional counsel"") say in their paper:
+> Naturally estimating the impact of the GDPR introduction and consequences before it is
+actually in force are fraught with the problem that we have to guess how the legislation will
+be applied in practice and there is a danger of both over- and underreacting.",Insulting
+241,"Thanks @michitux for pointing out the usability aspects. I was just about to do that.
+@selfthinker thanks for the links on how other wikis handle it. I'll have a look later.
+Regarding removing IP addresses after while, there is now the aptly named gdpr plugin which does exactly that. It also replaces user names in change logs for deleted users.
+I will close this ticket now. We will probably not ever get definite answers to all the questions asked in the original issue. And it's an issue people love to discuss for the sake of discussing without getting any further.
+For now we should simply focus on having a useful privacy policy for the 0.1 percent of users who care about that. So please, if you think the privacy policy needs adjustments just go ahead and do it.",Bitter Frustration
+242,"> I don't think this specific cookie comes with IP address and DNS entry attached. That cookie and its contents is not stored on the server but only in the browser.
+It's the very nature of any cookie to come with IP address or DNS records attached. All of them are stored in the browser, only. Still GDPR considers them to be personal data, which is why they have to become session cookies or ask for user content before being placed. Fairly simple basics.
+> If anyone of us would know what is needed to fix the software, we would do it.
+Code is provided above. Instead of looking at the code and commenting it, all the extensive comments sum up to ""Go away, we have to find a harder way"".
+Very apparently, some people here *want* to stick their head in the sand. Instead of applying these patches and enjoying a GDPR compliant wiki. Enjoy it!
+And I just see how you closed the issue to make extra sure nobody sees this solution. Extra compliment to that much stupidity!",Insulting
+243,"Balancing artillery
+I'd like to get the stuff I've already tested out of the way. The current balance team is essentially doing everything I already did in terms of making balance changes and testing them.
+A lot of time is being wasted doing what I've already done. I've tested my changes in hundreds of matches with great feedback. The only negative opinions I get are from trolls or people who need an excuse for why they suck at the game.
+So, first up, ARTILLERY.
+These values allow the artillery to remain effective, but not overpowered. Instead of 3 arty destroying a huge infantry blob, you'll 4-6 of them.
+Damage vs vehicles has been buffed slightly to compensate for lack of infantry killing.
+A direct hit will kill the infantry, but if it lands off to the side, it can take anywhere from 1-4 shots. With a small group of artillery firing, the aoe will make it a lot more effective.
+Cost also went up, and it's speed has been slowed down. I think I buffed it vs buildings too, maybe not.
+Now, the artillery infantry tradeoff is fair, and for what it lacks in anti infantry, it makes up for by doing roughly 10-20% more dmg to everything else.
+vehicles.yaml:
+ARTY:
+Mobile:
+TurnSpeed: 2 (used to be 4 I think)
+Speed: 60 (I think -10 points?)
+RevealsShroud:
+Range: 8c0 (remains same, i think, mightve increased by 1-2 cells)
+RevealGeneratedShroud: False
+RevealsShroud@GAPGEN:
+Range: 4c0
+Passenger:
+Weight: 4
+----------
+ballistics.yaml:
+^Artillery:
+Range: 12c0 (it shouldnt outshoot a v2 by 4 cells, or at all, really)
+Projectile: Bullet
+Speed: 200 (little bit slower to help nerf vs infantry.
+Blockable: false
+LaunchAngle: 110
+Inaccuracy: 1c256
+Warhead@1Dam: SpreadDamage
+Spread: 420
+Versus:
+None: 40
+Light: 60
+Heavy: 35
+Concrete: 50
+155mm:
+MinRange: 4c0 (minimum range back to 4 cells instead of 5)",Bitter Frustration
+244,"> A lot of time is being wasted doing what I've already done. I've tested my changes in hundreds of matches with great feedback. The only negative opinions I get are from trolls or people who need an excuse for why they suck at the game.
+This attitude runs counter to our [code of conduct](https://github.com/OpenRA/OpenRA/blob/bleed/CODE_OF_CONDUCT.md) and I have received a complaint about this PR under that code. This PR is one of many examples of this user's behavior across GitHub, the forum, and IRC.
+Participating in an open community requires both the ability to come up with good ideas and the interpersonal skills to effectively communicate them. I am sorry, but ""I am better than you, so stop wasting your time and do what I say"" is a completely inappropriate base to start a pull request from.",Insulting
+245,Closing as per [part 1](https://github.com/OpenRA/OpenRA/pull/15118).,None
+246,dupe of https://github.com/npm/npm/issues/17633,None
+247,"I know the Internet loves being cute, but this error is unhelpful.",Bitter Frustration
+248,"Yeah, rolling back to Node 4.26 works. 8 still doesn't. This is dumb.",Bitter Frustration
+249,"@cachedout i've fixed the lint errors but now, after rebase, it seems to have some unrelated lint errors in the tests.
+@terminalmage Bo and Daniel already provided an explanation. sorry, for not being clear enough about this in the description.",None
+250,"@isbm having 3.x there means that it matches all the 3 subversions. if I remove the .x someone might think it would only apply to 3 and this would make it more confusing.
+Adding new line to the text is ignored and I'm not sure I should spend more time on this.
+Your example seems to remove some of the useful information and has this ""on a Master"" that I don't understand. Is that intended or should it be ""on the Master""?
+I was using origin and target in order to avoid Master and Minion because none of these machines have salt-master or salt-minion running.",None
+251,"@dincamihai the ""3.x"" is the same as ""3"", as I see it. I also suggested to use integers as in the `version_info` instead of just strings. And so if we have some issue with the 3.8 (e.g.) one would just add a minor version key. Otherwise default should go. But ""3.x"" is more to me looks like a hack.
+The ""origin"" is something that might not be understood. Personally to me it is very odd terminology here. And you are running ""SaltSSH"" from the Master (or want-to-be-master).",None
+252,"@isbm if there is no 3.8 specific message, 3.x would be shown. is this not enough?",Impatience
+253,"@isbm ok. thanks for the suggestion, but if the upstream is fine with my version (changes approved) please merge the PR. thanks!",None
+254,"@dincamihai actually ""approved"" here means _everyone_ agrees, JFYI. And your google result is suggesting exactly what I mean.",Mocking
+255,"I would have loved to work with you, but since you were not willing to accept any recommendations, I am closing this and we will do any remaining work in https://github.com/saltstack/salt/pull/48058.",Bitter Frustration
+256,"Hmm @slandelle , do not you think that simply stating that I 'messed up ""writers"" ' without explaining why is rude?
+As far as I know I did not mess them, if I do not put writers in square braces and leave as in default config then Gattling would not even start with this exception:
+/src/test/resources/gatling.conf: 118: gatling.data.writers has type STRING rather than LIST
+java.lang.reflect.InvocationTargetException
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at io.gatling.mojo.MainWithArgsInFile.runMain(MainWithArgsInFile.java:50)
+at io.gatling.mojo.MainWithArgsInFile.main(MainWithArgsInFile.java:33)
+Caused by: com.typesafe.config.ConfigException$WrongType: gatling.conf @ file:/Users/kgignatyev/dev/reprocases/gatling-stuck/src/test/resources/gatling.conf: 118: gatling.data.writers has type STRING rather than LIST
+at com.typesafe.config.impl.SimpleConfig.findKeyOrNull(SimpleConfig.java:159)
+at com.typesafe.config.impl.SimpleConfig.findOrNull(SimpleConfig.java:170)
+at com.typesafe.config.impl.SimpleConfig.findOrNull(SimpleConfig.java:176)
+at com.typesafe.config.impl.SimpleConfig.findOrNull(SimpleConfig.java:176)
+at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:184)
+at com.typesafe.config.impl.SimpleConfig.find(SimpleConfig.java:189)
+at com.typesafe.config.impl.SimpleConfig.getList(SimpleConfig.java:258)
+at com.typesafe.config.impl.SimpleConfig.getHomogeneousUnwrappedList(SimpleConfig.java:329)
+at com.typesafe.config.impl.SimpleConfig.getStringList(SimpleConfig.java:387)
+at io.gatling.core.config.GatlingConfiguration$.mapToGatlingConfig(GatlingConfiguration.scala:215)
+at io.gatling.core.config.GatlingConfiguration$.load(GatlingConfiguration.scala:98)
+at io.gatling.app.Gatling$.start(Gatling.scala:54)
+at io.gatling.app.Gatling$.fromArgs(Gatling.scala:45)
+at io.gatling.app.Gatling$.main(Gatling.scala:37)
+at io.gatling.app.Gatling.main(Gatling.scala)
+... 6 more",Insulting
+257,"> Hmm @slandelle , do not you think that simply stating that I 'messed up ""writers"" ' without explaining why is rude?
+No, I don't think spending some personal time investigating a problem you have with a software you got from me for free is ""rude"".
+I've pointed out your mistake and you are perfectly capable of spotting the difference between the original configuration that was working and you've commented out and the one you've changed and that don't.
+From the `gatling.conf` in the sample you've provided (L217):
+```
+#writers = [""graphite"", ""console"", ""file""]
+writers = [""console, file""]
+```",Insulting
+258,"Too bad that you do not consider this rude, @slandelle . If you are not willing to spend your time it is your right. I let Gatling community know that Gatling exhibits strange behavior in the presence of other libraries, and you @slandelle do not care.
+It is OK too, it just not helpful to make false statements like: 'works for me' and 'you messed up writers' because you did not bother to run the repro-case following very simple instructions.",Insulting
+259,"@slackersoft > Take a look at Steve's comment in #1327 for some options on how to troubleshoot this error. Thank you for your response. I have linked that issue too, and I have read and tried everything that would not require node version change or break our build pipeline that was proposed in all of the posts on all of those issues.
+My post is not really a call for help, I have spent sufficient time here to be convinced that it's not worth more investment from our side. Instead I hope for this to be a good overview for others, and perhaps it will help others some of the time that I have invested.
+> We (Jasmine maintainers) haven't been able to reproduce this case, as it seems to require a fairly complex async suite.
+Your choice of words is not very accurate. You didn't try to reproduce this issue. Your reasoning is on point though - outlined configuration is much too complex and has only started failing after certain tests were added (added tests run 100% fine, but others don't and the whole thing freezes).",Insulting
+260,"> My post is not really a call for help,
+Then it doesn't really sound like it belongs as an issue here. We want to keep this space clear for bugs and issues in Jasmine itself.
+I would also urge you to be careful and considerate when telling others what they have and haven't done. We've invested a significant amount of time in trying to eliminate various timing issues with Jasmine, but this one seems to come primarily from the suite being executed.
+Thanks for using Jasmine!",None
+261,"I don't think this repo is the right place for this post. It's neither a feature request, nor a bug. So my question is: What are you trying to accomplish with this issue? Bashing `glTF`?
+If you encounter problems with an exporter or converter, I suggest you open an issue at the respective github repo.
+> In any case, PBR was a bad choice for GLTF and also, all the current converters are collection of bugs.
+I generally reject such Trump-like statements. They have a provocative nature and are not objective at all.",Mocking
+262,"> I don't think this repo is the right place for this post.
+It's the best place for sure and it shows the current GLTF status.
+> I generally reject such Trump-like statements.
+Really?
+Here is a statement from Trump: Google already failed with UTF8.
+> If you encounter problems with an exporter or converter, I suggest you open an issue at the respective github repo.
+Many of them blame THREE.js for bad GLTF results.
+The posted samples prove they are wrong.",Insulting
+263,"> RemusMar are you suggesting any particular actions we should take?
+Three possible causes for the wrong GLTF results:
+1. the Babylon3D exporter is buggy (they say it's not)
+2. the FBX2GLTF converter is buggy (they say it's not)
+3. the GLTF importer is buggy.
+But you and Mugen87 want to close the topic because there is no issue and everytbody is happy ...",Ironic
+264,"> You mean the GLTFLoader? Yes.
+Importer = Loader + Parser
+> It would be especially helpful if you can find a very simple model that demonstrates the bug.
+You have everything you need to study the issue.
+Any PHONG material (Diffuse + Specular + Normal) exported or converted to GLTF gives wrong results.
+p.s.
+PHONG represents 50-60% of the current samples, compared to Physical less than 1%.
+That's why I said that PBR was a bad choice for GLTF.",None
+265,"> You have everything you need to study the issue
+In other words you want someone else to do the work for you 🙄
+Regarding Phong materials and glTF, I agree that this makes glTF a bad choice for converting older models - especially models originally exported as FBX which only supports Phong or Lambert shading.",Mocking
+266,"> None of these issue are specific to glTF (see #11337), but with GLTFLoader we're trying to achieve consistency with other engines and 3D authoring environments,
+That's completely wrong Don!
+Here we're talking about GLTFLoader and THREE.js
+The users are interested in the best results with THREE.
+Other engines and 3D authoring environments are irrelevant here.
+And you still don't understand the main problem here.
+For the last time:
+1) JSONLoader (or SEA3D loader) + PBR = GOOD results (close to Phong):
+http://necromanthus.com/Test/html5/Lara_PBR.html 2) GLTFLoader + PBR = BAD results
+http://necromanthus.com/Test/html5/Lara_gltf_physical.html p.s.
+In the first sample you don't even need ""renderer.gammaOutput = true"" to get good results !!!",Insulting
+267,"> Being able to author a PBR model in Substance Painter or download one from Sketchfab,
+They are irrelevant.
+I get much better results in 3DS Max and that tells me that the GLTFLoader and/or your PBR model are not properly implemented.
+> The difference is not huge, and so this not a major concern for many three.js users, but nevertheless it is not as good as it could be.
+Your girlfriend looks bad but you're happy because your boss told you that's normal.
+OMG ...
+> For that reason, your ""good"" result example is not actually correct.
+In fact you should fix your ""correct"" example to look good.",Insulting
+268,"> we will not be removing the sRGB encoding assignment to sRGB textures in GLTFLoader.
+That bad choice is yours, but the GLTFLoader is part of THREE, so it's up to Ricardo ( @mrdoob ) if they will be removed or not.
+In any case, you (and @looeee ) continue to be on the wrong path.
+Again: your workflow is not good and is not backwards compatible.
+You should start learning from the more experienced people:
+https://forum.allegorithmic.com/index.php?topic=8745.0 **In Unity you don't have to do anything**. Maps that are placed in the metallic/smoothness, ambient occlusion are treated as linear by the shader and maps in the albedo are treated as sRGB. What the shader does for the albedo and specular is ""linearize"" the maps. It removes the gamma-encoded values from the map in the shader code by applying an inverse gamma to it of 0.4545. In the Unity workflow, this is done automatically and **you don't need to flag the images as sRGB**.",Insulting
+269,">That bad choice is yours, but the GLTFLoader is part of THREE, so it's up to Ricardo ( @mrdoob ) if they will be removed or not.
+Errr.... this is extremely fuzzy. `GLTFLoader` appears to be a community provided example, that lives in `/examples`. If you load three.js alone (`three.min.js`) there wont be any mention of GLTF.
+If you use three.js off the shelf you get a scenegraph and various webgl abstractions. In this context, GLTF is just another one of many many examples of how you can translate some generic 3d data / scene file into three.js's structs. So, at a glance, three.js seems like this generic library, that draws stuff to screen. It doesn't care if you fetch that data from some remote server, and it doesn't care how you parse it (collada, fbx, sea3d, gltf... and 40 others). At the end of the day, you are rendering a `THREE.Mesh` with `THREE.Geometry` and `THREE.Material`. **Absolutely all of the loaders share this feature. All of them result in this data structure.**
+However, in practice, this is not the case, and you seem to be in the right. GLTF is a ""first class citizen"" of three.js. @mrdoob wrote that several times. SEA3d is some **random format** written by **some unknown people** while GLTF has the backing of THE khronos group. On top of that, it's probably meant to be the backbone of the whole VR/AR revolution, hence so much backing by other big players. This is just an unfortunate circumstance that three.js found itself in as the most widely used webgl library. People want to do 3d, which three.js solves really well with it's scene graph and other abstractions (things like `Mesh`, `Geometry`, `Material`, `Texture` etc.). Unfortunately, people also want to make experiences and expect three.js to be able to do that. This is of course complicated, hence, favoring one particular format and giving it preferential treatment makes sense. It may somewhat hurt the very essence of the library (draw stuff on screen) but it's a trade off. If you care to read all the guidelines, there's a document called [owners](https://github.com/mrdoob/three.js/wiki/Owners). @donmccurdy owns that particular loader, so his word carries as much weight as @mrdoob's, so good luck there :)
+The directive right now is:
+>three.js must support gltf
+So anything that the khronos group comes up with has to be reflected in three.js. If you look at the discussion historically, @mrdoob doesn't really follow what's going on and @donmccurdy is the authority on all things khronos/gltf related.
+So for example, khronos has defined a specification for gltf ""extensions"". Out of infinitely many extensions, one involves texture transformations. It has been ratified by the khronos group and because of that, **three.js absolutely must support it**. This warrants a PR with **11 thousands line of code** and increasing the size of the library by 1/3. I think you're wasting a lot of effort head butting a wall here, and that this issue should be closed.",Insulting
+270,"> I think you're wasting a lot of effort head butting a wall here, and that this issue should be closed.
+good point
+As I said before, Google already failed with UTF8.
+In the current development status, GLTF (and PBR) follow the same path.",None
+271,"> If you care to read all the guidelines, there's a document called owners.
+Wow, I never say that before. And apparently I ""own"" the `FBXLoader` 😍 😆",None
+272,"> And apparently I ""own"" the FBXLoader
+So in your opinion you're free to mess it up, isn't it?",Ironic
+273,"> Cut the ""disruptive content"" crap and grow up !!!
+@RemusMar I have no idea what you are talking about. I've never marked yours or anyone else's comments as disruptive. However, I would like to say that, much as I have a thick skin and don't care about your opinions re usernames, ad hominem attacks of the kind that you frequently make are not acceptable and should be grounds for being excluded from this community.",Insulting
+274,"> I'm the one who was doing this. As collaborators we have to moderate issues and ensure correct language and behavior.
+Grow up first!",Insulting
+275,"@Mugen87 I agree with this, and will start to be more vigilant in marking disruptive or otherwise useless comments. In this case, since I was the one being targeted, I didn't think it was appropriate to do so. However, @RemusMar has consistently exhibited what can only be described as disruptive behaviour over a long period of time and I don't think that marking comments is going to bring about any kind of change.
+We're consistently having to deal with ad hominem attacks from this user in the form of name calling or other vaguely aggressive statements, and it's quite frankly tedious and detrimental to the development of the three.js community.",Insulting
+276,"when we have storage OOM gradle doesn't sygnalize that, instead proper info we have a bullshit :)
+`$ gradle clean`
+>FAILURE: Build failed with an exception.
+>
+>* What went wrong:
+>Unable to start the daemon process.
+>This problem might be caused by incorrect configuration of the daemon.
+>For example, an unrecognized jvm option is used.
+>Please refer to the user guide chapter on the daemon at >https://docs.gradle.org/4.7/userguide/gradle_daemon.html
+>Please read the following process output to find out more:`
+>-----------------------
+>* Try:
+>Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log >output. Run with --scan to get full insights.
+Unable to start the daemon process... **when explicity run with false flag in props file**
+the next try maybe gradle didn't read the prop file proper .. **so explicity set no deamon arg**
+`$ gradle --info --no-daemon clean`
+>Initialized native services in: /opt/gradle/ceph3us/native
+To honour the JVM settings for this build a new JVM will be forked. Please consider using the daemon: https://docs.gradle.org/4.7/userguide/gradle_daemon.html.
+Starting process 'Gradle build daemon'. Working directory: /opt/gradle/ceph3us/daemon/4.7 Command: /opt/jdk1.8/bin/java -XX:+AggressiveOpts -XX:+UseG1GC -Xmn512m -XX:MaxMetaspaceSize=1g -XX:SurvivorRatio=40 -XX:+UseCompressedOops -XX:+UseCompressedClassPointers -XX:-OmitStackTraceInFastThrow -XX:SoftRefLRUPolicyMSPerMB=100 -XX:-HeapDumpOnOutOfMemoryError -Xms512m -Xmx3g -Dfile.encoding=UTF-8 -Duser.country=PL -Duser.language=pl -Duser.variant -cp /opt/gradle/lib/gradle-launcher-4.7.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 4.7
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 1.005 secs.
+FAILURE: Build failed with an exception.
+>* What went wrong:
+Unable to start the daemon process.
+This problem might be caused by incorrect configuration of the daemon.
+For example, an unrecognized jvm option is used.
+Please refer to the user guide chapter on the daemon at https://docs.gradle.org/4.7/userguide/gradle_daemon.html
+Please read the following process output to find out more:
+-----------------------
+>* Try:
+Run with --stacktrace option to get the stack trace. Run with --debug option to get more log output. Run with --scan to get full insights.
+>* Get more help at https://help.gradle.org
+still some daemon shit WTF ??? one more try brings same results of bulshit doeasnt reveal the TRUE CAUSE for BUILD FAILED '$ gradle --debug --no-daemon clean'
+>{ unrelated sensitive data cut}
+>16:50:14.639 [DEBUG] [org.gradle.process.internal.DefaultExecHandle] Changing state to: STARTING
+16:50:14.640 [DEBUG] [org.gradle.process.internal.DefaultExecHandle] Waiting until process started: Gradle build daemon.
+16:50:14.655 [DEBUG] [org.gradle.process.internal.DefaultExecHandle] Changing state to: STARTED
+16:50:14.656 [INFO] [org.gradle.process.internal.DefaultExecHandle] Successfully started process 'Gradle build daemon'
+16:50:14.656 [DEBUG] [org.gradle.launcher.daemon.client.DefaultDaemonStarter] Gradle daemon process is starting. Waiting for the daemon to detach...
+16:50:14.657 [DEBUG] [org.gradle.process.internal.ExecHandleRunner] waiting until streams are handled...
+16:50:14.659 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonOutputConsumer] Starting consuming the daemon process output.
+16:50:15.611 [DEBUG] [org.gradle.process.internal.DefaultExecHandle] Changing state to: DETACHED
+16:50:15.611 [DEBUG] [org.gradle.process.internal.DefaultExecHandle] Process 'Gradle build daemon' finished with exit value 0 (state: DETACHED)
+16:50:15.611 [DEBUG] [org.gradle.launcher.daemon.client.DefaultDaemonStarter] Gradle daemon process is now detached.
+16:50:15.613 [INFO] [org.gradle.launcher.daemon.client.DefaultDaemonStarter] An attempt to start the daemon took 0.982 secs.
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] 16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] FAILURE: Build failed with an exception.
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] 16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] * What went wrong:
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] Unable to start the daemon process.
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] This problem might be caused by incorrect configuration of the daemon.
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] For example, an unrecognized jvm option is used.
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] Please refer to the user guide chapter on the daemon at https://docs.gradle.org/4.7/userguide/gradle_daemon.html
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] Please read the following process output to find out more:
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] -----------------------
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] 16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] 16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] * Try:
+16:50:15.620 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] Run with --stacktrace option to get the stack trace. Run with --scan to get full insights.
+16:50:15.621 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] 16:50:15.621 [ERROR] [org.gradle.internal.buildevents.BuildExceptionReporter] * Get more help at https://help.gradle.org
+**pleaes add OOM storage watcher during task execution that will throw some sort of StorageOOM exception**
+**distracts from the fact that there was no memory left at the start of the gradle .. which should be signalized apriori any taskl start / evaluate**
+tneet to consider the SPACE -- WHERE PROJECT IS EXECUTED (build output) -- WHEN GRADLE WRITES (cache, etc) **those places should be checked during start gradle (LOW MEM WARNING) and monitored as mentioned above**
+i have wasted 5 min befor i did to know the real cause..",Vulgarity
+277,Closing due to abusive language. Please read our code of conduct and open an issue using appropriate language.,None
+278,"@oehme you are funny :) you can learn a bit about semantics, grammar and the meanings of words - essentialy about language and usage :) can you tell me who was here offended ?
+**maybe better was to use here a euphemisms so that the dumb people didn't think they were being offended when in fact nobody was...** if you fell so then it is your right to feel as you want to :) understanding is key to everything.. so **try to understand it does not hurt!**
+cipa, kutas, jebnij, pierdolenie best ceph3us",Insulting
+279,"If this is your way of communicating, please stay away from our community.",Insulting
+280,"Wow, just ""closed the issue"" as a non-issue? That's mature :D",Ironic
+281,"This discussion is meant to either change/introduce documentation or code. You can mark it as a suggestion, but closing it is not very helpful. For instance, Net::OAuth2::AuthorizationServer tests upon installation produce many of these warnings, just as an example. It affects other CPAN authors along the way, and web searches should end up here, i suppose.",None
+282,"You did not propose any specific changes that could be discussed here. Until you reach that stage, please use our official support channels for discussions. https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CONTRIBUTING-DOCUMENTATION",None
+283,"#### What's the feature?
+IMO `npm install` should only install exact packages unless explicitly told not to via a flag e.g. `--allow-package-upgrades`.
+#### What problem is the feature intended to solve?
+- Would make CI builds repeatable by default
+- Would make it impossible to accidentally, silently upgrade to a compromised package e.g. #21202",None
+284,"@sherpya No offense intended, but it sounds like you're new to some of this stuff. I suggest you do more reading and leave our project out of your hypotheses. You're not helping.",Insulting
+285,"To your previous point, we believe Core Audio AAC is not in violation of any license, as it is a system library. We also have periodic contact with Apple, such as recently when they suggested some threading changes to improve compatibility with future macOS versions, and they have never expressed any of the concerns you have.",None
+286,"I've already made my researches:
+```
+Fraunhofer FDK AAC license (#fdk)
+This is a free software license as far as it goes. It is incompatible with any version of the GNU GPL.
+It has a special danger in the form of a term expressly stating it does not grant you any patent licenses, with an invitation to buy some. Because of this, and because the license author is a known patent aggressor, we encourage you to be careful about using or redistributing software under this license: you should first consider whether the licensor might aim to lure you into patent infringement. If you conclude that the program is bait for a patent trap, it would be wise to avoid the program.
+It is possible that the pertinent patents have expired. Depending on whether Fraunhofer still has active patents covering the work, the software might be a trap now, or not. (Of course, any program is potentially threatened by patents, and the only way to end that is to change patent law to make software safe from patents.)
+```
+The fdk aac license: https://directory.fsf.org/wiki/License:Fdk
+look at point 3, even ffmpeg aac encoder that is lgpl does not explicit says that has no patent grant, but it does not means that it has, the only difference is that GNU FSF does not like Fraunhofer:
+```
+It has a special danger in the form of a term expressly stating it does not grant you any patent
+licenses, with an invitation to buy some. Because of this, and because the license author is a known patent aggressor, we encourage you to be careful about using or redistributing software under this
+license: you should first consider whether the licensor might aim to lure you into patent infringement
+If you conclude that the program is bait for a patent trap, it would be wise to avoid the program.
+```
+about coreaudio, https://github.com/nu774/qaac
+uses coreaudio dll on windows, it needs application support library included in itunes, I suspect they are not system libraries, at least on windows, but the api is the same on osx
+My idea is the incompatibily is bogus, at least with gplv2, v3 has explicit denial",None
+287,This very issue has been debated at length on many occasions. We will not debate it again here. I suggest you find some of those other debates and read them.,Impatience
+288,"Topic locked from further conversation. This isn't open for debate. Nero, FDK, Apple Core Audio are not license compatible for Windows. Thus, per my original feedback, if a license compatible encoder becomes available, we will look into adding it.",Threat
+289,"@0Ky what also to say about it other than ""it's planned, look at the [roadmap](https://tutanota.com/roadmap/)""?
+Please take into account that some things from top of it are already implemented and are either in beta or about to be released",None
+290,I'm honestly baffled that this isn't in yet. Tutanota must not understand how important this feature is for business use.,Bitter Frustration
+291,"I am also really in need of this feature, since I need my aliases to be confidential (not containing my name and surname). Changing back and forth is ridiculous.",Bitter Frustration
+292,"2 years and no progress, and they are making useless features like calendar. This and crypto payment are far more important than that.",Bitter Frustration
+293,"So you would turn `a = 1` into something like `a = let a; a = 1; end`. And something like
+```jl
+for i in 1:2
+before = false
+end
+```
+would be turned into this:
+```jl
+before = let before = before
+for i in 1:2
+before = false
+end
+end
+```
+Frankly, I'm pretty annoyed that people are only giving this feedback now. This has change has been on master for ten months.",Bitter Frustration
+0,"Yes, prepared statements are on my todo list. I don't need them myself, so unfortunately they kind of linger at the bottom of the list unless somebody wants to sponsor some of my time to work on the feature.
+That being said, the SQL based approach looks interesting as a stop-gap solution for the short term.",None
+1,"How does https://github.com/sidorares/nodejs-mysql-native handle this? Any reason not to just borrow parts of the way it's done over there?
+I'm still somewhat struggling with the number of different MySQL drivers for Node.JS. I think Node makes it way too fun to write network protocol code. :P Maybe in a year or so the community will have coalesced around one or two really solid libraries.",None
+2,"> How does https://github.com/sidorares/nodejs-mysql-native handle this?
+It seems to implement the parts of the protocol that are required for prepared statements.
+> Any reason not to just borrow parts of the way it's done over there?
+Yes, I didn't have the time to work on this yet. I'm also not in the business of copying code unless it's up to my personal coding standards. So even with good inspiration like this, it will still take me some time.
+> Maybe in a year or so the community will have coalesced around one or two really solid libraries.
+This library is solid. It just does not implement all features.",None
+3,Couldn't we just prepare and execute statements using SQL instead of raw packets?,None
+4,"@dresende the SQL method still winds up tampering with values to make them safe (escaping quotes, etc), whereas the protocol method explicitly separates query from values so tampering is not necessary. To be fair, as long as its impossible to smuggle a query in as a value, the driver is plenty secure enough. I suppose I'm just being a nitpicky ex-PHP developer who wants everything to be conceptually elegant. :P",None
+5,Imagine thinking anyone cares about design flaws.,Mocking
+6,Imagine thinking anyone cares about Open Source being a joint effort.,Mocking
+7,Imagine thinking open source means other people work for you for free.,Ironic
+8,"If you set up some task this way:
+before 'deploy', 'some_task', And in some_task you simply read the ""latest_release"" variable (in a puts line for instance), then:
+Current results:
+a) If it's the first deploy ever in capistrano (the www folder doesn't exist), capistrano breaks completely, it cannot deploy.
+b) If it's not the first deploy, then it will make capistrano change its behaviour with regards to the ""current"" symlink, because it will point to the previous release instead of the last one (after the deploy happened).
+Expected results:
+a) It should work.
+b) It should point current to the latest release.
+This is a big fuckup IMHO.",Vulgarity
+9,"Because you don't offer a patch, and profanity really pisses me off.",Vulgarity
+10,"Mutable programming pisses me off even more.
+Anyway, the point of github issues is to have a bug tracker.
+The contributions comes in the pull-requests tab.",Bitter Frustration
+11,"I understand that latest_release may not have the proper value when it's queried at the wrong time... but CHANGING BEHAVIOUR???? Sorry for the caps, but really finding out this bug has put me on my nerves.
+In regards to your backwards-compatibility policy: fair enough, I understand if you prefer to accept only a patch to fix this in master rather than the 2.0.x branch, but:
+a) I never proposed to fix it in a branch.
+b) This bug is not fixed yet on any branch, so it should be reopened. Otherwise people confused about it will not be able to find it.
+This is, my friend, how bug trackers work.",Bitter Frustration
+12,Then leave this issue open until the end of times.,Bitter Frustration
+13,That doesn't respect the Robust principle ;) http://en.wikipedia.org/wiki/Robustness_principle,Irony
+14,"It's a shame you couldn't provide an answer. Pointing to a documentation page that has no response to the original question isn't useful at all. Equally, it's pretty useless having something that draws a map with a big blue border around every country and no explanation as to how to remove it.",Bitter Frustration
+15,"@abrice This kind of passive-aggressiveness is disrespectful towards maintainers.
+I suggest reading [""How To Ask Questions The Smart Way""](http://www.catb.org/esr/faqs/smart-questions.html) and [""How to Report Bugs Effectively""](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) so you can make good bug reports in the future.",Insulting
+16,"Hi, im running node-mysql latest on node-latest.
+Somebody using the acunetix vulnerability scanner has triggered this error:
+UNKNOWN COLUMN '$acunetix' IN WHERE CLAUSE.
+The query: SELECT id, email FROM accounts WHERE username = ?
+How is this possible? Its very dangerous to our application, please respond quickly.",Impatience
+17,I can't see how it's the type system's fault when programmers assume that a mechanism that looks like prepared statements will defuse any data they pass in. Let's at least blame it at the programmers for trusting visual similarity instead of reading the manual thoroughly.,Insulting
+18,"xBRZ makes textures and sprites ugly, I rather have Nearest.",Insulting
+19,"xBR/xBRZ looks ugly only in your subjective opinion. Nearest-neighbor is primitive technique which looks blurry and pixelated,",Insulting
+20,"xBR/xBRZ are ugly because computers are not artists, they ruin the artwork of games.",Insulting
+21,"I am not sure what you mean but not everyone wants to use emulators with ugly native graphics.
+PCSX2 already has option to increase internal resolution but xBR/xBRZ would be very useful for 2D sprites, pre-rendered backgrounds and textures.",None
+22,yes that's true ratchet and clank games have this problem and are very ugly only works in software mode and it's freaking me out with a amd fx 8350 ¬¬ a points of fps of 20 or 30,Insulting
+23,"You mean Native graphics, most of which created professionally by artist then you want to ruin it with an over-exaggerated interpolation.",Insulting
+24,Developers certainly not want to apply a silly image interpolation like xBR to ruin all their artwork,Mocking
+25,Prove they dont.,Insulting
+26,"If you take a SNES Game like Super Mario World, the developers created all the artwork pixel by pixel.. xBR simply adds unwanted pixels everywhere, ruining the sharp-crisp sprites, it's a silly gimmicky interpolation .",Mocking
+27,Snes games have huge blocky pixels because hardware was primitive and not because developers intended it to look that way. xBR is advanced upscaling algorithm not ''silly gimmicky interpolation'' show little respect to shader/filter developers.,Insulting
+28,"xBR is silly gimmicky interpolation because computers are not artists, you need an Artist to recreate the sprites and textures.",Insulting
+29,You are obsessed about computers not being artists but they dont need to be. Shader developers being artists is enough. Artists already created xBR/xBRZ.,None
+30,xBR destroys Pixel art,Insulting
+31,Pixel art is term invented by nostalgia fetishists no such thing exists chunky pixels are result of low resolution forced by weak hardware.,Mocking
+32,"You continue to prove that you have no idea what you're talking about Monochrome,
+xBR is not a texture filter, it is a sprite filter.",Insulting
+33,At least xBRZ can be used for textures. PPSSPP is using it for textures so it can be done.,None
+34,"I prefer Nearest over xBRZ, I don't like my games looking like playdoh",Mocking
+35,Nearest-Neighbor is primitive garbage you may like what you want but I prefer games to not look like blurry blobs.,Insulting
+36,"This would be an interesting enhancement, in certain instances it can help reduce scaling artifacts in some PSP games, so it could possibly help games like FFX.
+https://i.imgur.com/as4jG1S.jpg
+https://i.imgur.com/8p76qGp.jpg
+Just a few things about this issue thread:
+1. Ratchet and Clank HD collection uses a similar smoothing filter for textures:
+https://imgur.com/a/Kc52r
+2. Squall, you're - like always - wrong, it can be used to filter textures - or any pixel based medium.
+Whether or not xBR texture filtering looks better is subjective, so there's no point arguing either way. Adding this would be nice for those who like it, it could help scaling artifacts, and implementing a way to add xBR filtering could mean other texture filters could be added too, so people could have a variety and go with what they like.",Insulting
+37,"SonofUgly,
+You're wrong for one key reason.
+xBR and xBRZ are per pixel filters, they can only operate on the inside of sprite if the renderer operates AT the pixel level.
+In the case of PS2 sprites, or textures, it will only filter the edges and no more.",Insulting
+38,"What are you on about. Are you talking specifically about how GSdx currently handles textures, now? Your previous condescending remarks sounded like you didn't think xBRZ could be used on textures at all - which you do realize PPSSPP uses it, right?
+""In the case of PS2 sprites, or textures, it will only filter the edges and no more.""
+http://i.imgur.com/p6OEJSp.png",Mocking
+39,nobody cares,Bitter Frustration
+40,"@LasagnaPie But older games were designed to be displayed on CRTs, where the sprites aren't sharp or crisp. :^)",None
+41,"Unfortunately, debian8 is DKMS still on 6.5.2, no update in the last three months. Any clue when this gets resolved?",Bitter Frustration
+42,"I haven't seen the problem for quite a while now (seemed to have gone since 0.6.5.6), but this morning I had the very same hung task with 0.6.5.7 (single occurrance) come up again. Sigh...",Bitter Frustration
+43,"@linkyndy Do you seriously think @Euraldius did not understand that those labels referred to Ruby objects? Let me slowly explain to you the point that was being made:
+When engineers use labels such as ""boy""/""girl"" in ways that reinforce toxic gender stereotypes, such engineers show their ignorance and (perhaps unconscious, perhaps latent) misogyny. So, stop. Think about how you use your language. And be considerate.
+Another related example: the widespread use of repulsive ""master""/""slave"" labels in software systems.
+Just fucking think about it for a second... bro.",Insulting
+44,"I feel hurt by the word Singleton because it reminds me of who I think I am.
+This message is not trollish intent to hurt anyone, rather a part of a philosophical debate. (cc @skatenerd)
+I wholeheartedly agree that we should fight any discrimination.",None
+45,"Came here because of a frustrating engineering problem, disappointed to see people are discussing irrelevant social issues.
+* Yes the social issues are important
+* No github issues is probably not the right place to discuss/debate them
+* Call the classes `Yob` and `Lrig`, I don't care, I need a solution to the inter-dependent factory objects",Bitter Frustration
+46,"> > should we instead add as a section in the tutorial here?
+> > We should reference it. But I don't see this as tutorial material because
+> it is outside the scope of scikit-learn. We can only give pointers
+> > That's an answer that the users really don't want to hear, because there
+> point of view is that they have a lump of data and they want it inside
+> scikit-learn. The answer is: this is not a problem that scikit-learn
+> solves, go see pandas if you have CSV, scikit-image if you have images,
+> database connectors (SQLAlchemy?) if you work on databases...
+> > I guess that we should have a sentence like this in the tutorial, where
+> you reference, with pointers.
+> > As a side note, the kind of errors hit by the users on the thread of this
+> issue (lack of basic knowledge of Python for instance) tells me that we
+> cannot solve their problem. They need to go to entry-level tutorials on
+> Python, and get a bigger picture. Maybe we should make sure that we give
+> pointers to these in the right spots, eg early on in the tutorial.
+Well, take it easy!!!
+I don't know whether you are one of scikit-learn staff or not, but I need
+to say that your way of talking is harming both scikit-learn staff and
+users (us), due to the two reasons:
+First reason, criticizing people (like what you did) and assuming that they
+are novice in Python so they don't know how to work with scikit-learn,
+means you or the staff are trying to blind their eyes to the truth that
+scikit-learn staff are not able to create a clear tutorial to allow loading
+the real data, at least. In addition, pretending that the tutorial of
+scikit-learn is perfect in spite all the questions regarding loading the
+real data (not the toy data as it is too easy to be imported comparing to
+the real data) is something needs to be reconsidered, and this means that
+scikit-learn staff don't care about the name of scikit-learn at all.
+Second, we can understand from your unsuitable way of talking that you
+already forgot that scikit-learn is a product, and we as users are
+customers, so either you or the staff of scikit-learn should respect all of
+us and thank us for any comment or bug fixing. This is the professional way
+of behavior. So I recommend you to think of your words before saying them. If
+you are knowing the way of loading the real data and you'd like to help,
+don't only say go see pandas, better you answer people's question nicely
+rather than hurting them with your words, but if you're simply not able to
+do that, so keep quite.
+On the other hand, regarding the question ""should we instead add as a
+section in the tutorial here?"", I would like to say ""_YES_"", you or
+scikit-learn staff should add a section in the official tutorial about how
+to load your own data either CSV, or ARFF or text or whatever, as users are
+interested to load their own data, this is very critical issue should be
+considered in the tutorial (not to be ignored). *If you rely on the user,
+then what is your work? *
+Nevertheless, for those who are still struggling with scikit-learn, I would
+like to say, this is not the end of the world, and as I mentioned
+previously, find another to tool make your life much easier. For this
+reason, and in order to save your time, I would like to recommend some
+tools to assist you in data mining procedures. For instance, Waikato
+Environment for Knowledge Analysis (WEKA),
+http://www.cs.waikato.ac.nz/ml/weka/, last version is WEKA 3-7-13, is a
+collection of machine learning algorithms for data mining tasks. WEKA
+allows you to use its schemes either from GUI or writing Java code, so its
+very easy for non-programmers. Additional to WEKA, R is also an excellent
+tool for data mining stuff, you can also perform tasks of R from WEKA or
+vice versa. However, if you have a patience to design a prediction process
+manually (drag/drop), RapidMiner is a great tool for this propose where you
+can design a very nice flow to achieve your target.
+Thanks David van Leeuwen for your support.
+Good luck in your analysis.
+Cheers,
+Martin
+> —
+> Reply to this email directly or view it on GitHub
+> https://github.com/scikit-learn/scikit-learn/issues/3808#issuecomment-160153930
+> .",Insulting
+47,"I contacted support about this around the same time I chimed in here initially. Their response is that Vagrant uses curl to download things so they don't see this as a Vagrant problem. IMO that's an unprofessional cop-out because they chose to use curl, know that there are problems and aren't considering swapping out with an alternative to eliminate the problem for their users.",Bitter Frustration
+48,"While I am unsure of the origin of the problem, I really do wish that Hashicorp would get back to its unrelenting focus on user experience with this one. **Muli-hour downloads (that should take 1-10 minutes)==bad ux.**",Bitter Frustration
+49,I have been trying for 2 day's now and still can not get it to download... its a shame.. it is really not impressing new comers to laravel .. i can only get 34ks speed.........,Bitter Frustration
+50,"Sign me upp here, 100mb symmetric connection (Fiber) sloooow as shit, doing 150kb/s",Vulgarity
+51,"after looking at the years of complaints of slow download with no effort of resolving the issue,,, i think its time to start emailing Laravel to stop endorsing homestead until the issue is resolved..... maybe that will get their attention!!!! this is a real problem... 15 retries and then 4.6 hours to download a file is irresponsible on their part........",Bitter Frustration
+52,"This is painful to do anything on any more - On 100mbps synchronous connection and getting 168kb, either overloaded servers or throttling",Bitter Frustration
+53,Help. I have same problem. I can't wait 3 hours! Very slow! Stupid!,Insulting
+54,i gave up a year ago..download to slow.. problems after down load.. have to download for 3 hours again.... Vagrant will not fix the problem that has been there for several years now.. you would think that after 3 or 4 years of this problem they would address the issue.....,Bitter Frustration
+55,8 hours to download! I hate you all!,Insulting
+56,"Lol, I hate you too @daryn-k :)",Insulting
+57,Guys why is this issue closed? This is still an outstanding issue and needs to be addressed ASAP. I am experiencing the same issue.,Impatience
+58,Wow! Downloading boxes is painful please fix this. PLEASE?,Bitter Frustration
+59,"Downloading boxes used to be quick, now it's so slow it makes vagrant a no-go for quick and simple developer environments.",Bitter Frustration
+60,"Trying to download ubuntu/xenial64. Download speed maxes out at 150 KB/s on a 1 Gbps symmetrical fiber connection. WTF. Remaining time 1 hour? I could probably download the ISO, read the guide on how to set up my own box, and finish earlier.
+EDIT: Interestingly, speed went up by factor 10 when I tried to download the same box in the browser simultaneously.",Bitter Frustration
+61,"It honestly looks like they dont give a shit, rules this out as an option
+for me!
+On 3 Apr 2017 8:15 AM, ""Jacob Gadikian"" <notifications@github.com> wrote:
+> Hey, quick thought:
+>
+> If this uses curl (not libcurl) through some sort of ruby-controlled,
+> bash-mediated process, why not just remove curl for one of:
+>
+> - ipfs
+> - aria2
+>
+> Both would do the job better than curl.
+>
+> —
+> You are receiving this because you commented.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/mitchellh/vagrant/issues/5319#issuecomment-291019093>,
+> or mute the thread
+> <https://github.com/notifications/unsubscribe-auth/ABBAihR9ng4t2Jq1XTmAjMyMCnlEFtxRks5rsB4WgaJpZM4Deq5d>
+> .
+>",Vulgarity
+62,"I'm on a 150Mbps line.
+vagrant up = HOURS
+vagrant box add = HOURS
+browser download /wget = HOURS
+May not be a vagrant issue per se, BUT IT IS. If your infrastructure can't handle it then your product is broken.
+BAD UX",Bitter Frustration
+63,"Well, nothing has changed, it still downloads at a snail's pace given that i am on a 125 Mbps connection!",Bitter Frustration
+64,Sooooooooooooooo slowly！！！！:(,Impatience
+65,"Typical issue, been around for ages, everybody's moaning about it, and nothing is being done.",Bitter Frustration
+66,how is this closed? still a major issue,Bitter Frustration
+67,🍺 🍺 🍺 🍺 🍺 🍺 I'm just going to leave these here for any poor sod waiting for this download.,Mocking
+68,"@oncet Yep, very different! But for my use case, they're equivalent and commodified: Ways I can create and launch an isolated dev environment with just one or two commands. Docker Compose works great and is far simpler than Vagrant (note, this not just ""Docker"" per se, which only launches containers one by one) and I'd need to hear about a compelling reason to try a Vagrant+Docker solution, which sounds pretty damn complex. ;-)",Bitter Frustration
+69,Pain. This is a pain. I'll never be able to download the 5.0.1 I guess,Bitter Frustration
+70,"@dogweather Frankly, I don't see how your commentary on docker has anything to do with the issue at hand. Please stop taking this thread off-topic.",Impatience
+71,"@mankinskin I agree completely, and I feel your frustration; I share it, and it's got worse as rust has become more widely used. Rust's core team also have a very narrow view of what a bug is - one that with my software craftsmanship hat on I couldn't disagree with more strongly.
+Rust's development has been captured by the bureaucratically minded; the same mindset that has infested wikipedia, and parodied beautifully in [Brazil](https://www.youtube.com/watch?v=KZ-SdU53MnY).
+Personally, I find it rude; it shows disinterest in the views of those outside of the main development, and the idea that anyone can have a good idea.",Insulting
+72,very good feature :+1:,None
+73,:+1: would definitely be useful.,None
+74,Any updates?,None
+75,It hard to believe that this was opened three years ago.... I assumed it's not that complicated since I started with radarr. It's the only thing missing in sonarr to match radarr. Hope it will come soon.,Impatience
+76,"@gabordemooij
+You should be killed. Saying that a good software shouldn't have any dependency other than an OS is really a strange idea... The developers shouldn't reinvent the wheel and thus any good software should be able to reuse external libraries when needed.
+BTW: An OS is nothing more than a bunch of libraries and executable that were compiled to form a system fully usable. Does an OS shouldn't have any external dependencies?",Insulting
+77,"@sbrl don't use composer. Just don't. If you cannot manage your dependencies you have a very big problem and composer hides it. Updating bad code in zillions of libs will not magically improve the reliability and security of your code.
+- get rid of all libraries that are not crucial
+- remove all libs with dependecies, they are by definition created by idiots
+- keep things simple, if you need that much libraries, you failed at keeping things simple",Insulting
+78,"I don't do this usually but I had to screenshot this whole discussion. Guy doesn't use namespaces, uses single file for his projects and he bashes the practice of tracking your dependencies with - listen to this - **programs**. If anyone stumbles upon this page via google, please take time to read what @gabordemooij wrote and take note - NEVER justify your bad decisions by making stuff up.",Insulting
+79,"Updates often introduce new bugs and new vulnerabilities. So your just replacing old bugs with new bugs. Only right after an update 'you consider your software safe', but as time progresses it turns out the initial update was not safe at all but by then most developers pretend the software 'is now suddenly unsafe because it is old' - that's not true, it was already compromised right after the update. Besides that, dependency management systems make it worse, because you don't even know what you install anymore. There may be even some toxic packages among the dependencies:
+https://news.ycombinator.com/item?id=15272394
+https://news.ycombinator.com/item?id=11340510
+https://sensorstechforum.com/arch-linux-aur-repository-found-contain-malware/
+While I don't pretend that bug-free software can be written, a better solution might be to focus on simplicity. Dependency management systems compromise simplicity because they make it easy to solve the natural issues regarding dependencies. In a sense, they hide complexity - and paradoxically therefore they increase the risk of importing new bugs and vulnerabilities.
+So, I reverted the commit that removed the Composer file because, even though I am against it, I also don't really care, I just get a bit angry when Composer related problems (like what version string to use) creep into the RedBeanPHP repository. And yes, you make screenshots all you want and laugh about RedBeanPHP or me. I don't give a shit. Have fun.
+BTW, remember that this is an open source project, you can fork and nobody is forcing you to use RedBeanPHP so, if you don't like it:
+https://www.doctrine-project.org/
+bye bye!",Bitter Frustration
+80,"> Updates often introduce new bugs and new vulnerabilities. So your just replacing old bugs with new bugs. Updates also fix bugs and old vulnerabilities. Using a dependency manager lets you lock down to a specific version of a library. I can fork a library, perform changes, tag it, point my `composer.json` to it. I don't have to do anything manually. If I want to know which *version* I use, I don't have to dig through files.
+I could literally go through every single word you wrote and try to argue with you but it's pointless. You suffer from NIH syndrome, your practices are bad and as you wrote - you don't give a shit.
+You are spreading dangerous blatant lies in order to justify something you wish were true. That's the problem. The second problem, which is your personal problem, is your attitude. I know there's absolutely no way we can have a discussion, your opinion is set and I can tell you'll do anything to defend your POV. Yes, this is your project, you are entitled to opinion but in your world 1 + 1 yield 75, not 2. Ego is a dangerous thing. I won't insult you, there's no merit to that, we should be civilized after all. I'll just kindly ask you, just ASSUME you might be wrong. Just for abstract thinking's sake. I really believe there's no malicious intent behind what you wrote, but could there be a possibility you don't have all the information at hand to make statements such as ""dependencies suck"" or ""dependencies in libraries suck""? What would be the point of a library then? If I deal with SAML or OAuth2, I require a library which in turn requires encryption primitives. Should I rewrite those primitives and libraries to deal with SAML and OAuth2 so I'm ""safe"" and not an idiot?",Insulting
+81,"2015? :-( This will very likely never added then, that sucks.",Bitter Frustration
+82,Since 2015 and this still isn’t added yet? Come on. This would be such a useful feature.,Impatience
+83,2015-2020 is not create this function. qBit - Shit!,Vulgarity
+84,"> Your solution is for power users, has usability drawbacks, Fighting phishing emails is something everyone has to learn to do, no matter the occupation. I think it is reasonable to demand a certain level of proficiency and common sense.
+> and doesn't address the fact that malicious users are taking advantage of an easily fixable flaw in qBittorrent.
+""Malicious users are taking advantage of distracted/careless users"" would be a more accurate statement. Do you think the possibility of receiving phishing emails is a flaw of E-mail? If so, is the possibility of hearing the voice of a scammer in real life, believing what they say, and giving them money, a flaw of your ears? Should your auditory system should autoblock certain words/sentences on its own? Perhaps it should be the brain acting on the information instead.
+Furthermore, the greater issue of downloading these kinds of torrents should not be underestimated. You have to go out of your way, even when searching for illegal content, to find these kinds of torrents. And no, the `.exe` in RARBG torrents does not count as an example of this practice in a popular site; it is actually just a harmless text file with the `.exe` extension designed to prevent mirroring by software that, ironically, relies on ""file extensions"" to make assumptions about their content.
+Not to mention that if anyone actually accidentally clicks a dangerous exe, it should be caught by UAC anyway. If the user has disabled UAC or blindly clicks through it, then they either know what their doing or they ""know enough to be dangerous"", in which case whatever happens is their own fault and there's nothing we can really do.",Insulting
+85,"Issue not fixed in 30 days?
+Must be gone!",Threat
+86,"Always remember the style module so if you don't like the defaults it is very easy to override the ones you don't like.
+I think a 'tufte' style sheet would be a worthwhile thing to have even if it is not everyone's cup of tea.",None
+87,"I have to say that I find this change simply horrible. It removes the information where error bars end and thus renders them unusable without the caps. Consider the following example:
+![without_caps](https://user-images.githubusercontent.com/22542812/45039484-04e2f100-b064-11e8-9be0-704e66d698a9.png)
+![with_caps2](https://user-images.githubusercontent.com/22542812/45040016-3f995900-b065-11e8-8390-102fdadfb454.png)
+The first plot indicates that the errors of line1 are too small to be seen (hidden behind the marker) and thus negligible. The plot with caps however reveals that this is certainly not true. The vertical lines are arguable only visual clutter however they are a guide to the eye to find the actual errors.
+Obviously I can just change the settings (after finally finding out these things are called caps). I find this change however very dangerous, as in a less obvious case I am tricked into reading the plot wrong. This should never happen! Thus, I would argue to make the caps bigger than the actual marker by default.",Bitter Frustration
