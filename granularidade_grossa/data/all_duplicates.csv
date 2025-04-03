@@ -1,0 +1,200 @@
+,message,actual,source,tbdf
+373,1,0,msr,none
+374,1,0,msr,none
+375,1,0,msr,none
+376,1,0,msr,none
+380,1,0,msr,none
+381,1,0,msr,none
+382,1,0,msr,none
+383,1,0,msr,none
+385,1,0,msr,none
+386,1,0,msr,none
+387,1,0,msr,none
+388,1,0,msr,none
+389,1,0,msr,none
+390,1,0,msr,none
+391,1,0,msr,none
+392,1,0,msr,none
+393,1,0,msr,none
+397,1,0,msr,none
+398,1,0,msr,none
+399,1,0,msr,none
+400,1,0,msr,none
+401,1,0,msr,none
+402,1,0,msr,none
+403,1,0,msr,none
+404,1,0,msr,none
+415,1,0,msr,none
+822,"@jhkrischel This issue is waiting for your response. Please respond or the issue will be closed.
+[click here for bot help](https://github.com/ansible/ansibullbot/blob/master/ISSUE_HELP.md)
+<!--- boilerplate: needs_info_base --->",0,msr,none
+847,+1 for this functionality.,0,msr,none
+1067,1,0,msr,none
+1070,1,0,msr,none
+1092,1,0,msr,none
+1096,1,0,msr,none
+1097,1,0,msr,none
+1217,"<!--- Please follow the instructions below. We receive dozens of issues every week, so to stay productive, we will close issues that don't provide enough information. Please open Android-related issues on the Android Issue Tracker at https://source.android.com/source/report-bugs
+Please open Kotlin DSL-related issues at https://github.com/gradle/kotlin-dsl/issues
+Please open Gradle Native-related issues at https://github.com/gradle/gradle-native/issues
+-->
+<!--- Provide a brief summary of the issue in the title above -->
+### Expected Behavior
+<!--- If you're describing a bug, tell us what should happen -->
+<!--- If you're suggesting a change/improvement, tell us how it should work -->
+### Current Behavior
+<!--- If describing a bug, tell us what happens instead of the expected behavior -->
+<!--- If suggesting a change/improvement, explain the difference from current behavior -->
+### Context
+<!--- How has this issue affected you? What are you trying to accomplish? -->
+<!--- Providing context helps us come up with a solution that is most useful in the real world -->
+### Steps to Reproduce (for bugs)
+<!--- Provide a self-contained example project (as an attached archive or a Github project). -->
+<!--- In the rare cases where this is infeasible, we will also accept a detailed set of instructions. -->
+### Your Environment
+<!--- Include as many relevant details about the environment you experienced the bug in -->
+<!--- A build scan `https://scans.gradle.com/get-started` is ideal -->
+* Build scan URL:",0,msr,none
+1381,"Sorry, this is not going to work this way. You have to edit the base yaml files directly (and not add new files).",0,msr,none
+1564,1,0,msr,none
+1571,1,0,msr,none
+1583,1,0,msr,none
+1932,1,0,msr,none
+3915,lol,0,msr,none
+3920,lmao,0,msr,none
+3979,Please explain the reason why this issue was closed without resolving it?,0,msr,none
+3988,"### Key information
+""joda-time"" uses Kiev (incorrect) instead of Kyiv (correct) spelling.
+Kyiv is a capital of Ukraine.
+According to the Ukrainian local and international law, correct name of the ""Kiev"" is ""Kyiv"".
+Reference materials:
+- Local: Resolution No 55 of 27.01.2010 of the Cabinet of Ministers of Ukraine ""On regulation of transliteration of Ukrainian alphabet by means of Latin alphabet "".
+- Global: https://unstats.un.org/UNSD/geoinfo/UNGEGN/docs/10th-uncsgn-docs/econf/E_CONF.101_85_Standardization%20of%20Geographical%20Names%20_eng.pdf
+- Wikipedia: https://en.wikipedia.org/wiki/KyivNotKiev
+### Problem description
+Incorrect spelling of Kyiv is used all across this project:
+```
+$ grep -r ""Kiev""
+src/site/xdoc/timezones.xml:<tr><td align=""left"" valign=""top"">+02:00</td><td align=""left"" valign=""top"">Europe/Kiev</td><td align=""left"" valign=""top""></td></tr>
+src/main/java/org/joda/time/tz/src/europe:# from Kiev to Moscow time sometime after the January 1994 elections.
+src/main/java/org/joda/time/tz/src/europe:# From IATA SSIM (1994/1997), which also says that Kerch is still like Kiev.
+src/main/java/org/joda/time/tz/src/europe:# ""Time in Ukraine is set to second timezone (Kiev time). Each last Sunday
+src/main/java/org/joda/time/tz/src/europe:# (Europe/Kiev) to introduce permanent daylight saving time (similar
+src/main/java/org/joda/time/tz/src/europe:# From Vladimir in Moscow via Alois Treindl re Kiev time 1991/2 (2014-02-28):
+src/main/java/org/joda/time/tz/src/europe:# For example, tzdb uses Europe/Kiev, as ""Kiev"" is the most common spelling in
+src/main/java/org/joda/time/tz/src/europe:# ""Praha"". (""Kiev"" came from old Slavic via Russian to English, and ""Prague""
+src/main/java/org/joda/time/tz/src/europe:# English; in the meantime, stick with the traditional English ""Kiev"" as that
+src/main/java/org/joda/time/tz/src/europe:# This represents most of Ukraine. See above for the spelling of ""Kiev"".
+src/main/java/org/joda/time/tz/src/europe:Zone Europe/Kiev	2:02:04 -	LMT	1880
+src/main/java/org/joda/time/tz/src/europe:	2:02:04	-	KMT	1924 May 2 # Kiev Mean Time
+```
+This issue should be fixed.
+Instead of ""Kiev"" spelling ""Kyiv"" should be used instead.",0,msr,none
+3989,See #571,0,msr,none
+4265,This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.,0,msr,none
+4266,⚠️ This issue has been marked wontfix and will be closed in 3 days,0,msr,none
+4268,This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.,0,msr,none
+4269,⚠️ This issue has been marked wontfix and will be closed in 3 days,0,msr,none
+4274,This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.,0,msr,none
+4275,⚠️ This issue has been marked wontfix and will be closed in 3 days,0,msr,none
+4506,https://github.com/reactjs/reactjs.org/issues/4433#issuecomment-1060759889,0,msr,none
+4533,Up,0,msr,none
+4534,Up,0,msr,none
+4535,Up,0,msr,none
+4536,Up,0,msr,none
+4538,"Quoting someone else who said it well, I won't link tho because I don't want to send the haters his way..
+```
+;; You might be reading this because you think it is not appropriate
+;; to mix politics with software development.
+;; Or that I should have added banners like #StandWithPalestine or #StandWithYemen,
+;; and adding it now makes me a hypocrite. And you are right.
+;; I understand the reasoning, but I decided to add the banner now, because this
+;; time people I hold very dear are in Kyiv, fighting for their family, their
+;; lives and their country. Because I know them well, I am
+;; personally affected.
+;; So if you disagree, just deal with it, or stop using this tool.
+```
+It's a mix of that, and a feeling that this war could have a much bigger/more global impact than others. Opinions my own, feel free to disagree.",0,msr,none
+4542,"Quoting someone else who said it well, I won't link tho because I don't want to send the haters his way..
+```
+;; You might be reading this because you think it is not appropriate
+;; to mix politics with software development.
+;; Or that I should have added banners like #StandWithPalestine or #StandWithYemen,
+;; and adding it now makes me a hypocrite. And you are right.
+;; I understand the reasoning, but I decided to add the banner now, because this
+;; time people I hold very dear are in Kyiv, fighting for their family, their
+;; lives and their country. Because I know them well, I am
+;; personally affected.
+;; So if you disagree, just deal with it, or stop using this tool.
+```
+It's a mix of that, and a feeling that this war could have a much bigger/more global impact than others. Opinions my own, feel free to disagree.",0,msr,none
+4623,Ok,0,msr,none
+4672,Thanks,0,msr,none
+4742,"Updating issue after ping interval. Status:
+Project is out of compliance with Binary Artifacts policy: binaries present in source code
+**Rule Description**
+Binary Artifacts are an increased security risk in your repository. Binary artifacts cannot be reviewed, allowing the introduction of possibly obsolete or maliciously subverted executables. For more information see the [Security Scorecards Documentation](https://github.com/ossf/scorecard/blob/main/docs/checks.md#binary-artifacts) for Binary Artifacts.
+**Remediation Steps**
+To remediate, remove the generated executable artifacts from the repository.
+**Artifacts Found**
+- demos/mobile/android/gradle/wrapper/gradle-wrapper.jar
+- demos/plane/soy/SoyMsgExtractor.jar
+- demos/plane/soy/SoyToJsSrcCompiler.jar
+**Additional Information**
+This policy is drawn from [Security Scorecards](https://github.com/ossf/scorecard/), which is a tool that scores a project's adherence to security best practices. You may wish to run a Scorecards scan directly on this repository for more details.",0,msr,none
+4866,/assign,0,msr,none
+4868,/assign,0,msr,none
+4872,/assign,0,msr,none
+4875,/assign,0,msr,none
+4876,/unassign @NitishKumar06,0,msr,none
+4878,/assign,0,msr,none
+4880,/unassign @NitishKumar06,1,msr,mocking
+4882,/assign,0,msr,none
+4886,/assign,0,msr,none
+4887,/unassign @NitishKumar06,1,msr,mocking
+4896,/assign,0,msr,none
+4900,/assign,0,msr,none
+4902,/assign,0,msr,none
+4903,/@unassign @NitishKumar06,0,msr,none
+4905,/unassign @NitishKumar06,0,msr,none
+5167,"```sh
+git clone https://github.com/composer/composer.git --branch 2.5.4 ~/composer-build && \
+composer install -o -d ~/composer-build && \
+wget https://raw.githubusercontent.com/politsin/snipets/master/patch/composer.patch -q -O ~/composer-build/composer.patch && \
+cd ~/composer-build && patch -p1 < composer.patch && \
+php -d phar.readonly=0 bin/compile && \
+rm /usr/local/bin/composer && \
+php composer.phar install && \
+php composer.phar update && \
+mv ~/composer-build/composer.phar /usr/local/bin/composer && \
+rm -rf ~/composer-build && \
+chmod +x /usr/local/bin/composer
+```",0,msr,none
+5440,典,0,msr,none
+5455,樂,0,msr,none
+5461,LOL,1,msr,mocking
+5492,lol,1,msr,mocking
+5499,lol,0,msr,none
+5524,樂,0,msr,none
+5530,interesting,0,msr,none
+5536,V2观光团,0,msr,none
+5547,lol,1,msr,mocking
+5583,"> That's the most fabulous CHINA, most successful business model. Lots of similar business models on the Chineses Internet. It's a big pity for citizens(oh, we are just _""韭菜""_, never be a true citizens ever ) here. FUCK CCP!
+危",0,msr,none
+5641,Fixed.,0,msr,none
+5842,Same,0,msr,none
+6564,"clang-tidy review says ""All clean, LGTM! :+1:""",1,dwhp,
+6745,I have updated it to reflect boto3.,0,dwhp,
+6754,"You really need to be serving correctly formed media. Closing as bad media. What happens when malformed media is encountered may vary from device to device based on the underlying platform decoder implementations, however ultimately you shouldn't be serving malformed content in the first place.",0,dwhp,
+6760,"This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.
+",0,dwhp,
+6773,This issue has been automatically locked since there has not been any recent activity after it was closed. Please open a new issue for related bugs.,0,dwhp,
+6776,This issue has been automatically locked since there has not been any recent activity after it was closed. Please open a new issue for related bugs.,0,dwhp,
+6841,"I tend to eagerly suspect the AntiVirus or Bit9/Carbon Black, but in this case I believe it's neither.
+
+The fact that you only saw this error on incremental builds but not clean ones, and that Bazel shows the ""failed to delete output files..."" error when it fails to delete outputs from the previous build, could be explained by a background process still holding the file open. This could be a persistent worker (perhaps JavaBuilder) that holds on to the output file, either because it doesn't close the file at all, or it doesn't close it in a timely manner.
+
+I need to find a way to repro this locally, that's what I'll do next.",0,dwhp,
+6890,@jasontedor I pushed a new commit,0,dwhp,
+6959,"This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.
+",0,dwhp,

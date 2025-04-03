@@ -1,0 +1,20 @@
+index,message,prediction,actual,source
+0,"I noticed that Prepared Statements seem to be emulated client-side by escaping certain characters.
+Any plans to fully support service-side Prepared Statements? This can be done via the binary protocol, but there's a slower SQL-based approach available for non-binary clients:
+http://dev.mysql.com/doc/refman/5.5/en/sql-syntax-prepared-statements.html",0,0,msr
+1,"Yes, prepared statements are on my todo list. I don't need them myself, so unfortunately they kind of linger at the bottom of the list unless somebody wants to sponsor some of my time to work on the feature.
+That being said, the SQL based approach looks interesting as a stop-gap solution for the short term.",0,1,msr
+2,"The only downside with the SQL-based approach is that you probably still end up needing to do client-side escaping. Still it does offer a little bit more structure, so it might still buy some protection. Depending on how you do it, it might also simplify the escaping part.
+Unless I'm mistaken, you are already implementing the actual protocol at the lower levels of your driver. I wonder how much more you need at that level to finish?
+http://dev.mysql.com/doc/internals/en/command-packet-details.html",0,0,msr
+3,"Prepared statements use a range of additional packets that are currently not implemented by my driver:
+- http://dev.mysql.com/doc/internals/en/prepared-statement-initialization-packet.html
+- http://dev.mysql.com/doc/internals/en/parameter-packet.html
+- http://dev.mysql.com/doc/internals/en/long-data-packet.html
+- http://dev.mysql.com/doc/internals/en/execute-packet.html
+I have not yet analyzed how much work it would be to implement them, but my gut feeling is ~5 days of work.",0,0,msr
+4,"How does https://github.com/sidorares/nodejs-mysql-native handle this? Any reason not to just borrow parts of the way it's done over there?
+I'm still somewhat struggling with the number of different MySQL drivers for Node.JS. I think Node makes it way too fun to write network protocol code. :P Maybe in a year or so the community will have coalesced around one or two really solid libraries.",0,1,msr
+0,"I noticed that Prepared Statements seem to be emulated client-side by escaping certain characters.
+Any plans to fully support service-side Prepared Statements? This can be done via the binary protocol, but there's a slower SQL-based approach available for non-binary clients:
+http://dev.mysql.com/doc/refman/5.5/en/sql-syntax-prepared-statements.html",0,0,msr

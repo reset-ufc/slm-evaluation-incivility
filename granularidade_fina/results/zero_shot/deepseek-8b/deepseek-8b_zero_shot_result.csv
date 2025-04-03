@@ -1,0 +1,11 @@
+Strategy,Modelo,Tbdf,Precision,Recall,F1-score,Real_samples,Predicted_samples,Fp,Fn,Allucination Rate
+zero_shot,deepseek-8b,bitter frustration,0.14084507042253522,0.46747967479674796,0.2164705882352941,492.0,1633.0,1403.0,262.0,0.0
+zero_shot,deepseek-8b,impatience,0.05616302186878728,0.424812030075188,0.09920983318700614,266.0,2012.0,1899.0,153.0,0.0
+zero_shot,deepseek-8b,mocking,0.0,0.0,0.0,176.0,1.0,1.0,176.0,0.0
+zero_shot,deepseek-8b,irony,0.0,0.0,0.0,64.0,4.0,4.0,64.0,0.0
+zero_shot,deepseek-8b,vulgarity,0.0,0.0,0.0,71.0,0.0,0.0,71.0,0.0
+zero_shot,deepseek-8b,threat,1.0,0.043478260869565216,0.08333333333333333,23.0,1.0,0.0,22.0,0.0
+zero_shot,deepseek-8b,identify attack/name calling,0.0,0.0,0.0,28.0,0.0,0.0,28.0,0.0
+zero_shot,deepseek-8b,none,0.8584310189359784,0.42245396050587974,0.5662453531598513,4507.0,2218.0,314.0,2603.0,0.0
+zero_shot,deepseek-8b,entitlement,0.0,0.0,0.0,70.0,2.0,2.0,70.0,0.0
+zero_shot,deepseek-8b,insulting,0.0,0.0,0.0,174.0,0.0,0.0,174.0,0.0

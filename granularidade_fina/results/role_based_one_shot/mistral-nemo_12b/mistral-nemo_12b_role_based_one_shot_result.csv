@@ -1,0 +1,11 @@
+Strategy,Modelo,Tbdf,Precision,Recall,F1-score,Real_samples,Predicted_samples,Fp,Fn,Allucination Rate
+role_based_one_shot,mistral-nemo_12b,bitter frustration,0.0,0.0,0.0,492.0,10.0,10.0,492.0,0.0
+role_based_one_shot,mistral-nemo_12b,impatience,0.0,0.0,0.0,266.0,20.0,20.0,266.0,0.0
+role_based_one_shot,mistral-nemo_12b,mocking,0.0,0.0,0.0,176.0,8.0,8.0,176.0,0.0
+role_based_one_shot,mistral-nemo_12b,irony,0.06091370558375635,0.1875,0.09195402298850575,64.0,197.0,185.0,52.0,0.0
+role_based_one_shot,mistral-nemo_12b,vulgarity,0.21739130434782608,0.352112676056338,0.26881720430107525,71.0,115.0,90.0,46.0,0.0
+role_based_one_shot,mistral-nemo_12b,threat,0.1595744680851064,0.6521739130434783,0.2564102564102564,23.0,94.0,79.0,8.0,0.0
+role_based_one_shot,mistral-nemo_12b,identify attack/name calling,0.03248259860788863,0.5,0.06100217864923747,28.0,431.0,417.0,14.0,0.0
+role_based_one_shot,mistral-nemo_12b,none,0.8929159802306426,0.8418016418903927,0.8666057560529923,4507.0,4249.0,455.0,713.0,0.0
+role_based_one_shot,mistral-nemo_12b,entitlement,0.036619718309859155,0.37142857142857144,0.06666666666666667,70.0,710.0,684.0,44.0,0.0
+role_based_one_shot,mistral-nemo_12b,insulting,0.3783783783783784,0.08045977011494253,0.13270142180094788,174.0,37.0,23.0,160.0,0.0
