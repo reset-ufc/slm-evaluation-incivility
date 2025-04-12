@@ -110,10 +110,18 @@ class GeradorResultados:
                 predicted_samples = len(y_pred)
                 false_positives = ((y_pred == label) & (y_true != label)).sum()
                 false_negatives = ((y_true == label) & (y_pred != label)).sum()
+                true_positives = ((y_true == label) & (y_pred == label)).sum()
+                
+                # Cálculo manual da acurácia por classe
+                if real_samples_forlabel > 0:
+                    accuracy = true_positives / real_samples_forlabel
+                else:
+                    accuracy = 0.0
 
                 custom_report[label] = {
                     'Precision': report_dict[label]['precision'],
                     'Recall': report_dict[label]['recall'],
+                    'Accuracy': accuracy,
                     'F1-score': report_dict[label]['f1-score'],
                     'Real_samples': real_samples_forlabel,
                     'Predicted_samples': predicted_samples_forlabel,
@@ -137,7 +145,9 @@ class GeradorResultados:
                 "deepseek_14b": "deepseek-14b",  # Nome ajustado para a pasta
                 "llama3.2_3b": "llama3.2_3b",
                 "mistral_nemo_12b": "mistral-nemo_12b",
-                "llama3.1_8b": "llama3.1_8b"
+                "llama3.1_8b": "llama3.1_8b",
+                "phi3_3.8b": "phi3_3.8b",
+                "phi4_14b": "phi4_14b"
             }
 
             # Encontra qual modelo está no nome do arquivo

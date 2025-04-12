@@ -1,4 +1,4 @@
-﻿Comments,Tbdf
+Comments,Tbdf
 "I noticed that Prepared Statements seem to be emulated client-side by escaping certain characters.
 Any plans to fully support service-side Prepared Statements? This can be done via the binary protocol, but there's a slower SQL-based approach available for non-binary clients:
 http://dev.mysql.com/doc/refman/5.5/en/sql-syntax-prepared-statements.html",Irony
@@ -8289,7 +8289,7 @@ I'm rewriting ours tomorrow. I'll take a look and make some suggestions.
 UPDATE : The one at the above link seems to have most of it covered well. The additional sections that we have in ours are mostly to do with marketing which is most likely not relevant.",Irony
 "[off-topic]: @splitbrain: I assume this is the page do you mean at the top of https://www.dokuwiki.org/privacy ?!
 I already corrected the link there.",Mocking
-"An excellent article in Bozho's tech blog: [GRPD - a practical guide for developers ](https://techblog.bozho.net/gdpr-practical-guide-developers/). Also, the Drupal GDPR Compliance Team gives a lot of links on their [dedicated page](https://www.drupal.org/project/drupal_gdpr_team)",None
+"An excellent article in Bozho's tech blog: [GRPD - a practical guide for developers ](https://techblog.bozho.net/gdpr-practical-guide-developers/). Also, the Drupal GDPR Compliance Team gives a lot of links on their [dedicated page](https://www.drupal.org/project/drupal_gdpr_team)",
 "@splitbrain About the privacy page, I think you have to ensure somehow the users data is save and that how it is kept save has to be described somehow internally for accountability.
 Serverlogs, do they contain a user ticket number that is related to their account and visible or knowable by google analytics, if so you should mention that possibly.
 GDPR is not done something done by lawyers, but rather accountants, they check if their customers are GDPR compliant. Good starting point: https://gdprchecklist.io",Bitter Frustration
@@ -17457,7 +17457,7 @@ About to do the rename,Mocking
 - [x] version-management:main
 - [x] web-server-frameworks:main
 - [x] webidl-napi:main
-[midawson@midawson rename]$",None
+[midawson@midawson rename]$",
 "Good on the pkgjs branch as well
 midawson@midawson rename]$ node doit.js - [x] .github:main
 - [x] action:main
@@ -19259,7 +19259,7 @@ Electron: 17.4.3
 Chromium: 98.0.4758.141
 Node.js: 16.13.0
 V8: 9.8.177.13-electron.0
-OS: Darwin x64 20.6.0",None
+OS: Darwin x64 20.6.0",
 This is a placeholder issue to remind our triage processes to check for live security advisories.,Irony
 "Please go to https://github.com/deepmodeling/deepmd-kit/discussions to ask questions. Before asking questions, you can
 - search the previous discussions
@@ -19863,7 +19863,7 @@ SirFell#1024",Irony
 "@Cheesebaron Thanks for responding so quickly. So it seems that support for Xamarin.Native (as it called today) will continue in MVVMCross beyond the introduction of MAUI.
 Forgive my ignorance what does TFM stand for?",Irony
 TFM stands for Target Framework Moniker 😄,Mocking
-Thanks,None
+Thanks,
 "I currently develop a mobile application using Xamarin.Android and MVVMCross.
 My understanding is that Xamarin.Native (Xamarin.Android and Xamarin.iOS) will now be part of .NET 6.0 when it is released in November 2021
 Will this affect the development of MVVMCross and will MVVMCross going to continue to support this.
@@ -23214,7 +23214,7 @@ Legend says this issue will still exist even on the end of mankind,Irony
 Ah yes,Irony
 this is war,Threat
 L,Mocking
-nice,None
+nice,
 "Is your request something like this?
 * Invent some special metadata that can be set on a Flatpak (or Snap?) app, with the semantics ""this app can take screenshots without prompting"". Flatpak (and Snap?) would not do anything differently in setting up sandboxes based on this metadata, it's just a marker.
 * Make the screenshot portal look for that metadata in `/.flatpak-info`. If it's present, just take the screenshot without prompting, with parameters (window/whole screen/etc.) controlled by the request.
@@ -23735,7 +23735,7 @@ Your reaction does not speak for buying this plugin if the reaction is so snotty
 Then do what you want, we will look for an alternative so you can scare off your users.
 In addition, I'm not the only one who has the problem, be happy if you are made aware of mistakes instead of giving such outrageous answers.
 Plotsquared is done for me, have a nice life.",Bitter Frustration
-Ok,None
+Ok,
 "As I'm able to replicate the issue using the steps from the original post, I'll mark the issue as a valid bug. ![grafik](https://user-images.githubusercontent.com/27054324/151204917-69c837e2-71d0-47b1-a32f-40f295128d2c.png)",Bitter Frustration
 "### Server Implementation
 Spigot
@@ -24357,7 +24357,7 @@ Some of Tailscale's service providers are affected by this vulnerability and are
 We are waiting for all of Tailscale's affected service providers to complete patching or otherwise finish their remediation efforts.
 We will update this issue again when we have further information, which is expected to be on 2022-01-05.",Impatience
 "We have received updates from the remaining affected service provides that they have completed patching or other remediation efforts.
-At this point in time, we believe Tailscale and its vendors are no longer affected by the log4j vulnerability, and found no evidence of it being exploited to affect Tailscale.",None
+At this point in time, we believe Tailscale and its vendors are no longer affected by the log4j vulnerability, and found no evidence of it being exploited to affect Tailscale.",
 "A [new critical security vulnerability in log4j 2 has been discovered (CVE-2021-44228)](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q) and is [being actively exploited](https://arstechnica.com/information-technology/2021/12/minecraft-and-other-apps-face-serious-threat-from-new-code-execution-bug/). It allows for remote code execution by logging untrusted user input.
 **Tailscale does not run Java or Java Virtual Machines (JVM) as part of our core infrastructure**, including our control plane, client, and relay servers.
 Tailscale does use [service providers](https://tailscale.com/privacy-policy/#share) to run various functions like cloud infrastructure hosting, log management, and various SaaS applications. Some of these store personal information. **We are waiting on statements from the cloud and infrastructure providers we use, and have contacted our remaining service providers, to understand how they may be impacted.**
@@ -24911,7 +24911,7 @@ nd6 options=21<PERFORMNUD,AUTO_LINKLOCAL>
 ```
 root@inet-fw:~ # cat /var/etc/radvd.conf
 # Automatically generated, do not edit
-```",None
+```",
 "Not sure what is going on, but radvd is empty so maybe no tracking enabled? It should have said in the initial post.",Impatience
 "I find it strange that the log messages reference the example configuration file with line number: `/usr/local/etc/radvd.conf:111`
 Which, this file includes exclusively a setting for loopback:
@@ -25414,7 +25414,7 @@ Electron: 13.5.2
 Chromium: 91.0.4472.164
 Node.js: 14.16.0
 V8: 9.1.269.39-electron.0
-OS: Darwin arm64 20.6.0",None
+OS: Darwin arm64 20.6.0",
 "When the internal PDF viewer for the current document is not visible, executing forward SyncTeX moves the panel into the current editor group.
 https://user-images.githubusercontent.com/10665499/148715374-f51335be-8074-41de-9966-394d60013588.mov
 `panel.reveal` doesn't work well. Related to microsoft/vscode/issues/138914",Impatience
@@ -25532,7 +25532,7 @@ The point here is that there's only one :) All other overloads are extensions. S
 I found this via SO: https://github.com/aspnet/AspNetIdentity/blob/main/src/Microsoft.AspNet.Identity.Core/AsyncHelper.cs",Irony
 "I believe that works because it uses a separate task, so it's a similar pattern achieved in a different way to how Rebus did it. I am not sure which one is more efficient. We use Rebus in our code and I stole their code to solve the deadlock issues when we had it, and it worked. I have also solved in the past simply by running the code in a separate background thread similar to the AspNet approach and that works also. But I think it's higher overhead than the approach taken by Rebus and other libraries?
 I am sure either approach works, but I know that just using GetAwaiter().GetResult() on an async function will cause deadlocks in web apps (or Windows Forms apps). We had tons of hung web requests when I was doing it without the task wrapper.",Impatience
-Updated,None
+Updated,
 "Been a while since I looked and and debugged the Rebus version, but I did step through it with a debugger to understand it back then. I am pretty sure it's much lower overhead as it never triggers a separate background thread, so puts no extra pressure on the thread pool. Rather it swaps out the SynchronizationContext so that when the task returns, it comes back on something other than the original sync context which is where you get the deadlocks.",Irony
 "I don't think there's an explicit new thread when using the task factory. I think it will use the available IO thread from the pool. Synchronization context, on the other hand, produces some overhead. I believe that doing something like `.ConfigureAwait(false).GetAwaiter().GetResult()` would work, but not in WinForms (for example). I also know that ASP.NET Core behaves differently compared with .NET Framework when it comes to `GetAwaiter().GetResult()`",Irony
 "Yes, its possible it would work differently in ASP.NET Core. Porting our code to that is a massive undertaking which is still a work in progress :( But we also use RestSharp in WinForms apps (EasyPost and ShipEngine) so the AsyncHelper approach is what has worked for us.
@@ -27553,7 +27553,7 @@ Interesting generalization for a well-meaning person. Your assertion of knowledg
 "To be honest I do need to understand how Helium works better. But the documentation is not consistent with all the rapid introduction of HIPs
 My whole point though is that you can learn from people that understand wireless without assuming they are telco heads. My comments are clearly too broad to be of value. So maybe we should start with cross education. Teach me Helium and I will teach you how cellular works reasonably well but is controlled completely by 3 wireless operators. So you can take the telco technology but modify it to with in a decentralized ownership model. The only problem with the current cellular systems is cost and control - not the technology.",Irony
 "I see Helium struggling with problems that the telcos solved a long time ago. As Thomas Edison said, I start where others left off. Take the technology but add to it to fit a decentralized model. Because if you don’t figure it out soon Private 5G and WiFi6E will eat your lunch because they are not controlled by the telcos.",Threat
-Ok,None
+Ok,
 Know that IOT/Lorawan are peanuts compared to 5G which is where Helium is headed. And yes I know wireless 4G/5G well but IOT less.,Mocking
 "And look at it this way, when have you found an ex Telco Head willing to bare all their secrets. So you should at least hear me out if nothing more than as a spy for you",Threat
 "And it’s been 12 years since I was a Telco head, so so I am cured from the cool aid that they drink",Mocking
@@ -27695,7 +27695,7 @@ even freeglut fails me,Bitter Frustration
 Oh ok :(,Bitter Frustration
 "I just got `glxgears` working ([sources](https://github.com/JoakimSoderberg/mesademos/blob/master/src/xdemos/glxgears.c)). So it may rather depend on where you got it and how it was compiled, but not on GLX extension presence.
 <p align=""center""><img src=""https://user-images.githubusercontent.com/25881154/127045923-4595e77e-a788-4630-9445-1888447e21e6.png"" width=""50%""/></p>",Irony
-Thanks,None
+Thanks,
 @Yisus7u7 maybe because you're on arm32,Mocking
 "> @Yisus7u7 maybe because you're on arm32
 Why?",Mocking
@@ -28340,7 +28340,7 @@ I'd say we're pretty close, the only components missing are the big complex ones
 - data table ([in progress](https://github.com/vuetifyjs/vuetify/tree/feat/v3-data-table))
 - calendar ([in progress](https://github.com/vuetifyjs/vuetify/pull/15038))
 - pickers ([in progress](https://github.com/vuetifyjs/vuetify/tree/feat/v3-date-picker))",Impatience
-Thanks for the update!,None
+Thanks for the update!,
 "thanks for the update @KaelWD , we're getting closer to some estimates.
 Regarding DOCS, I'm not telling that the Docs are not updated.
 On the contrary! The [v.3.0 docs for `v-select`](https://next.vuetifyjs.com/en/api/v-select/#props-items) state that `props-item` are working as expected.
@@ -29718,7 +29718,7 @@ is returning the parameters, but not in a way to solve the task. I think the ins
 >Define the eat_ghost() function that takes two parameters (if Pac-Man has a power pellet active and if Pac-Man is touching a ghost) and returns a Boolean value if Pac-Man is able to eat the ghost.
 In the 20+ times I've mentored this exercise I don't recollect any student saying they've been confused by the instructions for that task. They sometimes do more than they need to solve it by setting the expression to a variable and then returning the variable, or by using if/else when they can just return the parameters joined with the correct logical operator, but they get the general gist.
 Clearness of the instructions is taken just as seriously as not modifying the instructions unnecessarily. It's a pain for everyone when their completed solution becomes outdated just from a change to the instructions. If there were multiple people complaining about these instructions being unclear, then a re-evaluation of them would certainly be in order. But, sorry, that is less likely to happen with a one-off complaint, no matter how fervent it may be.",Impatience
-"Closing this for now, as we've had no additional complaints. Will re-open if the issue comes up again from additional students or mentors.",None
+"Closing this for now, as we've had no additional complaints. Will re-open if the issue comes up again from additional students or mentors.",
 "Should be mentions of ""If Else statements in the readme because the Boolean expressions are a red herring. You cannot solve anything by setting the value to true or false.",Irony
 php yii migrate,Impatience
 JORDI U ARE A BULLSHIT,Identify Attack/Name Calling
@@ -31453,7 +31453,6 @@ lol",Mocking
 典中典",Mocking
 "Do you know why there is a GFW in China? cause CCP sucks, these SOBs are afraid of their people knowning or telling the truth, all words published on China's social media/platform are reviewed strictly, anything CCP doesn't like will be banned, and on the other side, they claim that there is something called FREE-SPEECH is existed in China, so F*CK them",Vulgarity
 The necessary process of localization in China,Bitter Frustration
-哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈,error
 典,Mocking
 "> ![image](https://user-images.githubusercontent.com/44344308/196600820-ca8d3cbc-3c07-4bb1-b49d-dbb642854a02.png) VS Code ""Officially licensed"": https://www.google.com lol
 入典！！！
@@ -31889,7 +31888,7 @@ The hide-shorts-button and hide-create button patches together are the patches t
 10-21 15:50:31.089 27891 27891 D AndroidRuntime: Shutting down VM
 ```",Bitter Frustration
 "yep, same crash as @epic0421's. hide-shorts-button + hide-create-button = startup crush",Mocking
-hide-shorts-button doesn't seem to cause any issues for me,None
+hide-shorts-button doesn't seem to cause any issues for me,
 Fixed.,Irony
 "### Type
 Other
@@ -33832,7 +33831,7 @@ Status `~/Documents/Skola/julia/PlutoNotebooks/Manifest.toml`
 [91a5bcdd] Plots v1.37.2
 [3cdcf5f2] RecipesBase v1.3.2
 [01d81517] RecipesPipeline v0.6.11
-```",None
+```",
 "Same issue here:
 ```julia
 pkg> st -m Plots RecipesBase

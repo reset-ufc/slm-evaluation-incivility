@@ -71,6 +71,7 @@ def switch_better_global(metric_column: str, strategy_name: str, list_strategy: 
             'Pr': best_row['Precision'],
             'Re': best_row['Recall'],
             metric_column: best_row[metric_column],
+            'Accuracy': best_row['Accuracy'],
             'FP': best_row['Fp'],
             'FN': best_row['Fn']
         }
@@ -81,6 +82,7 @@ def switch_better_global(metric_column: str, strategy_name: str, list_strategy: 
             'Pr': 'NaN',
             'Re': 'NaN',
             metric_column: 'NaN',
+            'Accuracy': 'NaN',
             'FP': 'NaN',
             'FN': 'NaN'
         }
@@ -118,6 +120,7 @@ def switch_worst_global(metric_column: str, strategy_name: str, list_strategy: l
             'Pr': worst_row['Precision'],
             'Re': worst_row['Recall'],
             metric_column: worst_row[metric_column],
+            'Accuracy': worst_row['Accuracy'],
             'FP': worst_row['Fp'],
             'FN': worst_row['Fn']
         }
@@ -128,6 +131,7 @@ def switch_worst_global(metric_column: str, strategy_name: str, list_strategy: l
             'Pr': 'NaN',
             'Re': 'NaN',
             metric_column: 'NaN',
+            'Accuracy': 'NaN',
             'FP': 'NaN',
             'FN': 'NaN'
         }
@@ -144,6 +148,7 @@ def fill_table(df_table, list_df, list_strategy, list_tbdf):
             df_table.loc[(strategy, "Best"), (tbdf, "Model")] = better['Model']
             df_table.loc[(strategy, "Best"), (tbdf, "Pr")] = better['Pr']
             df_table.loc[(strategy, "Best"), (tbdf, "Re")] = better['Re']
+            df_table.loc[(strategy, "Best"), (tbdf, "Accuracy")] = better['Accuracy']
             df_table.loc[(strategy, "Best"), (tbdf, "F1")] = better['F1-score']
             df_table.loc[(strategy, "Best"), (tbdf, "FP")] = better['FP']
             df_table.loc[(strategy, "Best"), (tbdf, "FN")] = better['FN']
@@ -152,6 +157,7 @@ def fill_table(df_table, list_df, list_strategy, list_tbdf):
             df_table.loc[(strategy, "Worst"), (tbdf, "Model")] = worse['Model']
             df_table.loc[(strategy, "Worst"), (tbdf, "Pr")] = worse['Pr']
             df_table.loc[(strategy, "Worst"), (tbdf, "Re")] = worse['Re']
+            df_table.loc[(strategy, "Worst"), (tbdf, "Accuracy")] = worse['Accuracy']
             df_table.loc[(strategy, "Worst"), (tbdf, "F1")] = worse['F1-score']
             df_table.loc[(strategy, "Worst"), (tbdf, "FP")] = worse['FP']
             df_table.loc[(strategy, "Worst"), (tbdf, "FN")] = worse['FN']
@@ -162,11 +168,11 @@ def fill_table(df_table, list_df, list_strategy, list_tbdf):
         
 # Definindo as categorias e as métricas
 tbdf_classes = [
-    "Bitter Frustration", "Impatience", "Mocking", "Irony", 
-    "Vulgarity", "Threat", "Entitlement", "Insulting", 
-    "Identity attack/Name Calling", "None"
+    "Bitter Frustration", "Impatience", "Mocking", "Vulgarity","Insulting","None",
+    "Entitlement","Identify Attack/Name Calling","Irony", "Threat"
 ]
-metrics = ["Model", "Pr", "Re", "F1", "FP", "FN"]
+
+metrics = ["Model", "Pr", "Re","Accuracy", "F1", "FP", "FN"]
 
 # Criando o MultiIndex para as colunas
 multi_columns = []

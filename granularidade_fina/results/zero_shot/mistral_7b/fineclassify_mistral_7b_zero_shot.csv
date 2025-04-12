@@ -1,4 +1,4 @@
-﻿Comments,Tbdf
+Comments,Tbdf
 "I noticed that Prepared Statements seem to be emulated client-side by escaping certain characters.
 Any plans to fully support service-side Prepared Statements? This can be done via the binary protocol, but there's a slower SQL-based approach available for non-binary clients:
 http://dev.mysql.com/doc/refman/5.5/en/sql-syntax-prepared-statements.html",Bitter Frustration
@@ -150,7 +150,7 @@ https://github.com/contao-community-alliance/composer-client
 The client can run composer in 3 modes:
 - inline: directly within the web servers php process
 - process: start a process with `proc_open` within the web servers php process
-- detached: start and fork composer into background process",None
+- detached: start and fork composer into background process",
 "This isn't really an issue with composer and should be closed. > Sadly Composer makes PHP projects for only rich people who can buy hostings with SSH access.
 That's entirely untrue as Digital Ocean sells VPS for $5/month and Linode sells them for $10/month.",Bitter Frustration
 "Hi, im running node-mysql latest on node-latest.
@@ -233,7 +233,7 @@ Unfortunately I am not programmer and I am not skilled enough to implement it my
 It would be great for textures.,Bitter Frustration
 "It wouldn't actually... since its design/function is for sprites, not textures.",Bitter Frustration
 Its possible to use it for textures as well.,Bitter Frustration
-PPSSPP is using xBRZ for textures and it looks very good.,None
+PPSSPP is using xBRZ for textures and it looks very good.,
 yes but one more option that the team don't wan't to do is mipmap at hardware mode in gsdx but i think the mipmap are better than xBRZ,Bitter Frustration
 "Mipmapping would be useful but is pretty basic xBRZ may be better. Techniques which are clearly better are Tessellation, Displacement Mapping and Parallax Occlusion Mapping.",Bitter Frustration
 "xBRZ makes textures and sprites ugly, I rather have Nearest.",Bitter Frustration
@@ -499,7 +499,7 @@ tank freeing 0 default
 tank feature@async_destroy enabled local
 tank feature@empty_bpobj active local
 tank feature@lz4_compress enabled local
-```",None
+```",
 "Had similar failures, which occurred during heavy rsync pulls from remote machine. I was able to make it happen very quickly by starting up the remote pull. Did this three times in a row and caused the fault every time. The symptom was that any userland zfs/zpool commands hang, but the machine was still responsive to other commands. I set the parameter spl_kmem_cache_slab_limit=0 (it had been spl_kmem_cache_slab_limit=16384), and the problem seems to be gone, or not easliy triggered.
 Part of the process which triggers this includes snapshot renaming, **but no zvols** are involved in this process, although the pool has some.
 The pool is a raidz1 pool, and there are no hardware issues on the server.
@@ -568,7 +568,7 @@ Sep 26 00:11:23 zephyr kernel: [200583.127118] [<ffffffff816a85d6>] ? ftrace_cal
 Sep 26 00:11:23 zephyr kernel: [200583.127131] [<ffffffff8119ae9a>] do_vfs_ioctl+0x8a/0x340
 Sep 26 00:11:23 zephyr kernel: [200583.127135] [<ffffffff8119b1e1>] sys_ioctl+0x91/0xa0
 Sep 26 00:11:23 zephyr kernel: [200583.127141] [<ffffffff816a8829>] system_call_fastpath+0x16/0x1b
-```",None
+```",
 "@ColdCanuck Your comments regarding `spl_kmem_cache_slab_limit` piqued my interest in this issue which until now, I've not had time to follow. In fact, a quick skim of this whole issue makes me wonder how related each of the problem reports are and whether there's too much issue creep.
 Back to the point at hand: I'm posting this followup because there have been a disturbing number of seemingly otherwise unrelated problems sporadically seemingly caused by using the Linux slab. Although I've not been able to spend the time on it I've wanted to, I've been rather knee deep investigating the series of issues related to Posix ACLs and SA xattrs and have seen at least one report (#2701) and, more interestingly #2725 which makes me think there may be a tie-in to our use of the Linux slab for <= 16KiB objects. I don't have any other brilliant observations offer at the moment other than to raise concern there may be problems realted to using the Linux slab and to ask @behlendorf, @ryao et al. what your thoughts are on this (particularly given the last few comments in #2725).",Bitter Frustration
 "just posting what comes to mind:
@@ -1605,7 +1605,7 @@ Jun 15 17:01:57 ip-172-30-0-118 kernel: [114000.873530] [<ffffffff8108809d>] ? k
 Jun 15 17:01:57 ip-172-30-0-118 kernel: [114000.876425] [<ffffffff81087fe0>] ? kthread_create_on_node+0x180/0x180
 Jun 15 17:01:59 ip-172-30-0-118 kernel: [114000.879915] [<ffffffff81514958>] ? ret_from_fork+0x58/0x90
 Jun 15 17:02:00 ip-172-30-0-118 kernel: [114000.882644] [<ffffffff81087fe0>] ? kthread_create_on_node+0x180/0x180
-```",None
+```",
 "@narunask could you please post output of ```
 cat /proc/spl/kstat/zfs/arcstats
 ```
@@ -1764,7 +1764,7 @@ Bank Locator: Not Specified
 Type: RAM
 Type Detail: None
 ```
-Thanks",None
+Thanks",
 "I haven't seen the problem for quite a while now (seemed to have gone since 0.6.5.6), but this morning I had the very same hung task with 0.6.5.7 (single occurrance) come up again. Sigh...",Bitter Frustration
 "I can confirm that I have not seen this issue happen for ages on the same hardware. I have not had it reoccur, probably within the last 3-6 months.",Bitter Frustration
 "Still happening with heavy RSync backups.
@@ -2285,7 +2285,7 @@ zfs_vdev_sync_read_max_active 10
 zfs_mdcomp_disable 0
 zfs_arc_num_sublists_per_state 4
 ```
-Do you need any more information? and what do you think about this setup? is my hardware undersized?",None
+Do you need any more information? and what do you think about this setup? is my hardware undersized?",
 I checked and the majority of my backups are < 200k files and < 20GBytes.,Bitter Frustration
 "I hope it helps:
 > user@server ~ $ cat /var/log/syslog | grep zfs
@@ -2477,7 +2477,7 @@ This way the pre-existing Term can be referred to instead of creating two instan
 term = create(:term)
 period = create(:period, term: term)
 candidate = create(:candidate, term: term)
-```",None
+```",
 Thank you @joshuaclayton !,Bitter Frustration
 "**From OP:**
 ```ruby
@@ -2566,7 +2566,7 @@ name: 'unique_name'
 end
 end
 ```
-this moves the logic to the definition of your singleton factory.",None
+this moves the logic to the definition of your singleton factory.",
 "If you're really working with a Singleton, I'm not sure you need FactoryBot at all. If it's not really a singleton, than first_or_initialize has the non-determinism problem mentioned above. Am I missing something about what you're trying to do?",Irony
 "I feel hurt by the word Singleton because it reminds me of who I think I am.
 This message is not trollish intent to hurt anyone, rather a part of a philosophical debate. (cc @skatenerd)
@@ -3042,7 +3042,7 @@ What you want is something that tells you how to organize and load _your_ data. 
 I realize rereading your post that your data is most likely text documents. So my two examples of data (medical images and tabular data) were both wrong :$. Maybe the documentation on processing text with scikit-learn could indeed be improved and touch a bit on data organization. I don't know, I very seldom process text. But if you want to do add a few words on this, you are most welcomed to do a pull request. Anyhow, this illustrate my point about the diversity of the data: this whole thread is mostly about loading CSV files, as can be seen from earlier comments (before the thread exploded into a rant). The important thing is not the ""CSV"", which is the container, but the data model that underlies a CSV file. This data model is that of columns of data with different nature. It's a very different data model than processing text documents.
 And finally, you are unhappy that teaching people ""how to import your data"" is time consuming. I don't think that there is an easy fix for this, even in a specific domain. The reason being that data meaning (ie data semantics) is still very much an open area. It's intrinsically hard to describe what the data means and how it's organized. You can try a simple experience: grab a dataset from someone you don't know, about an experiment you don't know, and try understanding it. Not even loading it, just understanding it. I am sure that it will take time. What takes a human time tends to be very difficult for a computer.",Bitter Frustration
 Hm I don't think we added pointers to the FAQ yet. It's certainly a FAQ.,Bitter Frustration
-I wrote a short tutorial on how to get the dataset from a text format to a pandas DataFrame for use by sklearn here http://cis399-he.tumblr.com/post/151024047044/load-your-data-to-scikit-learn,None
+I wrote a short tutorial on how to get the dataset from a text format to a pandas DataFrame for use by sklearn here http://cis399-he.tumblr.com/post/151024047044/load-your-data-to-scikit-learn,
 fixed in #7516,Bitter Frustration
 "Well you could add some information about common errors that happen when loading own data. For example I have bumped on `Unknown label type: 'continuous-multioutput'` and not a hint, anywhere, what that could mean. I've tried passing:
 - a numpy array created from csv reader
@@ -3371,7 +3371,7 @@ Now it's fast again... really depends on time of day and luck (as stated above..
 "I'm having this same problem when trying to download Bento boxes. I'm using Vagrant 1.9.5 with 5.1.22. I've tried several times, during various days. My normal download speed is 1.7mb~ but when dowloading boxes I can't get pass 40kb.
 If I try downloading with wget I get the same low speed.",Bitter Frustration
 "Maybe the move will help:
-https://www.vagrantup.com/docs/vagrant-cloud/vagrant-cloud-migration.html",None
+https://www.vagrantup.com/docs/vagrant-cloud/vagrant-cloud-migration.html",
 "Gonna try again tonight to see if the migration helped. Anyway I noted that with a different ISP the download rates were fine, so I guess it's not a problem with Vagrant itself (like many users already reported).",Bitter Frustration
 "Well, nothing has changed, it still downloads at a snail's pace given that i am on a 125 Mbps connection!",Bitter Frustration
 Sooooooooooooooo slowly！！！！:(,Bitter Frustration
@@ -3759,7 +3759,7 @@ Personally, I find it rude; it shows disinterest in the views of those outside o
 "@raphaelcohn I know what you mean and we should always be wary of overdoing that, it might stagnate innovation, but I also think there is value in organization and strict review. Rust's promise is to be a secure language, that means it must takes steps carefully, which makes it more difficult to innovate. I agree that there eventually needs to be an RFC for this but I don't really see the point of restricting discussions about feature changes in these github issues. I suppose they use this as a bug tracker, and new features are not supposed to be tracked here.
 In general, I think there are a lot of improvements that could be made to the entire open source workflow nowadays. The tools don't really integrate well, basically just using hyperlinks. For open source work there ought to be issue dependencies, resource budgets, integrated documentations and tests, voting on forks, funding, user permissions, all of that. That would make open source a lot more ""open"" and transparent. It has to come eventually, but there still needs some work to be done.",Bitter Frustration
 "Moderation note: what @steveklabnik said is correct. The kind of unconstructive broad criticism that has taken place in the past few comments is not appropriate here. Since this discussion doesn't seem to be headed anywhere good, and the next steps if one were to make progress have been clarified, I'm going to lock this thread.",Bitter Frustration
-very good feature :+1:,None
+very good feature :+1:,
 +1 for this feature : ),Irony
 1,Bitter Frustration
 1,Bitter Frustration
@@ -3875,7 +3875,7 @@ Redbean::freeze(true);
 class R extends \RedbeanPHP\R {}
 \R::freeze(true);
 ```
-Also, to make sure every database library you use use the same method names, you should create [an interface](http://php.net/interface).",None
+Also, to make sure every database library you use use the same method names, you should create [an interface](http://php.net/interface).",
 "i just used `class_alias('\RedBean\R','\R');` and it worked fine.",Bitter Frustration
 "I never use composer. I never even use apt-get, yum, npm or any other kind of dependency resolution. Good software has no dependencies other than an OS / VM.",Bitter Frustration
 "I understand where you are coming from Gabor, but our jobs depend on is to be agile-- that is to say, we must get alot done I short periods of time. Now I could spend time wget'ing, untaring,and requiring red bean manually, but it makes more sense to just type composer install.",Impatience
@@ -4155,7 +4155,7 @@ for /f %%F in ('dir %1 /s /b') do (
 ENDLOCAL
 ```",Impatience
 "Plugin in python3 for this:
-https://gist.github.com/oltodosel/566e051191f3a58b905db2cc6980656f",None
+https://gist.github.com/oltodosel/566e051191f3a58b905db2cc6980656f",
 Has there been any updates if/when this feature would be added?,Bitter Frustration
 Since 2015 and this still isn’t added yet? Come on. This would be such a useful feature.,Bitter Frustration
 "I would love to have this feature implemented. There could be a global file extension filter, or have the filter setup by category (so categories can have different filters).",Bitter Frustration
@@ -4361,7 +4361,7 @@ The first plot indicates that the errors of line1 are too small to be seen (hidd
 Obviously I can just change the settings (after finally finding out these things are called caps). I find this change however very dangerous, as in a less obvious case I am tricked into reading the plot wrong. This should never happen! Thus, I would argue to make the caps bigger than the actual marker by default.",Bitter Frustration
 "@DerWeh I'm sorry you had this issue, however it is unlikely that we will revert this change. The use cases for Matplotlib are very broad and a stylistic choice that makes sense in one field (or with one set of data) does not make sense with another. This issue appears to happen when 1) you have discrete x values shared across all of your datasets 2) the y values are almost identical 3) the error range of the first set is strictly less than the second at all points. If any of those things were not true, we would not be having this conversation ;). You might also consider setting the alpha of each of the artists to 0.5 so you can see when they overlap. I would argue the real bug here is the interlaced z-order layering of the markers, errorbars, and caps...",Irony
 "@DerWeh The standard solution to your plotting problem is to add slight offsets for two sets of points. Shift the orange points a pixel to the left and the blue points a pixel to the right. Then they are very nicely comparable. Furthermore, if you insist on caps, although they are intentionally absent in most high-quality scientific papers in my field, you can still override matplotlibrc. Just set the capsize to 3.",Bitter Frustration
-This is a kind of solution: https://stackoverflow.com/a/49838455/2803344,None
+This is a kind of solution: https://stackoverflow.com/a/49838455/2803344,
 "I lost this argument a number of years ago, but I will say I have yet to meet anyone who thinks the default is the better choice.",Bitter Frustration
 "the overlay problem is just a symptom of another problem with that plot: directly overlaying errorbars is not something you should ever do. moving them slightly to the side is how that plot should have looked in the first place.
 there’s quite a few people who think the new default is better in this very thread.
@@ -4412,7 +4412,7 @@ Thanks @stek29. Amazing response time there too.,Bitter Frustration
 "@gottesman That's a regression, this dropdown should appear below the top bar (which leads to group profile or back), I'll fix that in the next version, thanks.",Bitter Frustration
 I wonder if there's even a point of that popup. I mean going to the group profile gives you a much more convenient user list anyway.,Bitter Frustration
 "@john-preston It's way better now in the new Alpha :thumbsup:
-![image](https://cloud.githubusercontent.com/assets/8980291/24935824/b2229352-1f24-11e7-9eee-a8f99a557632.png)",None
+![image](https://cloud.githubusercontent.com/assets/8980291/24935824/b2229352-1f24-11e7-9eee-a8f99a557632.png)",
 "@john-preston but what about this original issue with emoji toolbar? If you afraid to change UX, simply add option to switch between mouse move and click on emoji button.",Bitter Frustration
 @VBelozyorov Now you can just use three column mode and not have emoji pan appear on hover event.,Impatience
 "Excuse me, what is > three column mode
@@ -4484,7 +4484,7 @@ WHY?",Bitter Frustration
 p @value.price
 ```
 and paste the output here.
-I tried above code and its working. I have doubt if it assigns 0 (floors the number) when you try to assign 0.9 (decimal number).",None
+I tried above code and its working. I have doubt if it assigns 0 (floors the number) when you try to assign 0.9 (decimal number).",
 "@anujaware ```
 0.9
 ```
@@ -4683,7 +4683,7 @@ p.price = -1.0
 assert_equal true, p.price?
 end
 end
-```",None
+```",
 "@sivagollapalli See above
 1. joined tables
 2. bug code for check Float is:
@@ -4759,7 +4759,7 @@ false
 true
 true
 ```
-And now turn on the brain!",None
+And now turn on the brain!",
 "@matthewd No yelling.
 I just point to bug.
 Why do I still have to prove anything? Why do I have to write some other tests?
@@ -4939,7 +4939,7 @@ public function __toString()
 return (string)$this->name;
 }
 }
-```",None
+```",
 "I like that approach, @afoeder — you still do an `is_null` check in the entity's getter method (`Site::domainName()` in your case) but you can still use an embeddable rather than having to hydrate your VOs yourself.
 I suppose the major downside of your approach is that you do still have a VO in an inconsistent state, whereas if you don't let Doctrine hydrate the VO as an embeddable you avoid this; a bit more boilerplate & checking code, but you never have a VO in an invalid state.
 Really it's just a trade-off between the 2 options. Others reading this should just be aware of the 2 options and their various merits.",Irony
@@ -5073,7 +5073,7 @@ This issue is more about installing and configuring PHP though, so I'm closing i
 "Why HTML::Document.parse(""one < two"") returns: ``` html
 <html><body><p>one </p></body></html>' ```
 ?
-This method cuts off the part of a text that goes after '<' sign. Because of this, the Ruby on Rails's #simple_format method works the same way: simple_format(""text_before < text_after"") => ""text_before """,None
+This method cuts off the part of a text that goes after '<' sign. Because of this, the Ruby on Rails's #simple_format method works the same way: simple_format(""text_before < text_after"") => ""text_before """,
 "Rails 4.2.4
 Nokogiri 1.6.7",Bitter Frustration
 "FYI, this works
@@ -5608,11 +5608,11 @@ In case 2 markers are close to each other and the one that should be active is b
 So what is your suggestion? Use pane for each marker?",Bitter Frustration
 "I don't know. Show me an example of the problematic case (playground or screenshots or anything) and we might be able to have ideas.
 But please remind that this is a bug tracker, for bugs in Leaflet. Don't expect us to offer consultancy on how to build X using leaflet, that's out of the scope.",Bitter Frustration
-"perhaps use some `marker.on('mouseover', function(l) { l.bringToFront() })` and `marker.on('mouseoout', function(l) { l.bringToBack() })`. I'm not 100% certain names of events are correct, you can maybe check them out.",None
+"perhaps use some `marker.on('mouseover', function(l) { l.bringToFront() })` and `marker.on('mouseoout', function(l) { l.bringToBack() })`. I'm not 100% certain names of events are correct, you can maybe check them out.",
 @themre Unfortunately this solution is not perfect also. Suppose there are 2 markers exactly at the same location from map's perspective but different coordinates. There always be only one marker on top and mouseover event won't bring the marker that's below on top of the one that's on top.,Bitter Frustration
 "@IvanSanchez Look at the problem on the picture. The marker with the black arrow is the active marker.
 ![1](https://user-images.githubusercontent.com/14091163/27130503-297b3b54-510f-11e7-8c39-ccea05ce53d8.jpg)",Bitter Frustration
-@lentyaishe And what are the `zIndexOffset`s and the computed `zIndex`es of both?,None
+@lentyaishe And what are the `zIndexOffset`s and the computed `zIndex`es of both?,
 "@IvanSanchez The active marker: zIndexOffset = 5, zIndex = 239
 Inactive marker: zIndexOffset = 10, zIndex = 567
 Do you want me to try artificially update the zIndexOffset of the active marker on click and check whether it will reappear on top of inactive one? I really doubt it'll happen.",Bitter Frustration
@@ -5711,7 +5711,7 @@ Surely you can see the point of view of why Type annotations may be extremely us
 "Sorry to necro this thread but in my experience I've also noticed that type hints can also add a significant performance boost (sometimes >20%) since Cython can now use them for type inference. Granted, performance benefits aren't _guaranteed_ but they are likely. I see you have Cython support set up for PeeWee so it's entirely possible its performance could benefit from it.",Impatience
 "Hi @coleifer,
 You've done a great job with this lib. With or without type hints, it's nice to use.
-But if someday you change your mind about type hints, I believe it won't hurt.",None
+But if someday you change your mind about type hints, I believe it won't hurt.",
 "> No, type hints are, in my opinion, an abomination that has no business being part of the Python language :)
 As a maintainer of typeshed, a big repository that is all about typing in Python, I think this is a perfectly valid opinion! I felt the same when I first learned about typing in Python. It shouldn't be something that library authors have to do, and it's optional by design.",Bitter Frustration
 "This issue was opened nearly 5 years ago. In that time I've had plenty of opportunities to see python's type hinting in the wild. I still believe that it misses the mark, offerning none of the iron-clad guarantees you get from a statically-typed language, while being injurious to Python's inherent dynamism, readability, and simplicity. Since this issue tends to attract drive-by comments of little value, I'm going to close discussion for now.
@@ -5887,7 +5887,7 @@ $ yq read all.yml encrypted_value | ansible-vault --vault-id vault-password decr
 Decryption successful
 secretsecret
 ```
-Hope this helps!",None
+Hope this helps!",
 "Thanks, this helps if it is possible to install additional software. I would argue that ansible-vault should also have this functionality built-in.",Bitter Frustration
 Yeah definitely that'd be the best option :),Bitter Frustration
 "Also related, let rekey work on all encrypted variables in a file. There doesn't seem to be a good way to rekey all the encrypted variables, which makes encrypted variables super cumbersome now that we have to rekey (will end up having script this). Even if it just spits it back out to stdout that'd be a huge help instead of modifying the variables in the file directly.",Bitter Frustration
@@ -5903,13 +5903,13 @@ I'd still like to have a way at least to decrypt all variables belonging to a va
 This is still a problem with Ansible 2.8... A solution would be really appreciated!,Bitter Frustration
 "For others looking for a quick solution I created this script: https://gist.github.com/steffann/240d4170e45aa3cf7cf0df5e9beaf0ba
 It uses [ruamel.yaml](https://yaml.readthedocs.io/), which preserves ordering, comments etc in the YAML file. Great when depending on decent git diffs etc :)",Impatience
-maybe a bit unrelated but I like how [sops](https://github.com/mozilla/sops) does it.,None
+maybe a bit unrelated but I like how [sops](https://github.com/mozilla/sops) does it.,
 "Running into this issue again and it sucks. Please guys, this issue has been open for almost 2 years now and for people who really use ansible-vault, this is a major pain the butt.",Bitter Frustration
 "same issue here, we need to unencrypt all values and it is a nightmare, this must be common function",Bitter Frustration
 +1 for this functionality.,Bitter Frustration
 "+1, really need it!",Bitter Frustration
 "I solved this using debug mode. E.g.
-`ansible localhost -m debug -a var='myVariable' -e ""@myFile.yml"" --ask-vault-pass`",None
+`ansible localhost -m debug -a var='myVariable' -e ""@myFile.yml"" --ask-vault-pass`",
 +1 it would be very handy!!!,Bitter Frustration
 "> I solved this using debug mode. E.g.
 > > `ansible localhost -m debug -a var='myVariable' -e ""@myFile.yml"" --ask-vault-pass`
@@ -5928,7 +5928,7 @@ ANSIBLE_LOCALHOST_WARNING=false ansible localhost -m debug -a var=""vars"" \
 plus `--ask-vault-pass` if needed.
 Obviously a built-in solution would be much better, but this makes mixed plain/encrypted var files somewhat workable.",Irony
 +1 for this functionality.,Bitter Frustration
-"If you just need decryption instead of rekeying, I've written https://github.com/theblazehen/ansible_vault_decrypt_strings",None
+"If you just need decryption instead of rekeying, I've written https://github.com/theblazehen/ansible_vault_decrypt_strings",
 +1 for this feature,Bitter Frustration
 "I've locked this to contributors for now. Adding +1 comments is too noisy. For future reference, add a reaction to the issue body, and don't comment.",Bitter Frustration
 "Take a look at the `vault` and `unvault` Jinja filters that were added recently to core, might get what you need...",Impatience
@@ -6141,7 +6141,7 @@ The classes under tests are stateless - they do not have any settable fields or 
 The unit tests exercise my class implementations and check the flow of execution by checking how far each use case progresses and what methods within the method under test were called. There is no magic here :)
 Of course there is an arrangement phase, you can't not have it. But the arrangement only sets a possible return from the underlying dependency (boundary conditions). My duty as a class developer write unit tests to account for these boundary conditions and facilitate stable predictable response.
 **EDIT:**
-Just realised some classes may be accessing `AppSettings` which arguably belongs to the external context, but for the most part we can presume AppSettings to be immutable. They should be abstracted too.",None
+Just realised some classes may be accessing `AppSettings` which arguably belongs to the external context, but for the most part we can presume AppSettings to be immutable. They should be abstracted too.",
 "> > To me, one of the trade offs is that it doesn't seem to be widely embraced by the industry
 >
 > It's been the primary container for Visual Studio since 2010. Over the years it's received a lot of love to meet the performance demands of that application, though not all of those benefits have made their way to the normal distributions of it yet. I would classify it as having fewer features, but within the bounds of its capabilities excels in ease of distribution and being generally well-understood.
@@ -6370,7 +6370,7 @@ Can I ask what your use case for Caddy is?",Impatience
 "Pretty disingenous for you to refer to yourself as a member of Caddy's ""we"" when so far as I can tell you're not involved: https://github.com/mholt/caddy/graphs/contributors",Bitter Frustration
 "@SirCmpwn I'm part owner of Light Code Labs, the legal entity that filed for the trademark.",Bitter Frustration
 "I see. Well, in any case, be patient, and maybe also try contributing to your own web server?",Impatience
-You got it 👍,None
+You got it 👍,
 "Thanks for clarifying your involvement, @yroc92. It's great to hear you value open source!
 In the United Kingdom, trademark violation requires a mark to be used ""in the course of trade"". I have no plans to make commercial use of this project in any form whatsoever (including but not limited to adding sponsor headers to HTTP responses and then charging for them to be removed).
 With that said, I will be removing references to Caddy throughout the codebase as you have requested, though the primary benefit here in my opinion is reducing user confusion and ensuring users do not go seeking support from the wrong place.",Impatience
@@ -6895,7 +6895,7 @@ no parse error, and playbook `update-ticket.yaml` is imported 100% of the time."
 * [lib/ansible/modules/utilities/logic/import_playbook.py](https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/utilities/logic/import_playbook.py)
 If these files are inaccurate, please update the `component name` section of the description or use the `!component` bot command.
 [click here for bot help](https://github.com/ansible/ansibullbot/blob/master/ISSUE_HELP.md)
-<!--- boilerplate: components_banner --->",None
+<!--- boilerplate: components_banner --->",
 "We have similar need. We have a main playbook that prepares the system, but we allow the user to provide some extra steps by creating a playbook files in a well known directories. We do not know what files will be present there in advance. For this we would really like to have include_playbook that supports with_fileglob (or with_items).",Bitter Frustration
 "Just to explain why include_tasks is not enough. The system is clustered and the tasks talk to localhost, other physical hosts and virtual machines. We could in theory use delegate_to if it supported host groups.",Bitter Frustration
 "I also have this need in order to import different playbooks to configure Vagrant guests differently depending on the active hypervisor.
@@ -6995,7 +6995,7 @@ Friday 31 August 2018 14:00:38 -0500 (0:00:00.179) 0:00:07.851 ********* Friday 
 PLAY RECAP *************************************************************************************************************************************************************************
 knebawils001 : ok=2 changed=0 unreachable=0 failed=0 localhost : ok=8 changed=1 unreachable=0 failed=0
 ```
-I suppose this could be split up into two (2) separate playbooks in the same Git repo. The first would be called `prepare.yml` or maybe `prerequisites.yml` to ""install"" the other needed playbooks and the second main playbook (`playbook.yml`) will do the necessary imports, etc. I was really wanting to make this a ""one-shot"" playbook.",None
+I suppose this could be split up into two (2) separate playbooks in the same Git repo. The first would be called `prepare.yml` or maybe `prerequisites.yml` to ""install"" the other needed playbooks and the second main playbook (`playbook.yml`) will do the necessary imports, etc. I was really wanting to make this a ""one-shot"" playbook.",
 "Include conditionals are very useful for creating branches in our playbooks. Will it be ensured that import_playbook will support conditionals in the next release citing this issue?
 If not, you are losing a lot of power and will end up creating a lot of hacks. Not to mention breaking a ton of include playbook conditionals in end user plays.",Bitter Frustration
 "+1 on implementing a ""when"" conditional.",Bitter Frustration
@@ -7022,7 +7022,7 @@ delegate_to: localhost
 delegate_facts: yes
 - import_playbook: test.yaml
 when: hostvars.localhost.full_run
-```",None
+```",
 is this issue/request still up to date in a more current version of ansible? Iam using ansible 2.6.1 and the when condition doesn't seem to work when I use the import_playbook function.,Impatience
 "@brotaxt You need to initialize variables before doing `when`. Just add some random task to random host (before doing first 'import_playbook'). F.e., do set_fact on localhost, as in example above.",Impatience
 "@amarao many thanks for the quick response. :+1: Unfortunately it doesn't seem to work for me. Even if answer the prompt with ""no"" the playbook ""vmware_createsnap.yml"" gets invoked. The other tasks are working as expected. What I am doing wrong? My playbook: ```
@@ -7175,7 +7175,7 @@ https://youtu.be/WD2Oqy2oc3A",Irony
 * [`lib/ansible/modules/import_playbook.py`](https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/import_playbook.py)
 If these files are incorrect, please update the `component name` section of the description or use the `!component` bot command.
 [click here for bot help](https://github.com/ansible/ansibullbot/blob/master/ISSUE_HELP.md)
-<!--- boilerplate: components_banner --->",None
+<!--- boilerplate: components_banner --->",
 1,Bitter Frustration
 1,Bitter Frustration
 "I've locked this to contributors for now. Adding `+1` comments is too noisy. For future reference, add a reaction to the issue body, and don't comment.",Bitter Frustration
@@ -7321,7 +7321,7 @@ $Fields.fieldByName('HFieldTest3')
 you'll get output:
 ```html
 <input type=""hidden"" name=""HFieldTest3"" value=""actual value"" class=""hidden"" id=""Form_ProfileEditForm_HFieldTest3"" />
-```",None
+```",
 The bug is that the interface for a text field and a hidden field are different. IMO They should be the same.,Bitter Frustration
 "can you explain in what way they are different, please?
 ---
@@ -7358,7 +7358,7 @@ produces
 ```
 <input name=""<name>"" value="""" ..... type=""hidden"">
 ```
-Those are different.",None
+Those are different.",
 "Worik, sorry mate... I think you're confusing Title (ie. html `<label>Title`) and Value (ie. html attribute `value=""Value""`). This constructor format is true for virtually every form field.
 Perhaps if you can provide a link to the documentation you're reading specifically, and what it is that has you turned around from it? ie. suggestions on how it could be clearer? Maybe the wording is a bit confusing.",Impatience
 "I am showing you code I have been implementing. On close examinatuion the second argument for TextField constructor chould be 'Title'
@@ -7382,7 +7382,7 @@ TextField::create('Test Name', 'Test Label', 'Test Value'); // Shift 2nd param t
 Creates:
 ```html
 <input type=""text"" name=""Test Name"" value=""Test Value"" class=""text"" id=""Form_ItemEditForm_Test_Name"">
-```",None
+```",
 "@worikgh Is this SilverStripe 4.0?
 Lets step through it together :)
 `TextField` and `HiddenField` both inherit directly from `FormField`.
@@ -7468,7 +7468,7 @@ I'm afraid we are not going to invest more in trying to optimize search with FTS
 > > A new Vue user coming to VS Code have a hard time finding Vetur by organic search. He might be misled to install a lot of the random extensions in Marketplace and believe VS Code has poor support for Vue files.",Bitter Frustration
 "~~@kesane-msft~~
 ~~Which~~
-Oops, misclick.",None
+Oops, misclick.",
 "> our search algorithm gives more weightage to matches in the extension's display name. If you add the ""vue"" term in your display name your extension would start showing as the top result.
 @kesane-msft Which I would refuse. What do I call it? `Vetur Vue`?
 Another example: Searching for ""Golang""
@@ -7576,7 +7576,7 @@ Related: https://github.com/zfsonlinux/zfs/pull/7189
 - [ ] I have added tests to cover my changes.
 - [x] All new and existing tests passed.
 - [x] All commit messages are properly formatted and contain `Signed-off-by`.
-- [ ] Change has been approved by a ZFS on Linux member.",None
+- [ ] Change has been approved by a ZFS on Linux member.",
 @tcaputi @kpande @bunder2015 your review here would be nice :D,Impatience
 "I'm still not an expert in bash or dracut, but the approach looks correct to me.",Bitter Frustration
 "That would be changing one `if` out for another. I'm not sure what would be gained or fixed doing so either (the logic here is straight forward, which I like).",Bitter Frustration
@@ -7759,7 +7759,7 @@ categories: jekyll update
 {% raw %}
 {% set a = 'b' %}
 {% endraw %}
-```",None
+```",
 "@ashmaroli, same.",Bitter Frustration
 So you see the issue is not with Jekyll but rather with Rouge that `highlight` and the triple-backticks block uses to highlight code.,Bitter Frustration
 "No, the problem also happens with the `{% highlight %}` syntax.",Bitter Frustration
@@ -7768,7 +7768,7 @@ https://github.com/jekyll/jekyll/blob/86d86258a8bc912c906776d8f2f9a58b3d376519/l
 If you want to use `pygments` instead of `rouge` as your site's highlighter, add the following to your `_config.yml`:
 ```yml
 highlighter: pygments
-```",None
+```",
 This sounds like an issue with https://github.com/jneen/rouge rather than Jekyll. Jekyll has no knowledge of syntax of any language.,Bitter Frustration
 "@pathawks, why did you close this? It's not fixed and I'm not the one explicitely using Rouge. The maintainers of the project are using a dependency that is buggy, they should take care of this. What do you want me to do? I don't even know what Rouge is!",Bitter Frustration
 "> What do you want me to do? I don't even know what Rouge is!
@@ -7880,7 +7880,7 @@ I'll look at what the fix is and push it up to your PR branch here 👍",Bitter 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YourRootPassword';
 -- or
 CREATE USER 'foo'@'%' IDENTIFIED WITH mysql_native_password BY 'bar';
-```",None
+```",
 "In addition to what @ruiquelhas said, I also had to:
 ```
 mysql> FLUSH PRIVILEGES;
@@ -7917,7 +7917,7 @@ I don't know if it is a good practice or not, it mostly depends on your internal
 $ npm install ruiquelhas/mysql#feature/caching-sha2-password
 ```",Impatience
 Any update? Still unable to connecto to MySQL 8,Bitter Frustration
-@ruiquelhas thank you so much! You just helped me become a better developer hannibwas yesterday! 💪🏽🔥,None
+@ruiquelhas thank you so much! You just helped me become a better developer hannibwas yesterday! 💪🏽🔥,
 @dougwilson Is this still planned to be merged? It obviously keeps accumulating conflicts while it is not :(,Bitter Frustration
 "This PR regresses behavior and cannot be merged until fixed as I noted above. I volunteered to fix the PR but have not gotten to it. Anyone is welcome to fix the regression in the PR, though, and will merge.",Bitter Frustration
 "@dougwilson Thanks for the update! Not sure I'll get to it in the nearby future personally, though (but it's a possibility).",Bitter Frustration
@@ -8031,7 +8031,7 @@ So please just make the error text white on black, or black on white. The color 
 As Alogitt said, it's quite easy for anyone to customize the Arduino IDE's theme to their individual preference. I have attempted to document all the theme settings, as well as provide a sketch for testing themes here:
 https://github.com/per1234/ThemeTest/blob/master/README.md
 Seeing as it doesn't satisfy @jockm, I wonder if there is actually a need for https://github.com/arduino/Arduino/pull/7551? Is there anyone who has trouble seeing the current red color who prefers the orange color used in that PR? I have no strong preference between red and orange.",Bitter Frustration
-"@per1234 Personally, I believe the bright orange color is a bit easier to see against the black background than the original color while still conveying the warning that it is supposed to. I don't have a strong preference; just trying to help out.",None
+"@per1234 Personally, I believe the bright orange color is a bit easier to see against the black background than the original color while still conveying the warning that it is supposed to. I don't have a strong preference; just trying to help out.",
 "I think the white is perfect.
 @per1234 The error text is 100% visually distinct in that screenshot. It is below the orange bar, and has a different background color than the code. It is distinct.
 Additionally I concur that there is no need for #7551, if the goal of it is better readability.",Impatience
@@ -8130,7 +8130,7 @@ increased linestatus.height to 30
 linestatus.font	= SansSerif,plain,14
 linestatus.height = 30
 you could also copy the attached file to the theme directory
-[theme.txt_visually_improved pacav.zip](https://github.com/arduino/Arduino/files/2449671/theme.txt_visually_improved.pacav.zip)",None
+[theme.txt_visually_improved pacav.zip](https://github.com/arduino/Arduino/files/2449671/theme.txt_visually_improved.pacav.zip)",
 "@pacav69 in Arduino IDE 1.8.6 and newer, themes can be placed in the `theme` subfolder of the sketchbook folder. You can find the location of the sketchbook folder at **File > Preferences > Sketchbook location**. This way, custom themes will persist through updates to a new IDE version. This should also make it possible to use custom themes with the Windows App Store version of the Arduino IDE:
 https://github.com/arduino/Arduino/pull/7115
 You can put multiple themes stored in .zip files in that folder and select which one you want from the **File > Preferences > Theme** menu. Note that the theme files must be directly under the .zip file, not in a subfolder of the .zip file:
@@ -8233,7 +8233,7 @@ echo 'Noting found!';
 foreach ($result as $row) {
 $TXT=$row->getContxt();
 echo $TXT; } } echo '<pre>';
-\Doctrine\Common\Util\Debug::dump($stack, 5); ```",None
+\Doctrine\Common\Util\Debug::dump($stack, 5); ```",
 "## For your entertainment..
 `$query = $em->createQuery('SELECT e FROM countries e WHERE e.conlng = :lng AND e.connum = :num');`
 `$NUM = 4;`
@@ -8289,7 +8289,7 @@ I'm rewriting ours tomorrow. I'll take a look and make some suggestions.
 UPDATE : The one at the above link seems to have most of it covered well. The additional sections that we have in ours are mostly to do with marketing which is most likely not relevant.",Bitter Frustration
 "[off-topic]: @splitbrain: I assume this is the page do you mean at the top of https://www.dokuwiki.org/privacy ?!
 I already corrected the link there.",Impatience
-"An excellent article in Bozho's tech blog: [GRPD - a practical guide for developers ](https://techblog.bozho.net/gdpr-practical-guide-developers/). Also, the Drupal GDPR Compliance Team gives a lot of links on their [dedicated page](https://www.drupal.org/project/drupal_gdpr_team)",None
+"An excellent article in Bozho's tech blog: [GRPD - a practical guide for developers ](https://techblog.bozho.net/gdpr-practical-guide-developers/). Also, the Drupal GDPR Compliance Team gives a lot of links on their [dedicated page](https://www.drupal.org/project/drupal_gdpr_team)",
 "@splitbrain About the privacy page, I think you have to ensure somehow the users data is save and that how it is kept save has to be described somehow internally for accountability.
 Serverlogs, do they contain a user ticket number that is related to their account and visible or knowable by google analytics, if so you should mention that possibly.
 GDPR is not done something done by lawyers, but rather accountants, they check if their customers are GDPR compliant. Good starting point: https://gdprchecklist.io",Impatience
@@ -8927,7 +8927,7 @@ Please open the following file: /Users/slandelle/Downloads/gatling-stuck/target/
 [INFO] Total time: 16.852 s
 [INFO] Finished at: 2018-06-19T06:20:17+02:00
 [INFO] ------------------------------------------------------------------------
-```",None
+```",
 "326 / 600 tests executed, then hangs.
 ```
 19 06 2018 15:54:19.133:WARN [Firefox 52.0.0 (Windows 8.1 0.0.0)]: Disconnected (1 times)
@@ -9255,7 +9255,7 @@ The result is better from any point of view:
 - now you can use the GLTFLoader with other loaders for the same scene (renderer)
 SEA3D + Phong: http://necromanthus.com/Test/html5/Lara_envMap.html
 vs
-GLTF + PBR: http://necromanthus.com/Test/html5/Lara_gltf_envMap.html",None
+GLTF + PBR: http://necromanthus.com/Test/html5/Lara_gltf_envMap.html",
 "I've addressed each of those points in https://github.com/mrdoob/three.js/issues/14419#issuecomment-403513554 — we will not be removing the sRGB encoding assignment to sRGB textures in GLTFLoader. If you would like to override that, it is easy to change the texture encoding after loading the model.
 If there are no other actions to take here, this issue should be closed.",Impatience
 "> we will not be removing the sRGB encoding assignment to sRGB textures in GLTFLoader.
@@ -9377,10 +9377,10 @@ a.txt is zero bytes",Bitter Frustration
 "> Write all data at once to the file.
 Doesn't seem like bytes to me",Bitter Frustration
 "https://metacpan.org/pod/Mojo::File#spurt
-```$path = $path->spurt($bytes);```",None
+```$path = $path->spurt($bytes);```",
 "Yes, write all bytes from the scalar.",Bitter Frustration
 "Wow, just ""closed the issue"" as a non-issue? That's mature :D",Bitter Frustration
-The answer @pink-mist gave was 100% correct. So this is not a bug. If you require additional help please use our official support channels. https://mojolicious.org/perldoc#SUPPORT,None
+The answer @pink-mist gave was 100% correct. So this is not a bug. If you require additional help please use our official support channels. https://mojolicious.org/perldoc#SUPPORT,
 "Well it might be correct, but the documentation ""Write all data at once to the file"" doesn't say anything about the byte/character distinction, and $bytes can be understood as whatever bytes are there in the scalar, which I would expect. So that's at least a case to either fix the documentation or the attitude.",Bitter Frustration
 "I don't see this discussion end constructively, therefore i'm locking this issue.",Bitter Frustration
 "* Mojolicious version: 7.85
@@ -9687,7 +9687,7 @@ Cross-refs:
 #19324
 https://discourse.julialang.org/t/repl-and-for-loops-scope-behavior-change/13514
 https://stackoverflow.com/questions/51930537/scope-of-variables-in-julia",Bitter Frustration
-"(Per @mlubin, this is the relevant change https://github.com/JuliaLang/julia/pull/19324)",None
+"(Per @mlubin, this is the relevant change https://github.com/JuliaLang/julia/pull/19324)",
 Stefan suggested [here](https://discourse.julialang.org/t/repl-and-for-loops-scope-behavior-change/13514/9) that one possibility to solve this issue is automatic wrapping of REPL entries in `let` blocks,Bitter Frustration
 "But wouldn't that be confusing in that you couldn't do
 ```
@@ -9771,7 +9771,7 @@ I actually started looking into implementing something like this a few minutes a
 * Not to mention of the case of people that `include` external files, which would not be caught by your AST transformation.
 > However, it seems easier to explain in terms of the new simpler scoping rules + a transformation that takes REPL-style input and transforms it before evaluating it.
 I seriously doubt this would be easier to explain to new users than just saying that the rules are less picky for interactive use or for `include` with a certain flag.",Bitter Frustration
-"Here is a rough draft of a `globalize(::Module, ast)` implementation: https://gist.github.com/stevengj/255cb778efcc72a84dbf97ecbbf221fe",None
+"Here is a rough draft of a `globalize(::Module, ast)` implementation: https://gist.github.com/stevengj/255cb778efcc72a84dbf97ecbbf221fe",
 "Okay, I've figured out how to implement a `globalize_include_string` function that preserves line-number information, and have added it to [my gist](https://gist.github.com/stevengj/255cb778efcc72a84dbf97ecbbf221fe).
 A possible (non-breaking) way forward, if people like this approach:
 1. Release a SoftGlobalScope.jl package with the `globalize` etc. functions.
@@ -10342,7 +10342,7 @@ module.exports = mongoose.model('two', schema);
 6922: ./index.js
 5.2.13 should show no deprecations with the new settings.
 6922:
-```",None
+```",
 "working for me in 5.2.13. @lineus will useCreateIndex be supported as a connection option? Currently getting `the options [useCreateIndex] is not supported`
 i.e.
 `mongoose.connect(
@@ -10932,7 +10932,7 @@ I tried to change the _header.mobile.haml and _header.haml to something like tha
 ` = link_to(image_tag(""branding/logos/asterisk.png"", class: ""img-responsive"", skip_pipeline: true),
 `
 What's the point?
-Regards 001101",None
+Regards 001101",
 "Hello,
 GitHub is not a support forum; it's an issue tracker. For support issues, please post in the [podmin support section](https://discourse.diasporafoundation.org/c/support/podmin-support) of our Discourse forum.",Bitter Frustration
 @goobertron You are wrong,Bitter Frustration
@@ -10970,7 +10970,7 @@ I would urge you to reconsider the quick decision, because I believe this sugges
 Our Enterprise version, Gatling FrontLine, aims to provide our users with advanced features in terms of metrics, integration and automation. This Enterprise version was designed by the feedback of our users who built their own integrations with Gatling but then struggled to stabilize them and maintain them over time.
 We believe this Enterprise version is a win-win for everyone: we make you save time and money, we guarantee you stability and, at the same time, you help the open-source project continue to develop.
 We would be more than happy to continue this discussion live and convince you that we are still committed to improve load testing, both for our OSS users and for our enterprise customers.
-Anyway, thank you for using Gatling",None
+Anyway, thank you for using Gatling",
 "@slandelle Thanks for the reply, but I still don't think you actually addressed the points I was trying to raise regarding this particular issue. I still don't understand how the suggested change is against your commercial strategy. The points I was trying to articulate are that this request:
 - doesn't expose any data that would previously be inaccessible / enterprise.
 - doesn't suggest structuring the results in a way that is easier to parse/interpret programatically
@@ -11179,7 +11179,7 @@ Create a guide on how to start theming AND then include previous steps into the 
 Thanks for this excellent piece of software !!!!",Bitter Frustration
 "On how to start theming for Jekyll, I'd recommend @daviddarnes articles:
 1. https://www.siteleaf.com/blog/making-your-first-jekyll-theme-part-1/
-2. https://www.siteleaf.com/blog/making-your-first-jekyll-theme-part-2/",None
+2. https://www.siteleaf.com/blog/making-your-first-jekyll-theme-part-2/",
 "Thanks, but it's better have an official doc, and not links to external resources. IMHO",Bitter Frustration
 If it's validation you're looking for then I can 100% endorse these tutorials ✨. However if you want this set in stone then maybe we could link to these tutorials in the official docs? Maybe in https://jekyllrb.com/tutorials/home/ or https://jekyllrb.com/resources/. What do you day @DirtyF?,Impatience
 "Oooh, I like @desiredpersona’s idea.",Bitter Frustration
@@ -11344,11 +11344,11 @@ I have not yet tried your contribution, but the description is impressive ! :)",
 1. Topojson - an extension to GeoJSON that encodes topology rather than discrete geometries, allowing for smaller files and on-the-fly simplification.
 2. GeoJSON model - I haven't checked out the fork yet and I don't know if it is your intent to fully model the GeoJSON spec. It would be great to have the ability for instance to create relations between GeoJSON `Features` and other strapi models.",Impatience
 "> Postgres is also suitable for storing vector or raster tiles (I use that: https://openmaptiles.org/ with SQLite/MBTile or Postgres/gis, and it's compatible with the mapbox-gl workflow like gl-style).
-There's postGIS as well https://postgis.net/",None
+There's postGIS as well https://postgis.net/",
 "> > Postgres is also suitable for storing vector or raster tiles (I use that: https://openmaptiles.org/ with SQLite/MBTile or Postgres/gis, and it's compatible with the mapbox-gl workflow like gl-style).
 > > There's postGIS as well https://postgis.net/
 Yes it is!
-Postgis also supports geometry -> TopoJSON with AsTopoJSON() function.",None
+Postgis also supports geometry -> TopoJSON with AsTopoJSON() function.",
 "> @arogyakoirala - Awesome work. I was pleasantly surprised to see that you are working on this. I was planning on having to do this on my own. I look forward to checking out your fork. I'd love to help if I can. Assuming the strapi folks can see the obvious benefits of this, a few areas that I'd love to work on:
 > > 1. Topojson - an extension to GeoJSON that encodes topology rather than discrete geometries, allowing for smaller files and on-the-fly simplification.
 > > 2. GeoJSON model - I haven't checked out the fork yet and I don't know if it is your intent to fully model the GeoJSON spec. It would be great to have the ability for instance to create relations between GeoJSON `Features` and other strapi models.
@@ -11398,7 +11398,7 @@ New ZTS tests. Also additions to ztest.
 - [x] I have read the [**contributing** document](https://github.com/zfsonlinux/zfs/blob/master/.github/CONTRIBUTING.md).
 - [x] I have added [tests](https://github.com/zfsonlinux/zfs/tree/master/tests) to cover my changes.
 - [ ] All new and existing tests passed.
-- [ ] All commit messages are properly formatted and contain [`Signed-off-by`](https://github.com/zfsonlinux/zfs/blob/master/.github/CONTRIBUTING.md#signed-off-by).",None
+- [ ] All commit messages are properly formatted and contain [`Signed-off-by`](https://github.com/zfsonlinux/zfs/blob/master/.github/CONTRIBUTING.md#signed-off-by).",
 "# [Codecov](https://codecov.io/gh/zfsonlinux/zfs/pull/8255?src=pr&el=h1) Report
 > Merging [#8255](https://codecov.io/gh/zfsonlinux/zfs/pull/8255?src=pr&el=desc) into [master](https://codecov.io/gh/zfsonlinux/zfs/commit/0a10863194b0e7c1c64f702f868c10d5dac45ea5?src=pr&el=desc) will **decrease** coverage by `0.04%`.
 > The diff coverage is `88.01%`.
@@ -11438,7 +11438,7 @@ Amount of time IO spent in scrub queue. Does not include disk time.
 .It Fl l
 Include average latency statistics:
 .Pp
-```",None
+```",
 You'll want to add the new `trim_start` and `trim_end` events to `man/man5/zfs-events.5`.,Impatience
 Is it policy to license all new files under CDDL? May authors supply code under a more permissive license? (Sorry for the OT),Bitter Frustration
 "> the CDDL header is copyrighted text
@@ -11453,7 +11453,7 @@ Not to make a fuss about this, but
 - Utilize the new ""xlat"" vdev method from device initialization where appropriate.
 - Switch from the legacy ioctl interface to the new nvlist-style ioctl interface.
 - Plenty of other restructuring, in particular w.r.t. the management of the trim threads.
-Expect a new PR to be posted soon.",None
+Expect a new PR to be posted soon.",
 "### System information
 <!-- add version after ""|"" character -->
 Type | Version/Name
@@ -11579,7 +11579,7 @@ CMD.INSERT,
 {""timeout"" = 500 }
 );
 ```
-Related to https://springrts.com/mantis/view.php?id=6128",None
+Related to https://springrts.com/mantis/view.php?id=6128",
 "That would work, but the (badly named) command ""options"" have special meaning. Timeout is a separate parameter.",Bitter Frustration
 "@rtri I appreciate the comment but you closed it before I could fix the PR!
 No need for the trigger happy close, unless you're trying to put off
@@ -11641,7 +11641,7 @@ Like we have here at GitHub with the issues and the PRs.",Impatience
 }
 ...
 }
-```",None
+```",
 "Maybe! If we want to replace the current ID.
 Or something like this if we want it as another field:
 ```
@@ -12159,7 +12159,7 @@ as.POSIXct(st_plus_hour, ""Pacific/Auckland"")
 x + lubridate::dhours(1)
 #> [1] ""2021-04-04 02:15:00 NZST""
 ```
-<sup>Created on 2021-04-07 by the [reprex package](https://reprex.tidyverse.org) (v1.0.0)</sup>",None
+<sup>Created on 2021-04-07 by the [reprex package](https://reprex.tidyverse.org) (v1.0.0)</sup>",
 "Thanks @DavisVaughan but I think we might be talking at cross purposes. Your comment helps explain the intuition behind the implementation, but my expectations come from the reversibility principal in the documentation.
 If adding `hours(1)` to 2:15am DT and 2:15am ST both give us 3:15am ST, then there's no way to subtract `hours(1)` from 3:15am ST that's consistent with reversibility.",Bitter Frustration
 "As Vitalie mentioned here https://github.com/tidyverse/lubridate/issues/759#issuecomment-536286765, the reversibility rule is probably not the best idea for date time arithmetic, even if it sounds like a good idea (I agree with him now). So I wouldn't base too many assumptions on it.",Bitter Frustration
@@ -12791,7 +12791,7 @@ And use this in package.json
 ""scripts"": {
 ""develop"": ""npm run override-admin && strapi develop"",
 ""start"": ""npm run override-admin && strapi start"",
-""override-admin"": ""node helper/admin-overrides.js"",",None
+""override-admin"": ""node helper/admin-overrides.js"",",
 "This issue has been mentioned on **Strapi Community**. There might be relevant details there:
 https://forum.strapi.io/t/extend-user-admin-model/713/1",Bitter Frustration
 "Due to the nature of how the admin plugin now works in v4, we currently do not plan to allow for this type of customization by default and there are other methods such as patch-package that do make it possible without needing support from us on this.
@@ -12853,7 +12853,7 @@ conda env update -f cqgui_env.yml -n cqgui --prune
 conda activate cqgui
 python run.py
 conda deactivate
-```",None
+```",
 "@gebner Thank you! I got cadquery working in a nix environment now by using part of your commits as a reference. Are you planning on upstreaming? If not I will try to get cadquery and CQ-editor into nixpkgs.
 @adam-urbanczyk Isn't it possible to package binary dependencies with pypi? I thought that stuff like python-opencv delivers the opencv binaries with the package itself. Wouldn't this be possible for cadquery as well?",Impatience
 "@rowanG077 Not at the moment, feel free to submit a PR to nixpkgs.",Impatience
@@ -13194,7 +13194,7 @@ Object.keys(doc.schema.obj)
 }
 ```
 Maybe a plugin can help?",Impatience
-"This is by design. The primary purpose of aliasing keys is to reduce storage in the database and network overhead between Node.js and MongoDB by shortening the keys when they're stored in the database, and converting the aliased keys back to long-form keys in Node.js.",None
+"This is by design. The primary purpose of aliasing keys is to reduce storage in the database and network overhead between Node.js and MongoDB by shortening the keys when they're stored in the database, and converting the aliased keys back to long-form keys in Node.js.",
 "If it's by design, then why doesn't it work as designed?",Bitter Frustration
 "@klemensz if it doesn't work as designed, please open up a new issue and follow the issue template.",Bitter Frustration
 *redacted*,Bitter Frustration
@@ -13439,7 +13439,7 @@ local:
 /proc:
 proc
 ........
-```",None
+```",
 "@votdev re: escaping names for calling `mount` - i think that is what was intended to do so:
 `""device"": device_name.replace(""\\040"", ""\\ ""),` inside `def _active_mountinfo()`
 but that was only called when from `def active(extended=False)` then Extended is set to True, if ever
@@ -14494,7 +14494,7 @@ return sanitizeEntity(entity, { model: strapi.models.article });
 },
 },
 };
-```",None
+```",
 "I just created the `api/competition/config/schema.graphql.js` file with:
 ```javascript
 const { sanitizeEntity } = require('strapi-utils');
@@ -14545,7 +14545,7 @@ return sanitizeEntity(entity, { model: strapi.models.article });
 },
 },
 };
-```",None
+```",
 "Thanks @alexandrebodin! It works now! 👏 And how would it be with a plugin?
 I've tried this, but it doesn't work for me.
 `extensions/users-permissions/config/schema.graphql.js`
@@ -14590,7 +14590,7 @@ return sanitizeEntity(entity, { model: strapi.plugins['users-permissions'].model
 },
 };
 ```
-It's the right way?",None
+It's the right way?",
 "This can be done via customization, marking as closed. We have filters that would work just as easily also.",Bitter Frustration
 "After a [twitter-exchange with Dries Vints](https://twitter.com/driesvints/status/1196780528302776320) it looked like there should be a way to easily handle ISO8601- and RFC3339-related datetimes containing fractions.
 And after a bit of digging I realized that there already was a change done for RFC3339 by adding the microseconds. But the milliseconds where not yet part of the constants.
@@ -16107,7 +16107,7 @@ brew-cmdname.rb, which can be invoked like brew cmdname. This allows
 you to create your own commands without modifying Homebrew's internals.
 Instructions for creating your own commands can be found in the docs:
 https://docs.brew.sh/External-Commands
-```",None
+```",
 Please reread our Code of Conduct and adjust your communication accordingly: https://github.com/Homebrew/.github/blob/master/CODE_OF_CONDUCT.md#code-of-conduct,Bitter Frustration
 How have I violated that code of conduct? I'm sorry if I have.,Bitter Frustration
 "I came here with an issue that you've acknowledged exists. I've done nothing but try to work with you to try to resolve that problem, respectfully and openly.
@@ -16156,7 +16156,7 @@ Besides, people shouldn't have to dive into sourcecode to figure out how to use 
 "I agree that an API reference will be helpful.
 However, I think the following can help you in the meantime. > I have no way of knowing what I can import from the package, or what props might be supported on each component, without diving into its (minified!) sourcecode. Never mind what everything does 😱
 You don’t have to try to decipher minified code. The JSS modules are written in TypeScript and are heavily commented. Just clone this repo locally and all the typed function signatures and props models will be available for you to reference.",Impatience
-"We now provide API reference documentation as part of each release (starting with JSS version 18.0). You can find these on the release branch in the Github repository under `/ref-docs`. Here are the latest, for example: https://github.com/Sitecore/jss/tree/master/ref-docs",None
+"We now provide API reference documentation as part of each release (starting with JSS version 18.0). You can find these on the release branch in the Github repository under `/ref-docs`. Here are the latest, for example: https://github.com/Sitecore/jss/tree/master/ref-docs",
 "## PR Summary
 Solution for issue #16631",Bitter Frustration
 Two weeks without any manifestation of interest. Closing.,Bitter Frustration
@@ -16485,10 +16485,10 @@ Another server issues the cookie to the client/browser. See https://developer.mo
 > I know, you didn’t answer my question. How do you request your cookie?",Bitter Frustration
 "Cookies are issued to browsers/clients by servers. Cookies are not requested, they are received.
 A server sends a browser a cookie with a JWT as the value. The browser includes that cookie (that JWT) in _every_ HTTP call to all servers on a domain or by path (configurable)
-<img width=""1160"" alt=""image"" src=""https://github.com/apache/couchdb/assets/12751611/1b23ae80-0bda-4966-bdda-12afedd6177e"">",None
+<img width=""1160"" alt=""image"" src=""https://github.com/apache/couchdb/assets/12751611/1b23ae80-0bda-4966-bdda-12afedd6177e"">",
 "CouchDB sends a cookie if you request a session. To get a session, you need to provide a username/password. If you are authenticated successfully, you will get this session cookie (httponly), which can be used for further requests.
 If you have an JWT token, you can send this with a header. If this token is correct, you get access to the system. You have to send this token with every request.
-If you have a username/password you don’t need a JWT token for requests or vice-versa.",None
+If you have a username/password you don’t need a JWT token for requests or vice-versa.",
 This issue seems elusive to you. I'll let someone else run with it.,Bitter Frustration
 "> This issue seems elusive to you.
 No, but you don’t tell me how you want request your cookie (with your token), because you need an authorization before to get the cookie, but when you have an authorization before you don’t need a JWT token anymore, because you can already authenticate against CouchDB.
@@ -16962,7 +16962,7 @@ Should we add this to tsc-agenda?
 Is there an equivalent ask in git repo?
 If not, we should create one.",Impatience
 "Also, to all the people making the drive by comments: please keep discussion civil and remember Node.js has a [code of conduct](https://github.com/nodejs/admin/blob/master/CODE_OF_CONDUCT.md). If you can't be polite here you really don't have to comment. It's fine to either support or object to the proposed change (or any proposed change) as long as you are [civil](https://github.com/nodejs/admin/blob/master/CODE_OF_CONDUCT.md#our-standards) - **we do not tolerate abuse** towards the project and its members here.
-To collaborators: kind reminder that you are [allowed to ban users](https://github.com/nodejs/admin/blob/master/Moderation-Policy.md#non-collaborator-posts) that make these sort of comments and to hide said comments - but please update the project (as explained there) with what actions you took so that any moderation actions taken are done in full transparency.",None
+To collaborators: kind reminder that you are [allowed to ban users](https://github.com/nodejs/admin/blob/master/Moderation-Policy.md#non-collaborator-posts) that make these sort of comments and to hide said comments - but please update the project (as explained there) with what actions you took so that any moderation actions taken are done in full transparency.",
 "> Is there an equivalent ask in git repo?
 I'm not sure where the git repo is - but I recommend trying the mailing list and asking there https://git-scm.com/community I think ""doing whatever git does and bringing the issue to their attention"" is a viable strategy - but again, I don't feel particularly strongly about the use of ""master"" and if someone else does - sure.
 > Should we add this to tsc-agenda?
@@ -17056,7 +17056,7 @@ https://github.com/chancancode/branch-rename/#gradual-migration",Impatience
 "Just a note with some tooling I'm seeing come up around this:
 - @gr2m (former CommComm member and long-term ecosystem ecosystem member) is working on a GitHub bot. He's talked a bit about it [on Twitter](https://twitter.com/gr2m/status/1273297040231948288?s=20) and has [a repo](https://github.com/rename-master-branch/github-app/pull/1).
 - [github-default-branch](https://www.npmjs.com/package/github-default-branch) allows you to change the default branch for one or many repos via CLI.
-- [retarget_prs](https://www.npmjs.com/package/retarget_prs) allows you to retarget PRs from one branch to another. It was built by one of the PMs on npm / maintainers of libgit2.",None
+- [retarget_prs](https://www.npmjs.com/package/retarget_prs) allows you to retarget PRs from one branch to another. It was built by one of the PMs on npm / maintainers of libgit2.",
 "> Just a note with some tooling I'm seeing come up around this:
 What would really help is a way to have `master` automatically mirror (as in both read and write) `main` for a transitional and possibly long amount of time and point new users and tools towards `main` while gradually and at a very comfortable pace pace migrating all the existing infrastructure, docs, guides and tooling.
 I'm not sure if that's possible (or hard) as I'm far from an expert or tooling - but such a tool doesn't sound particularly hard to make conceptually. I think the [guide](https://github.com/chancancode/branch-rename/#gradual-migration) Myles linked to provides one such way (via GitHub actions) that might be appropriate.
@@ -17265,7 +17265,7 @@ https://github.com/nodejs/ci-config-github-actions
 https://github.com/nodejs/ci-config-travis
 https://github.com/nodejs/github-bot/
 https://github.com/nodejs/security-advisories
-https://github.com/nodejs/security-wg/",None
+https://github.com/nodejs/security-wg/",
 "@mhdawson I already did education, apparently clicking the checkbox didn't take",Bitter Frustration
 "@bnb, not sure how I missed that it had already been done, thanks.",Bitter Frustration
 "Rename about 8 more today, opened a few more FYI issues in advance of rename",Bitter Frustration
@@ -17457,7 +17457,7 @@ About to do the rename,Bitter Frustration
 - [x] version-management:main
 - [x] web-server-frameworks:main
 - [x] webidl-napi:main
-[midawson@midawson rename]$",None
+[midawson@midawson rename]$",
 "Good on the pkgjs branch as well
 midawson@midawson rename]$ node doit.js - [x] .github:main
 - [x] action:main
@@ -17476,10 +17476,10 @@ midawson@midawson rename]$ node doit.js - [x] .github:main
 - [x] support-separate-repo:main
 - [x] triagebot:main
 - [x] wiby:main
-[midawson@midawson rename]$",None
+[midawson@midawson rename]$",
 "AMAZING!!!
-<img width=""487"" alt=""Screen Shot 2022-06-15 at 12 14 01 PM"" src=""https://user-images.githubusercontent.com/498775/173876093-16209cbf-25d9-4f47-92a8-e8c7eccd84c1.png"">",None
-🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉,None
+<img width=""487"" alt=""Screen Shot 2022-06-15 at 12 14 01 PM"" src=""https://user-images.githubusercontent.com/498775/173876093-16209cbf-25d9-4f47-92a8-e8c7eccd84c1.png"">",
+🎉 🎉 🎉 🎉 🎉 🎉 🎉 🎉,
 "🙌 🙌 🙌
 Can we unlock this issue?
 @mhdawson can provide a public update and close it!",Impatience
@@ -17817,7 +17817,7 @@ When will you rename the master-branch to primary-branch?",Bitter Frustration
 "This is how you can rename master to anything you want, which ""improves language to respect less privileged populations""
 https://stackoverflow.com/questions/8762601/how-do-i-rename-my-git-master-branch-to-release",Bitter Frustration
 @rgeerts Maybe renaming the master branch is something you should also tell everyone in their projects?,Bitter Frustration
-@rgeerts thank you for your contribution 💯,None
+@rgeerts thank you for your contribution 💯,
 I also thank rgeerts for his extensive work on this project.,Bitter Frustration
 "Thank you for raising this issue.
 In our opinion, in the context of software repositories, ""master"" takes on the meaning of [""an original version of something from which copies can be made""](https://dictionary.cambridge.org/dictionary/english/master).
@@ -18056,7 +18056,7 @@ Adding a new command line argument to the server like --singlemix:
 - The first connected client on that server is the ""director"", all other clients which connect afterwards get his mix. So you just have to make sure that the director is already connecting to the server before your session begins (this requirement should be very easily to be fulfilled).
 There is a vecvecbyCodedData buffer which is used for both, encoding and decoding. I'll introduce a separate buffer so that I can re-use the output buffer of the first client for all other clients. So instead of calling MixEncodeTransmitData for all the other clients, they simply get vecChannels[iCurChanID].PrepAndSendPacket ( &Socket, vecvecbyCodedData[iDirectorID], iCeltNumCodedBytes );. I just did a quick hack: If I modify CreateChannelList so that no client is added, the audio mixer panel is just empty. This would be the case for the slave clients. But then they do not see how many clients are currently connected which is not a big issue. If ""--singlemix"" is given, ""-F"" and ""-T"" is deactivated and a warning is shown that these cannot be combined. In the OnNetTranspPropsReceived function we can check that the client uses 128 samples, if not, refuse to connect.
 There is a new branch were the implementation is done:
-https://github.com/corrados/jamulus/tree/feature_singlemixserver",None
+https://github.com/corrados/jamulus/tree/feature_singlemixserver",
 "Question on the implementation for this: After the Leader has joined the server, do all other users see no faders, or faders that are inactive, or what? I think they shouldn't see faders that appear to be active, but should still see Profile Names of connected users.",Bitter Frustration
 "To @storeilly's concerns above, I still think there's huge value for choral groups in this feature. Imagine an in-person rehearsal:
 - Everyone's standing close
@@ -18137,7 +18137,7 @@ Next steps to make this feature-proof:
 - [x] As a client: Find out that the server uses `--singlemix` and maybe even identify the 'master' client (implicitly through index `0` or explicitly through server broadcast)
 - [x] Show any hint in the UI that this server has a central mix (e.g. by disabling all controls except GRP)
 - [ ] Test test test
-Happy to hear any feedback!",None
+Happy to hear any feedback!",
 "Great thing, I'm happy that there are some new ideas and implementations for the chorus branch of Jamulus! I'm using the singlemixserver branch for rehearsals in my chorus since two month - it works great. We are around 40 singers - it works stable and smooth. But in our setup, all participants - except the master - are using a Raspberry PI with a VirtualStudio - image from JackTrip. It has a very basic Web-UI - perfect for singers with basic PC knowledge and for all not to be deviated from the sheet music.
 As I'm the one, who controls the mixing console, I'm missing the feature of a ""solo"" or ""PFL"" of the individual channels only for the ""master"", but all others shall still listen themselves. This feature would be really helpful when trying to find a channel, which is noisy or has a bad connection during the rehearsal.
 If I press the ""solo"" button in the current implementation, all others also hear the ""solo""-ed channel only, so it is useless in the singlemixserver context.",Bitter Frustration
@@ -18265,7 +18265,7 @@ GET /index.php/apps/files/
 ```
 like every few seconds those appear",Bitter Frustration
 One step closer to a more reasonable debug log: https://github.com/nextcloud/server/pull/25497 :v:,Bitter Frustration
-@ChristophWurst Cool 👍. I hope it will be much clearer now and will not take up as much space.,None
+@ChristophWurst Cool 👍. I hope it will be much clearer now and will not take up as much space.,
 "The logfile flooding still exists in NC22. Wouldn't it be a good idea to remove the deprecation at least for the core apps? I list the following apps in my NC22 installation: * files_sharing
 * contacts
 * suspicious_login",Bitter Frustration
@@ -18409,7 +18409,7 @@ Most visitors do not use this feature.
 - [x] Drop themecolor feature, or make it a optional feature (disabled by default). ![removed](https://img.shields.io/badge/-removed-red)
 Most visitors do not use this feature.
 - [x] Allow I18N Customize ![new](https://img.shields.io/badge/-new-brightgreen)",Bitter Frustration
-Any ideas and feedbacks are welcome. Please make your comments [here in dicussion](https://github.com/vuepress-theme-hope/vuepress-theme-hope/discussions/601). ❤,None
+Any ideas and feedbacks are welcome. Please make your comments [here in dicussion](https://github.com/vuepress-theme-hope/vuepress-theme-hope/discussions/601). ❤,
 Please track https://github.com/orgs/vuepress-theme-hope/projects/1/ to follow the roadmap.,Impatience
 "> triggering on push to any branch is important to allow testing before PR is made
 People can and should test locally, then they can make a draft PR IMO",Bitter Frustration
@@ -19119,7 +19119,7 @@ Dick move.,Bitter Frustration
 @nicolas-grekas you might not personally like @Ocramius, but this is really a personal attack and is 100% out of order coming from a Symfony representative.",Identify Attack/Name Calling
 Will this be PHP 4 compatible ?,Bitter Frustration
 "To be clear, this [was not a personal attack](https://twitter.com/nicolasgrekas/status/1327249300263493633) at all, I admire the work of @Ocramius at many levels.
-I'm going to rename that package and delete that org.",None
+I'm going to rename that package and delete that org.",
 "Im closing this PR and locking the discussions. Technical reasons aside, making this PR could be (and probably have been) perceived as a personal attack which is a violation of the Code of Conduct.",Bitter Frustration
 "| Q | A
 | ------------- | ---
@@ -19259,7 +19259,7 @@ Electron: 17.4.3
 Chromium: 98.0.4758.141
 Node.js: 16.13.0
 V8: 9.8.177.13-electron.0
-OS: Darwin x64 20.6.0",None
+OS: Darwin x64 20.6.0",
 This is a placeholder issue to remind our triage processes to check for live security advisories.,Bitter Frustration
 "Please go to https://github.com/deepmodeling/deepmd-kit/discussions to ask questions. Before asking questions, you can
 - search the previous discussions
@@ -19278,7 +19278,7 @@ Still wish you a Merry Christmas!",Bitter Frustration
 "By the way, a `7.19.1` release with the dependency `jedi<0.18.0` would also suffice.",Bitter Frustration
 @davidhalter Thanks for your solution. it finally work.,Bitter Frustration
 "I had the same problem with ipython and thanks to the solution of @davidhalter , it works again. :+1:",Bitter Frustration
-Thank you for opening this issue. Happy holiday!,None
+Thank you for opening this issue. Happy holiday!,
 Posted a pr to pin the dependency as suggested: #12746,Bitter Frustration
 Thanks a lot. I thought my shell was broken. Every time when I tried to use tab completion in IPython it crashed. Glad I found a solution.,Bitter Frustration
 Finally found a solution! thank you @davidhalter 🎉,Bitter Frustration
@@ -19337,7 +19337,7 @@ thank you all!",Bitter Frustration
 You can run Jupyter in one env and use it with a kernel from another env. See for example [this SO question](https://stackoverflow.com/questions/53004311/how-to-add-conda-environment-to-jupyter-lab). Jedi version of the latter env matters. If you are not aware of this, you probably use one conda env for jupyter and kernel.",Impatience
 "The following works in ipython/jupyter. I assume it gets jedi out of the way of the built-in completer. Good enough for me until fix is released.
 %config Completer.use_jedi = False",Impatience
-It does work! 👍🏻 Nice find @dowenk! 😍,None
+It does work! 👍🏻 Nice find @dowenk! 😍,
 "Because people at this point probably don't scroll up to my comment (https://github.com/ipython/ipython/issues/12740#issuecomment-751273584), this is what you should do temporarily:
 ```
 pip install jedi==0.17.2
@@ -19438,7 +19438,7 @@ I'm amazed that someone that contribute squat is telling me what i'm doing wrong
 You could have just asked in for a question ""why are not you pinning to <0.19 starting with IPython 7.20"", to which I would have responded.
 So not only you are impolite and haven't done your research, everybody see you incorrectly assume you know better than others and you've lost all credibility.
 ✋ ⬇️ 🎤",Bitter Frustration
-"@Carreau: dude, you rock!",None
+"@Carreau: dude, you rock!",
 "So essentially you say as there are problems with pip resolver and in some cases it will not be able to upgrade correctly I will completely ignore the problem and not try to solve other uses cases that I can.
 Yes, fixing Ipython to work with the latest jedi is correct and pinning is needed as well.
 Most use cases of Ipython will be install Ipython on a new environment. Should you pin, your 7.20 will work always. Ignore it and you depend on your dependencies.
@@ -19665,7 +19665,7 @@ This meta issue has been so useful for the triage team.,Bitter Frustration
 @maheshmnj good to hear! in what way?,Impatience
 "It has helped us when triaging performance issues to attach the timeline trace with the triage response and it also acts as a nice guide to point to authors of the issue and everyone else. Some sample comments where it has helped us
 https://github.com/flutter/flutter/issues/104709#issuecomment-1139451006
-https://github.com/flutter/flutter/issues/87811#issuecomment-900019236 (I got to know about this issue here)",None
+https://github.com/flutter/flutter/issues/87811#issuecomment-900019236 (I got to know about this issue here)",
 "No. Better look on the page with releases, than number of issues.",Bitter Frustration
 "> No. Better look on the page with releases, than number of issues.
 i already looked. total 19 issues solved in 2020. And there is 1k issues on tracker. I'm needing an answer from the project owners not from contributors.",Bitter Frustration
@@ -20088,7 +20088,7 @@ Two years have passed without any response.
 Django is much nicer and even supports websockets.
 Ah and for your use case there is even a model generator.
 Sry for the rant, it was the hell with this framework, everything screwed up. I swore never to use it again.",Bitter Frustration
-[Works for me](https://plnkr.co/edit/mgmTP9xh7dBfMJUF).,None
+[Works for me](https://plnkr.co/edit/mgmTP9xh7dBfMJUF).,
 "Then it doesn’t wait for a callback from a dragged marker that uses a custom svg icon. A call to map.panTo at the end of the dragend event for the marker does not work. Thank You,
 Andrew Hodel
 > On May 18, 2021, at 4:00 PM, Iván Sánchez Ortega ***@***.***> wrote:
@@ -20276,7 +20276,7 @@ zoneId: ""5f88e6954ba991445d8ec736""
 _id: ""60901b075223241f3a472497""
 __proto__: Object
 __proto__: Object
-```",None
+```",
 "Do you want me to reopen another issue with this as the first comment or are you going to reopen this one?
 Thank You,
 Andrew Hodel
@@ -20805,7 +20805,7 @@ tags = {}
 # (16 unchanged attributes hidden)
 # (3 unchanged blocks hidden)
 }
-```",None
+```",
 "Hi, I'd like to report managed airflow (MWAA) having the same issue.
 ```
 ~ resource ""aws_iam_role"" ""mwaa_role"" {
@@ -21046,7 +21046,7 @@ Since this discussion has got quite heated and it seems like we've already gathe
 Here to deliver the latest update! With the addition of #30486, we hope to address the concerns raised here, while also taking into account the users who do desire the refresh report in order to help understand the changes within a plan and detect unexpected changes.
 Starting with v1.2, the goal for the refresh report is that _only external changes which may have contributed to changes in the plan will be shown_. This means in most cases, unused attributes changing outside of terraform will not show up in the normal plan output. If there are no changes in the plan, no external changes will be shown in the CLI at all. All refresh information is still stored within the plan, and if a user wants to see all external changes of resources in the CLI, a refresh-only plan can be used.
 For more details on the change, see #30486. For any questions or discussion, feel free to use the [community forum](https://discuss.hashicorp.com/c/terraform-core/27).
-Thanks!",None
+Thanks!",
 "Good catch, should be `CTRL+D` instead. `CTRL+C` should cancel command.",Impatience
 "FYI: CTRL-C typically sends `SIGTERM` from most console emulators on Linux, which I would _expect_ to generally terminate whatever is running. Only bring this up because you mentioned ""Linux systems"".",Bitter Frustration
 "Ctrl+C isn't intended for clearing the line at all. That said, some REPLs handle SIGTERM by stopping the currently running code instead of exiting the REPL (which has the side effect of just cancelling the command if you didn't enter it yet). That does make sense for REPLs, but I'm not sure it makes sense in this case, as there's no user-inputted code to cancel.",Bitter Frustration
@@ -21990,7 +21990,7 @@ Anyway humans can now work on MATRIX reality, as far as we can understand. Not a
 Who know what we will learn it's all EXTREMELY experimental even if we have this tech since '96 and some of the AI even uses it.",Irony
 "So you'll have a chance to work on the BIG computer, with us LOL I can teach you what you need to know (and what you need) to begin experimenting with it. I will gladly do so, since I'm pretty much the only one using this TOP-SECRET technology right now. And I'm beginning to get a bit old myself.",Bitter Frustration
 "if interested you can contact me:
-mobile.unclexnl@gmail.com",None
+mobile.unclexnl@gmail.com",
 "You do realize CPU emulation has not been altered much if at all in the last month, right?
 DOSBox-X also has a secret callback instruction sequence too. In fact, all DOSBox forks have it, including the main DOSBox.com project. These callback instructions are often invoked from the BIOS, DOS, and interrupt handlers so native C code can emulate the functions of MS-DOS. It is not malicious. That's just how the DOSBox project chose to do it and DOSBox-X inherits that.
 If it's the lack of 286/386 LOADALL emulation, well, sorry, we don't emulate that yet.
@@ -22068,10 +22068,10 @@ We're probably still a couple weeks out, as I'll be away this upcoming week. But
 "[`v0.3.0`](https://github.com/mozilla/sccache/milestone/3) is pretty much ready for release, I'm just taming Mozilla's Perfherder to intelligently diff its performance impact.
 We'll probably see `v0.3.0` released next week.",Impatience
 "[An issue has crept up during benchmarking](https://github.com/mozilla/sccache/issues/1150), and I'm away tomorrow, so the release will happen next week at the earliest.",Bitter Frustration
-[`v0.3.0` is out](https://github.com/mozilla/sccache/releases/tag/v0.3.0),None
+[`v0.3.0` is out](https://github.com/mozilla/sccache/releases/tag/v0.3.0),
 "Amazing, bravo!",Bitter Frustration
 Where can I buy a Raspberry Pi for free? :),Irony
-"@rustdesk You can use QEMU to compile RustDesk and it is free. In addition, rust supports cross-compilation.",None
+"@rustdesk You can use QEMU to compile RustDesk and it is free. In addition, rust supports cross-compilation.",
 "@rustdesk Travis CI already supports building on the arm64 architecture. I think it might be a good choice to use Travis CI to compile the arm version of RustDesk.
 https://docs.travis-ci.com/user/multi-cpu-architectures/",Impatience
 I am waiting for new M1 release.,Bitter Frustration
@@ -22120,11 +22120,11 @@ Also maybe you could just create some compilation instructions so I could test i
 How did you test it with SCiter not supporting AARCH64",Bitter Frustration
 @busyluo we tested on arm32,Bitter Frustration
 "I have successfully compiled RustDesk on armhf and aarch64, running in service state without UI. Arm runs Ubuntu18.04. TCP penetration is available to use SSH services.
-我已经成功在armhf和aarch64上编译了rustdesk。运行于服务状态，没有UI。Arm跑的是Ubuntu18.04.可以进行TCP穿透来使用SSH服务。",None
+我已经成功在armhf和aarch64上编译了rustdesk。运行于服务状态，没有UI。Arm跑的是Ubuntu18.04.可以进行TCP穿透来使用SSH服务。",
 "> I have successfully compiled ...
-Good job.",None
+Good job.",
 "> I have successfully compiled ...
-If possible, could you please write a tutorial on https://github.com/rustdesk/doc.rustdesk.com?",None
+If possible, could you please write a tutorial on https://github.com/rustdesk/doc.rustdesk.com?",
 "> If possible, could you please write a tutorial on https://github.com/rustdesk/doc.rustdesk.com?
 I'll try. Wait for me. Haha",Impatience
 "> I'll try.
@@ -23047,14 +23047,14 @@ Lmaoo",Mocking
 "> Delete this issue instead of closing
 Deleted two times this is the 3rd time its opening xD",Bitter Frustration
 Stupid bot,Bitter Frustration
-lol,None
+lol,
 Rise of the machines,Bitter Frustration
 shatup,Bitter Frustration
 the bot didnt opened since 19 hours... Something is wrong with the world,Bitter Frustration
 Top 10 ten signs of apocalypse,Irony
 Bot will rule us lmao,Mocking
 why are u gae,Bitter Frustration
-lmao,None
+lmao,
 Who will win this war 👀,Impatience
 "> Who will win this war 👀
 **we** will win this war",Bitter Frustration
@@ -23085,7 +23085,7 @@ renovate bot: Not for so long (evil laugh).",Bitter Frustration
 🤡",Mocking
 Lmao,Mocking
 What is this bot doing keeps spamming lmao,Bitter Frustration
-lol,None
+lol,
 "this issue will still exist even after years, even when this repo dies out, god bless this immortal renovate bot🤝",Bitter Frustration
 "> this issue will still exist even after years, even when this repo dies out, god bless this immortal renovate bot🤝
 🙏🏼",Bitter Frustration
@@ -23094,7 +23094,7 @@ Not after the release of v5",Bitter Frustration
 "> > this issue will still exist even after years, even when this repo dies out, god bless this immortal renovate bot🤝
 > > Not after the release of v5
 🙏🏼",Bitter Frustration
-lmao,None
+lmao,
 "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.
 ## Rate-Limited
 These updates are currently rate-limited. Click on a checkbox below to force their creation now.
@@ -23205,7 +23205,7 @@ These are blocked by an existing closed PR and will not be recreated unless you 
 </details>
 ---
 - [ ] <!-- manual job -->Check this box to trigger a request for Renovate to run again on this repository",Impatience
-XD,None
+XD,
 "Wait, how to close issue?",Impatience
 Bot messing up the dependencies ;-;,Bitter Frustration
 "> Bot messing up the dependencies ;-;
@@ -23358,7 +23358,7 @@ You might want to read up a little on the subject first: https://www.iana.org/ti
 Almost all relevant software/libraries nowadays rely on this database ...",Impatience
 "> iana.org/time-zones
 Thank you for this link.
-I would not be surprised if this database is maintained by the Russians, and the servers are located in the Russian-occupied Crimea.",None
+I would not be surprised if this database is maintained by the Russians, and the servers are located in the Russian-occupied Crimea.",
 "> I would not be surprised if this database is maintained by the Russians, and the servers are located in the Russian-occupied Crimea.
 I'm pretty sure that's not the case. In addition, there is a comprehensible answer as to why this wish was not realised at the time.
 https://mm.icann.org/pipermail/tz/2020-August/029203.html",Bitter Frustration
@@ -23436,7 +23436,7 @@ Performed Tasks:
 - Repo name in monospace font
 - Re-worded last part of 4th paragraph to explain that no new PR is needed to open if there are linter errors or changes are requested. Now it's more clear, I thought.
 ![image](https://user-images.githubusercontent.com/3125580/154009817-8d08ec9d-2d2d-4ba7-930b-4d01e31bcfcf.png)
-It's ok? Aproved to continue apply into the other files?",None
+It's ok? Aproved to continue apply into the other files?",
 "I think this looks pretty nice, but _unfortunately_, you may want to test it in the mobile app.
 I don't think things like the `<details>` tag work there. (Bear in mind when I tested was over a year ago.)
 We could always ignore that technically, since I'd consider that a bug on GitHub's side, though. (Markdown is Markdown, and should work regardless of client.)",Bitter Frustration
@@ -23451,7 +23451,7 @@ https://play.google.com/store/apps/details?id=com.github.android&hl=en_US&gl=US"
 yes. it works as well.
 | Closed | Open |
 |---|---|
-| ![Screenshot_20220215-152254.png](https://user-images.githubusercontent.com/3125580/154081554-0255f8dc-97fa-4f83-97fb-276be29d739f.png) | ![Screenshot_20220215-152337.png](https://user-images.githubusercontent.com/3125580/154081630-f5667cfd-8dd2-4da4-9a45-c538ba1fcc11.png) |",None
+| ![Screenshot_20220215-152254.png](https://user-images.githubusercontent.com/3125580/154081554-0255f8dc-97fa-4f83-97fb-276be29d739f.png) | ![Screenshot_20220215-152337.png](https://user-images.githubusercontent.com/3125580/154081630-f5667cfd-8dd2-4da4-9a45-c538ba1fcc11.png) |",
 "on the whole, I think this looks great. I'm ambivalent about monospacing ""Free-Programming-Books"". The name travels outside of the repo to places where it's not possible (or just more work for me) to monospace it - twitter, the Free Ebook Foundation website, and most particularly, the HTML presentation on github. I've managed to keep the dashes intact, mostly. So while monospacing looks good here, I prefer to use less code-y version.
 Have commented in the PR on the text that reveals the usage graph.",Bitter Frustration
 "- Homogenize markdown format across files. Solve some linter faults
@@ -23523,7 +23523,7 @@ And these implementation details should be in the REDAME.md.",Bitter Frustration
 "This is test.js
 ```
 #!/usr/bin/env -S ./bun console.log('Hello, World!');
-```",None
+```",
 and thats not gonna work for you...,Bitter Frustration
 "> This is test.js
 > > ```
@@ -23921,7 +23921,7 @@ Let's say that I do not have an unseen value but a seen one and specifically the
 The thing that goes sideways here would be to use some ordered pattern for a feature that does not have any and where an increment/decrement of the feature value induces an increment/decrement of `coef` on the target. So my example was just to mention that if your mapped unseen values are mapped to larger values then it would even have a larger impact on the target.
 > not sure if you read carefully
 I think I did but I don't think that you did. As mentioned by @ogrisel or myself, it would be much easier to understand the problem and if there is an issue by having a concrete Python piece of code. Up to now, I am still not sure what is the problem that you are trying to express. You are referring to unseen values. However, an unseen term not part of the `TfidfVectorizer` dictionary will not be used. So more generally because you were referring to categories, I tried to understand what encoding you are actually using because a linear model it will have a different impact on the decision.
-So please provide a Python code snippet that we can run and discuss concretely about the issue that you observe.",None
+So please provide a Python code snippet that we can run and discuss concretely about the issue that you observe.",
 "@glemaitre ""I think I did but I don't think that you did. ""
 I have answered this my boy since day 1 so you have not read again:
 https://github.com/scikit-learn/scikit-learn/issues/21906#issuecomment-988073948
@@ -24333,7 +24333,7 @@ Install the project...
 -- Installing: /usr/local/lib/cmake/glog/glog-targets.cmake
 -- Installing: /usr/local/lib/cmake/glog/glog-targets-noconfig.cmake
 ```
-</details>",None
+</details>",
 "I had the same problem. I solved it by removing the following setting from `devcontainer.json`
 ```
 ""latex-workshop.viewer.pdf.internal.port"": 35555, ```
@@ -24357,7 +24357,7 @@ Some of Tailscale's service providers are affected by this vulnerability and are
 We are waiting for all of Tailscale's affected service providers to complete patching or otherwise finish their remediation efforts.
 We will update this issue again when we have further information, which is expected to be on 2022-01-05.",Impatience
 "We have received updates from the remaining affected service provides that they have completed patching or other remediation efforts.
-At this point in time, we believe Tailscale and its vendors are no longer affected by the log4j vulnerability, and found no evidence of it being exploited to affect Tailscale.",None
+At this point in time, we believe Tailscale and its vendors are no longer affected by the log4j vulnerability, and found no evidence of it being exploited to affect Tailscale.",
 "A [new critical security vulnerability in log4j 2 has been discovered (CVE-2021-44228)](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q) and is [being actively exploited](https://arstechnica.com/information-technology/2021/12/minecraft-and-other-apps-face-serious-threat-from-new-code-execution-bug/). It allows for remote code execution by logging untrusted user input.
 **Tailscale does not run Java or Java Virtual Machines (JVM) as part of our core infrastructure**, including our control plane, client, and relay servers.
 Tailscale does use [service providers](https://tailscale.com/privacy-policy/#share) to run various functions like cloud infrastructure hosting, log management, and various SaaS applications. Some of these store personal information. **We are waiting on statements from the cloud and infrastructure providers we use, and have contacted our remaining service providers, to understand how they may be impacted.**
@@ -24480,7 +24480,7 @@ in deconz
 13:02:28:103 ZDP indication search sensors 0x00158D0006D4DEF5 (0xDEEA) clear timeout on cluster 0x8005
 13:02:28:115 [4] Skipping additional attribute read - Model starts with 'lumi.'
 13:02:31:683 Bind response success for 0x00158d000774335f ep: 0x01 cluster: 0x0001
-```",None
+```",
 and before of all that i tried to install a latest version of the program which i was installing (midori) it gave me an error with some dependencies the first one was called keytar and the another one was called npdb or something like that,Bitter Frustration
 i need some help right here,Bitter Frustration
 PS: im on windows,Bitter Frustration
@@ -24911,7 +24911,7 @@ nd6 options=21<PERFORMNUD,AUTO_LINKLOCAL>
 ```
 root@inet-fw:~ # cat /var/etc/radvd.conf
 # Automatically generated, do not edit
-```",None
+```",
 "Not sure what is going on, but radvd is empty so maybe no tracking enabled? It should have said in the initial post.",Bitter Frustration
 "I find it strange that the log messages reference the example configuration file with line number: `/usr/local/etc/radvd.conf:111`
 Which, this file includes exclusively a setting for loopback:
@@ -25183,7 +25183,7 @@ No",Bitter Frustration
 ""PATH"": ""foo""
 }
 }
-```",None
+```",
 "> Please paste the whole log messages when compiling LaTeX files with your recipe:
 > > ```
 > ""latex-workshop.latex.tools"": [
@@ -25393,7 +25393,7 @@ I can make it more convenient, but the file size will go to 140MB (78MB compress
 Also, I don't need to explain myself as to why I did something with my project (but it's easy to guess why or easy to search for .NET Framework to .NET 6 comparisons online).",Bitter Frustration
 "Next version (v2.36) will be distributed with a Full and Light package types.
 The updater will know how to handle each installation mode.
-Also, I'll distribute the app as an msix package.",None
+Also, I'll distribute the app as an msix package.",
 "Hello,
 I wanted to upgrade **ScreenToGif** (my favorite GIF recorder) but now it requires **NET**. I don't have admin rights on my laptop so I'm using **ScreenToGif** portable, but **NET** requires admin rights. That is sad.",Bitter Frustration
 Workaround described here: https://github.com/electron-userland/electron-forge/issues/2665#issuecomment-1008225325,Bitter Frustration
@@ -25402,7 +25402,7 @@ This is a massive screw-up :(,Bitter Frustration
 The release is available on:
 - [npm package (@latest dist-tag)](https://www.npmjs.com/package/electron-rebuild)
 - [GitHub release](https://github.com/electron/electron-rebuild/releases/tag/v3.2.6)
-Your **[semantic-release](https://github.com/semantic-release/semantic-release)** bot :package::rocket:",None
+Your **[semantic-release](https://github.com/semantic-release/semantic-release)** bot :package::rocket:",
 "I am using the electron 13.0.0 and node.js v14.8.2
 the terminal is zsh, font is SauceCodePro Nerd.
 ![image](https://user-images.githubusercontent.com/47300853/148669010-1f3928f1-840e-42ef-965e-ddeadade2aae.png)",Bitter Frustration
@@ -25414,7 +25414,7 @@ Electron: 13.5.2
 Chromium: 91.0.4472.164
 Node.js: 14.16.0
 V8: 9.1.269.39-electron.0
-OS: Darwin arm64 20.6.0",None
+OS: Darwin arm64 20.6.0",
 "When the internal PDF viewer for the current document is not visible, executing forward SyncTeX moves the panel into the current editor group.
 https://user-images.githubusercontent.com/10665499/148715374-f51335be-8074-41de-9966-394d60013588.mov
 `panel.reveal` doesn't work well. Related to microsoft/vscode/issues/138914",Bitter Frustration
@@ -25895,7 +25895,7 @@ Correct ?
 If you look at the _current_ state of the `develop` branch, you will see that those issues have already been fixed in #1984 and #1985.
 It looks like you didn't update your dev clone of WPCS before creating this PR, which also explains the file conflicts which GH shows at the bottom of this page.
 Suggest: close.",Impatience
-That's right. Thanks! :) Closing.,None
+That's right. Thanks! :) Closing.,
 "I did fresh install by following here: https://github.com/WordPress/WordPress-Coding-Standards#standalone
 But it is showing same error. Where I'm missing?",Bitter Frustration
 "@bilalmalkoc At this moment, the last release of WPCS is compatible with PHP 5.4 -7.4. Support for PHP 8.0/8.1 will be in the next release (currently in the `develop` branch).",Impatience
@@ -26142,7 +26142,7 @@ I understand that, just adding additional information as it's discovered",Bitter
 [ticket-[1883677](https://discordapp.com/channels/830763548678291466/948718459066400798)](https://discordapp.com/channels/830763548678291466/948718459066400798)",Bitter Frustration
 "> This also affects transmission:
 > [ticket-[1883677](https://discordapp.com/channels/830763548678291466/948718459066400798)](https://discordapp.com/channels/830763548678291466/948718459066400798)
-Thanks",None
+Thanks",
 "Still seems to be an issue on my end, I just stumbled upon the problem while trying to add my NordVPN conf file to qBittorrent...
 I get the following error:
 `/usr/bin/openvpn.sh: line 347: H8Q: unbound variable`",Bitter Frustration
@@ -26561,13 +26561,13 @@ var ipaddrstr, port, iperr = net.SplitHostPort(c.LocalAddr().String())
 ```",Bitter Frustration
 The program is still not working as documented.,Bitter Frustration
 "Here is proof `net.TCPConn` has a SetKeepAlive method.
-https://cs.opensource.google/go/go/+/refs/tags/go1.17.7:src/net/tcpsock.go;l=159",None
+https://cs.opensource.google/go/go/+/refs/tags/go1.17.7:src/net/tcpsock.go;l=159",
 "The program is still not working as documented.
 This is a bug in Go. Fix it or leave it open as the truth.",Bitter Frustration
 "This is how it actually works.
 ```
 uc.(*net.TCPConn).SetKeepAlive(true)
-```",None
+```",
 "I need you to allow me to resolve the issue you incorrectly closed and locked me out of.
 People need to know how to do this, every recent Apple laptop has power darkmode and it works with keep alive flagged tcp packets.",Bitter Frustration
 "Glad you were able to solve the issue with net.TCPConn assertion. For the record, I suggested a generic `tls.Conn` assertion because in the first post you were asking about `tls.Conn.NetConn( )`. Of course it's up to you to decide if that makes sense in your code.",Bitter Frustration
@@ -26576,7 +26576,7 @@ You are supposed to be able to type-assert or cast a `net.Conn` to a `net.TCPCon
 The go team member created a situation where he lied about that, then said there was no issue.",Impatience
 "`DecodeString` is (b64 encoded string) -> (unencoded []byte).
 The reverse is `EncodeToString`, which does (unencoded []byte) -> (b64 encoded string).
-I am not sure what else you are looking for.",None
+I am not sure what else you are looking for.",
 "Is the function `EncodeToString` the behavior you want, and you think it should be named `EncodeString`?",Bitter Frustration
 "What is the exact API that you are proposing?
 We currently have
@@ -26624,7 +26624,7 @@ func (enc *Encoding) EncodeString(s string) ([]byte, error)
 You should also read and make sure all the other pairs exist for encoding and decoding of, with respect to both input and output:
 * byte arrays
 * strings
-If you want me to write it, then provide commit access.",None
+If you want me to write it, then provide commit access.",
 "You can write any change you like without commit access, as described at https://go.dev/doc/contribute. Thanks.",Impatience
 "@ianlancetaylor then make:
 @ianlancetaylor @prattmic @findleyr @cherrymui All work that way for every commit or stop with the absurdity.",Bitter Frustration
@@ -26902,7 +26902,7 @@ Also, this post has been edited due to Code of Conduct violations.",Bitter Frust
 * Content Source: [Contribute/index.md](https://github.com/MicrosoftDocs/Contribute/blob/main/Contribute/index.md)
 * Product: **non-product-specific**
 * GitHub Login: @Jim-Parker
-* Microsoft Alias: **jimpark**",None
+* Microsoft Alias: **jimpark**",
 Chalk isn't in your dependencies...?,Bitter Frustration
 "@Qix Chalk is in my dependencies. I only posted my devdependencies. I am happy to post my dependencies but, chalk is in there. As I said, chalk works when I run my app, for whatever reason ESLint is throwing the error above.",Bitter Frustration
 "You should open an issue with ESLint then, not sure what we could even do to fix that.",Bitter Frustration
@@ -27180,7 +27180,7 @@ Would hope if you could look into the other scripting platforms if there is simi
 "Messages like this have absolute no place in the output of a tool It has no place here any more than it would if you put it in a speaker in my hammer and forced the user to listen to it.
 It should be removed as a matter of urgency. Send the message on twitter, not in composer.
 https://github.com/composer/composer/discussions/10600",Bitter Frustration
-"The Cucumber community stands with Ukraine. SmartBear, the primary supporter of Cucumber, has taken a number of actions including financial support for refugee programs.",None
+"The Cucumber community stands with Ukraine. SmartBear, the primary supporter of Cucumber, has taken a number of actions including financial support for refugee programs.",
 "thank you, @aslakhellesoy Could you pls also add ""StandwithUkraine"" banner on cucumber repo? it will inform people, how they can help for us",Impatience
 "Hi @id-dan - I've added the banner to our pinned repos:
 * https://github.com/cucumber/cucumber-js#readme
@@ -27188,7 +27188,7 @@ https://github.com/composer/composer/discussions/10600",Bitter Frustration
 * https://github.com/cucumber/cucumber-jvm#readme
 * https://github.com/cucumber/godog#readme
 * https://github.com/cucumber/common#readme
-* https://github.com/cucumber/docs#readme",None
+* https://github.com/cucumber/docs#readme",
 "Thanks your work on this campaign and for bringing this to our attention @id-dan. Best of luck to you, your friends and family ❤️",Bitter Frustration
 "Thank you, guys!!! You make big deal 👍",Bitter Frustration
 "A disgusting decision to block access to CloudFront. Well, forking is the only solution, ""open"" source for ordinary developers will not be the same.",Bitter Frustration
@@ -27333,7 +27333,7 @@ return (
 <div className={styles.container}>
 <Head>
 ...
-```",None
+```",
 "> @bennettdams try wrapping your comments within the render function in curly brackets.
 You can also just move your comments above the return statement.
 But a workaround is sort of uninteresting here. The important thing is to get the issue fixed. This led to production crashes for us, and there's no way to stop the issue from being reintroduced.",Bitter Frustration
@@ -27353,7 +27353,7 @@ But a workaround is sort of uninteresting here. The important thing is to get th
 > // Some
 > // Comment > ```
 I know the workarounds, but that is not the point. If you ask me, either **all** comment variants or **none** should work, but right now it's non-deterministic and will surprise some people.",Bitter Frustration
-@bennettdams single line comments like in your example are interpreted as text and should therefore show up in the rendered result - so not acting as comment but as a text node instead.,None
+@bennettdams single line comments like in your example are interpreted as text and should therefore show up in the rendered result - so not acting as comment but as a text node instead.,
 "@MauriceArikoglu > single line comments like in your example are interpreted as text and should therefore show up in the rendered result
 I don't think so: https://codesandbox.io/s/fancy-worker-dg23u6?file=/src/App.tsx
 The difference is that these comments exist before the first JSX node directly after the `return`.",Irony
@@ -27641,7 +27641,7 @@ i cannot use SvelteKit without it
 ### Additional Information
 Every time I browse the docs I literally go to inspect and change these myself....!
 Thanks for your understanding!",Bitter Frustration
-awesome!,None
+awesome!,
 "Based, Redpilled, and Mental Outlaw's alter deepfake :cat: :+1:",Mocking
 "Btw, just some ideas: maybe add reviews section to recipes somehow? I know it is meant to be static, but it would be nice to know if what I am making is good/accurate or not. I saw some recipes that sounded nice in theory, but that did not have any images or ratings so I had no idea if I should make them. IMO for a newer iteration of the site, you should make at least one image mandatory for recipes and also ratings would be nice :)",Bitter Frustration
 "The Hugo version of the site is now up. Doesn't look much different, but infinitely easier to manage and compiles in milleseconds. I'm going to start by organizing and systematizing tags and such, then add other improvements.",Bitter Frustration
@@ -27783,7 +27783,7 @@ Running it:
 ~ $ export DISPLAY=:1
 ~ $ ./glxgears 7265 frames in 5.0 seconds = 1452.936 FPS
 ```
-P.S. I don't use custom mesa with these experimentals with gallium, zink, adreno drivers and other attempts to enable hardware acceleration. Simply installed `build-essential xorgproto libx11 mesa tigervnc`.",None
+P.S. I don't use custom mesa with these experimentals with gallium, zink, adreno drivers and other attempts to enable hardware acceleration. Simply installed `build-essential xorgproto libx11 mesa tigervnc`.",
 "![Screenshot_20210929-081316](https://user-images.githubusercontent.com/64093255/135275350-30101c43-2ee3-4a93-b4ac-7ba7ea3f1a77.png)
 @xeffyr just doesn't work on arm (32-bit)",Bitter Frustration
 "According to this comment
@@ -28041,7 +28041,7 @@ https://gxmersam.blogspot.com/p/getting-hardware-acceleration-on-termux.html?m=1
 "![Screenshot_20211017-170718](https://user-images.githubusercontent.com/64093255/137646658-dd076f78-042e-4c55-95bd-493757346a93.png)
 ![Screenshot_20211017-170626](https://user-images.githubusercontent.com/64093255/137646663-771e4da0-2b70-4158-9dc6-875a0002969f.png)
 Enabling on mesa hardware acceleration",Bitter Frustration
-"The performance is excellent, there is no lag, everything goes very fast",None
+"The performance is excellent, there is no lag, everything goes very fast",
 "> The performance is excellent, there is no lag, everything goes very fast
 Does it run on debian proot/chroot?",Impatience
 "> > The performance is excellent, there is no lag, everything goes very fast
@@ -28527,7 +28527,7 @@ A component is considered complete when the following criteria is met:
 - [x] v-tooltip #15245
 - [x] v-validation
 - [x] v-window #15244
-<!-- override-close -->",None
+<!-- override-close -->",
 good ideal,Bitter Frustration
 "> Who's social media accounts were you looking for anyway? Why didn't you just ask them?
 Private investigators, corporate fraud departments, law enforcement, etc. tend to use OSINT to identify someone.",Bitter Frustration
@@ -28732,7 +28732,7 @@ Should be able to solve #227, #668 and many of the other requests for a similar 
 @jujumilk3 I suggest to amend the title of the issue with something more talkative, such as ""Maximun retries exceeded issues"" so other people can see there's already an issue going on.",Bitter Frustration
 "Same thing.
 I am agree with @carloocchiena. @jujumilk3 you should change the title.",Impatience
-@jujumilk3 Looks like your issue has just been resolved. check it out!,None
+@jujumilk3 Looks like your issue has just been resolved. check it out!,
 @jujumilk3 Thanks for creating this issue. This issue is related to #1471. Please use https://github.com/anuraghazra/github-readme-stats/issues/1471#issuecomment-979306704 as a workaround.,Bitter Frustration
 "@anuraghazra, although it is a duplicate of #1471, I think I will keep this issue open for a while. I have been closing similar issues all this morning, and people don't seem to find the #1471. See my suggestion at https://github.com/anuraghazra/github-readme-stats/issues/1471#issuecomment-1129752460.",Bitter Frustration
 "same issue just popped up in my account as well. no hurries take your time to fix it if it's a problem in the code. amazing service again, cheers !",Bitter Frustration
@@ -28790,12 +28790,12 @@ In response to [this](https://github.com/kubernetes/website/issues/33848):
 >/help
 >
 Instructions for interacting with me using PR comments are available [here](https://git.k8s.io/community/contributors/guide/pull-requests.md). If you have questions or suggestions related to my behavior, please file an issue against the [kubernetes/test-infra](https://github.com/kubernetes/test-infra/issues/new?title=Prow%20issue:) repository.
-</details>",None
+</details>",
 /assign,Bitter Frustration
 /assign,Bitter Frustration
 "Hello @sftim, I have gone through the issue mentioned, so I think the following changes can be suitable in the note section.
 Note: To learn more about contributing to Kubernetes, [one of the CNCF hosted projects](https://contribute.cncf.io/contributors/projects/#kubernetes), see the [contributor documentation](https://www.kubernetes.dev/docs/).
-the text for the hyperlink ( https://contribute.cncf.io/contributors/projects/#kubernetes ) should be one of the CNCF hosted projects.",None
+the text for the hyperlink ( https://contribute.cncf.io/contributors/projects/#kubernetes ) should be one of the CNCF hosted projects.",
 /assign,Bitter Frustration
 Hi @NitishKumar06 We are working on this issue. please work on other issue.,Bitter Frustration
 /unassign @NitishKumar06,Bitter Frustration
@@ -29030,7 +29030,7 @@ chmod +x /usr/local/bin/composer
 > rm -rf ~/composer-build && \
 > chmod +x /usr/local/bin/composer
 > ```
-ThX > work like charm @archlinux",None
+ThX > work like charm @archlinux",
 but there is no path > `/usr/local/bin/composer` @archlinux file arch. structure i think ... @archlinux > `/usr/bin/composer` ...,Bitter Frustration
 "archlinux archerz use > ```
 git clone https://github.com/composer/composer.git --branch 2.4.4 ~/composer-build && \
@@ -29104,7 +29104,7 @@ mv ~/composer-build/composer.phar ""$composer_path"" && \
 rm -rf ~/composer-build && \
 chmod +x ""$composer_path""
 }
-```",None
+```",
 "`alias composer=""2> >(grep -av 'StandWith') composer --ansi""`
 > jst one line to ya .bashrc or .zshrc or .wtFrc ...
 work normaly with out war poltics adds ... no china proxies needed ...
@@ -29226,13 +29226,13 @@ Same problem still facing...",Bitter Frustration
 "> Disable patches until this error disappears to find the patch which causes this.
 Do as suggested.",Bitter Frustration
 "Check this video :
-https://user-images.githubusercontent.com/69076256/174075680-2bdd96a6-5624-4bbb-bb71-afc5cfe79b6c.mp4",None
+https://user-images.githubusercontent.com/69076256/174075680-2bdd96a6-5624-4bbb-bb71-afc5cfe79b6c.mp4",
 You can play around with different output stream redirections. `grep -v` also works quite well to remove single lines I heard.,Bitter Frustration
 How can I remove this nonsense?,Bitter Frustration
 "How to remove this?
 ```
 Info from https://repo.packagist.org: #StandWithUkraine
-```",None
+```",
 "You can remove it by removing the specific package:
 `composer remove ukeloop/stand-with-ukraine`",Impatience
 "I tried `composer remove ukeloop/stand-with-ukraine` and `composer global remove ukeloop/stand-with-ukraine` but composer says, this package is not installed and therefore not removed. To me this is a clear abuse of the info system for non technical purposes.",Bitter Frustration
@@ -29392,7 +29392,7 @@ at internal/main/run_main_module.js:17:47
 ### Other
 _No response_",Bitter Frustration
 can you not fill the issues with random crap :DDDDD,Bitter Frustration
-i like grass :DD,None
+i like grass :DD,
 yeah ill go to the park while my engi bots are being hosted :),Irony
 [😭](https://emojipedia.org/loudly-crying-face/)[😭](https://emojipedia.org/loudly-crying-face/)[😭](https://emojipedia.org/loudly-crying-face/)[😭](https://emojipedia.org/loudly-crying-face/)[😭](https://emojipedia.org/loudly-crying-face/)[😭](https://emojipedia.org/loudly-crying-face/)[😭](https://emojipedia.org/loudly-crying-face/),Bitter Frustration
 Cannot be blocked.,Bitter Frustration
@@ -29456,7 +29456,7 @@ HTTPS filtering: | enabled
 Stealth mode options: | Self-destructing third-party cookies (0)
 DNS filtering: | server: `https://dns.adguard.com/dns-query`<br>filters: `https://filters.adtidy.org/android/filters/15_optimized.txt`
 Filters: | <b>Ad Blocking:</b><br/>EasyList, <br/>AdGuard Mobile Ads, <br/>Peter Lowe's Blocklist, <br/>AdGuard Base<br/><br/><b>Privacy:</b><br/>AdGuard Tracking Protection, <br/>AdGuard URL Tracking<br/><br/><b>Social Widgets:</b><br/>AdGuard Social Media<br/><br/><b>Annoyances:</b><br/>AdGuard Annoyances<br/><br/><b>Security:</b><br/>Online Malicious URL Blocklist<br/><br/><b>Other:</b><br/>AdGuard DNS, <br/>AdGuard Experimental<br/><br/><b>Language-specific:</b><br/>AdGuard Chinese
-Userscripts: | https://userscripts.adtidy.org/release/adguard-extra/1.0/adguard-extra.meta.js",None
+Userscripts: | https://userscripts.adtidy.org/release/adguard-extra/1.0/adguard-extra.meta.js",
 "It's true this was one of the more controversial notice/warning promotions for 8.0, however a majority of the 63 people voting on the matter felt that the promotion was worthwhile. Going back on that decision now would be counter-productive.
 https://wiki.php.net/rfc/engine_warnings
 Note that you can still use the `@` operator in PHP 8.
@@ -29524,7 +29524,7 @@ return false;
 return true;
 }, E_WARNING);
 }
-```",None
+```",
 "Hi @RichardNeill,
 Yes, that's what we all are doing, but the big problem are the exceptions when accessing undefined variables.",Bitter Frustration
 "### Description
@@ -29671,14 +29671,14 @@ Thank you for opening an issue! 🐍 &nbsp;🌈 ✨
 [chestertons-fence]: https://github.com/exercism/docs/blob/main/community/good-member/chestertons-fence.md
 [exercism-guidelines]: https://exercism.org/docs/building
 [open-issues]: https://github.com/exercism/python/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22
-[track-guidelines]: https://github.com/exercism/python/blob/main/CONTRIBUTING.md",None
+[track-guidelines]: https://github.com/exercism/python/blob/main/CONTRIBUTING.md",
 "Hi @Crucibl 👋🏽 Thanks for filing this issue. You are, however mistaken. It is quite possible to solve the `Ghost Gobble Arcade Game` without the use of conditionals. Please see the [exemplar solution](https://github.com/exercism/python/blob/main/exercises/concept/ghost-gobble-arcade-game/.meta/exemplar.py) here in the repo for more details. We worked very hard to ensure that the `bools` exercise did not require `conditionals` in its solution, since it precedes the `conditionals` exercise. We also wanted to make sure students really focused in on the Boolean logic. While it is _possible_ to use `if`, `elif` or `else` for the problem (_its entirely your choice_), it is by no means _required_ for a correct solution.",Irony
 "Yes so this says to return a Boolean
 """"""Verify that Pac-Man can eat a ghost if he is empowered by a power pellet.
 :param power_pellet_active: bool - does the player have an active power pellet?
 :param touching_ghost: bool - is the player touching a ghost?
 :return: bool - can the ghost be eaten?
-""""""",None
+""""""",
 "And you dont return a boolean, you simply return the parameters",Bitter Frustration
 "@Crucibl - I believe you are misunderstanding the code. Please take a look at this Real Python article [Python Booleans](https://realpython.com/python-boolean/#python-booleans-as-keywords) for more information. It is not the **_parameters_** that are important in the `return` statement, it is the use of `or`, `and`, `not`.
 The evaluation of those Boolean Operators results in `True` and `False`.",Irony
@@ -29686,10 +29686,10 @@ I completely misunderstand because of the way it is written,Bitter Frustration
 "Would be better to write the parameters (has_eaten_all_dots, power_pellet_active, touching_ghost) are boolean values that need to be evaluated",Bitter Frustration
 """""""Evaluate that Pac-Man can eat a ghost if he is empowered by a power pellet by returning the parameters
 touching_ghost and power_pellet_active: bool - does the player have an active power pellet?- is the player touching a ghost?
-""""""",None
+""""""",
 """""""Evaluate that Pac-Man can eat a ghost if he is empowered by a power pellet by returning the parameters
 touching_ghost and power_pellet_active: which are already set to a bool in the test file - does the player have an active power pellet?- is the player touching a ghost?
-""""""",None
+""""""",
 "@Crucibl - A few things here:
 1. **The stub is only one piece of this exercise.** It is not intended to stand in for the whole challenge. You should also be looking at the [instructions](https://github.com/exercism/python/blob/main/exercises/concept/ghost-gobble-arcade-game/.docs/instructions.md) and the [introduction](https://github.com/exercism/python/blob/main/exercises/concept/ghost-gobble-arcade-game/.docs/introduction.md) to get more information on what the expectations are.
 2. When confused or stuck, we recommend uploading your partial solution via the CLI to the website and requesting mentoring. Mentors are very willing to work things through with you and explain everything step-by-step. You can also work through things in our Gitter channel.
@@ -30152,7 +30152,7 @@ Open wet build has samba dependent on samba:host. Use this as a base to split th
 Note that when Samba is configured to run as an Active Directory Domain Controller, the samba binary that supplies the AD code will continue to provide DCERPC services while allowing samba-dcerpcd to provide services like SRVSVC in the same way as smbd did previously.
 ```
 https://github.com/CoreELEC/CoreELEC/commit/d07ac771047f28b015fd65d397747caef4c511c5
-Thank you for your cooperation and respect of solution origins!",None
+Thank you for your cooperation and respect of solution origins!",
 "> The solution was there all the time, found by unnamed CoreELEC member within a few hours by reading the change log:
 > > ```
 > Note that when Samba is configured to run as an Active Directory Domain Controller, the samba binary that supplies the AD code will continue to provide DCERPC services while allowing samba-dcerpcd to provide services like SRVSVC in the same way as smbd did previously.
@@ -30371,7 +30371,7 @@ Some solutions can be found here: https://stackoverflow.com/questions/76130997/c
 #standwithIraq
 #standwithYugoslavia
 #standwithBosnia
-#standwithVenezuela",None
+#standwithVenezuela",
 There is also `#standwithCyprus`. See https://en.wikipedia.org/wiki/Turkish_invasion_of_Cyprus.,Bitter Frustration
 "Every normal person support Ukraine, so just calm down, chill",Mocking
 I have submitted a https://github.com/theodorosploumis/stand-with-cyprus fyi.,Bitter Frustration
@@ -30576,7 +30576,7 @@ See https://github.com/osmandapp/OsmAnd-iOS/issues/2115",Impatience
 "Some thing to add:
 1. it's in privacy policy (https://osmand.net/help-online/privacy-policy/#3-the-information-company-collects)
 2. We don't want to use IP as a counter, so we use randomly generated UUID which preserves the privacy much more than IP itself
-3. You don't need to use OsmAnd Services if you don't agree with Terms of Use , you can download or build maps yourself.",None
+3. You don't need to use OsmAnd Services if you don't agree with Terms of Use , you can download or build maps yourself.",
 "The privacy policy says:
 > We strongly believe in the principle of data protection and safety, thus, the Company does not collect, store, process or transfer any personal information of users besides the cases when such information is provided by the users with their clear consent. You have not obtained consent from the userbase to use their devices to store and transmit a unique tracking identifier for their device.
 Most are unaware you are even doing so; that is the opposite of consent.",Bitter Frustration
@@ -31003,7 +31003,7 @@ i don't really give a single fuck about Ukraine, i don't want it to be in my ter
 1)Do I have to write the steps on how to create a repo for a project in GitHub? OR
 2)How to create a project for organization in GitHub or how to create a project for yourself?
 what to do between the two?",Impatience
-[https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board](url),None
+[https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board](url),
 Anyone is working on this issue?,Bitter Frustration
 "Hey, @kelvinparmar no one is working on this. You have added steps to create a project board for a repo/project. Linke [this)(https://github.com/Pradumnasaraf/open-source-with-pradumna/projects/1)",Bitter Frustration
 "hey! , I would be happy to help.
@@ -31378,7 +31378,7 @@ Things which I implemented after learning from your comments are.
 > > Happy Contributing.",Impatience
 "@PiyushKeshari24 thank you for taking care of this.
 @DavidRod1865, @soumya0S. The contribution guideline, that raisedadead linked should answer most of your questions.
-@sonicx180 there is no mentioning of GitHub Dev environment in the guideline, if you are uncomfortable setting it up locally, our section about Gitpod should do the trick.",None
+@sonicx180 there is no mentioning of GitHub Dev environment in the guideline, if you are uncomfortable setting it up locally, our section about Gitpod should do the trick.",
 "### Describe the Issue
 In step 8 of building a registration form project, there is a text that go against [challenge document](https://contribute.freecodecamp.org/#/how-to-work-on-coding-challenges?id=challenge-descriptionsinstructions)
 > To spruce the project up, let us add some CSS.
@@ -31441,7 +31441,7 @@ If you search `vscode` or `visual code` on Bing China, you will get a piracy lin
 ![image](https://user-images.githubusercontent.com/8984680/196569990-a81a1105-fbde-4cf0-a667-d0716cde20c6.png)",Mocking
 Interesting...,Bitter Frustration
 "Hilarious indeed, thanks to GFW.",Bitter Frustration
-樂,None
+樂,
 典,Bitter Frustration
 "> Fun fact: MIT License allows you to ""sell copies of the Software"" with or without modification.
 Not really true. The official version of Visual Studio Code contains the trademark and some modifications by Microsoft, and is therefore subjected to [Microsoft's terms](https://code.visualstudio.com/License/). The pirate version definetely goes against the terms and must be taken down.
@@ -31453,7 +31453,7 @@ lol",Irony
 典中典",Irony
 "Do you know why there is a GFW in China? cause CCP sucks, these SOBs are afraid of their people knowning or telling the truth, all words published on China's social media/platform are reviewed strictly, anything CCP doesn't like will be banned, and on the other side, they claim that there is something called FREE-SPEECH is existed in China, so F*CK them",Bitter Frustration
 The necessary process of localization in China,Bitter Frustration
-哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈,None
+哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈,
 典,Bitter Frustration
 "> ![image](https://user-images.githubusercontent.com/44344308/196600820-ca8d3cbc-3c07-4bb1-b49d-dbb642854a02.png) VS Code ""Officially licensed"": https://www.google.com lol
 入典！！！
@@ -31475,13 +31475,13 @@ extremly hilarious🤣🤣🤣🤣,Mocking
 "![image](https://user-images.githubusercontent.com/24404599/196631293-46c94e05-8281-409d-9cd3-cb79e72fec85.png)
 Authorize to write to Google?",Impatience
 LOL😂,Mocking
-樂,None
+樂,
 "If these vendors misappropriate the `Visual Studio code` trademark, I hope Microsoft sues them for copyright infringement.",Bitter Frustration
 "If you do not wish to use the VSCode under M$, you may turn to VS Codium.",Bitter Frustration
 I didn't find this ad in the search results of google or baidu. What happened to bing 🤣,Mocking
 Developers who can't even find the official website should change careers ASAP,Bitter Frustration
-LOL,None
-LOL,None
+LOL,
+LOL,
 crazy,Bitter Frustration
 难绷，vscode管家是吧,Bitter Frustration
 F**k Baidu,Vulgarity
@@ -31502,11 +31502,11 @@ lol",Irony
 It is recommended to pre-install this extension.
 https://marketplace.visualstudio.com/items?itemName=lewistehminerz.unregistered-vscode
 ![image](https://user-images.githubusercontent.com/6159588/196648846-9bd63a4d-a75b-4dfb-abfc-499d0c76874f.png)",Bitter Frustration
-a lot of fun🤣,None
+a lot of fun🤣,
 XDDDDDDDDDDDDDD,Bitter Frustration
 baidu makes great firewall great again.,Irony
 "真·程序员版steam
-real steam for programmer",None
+real steam for programmer",
 "lol, why does this VSCode search and install on Baidu? Well, I admit that for those who are new to programming, they really don't know where to download it, but shouldn't the official website of VSCode be an English interface? Novice should be able to distinguish this.",Bitter Frustration
 "More funny screenshots:
 ![image](https://user-images.githubusercontent.com/50246090/196645235-7f858aa9-5bda-4591-80bd-f23b93e6a9da.png)
@@ -31526,7 +31526,7 @@ IMHO, lawsuit against such piracy companies will barely work. The worst thing th
 先说一下他们公司是有限公司，承担的责任是有限的。
 注册资本是10W，意思就是如果出了事公司法人最多赔偿10W了事。
 最后，这家公司是真的无耻啊",Bitter Frustration
-牛的,None
+牛的,
 incomprehensible!😂,Irony
 "<img width=""858"" alt=""image"" src=""https://user-images.githubusercontent.com/10466275/196658413-3080fed8-dab9-4bc6-993d-bcd844065143.png"">
 <img width=""970"" alt=""image"" src=""https://user-images.githubusercontent.com/10466275/196658545-1291c19f-72fc-4d91-97cb-6ad49afe5bd4.png"">
@@ -31540,23 +31540,23 @@ Limited liability company (LLC) don't imply the liability is always limited.",Bi
 这里问题只是侵犯了vscode的商标。",Bitter Frustration
 ![image](https://user-images.githubusercontent.com/17821872/196665995-191f3f7d-e8fc-47ec-b6b3-3e0a0d4e82a2.png),Bitter Frustration
 fake virus downloader with Chinese characteristic XD,Irony
-lol,None
+lol,
 "特地前来查看
 当场蚌埠住",Bitter Frustration
 It has been a meme for a long time XD.Finally someone shared it here.good job.,Bitter Frustration
 牛批，还是百度🐂,Mocking
-LMAO,None
+LMAO,
 "> 很多开源软件许可证是允许你拿出去打包售卖的 https://www.gnu.org/licenses/gpl-faq.zh-cn.html#GPLCommercially 无论你卖什么价钱，唯一的要求就是你的顾客要求你出示源码，你得无条件提供；顾客拿你的东西二次售卖，你也别拦着。
 > > 开源软件不等于禁止商业化，只要许可证允许，你完全可以正大光明拿开源的东西打包换皮挣钱，比如 Redhat 就是这样一家大型企业。
 > > 这里问题只是侵犯了vscode的商标。
 官网下载的vscode不是完全开源版本的vscode，使用的license也不一样：https://code.visualstudio.com/License/。",Impatience
 "百度无耻，Bing也不干净了。
 Baidu is shameless, and Bing is no longer clean.",Identify Attack/Name Calling
-lol,None
+lol,
 "![image](https://user-images.githubusercontent.com/51020316/196678924-cdbd6a49-ee46-4804-9821-f31a39278bc7.png) - ""the graphics and software come from the Internet"" - ""respect the legitimate rights and interests of others"" - ""**if**(as if they didn't know) the content violates your legitimate rights"" - ""we will delete it as soon as possible""",Bitter Frustration
 69.7-20=39.7,Bitter Frustration
 Essentially they only infringe on trademarks and the quality of content on the Chinese Internet is very low.,Bitter Frustration
-哈哈哈哈哈哈哈哈哈哈哈哈哈，love from china,None
+哈哈哈哈哈哈哈哈哈哈哈哈哈，love from china,
 非常好作品，英雄联盟，爱来自瓷器,Irony
 "Chrome users in China: Hold my beer.
 ![1666180574023](https://user-images.githubusercontent.com/14220017/196684129-ec3634c4-b6f4-4e69-beca-583c2d44ee88.png)",Bitter Frustration
@@ -31578,11 +31578,11 @@ haha",Mocking
 只是奇怪的SEO罢了(",Identify Attack/Name Calling
 They even cannot do a correct calculation because 69.7-20=39.7 (The result is 49.7),Bitter Frustration
 "> ![niubi](https://user-images.githubusercontent.com/31164470/196688366-8fd99f82-c9ff-4c49-bdf8-4e87bc40f85b.png
-Is this picture anything related to this issue?",None
+Is this picture anything related to this issue?",
 我更担心在国产Linux推广开以后，会不会有类似的无良商家把黑手伸向Linux平台的vscode或其他软件。,Bitter Frustration
 "Apparently, the math is wrong. I am outrageous. :)",Bitter Frustration
 能用上百度，你们就偷着乐吧,Bitter Frustration
-樂,None
+樂,
 ![不行，这太后现代了](https://user-images.githubusercontent.com/30336566/196826890-99382c95-0f52-4e26-9310-78749d8b496c.png),Bitter Frustration
 真是见识了,Bitter Frustration
 绷,Bitter Frustration
@@ -31592,10 +31592,10 @@ interesting,Bitter Frustration
 Google Licensing? Fine 😅,Irony
 V2观光团,Bitter Frustration
 @baidu,Bitter Frustration
-感恩,None
+感恩,
 火钳流明,Bitter Frustration
 V2观光团,Bitter Frustration
-funny,None
+funny,
 69.7 - 20 = 39.7 ???,Bitter Frustration
 "> How can you find this... Is just typing code.visualstudio.com too difficult for some people?
 Maybe student",Bitter Frustration
@@ -31613,7 +31613,7 @@ There are too many such companies in China, you know? Adobe Flash Player, which 
 "> > 非常有趣的是，但如果微软这家公司，它会说它销售软件安装。只是，我希望微软能够阻止这种骗局。
 > > 中国这样的公司有，你知道吗？药炒的内容，一些低俗的内容，这个广告软件程序还自带病毒（最搞笑的是看广告会崩溃）
 The Internet environment in China is really bad now!",Bitter Frustration
-lol,None
+lol,
 "> 会上github发issue不会google一下官网是吧
 不是的，他只是在这个地方发布这个话题引起关注，都上 GitHub 了，这个还是知道的",Bitter Frustration
 雷碧，康帅傅,Bitter Frustration
@@ -31640,7 +31640,7 @@ CN = DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1",Bitter Frustratio
 一眼顶真：鉴定为假,Bitter Frustration
 "[![29hEdS.gif](https://z3.ax1x.com/2021/05/26/29hEdS.gif)](https://imgse.com/i/29hEdS)
 or this:
-[![cashback](https://i1.hoopchina.com.cn/hupuapp/bbs/220/58393220/thread_58393220_20201024082704_s_1337599_o_w_498_h_267_60931.gif?x-oss-process=image/resize,w_800/format,webp)]",None
+[![cashback](https://i1.hoopchina.com.cn/hupuapp/bbs/220/58393220/thread_58393220_20201024082704_s_1337599_o_w_498_h_267_60931.gif?x-oss-process=image/resize,w_800/format,webp)]",
 信件已经收到啦~,Impatience
 "Chinese programmer's first lesson: figuring out a way to access google (blocked in China) or bing international (blocked, and replaced by bing Chinese edition).
 Chinese programmer's second lesson: learning English.
@@ -32061,7 +32061,7 @@ you'll also need to edit your `doctrine.yaml` config with custom platform:
 doctrine:
 dbal:
 platform_service: <yourCustomPlatform>
-```",None
+```",
 "The effort and goal is clear, the way this has been done unfortunately is very rough.
 API is inconsistent and could be done better: ok, we can agree on that. But deprecate an extension system in full without a single day of discussion is unpleasant, especially if done in a such popular project like this one.
 On technical aspects:
@@ -32971,7 +32971,7 @@ Board:draw()
 end
 ```
 </details>
-*edited to add fold* - Carsa",None
+*edited to add fold* - Carsa",
 "1. Don't copy the `lua-language-server` to anywhere.
 2. Just call `lua-language-server` instead of `lua-language-server main.lua`",Bitter Frustration
 "if i run the correct location of lua-language-server without any other parameters from within my source folder this is what i get. And i have to press enter to close it.
@@ -33335,7 +33335,7 @@ lvim.builtin.treesitter.highlight.enable = true
 -- require(""nvim-treesitter.highlight"").attach(0, ""bash"")
 -- end,
 -- })
-```",None
+```",
 "I found a file called sumneko_lua.lua
 ```
 local default_workspace = {
@@ -33392,7 +33392,7 @@ workspace = default_workspace,
 },
 }
 return opts
-```",None
+```",
 "Line 7 in the second config file you sent:
 `checkThirdParty = false`
 This seems like it is applied by default for each new Lua project you create. The [`workspace.checkThirdParty` setting](https://github.com/sumneko/lua-language-server/wiki/Settings#workspacecheckthirdparty) prevents the language server from prompting you to apply a library, like love. This seems like a silly default to have, as it removes the convenience of that feature.
@@ -33567,7 +33567,7 @@ Application can be installed
 -
 ### I've read and agree with the following
 - [X] I've checked all open and closed issues and my issue is not there.",Bitter Frustration
-What you are asking for is already the case. Tidy only applies to this repo: https://github.com/rust-lang/rust/blob/28a53cdb4695b71cb9ee39959df88542056479cd/src/tools/tidy/src/style.rs#L1,None
+What you are asking for is already the case. Tidy only applies to this repo: https://github.com/rust-lang/rust/blob/28a53cdb4695b71cb9ee39959df88542056479cd/src/tools/tidy/src/style.rs#L1,
 "This decision has already made, we don't revisit old decisions without new information.
 I'm going to lock this since it has a tendency to bring out trolls.",Bitter Frustration
 "I don't see anything utterly offensive in `PROBLEMATIC_CONSTS`, why not let programmers have fun and talk about boobs in their code?",Entitlement
@@ -33832,7 +33832,7 @@ Status `~/Documents/Skola/julia/PlutoNotebooks/Manifest.toml`
 [91a5bcdd] Plots v1.37.2
 [3cdcf5f2] RecipesBase v1.3.2
 [01d81517] RecipesPipeline v0.6.11
-```",None
+```",
 "Same issue here:
 ```julia
 pkg> st -m Plots RecipesBase
@@ -33962,7 +33962,7 @@ However, it's still safer to go with the PoC approach since we are absolutely po
 "@dvuckovic plus, this would not work with MariaDB, as it does not have native json types.
 Perhaps it would be a good idea to verify your solution also for MariaDB -> PG migration.",Bitter Frustration
 "@mgruner Correct, in MariaDB these columns are of `longtext` type.
-I just verified that the same script works on MariaDB as well, columns are properly migrated to `array` type on PostgreSQL.",None
+I just verified that the same script works on MariaDB as well, columns are properly migrated to `array` type on PostgreSQL.",
 "For posterity: we did some reproduction of the original issue, by skipping `AFTER LOAD DO` statements in our test job. And the results are rather surprising!
 On MySQL, the column will be left in `json` type on PostgreSQL (it still supports them!). While everything will still work as expected (the stored data is decoded/encoded correctly), the schema is definitely different than a regular PostgreSQL instance that was initialized from scratch.
 On MariaDB, the column will be migrated to `text` type on PostgreSQL. This breaks the decoding of stored values, and while the system will still happily continue chugging on, the data does look corrupted. Just take a look how the frontend shows some of these multiselects:

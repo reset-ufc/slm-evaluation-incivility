@@ -1,4 +1,4 @@
-﻿Comments,Tbdf
+Comments,Tbdf
 "I noticed that Prepared Statements seem to be emulated client-side by escaping certain characters.
 Any plans to fully support service-side Prepared Statements? This can be done via the binary protocol, but there's a slower SQL-based approach available for non-binary clients:
 http://dev.mysql.com/doc/refman/5.5/en/sql-syntax-prepared-statements.html",Impatience
@@ -6358,7 +6358,7 @@ Perhaps my English skills are too poor to express it correctly. I prefer to veri
 "Lets look at this test: https://github.com/gitextensions/gitextensions/commit/9fb22f58727408d73baaea03ecf6cb69a66f997a#diff-3a91b3e9edc1faa5190d69a2fec75400R81
 It is a copy-paste from the implementation. It is really a [test double](https://en.wikipedia.org/wiki/Test_double). It doubles the implementation, it doubles the false assumption that the path separator is `\`. While unit tests are useful, they should not replace integration tests.
 Nevertheless, the architecture should allow to write both kinds of tests.",Mocking
-"Locking this discussion for archival purposes, since I use it as a reference for an in-depth discussion from opposing viewpoints in other contexts.",None
+"Locking this discussion for archival purposes, since I use it as a reference for an in-depth discussion from opposing viewpoints in other contexts.",
 "Sam, I'd be interested in learning gained insights and outcomes of those discussions.",Impatience
 "The word ""Caddy"" in the context of software is under a pending trademark application. By using the name Caddy in your repo, along with the associated logos, you're in violation of this trademark. Please remove all such references :)",Threat
 "> The word ""Caddy"" in the context of software is under a pending trademark application
@@ -8289,7 +8289,7 @@ I'm rewriting ours tomorrow. I'll take a look and make some suggestions.
 UPDATE : The one at the above link seems to have most of it covered well. The additional sections that we have in ours are mostly to do with marketing which is most likely not relevant.",Entitlement
 "[off-topic]: @splitbrain: I assume this is the page do you mean at the top of https://www.dokuwiki.org/privacy ?!
 I already corrected the link there.",Mocking
-"An excellent article in Bozho's tech blog: [GRPD - a practical guide for developers ](https://techblog.bozho.net/gdpr-practical-guide-developers/). Also, the Drupal GDPR Compliance Team gives a lot of links on their [dedicated page](https://www.drupal.org/project/drupal_gdpr_team)",None
+"An excellent article in Bozho's tech blog: [GRPD - a practical guide for developers ](https://techblog.bozho.net/gdpr-practical-guide-developers/). Also, the Drupal GDPR Compliance Team gives a lot of links on their [dedicated page](https://www.drupal.org/project/drupal_gdpr_team)",
 "@splitbrain About the privacy page, I think you have to ensure somehow the users data is save and that how it is kept save has to be described somehow internally for accountability.
 Serverlogs, do they contain a user ticket number that is related to their account and visible or knowable by google analytics, if so you should mention that possibly.
 GDPR is not done something done by lawyers, but rather accountants, they check if their customers are GDPR compliant. Good starting point: https://gdprchecklist.io",Impatience
@@ -9380,7 +9380,7 @@ Doesn't seem like bytes to me",Mocking
 ```$path = $path->spurt($bytes);```",Impatience
 "Yes, write all bytes from the scalar.",Bitter Frustration
 "Wow, just ""closed the issue"" as a non-issue? That's mature :D",Irony
-The answer @pink-mist gave was 100% correct. So this is not a bug. If you require additional help please use our official support channels. https://mojolicious.org/perldoc#SUPPORT,None
+The answer @pink-mist gave was 100% correct. So this is not a bug. If you require additional help please use our official support channels. https://mojolicious.org/perldoc#SUPPORT,
 "Well it might be correct, but the documentation ""Write all data at once to the file"" doesn't say anything about the byte/character distinction, and $bytes can be understood as whatever bytes are there in the scalar, which I would expect. So that's at least a case to either fix the documentation or the attitude.",Impatience
 "I don't see this discussion end constructively, therefore i'm locking this issue.",Bitter Frustration
 "* Mojolicious version: 7.85
@@ -9490,7 +9490,7 @@ Anyway it's not the point, if you dynload fdk-aac and you do not distribuite the
 I suspect even coreaudio on osx may have a licensing problem a this point.",Irony
 "@sherpya No offense intended, but it sounds like you're new to some of this stuff. I suggest you do more reading and leave our project out of your hypotheses. You're not helping.",Bitter Frustration
 "@sebastinas fdk aac license is a bsd with explicit no patent grant, every aac encoder around has no patent grant (but is not explicit), sorry I don't understand the difference, gnu does not like fdk aac license because in their opinion they promote buying a license for the patent",Irony
-"To your previous point, we believe Core Audio AAC is not in violation of any license, as it is a system library. We also have periodic contact with Apple, such as recently when they suggested some threading changes to improve compatibility with future macOS versions, and they have never expressed any of the concerns you have.",None
+"To your previous point, we believe Core Audio AAC is not in violation of any license, as it is a system library. We also have periodic contact with Apple, such as recently when they suggested some threading changes to improve compatibility with future macOS versions, and they have never expressed any of the concerns you have.",
 "> sorry I don't understand the difference
 This is not an appropriate forum for this kind of research, sorry.",Impatience
 "I've already made my researches:
@@ -10192,7 +10192,7 @@ I understand that some black people may not consider these terms offensive, but 
 @minaslater thanks for beating me to the first PR on this. :) 💯",Irony
 "@bitmonk I respectfully disagree with your opinion that your (or my) future colleagues would impose that kind of cultural bias on words that exist in the [English](https://www.merriam-webster.com/dictionary/white%20list) [language](https://www.merriam-webster.com/dictionary/blacklist) as well as are well-defined [on](https://en.wikipedia.org/wiki/Whitelisting) [Wikipedia](https://en.wikipedia.org/wiki/Blacklist_(disambiguation)), of which `blacklist` has far more far reaching disciplines than just comp-sci. That said and since I think this issue will garner overwhelming support in this community, I do support a compromise suggested by @rafaelfranca's review to replace the actual words with their definition or some other phrase that is more fluid than a single term.",Irony
 "I think the question here should be: is replacing `whitelist` and `blacklist` with `allowlist` and `denylist` a better option? If presented with the word `blacklist` and `denylist`, which is most likely self-explanatory as to the action to be performed?",Impatience
-A quick search and replace in the codebase shows that all entries for those words were already changed. I'll close this issue.,None
+A quick search and replace in the codebase shows that all entries for those words were already changed. I'll close this issue.,
 "After #6917 it should now be possible to clear up all deprecation warnings by:
 * Replacing `update()` with `updateOne()`, `updateMany()`, or `replaceOne()`
 * Replacing `remove()` with `deleteOne()` or `deleteMany()`
@@ -17457,7 +17457,7 @@ About to do the rename,Bitter Frustration
 - [x] version-management:main
 - [x] web-server-frameworks:main
 - [x] webidl-napi:main
-[midawson@midawson rename]$",None
+[midawson@midawson rename]$",
 "Good on the pkgjs branch as well
 midawson@midawson rename]$ node doit.js - [x] .github:main
 - [x] action:main
@@ -17810,7 +17810,7 @@ PR still accepted but discussion closed.",Bitter Frustration
 How about contributing a pull request to make the changes?",Irony
 "There is not one place where the term blacklist was used in this project code! Only once in a comment (how to change the comment???). Also a quick search for the term ""sanity"", ""dummy"" and so on did not result in any code line affected. Yeah sure... rename your ""master"" branch to ""primary"" or so... The lazyness from OP stinks as it is easier to . Close this thread, as this is not stopping supposed racism but some person feeling better by yakshaving instead of actually solving issues.",Bitter Frustration
 https://github.com/sinonjs/nise/pull/167/commits/bbfc55a9a5e6061cb8234cd65b7983a7713813c1 The yak is mostly shaved now. But your vitriol is misplaced; much like my original suggestion may have been ignorantly misplaced not knowing how the code was divided in sub-projects. There may be other subprojects that could be improved.,Irony
-"Nice, so you can close this Issue as there was no issue.",None
+"Nice, so you can close this Issue as there was no issue.",
 @Uzlopak Your comments are not constructive and the tone is not very respectful. Please read our [Contributor Covenant Code of Conduct](https://github.com/sinonjs/sinon/blob/master/CODE_OF_CONDUCT.md).,Bitter Frustration
 "@mantoni Consider my post as freedom of speech under Article 10 of the European Convention on Human Rights, which overrides your CoC (Stichwort: mittelbare Drittwirkung von Grundrechten). If you disagree:
 When will you rename the master-branch to primary-branch?",Identify Attack/Name Calling
@@ -20198,7 +20198,7 @@ _zoomAnimated: true
 _zoomBoundLayers: {100: i}
 __proto__: i
 ```",Impatience
-No error and the map does not pan when the zoom is set as such and the coordinates are set as such with a marker that is moved to said position within the bounds at zoom shown.,None
+No error and the map does not pan when the zoom is set as such and the coordinates are set as such with a marker that is moved to said position within the bounds at zoom shown.,
 At the map size shown.,Bitter Frustration
 "```
 marker.addEventListener('dragend', function(marker) {
@@ -23214,7 +23214,7 @@ Legend says this issue will still exist even on the end of mankind,Irony
 Ah yes,Mocking
 this is war,Threat
 L,Bitter Frustration
-nice,None
+nice,
 "Is your request something like this?
 * Invent some special metadata that can be set on a Flatpak (or Snap?) app, with the semantics ""this app can take screenshots without prompting"". Flatpak (and Snap?) would not do anything differently in setting up sandboxes based on this metadata, it's just a marker.
 * Make the screenshot portal look for that metadata in `/.flatpak-info`. If it's present, just take the screenshot without prompting, with parameters (window/whole screen/etc.) controlled by the request.
@@ -23728,7 +23728,7 @@ pleace fix this,Bitter Frustration
 We were able to replicate the error several times with a newly installed system.",Bitter Frustration
 "> See the date of creation - the publisher isn't interested in fixing this issue.
 I unfortunately have to agree with that. if you don't even have 2 minutes for a feedback, you should leave it alone. felt no sow cares about this bug. I'm very disappointed, I would have expected at least a feedback like ""yes, it's our turn and we'll take care of it shortly"" for this problem",Bitter Frustration
-"no answer, no reaction, what kind of support is that",None
+"no answer, no reaction, what kind of support is that",
 """yes it's our turn and we will look into and maybe implement a fix if and when we have time, since we're all volunteering our free time for this project. Personally, I am in the middle of University exams, which I feel are more important than responding to a GitHub issue to state that we have received an issue and saying nothing that's ultimately going to be much use since we cannot just drop everything we do and are doing just to fix a bug for you, personally.""",Bitter Frustration
 "then you shouldn't ask for money for this plugin if you can't take care of it properly.
 Your reaction does not speak for buying this plugin if the reaction is so snotty.
@@ -24346,7 +24346,7 @@ We will update this issue again when we have further information, which is expec
 "No significant updates.
 We have received responses from additional service providers, who are now patched or patching, and have put in place mitigations or detections. None of the service providers for which we have received responses have found evidence of being compromised.
 We are still waiting to hear back from a handful of infrastructure service providers.
-We will update this issue again when we have further information, which is expected to be on 2021-12-15.",None
+We will update this issue again when we have further information, which is expected to be on 2021-12-15.",
 "No significant updates.
 We have received responses from all of our infrastructure service providers who handle production data. Some of Tailscale's service providers are affected by this vulnerability and are now patched or patching. Those with issues in public services have also put in place mitigations or detections. None of the service providers for which we have received responses have found evidence of being compromised.
 We are waiting for the affected providers to confirm when they are fully patched.
@@ -24357,7 +24357,7 @@ Some of Tailscale's service providers are affected by this vulnerability and are
 We are waiting for all of Tailscale's affected service providers to complete patching or otherwise finish their remediation efforts.
 We will update this issue again when we have further information, which is expected to be on 2022-01-05.",Impatience
 "We have received updates from the remaining affected service provides that they have completed patching or other remediation efforts.
-At this point in time, we believe Tailscale and its vendors are no longer affected by the log4j vulnerability, and found no evidence of it being exploited to affect Tailscale.",None
+At this point in time, we believe Tailscale and its vendors are no longer affected by the log4j vulnerability, and found no evidence of it being exploited to affect Tailscale.",
 "A [new critical security vulnerability in log4j 2 has been discovered (CVE-2021-44228)](https://github.com/advisories/GHSA-jfh8-c2jp-5v3q) and is [being actively exploited](https://arstechnica.com/information-technology/2021/12/minecraft-and-other-apps-face-serious-threat-from-new-code-execution-bug/). It allows for remote code execution by logging untrusted user input.
 **Tailscale does not run Java or Java Virtual Machines (JVM) as part of our core infrastructure**, including our control plane, client, and relay servers.
 Tailscale does use [service providers](https://tailscale.com/privacy-policy/#share) to run various functions like cloud infrastructure hosting, log management, and various SaaS applications. Some of these store personal information. **We are waiting on statements from the cloud and infrastructure providers we use, and have contacted our remaining service providers, to understand how they may be impacted.**
@@ -25414,7 +25414,7 @@ Electron: 13.5.2
 Chromium: 91.0.4472.164
 Node.js: 14.16.0
 V8: 9.1.269.39-electron.0
-OS: Darwin arm64 20.6.0",None
+OS: Darwin arm64 20.6.0",
 "When the internal PDF viewer for the current document is not visible, executing forward SyncTeX moves the panel into the current editor group.
 https://user-images.githubusercontent.com/10665499/148715374-f51335be-8074-41de-9966-394d60013588.mov
 `panel.reveal` doesn't work well. Related to microsoft/vscode/issues/138914",Impatience
@@ -30132,7 +30132,7 @@ Sure; none of the technical details of the other points depends on this decision
 Does TG mean Transgender to you?,Mocking
 "As a trans person myself, this is clearly a bad-faith troll post pretending to be trans to then screenshot and/or point to as an example of how unreasonable trans people are.
 The only person who reacted positively (with many reacts, mind you) is a user who proudly admits to being banned for ""thinking different"" (which is, in my opinion, a telltale sign of someone who arrogantly holds onto objectionable (bannable) beliefs).",Bitter Frustration
-I don't think this merits a response.,None
+I don't think this merits a response.,
 "# Bug Report
 The name tsconfig.json is triggering because it sounds like ""trans configuration"", as if trans people need to be fixed. I propose changing to tpsconfig.json
 ### 🔎 Search Terms
@@ -30743,7 +30743,7 @@ I just noticed we're on the Red-Lavalink repo and not the Red-DiscordBot repo so
 `export RedBotAudioCogLocation=***/you/should/probably/change/this/*** && cp $RedBotAudioCogLocation/Lavalink{.jar,.jar.old} && wget -O$RedBotAudioCogLocation/Lavalink.jar https://github.com/Cog-Creators/Lavalink-Jars/releases/download/3.4.0_1350/Lavalink.jar `
 the audio cog was at `~/.local/share/Red-DiscordBot/data/RedBot/cogs/Audio/` for me (Linux, venv)
 this also shouldn't need to be reverted when the update comes out, the update should replace lavalink.jar if I understand correctly",Impatience
-how was that off topic at all?,None
+how was that off topic at all?,
 "By adding a comment that provided an unsupported fix that will break a lot of current users if they try to do what you suggested.
 Leave the fixes and workaround for the people who are aware of the wider user base and repercussions for a given approach.",Bitter Frustration
 "what? name a SINGLE repercussion? all the rest of the pr's are waiting on this jar, you telling me your code cant handle a file being replaced, when its literally going to replace that file? sorry, i may have a new github account, but i am by no means a noob, and i have four bs detectors attached to my head; my eyes and ears. i even added a command to keep the old jar, in case your code checksummed it for some reason, if you're checking the file creation date of a jar you're replacing or some crap, i concede, your dumb code will cause problems with this jar being replaced.
@@ -31889,7 +31889,7 @@ The hide-shorts-button and hide-create button patches together are the patches t
 10-21 15:50:31.089 27891 27891 D AndroidRuntime: Shutting down VM
 ```",Bitter Frustration
 "yep, same crash as @epic0421's. hide-shorts-button + hide-create-button = startup crush",Bitter Frustration
-hide-shorts-button doesn't seem to cause any issues for me,None
+hide-shorts-button doesn't seem to cause any issues for me,
 Fixed.,Bitter Frustration
 "### Type
 Other
