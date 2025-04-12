@@ -34,26 +34,32 @@ def get_compact_result_table():
     cur_dir = Path(os.getcwd())
     results_dir = cur_dir / 'results'
 
-    # Definindo os índices (MultiIndex)
-    unique_strategies = ["zero_shot", "one_shot", "few_shot", "auto_cot", "role_based", "role_based_few_shot", "role_based_one_shot", "role_based_auto_cot"]
-    
-    strategies = [
-        "zero_shot", "zero_shot", "zero_shot", "zero_shot", "zero_shot", "zero_shot", "zero_shot",
-        "one_shot", "one_shot", "one_shot", "one_shot", "one_shot", "one_shot", "one_shot",
-        "few_shot", "few_shot", "few_shot", "few_shot", "few_shot", "few_shot", "few_shot",
-        "auto_cot", "auto_cot", "auto_cot", "auto_cot", "auto_cot", "auto_cot", "auto_cot",
-        "role_based", "role_based", "role_based", "role_based", "role_based", "role_based", "role_based",
-        "role_based_one_shot", "role_based_one_shot", "role_based_one_shot", "role_based_one_shot", "role_based_one_shot", "role_based_one_shot", "role_based_one_shot",
-        "role_based_few_shot", "role_based_few_shot", "role_based_few_shot", "role_based_few_shot", "role_based_few_shot", "role_based_few_shot", "role_based_few_shot",
-        "role_based_auto_cot", "role_based_auto_cot", "role_based_auto_cot", "role_based_auto_cot", "role_based_auto_cot", "role_based_auto_cot", "role_based_auto_cot"
+    # Estratégias únicas
+    unique_strategies = [
+        "zero_shot", "one_shot", "few_shot", "auto_cot",
+        "role_based", "role_based_few_shot",
+        "role_based_one_shot", "role_based_auto_cot"
     ]
     
-    models = [
-        "deepseek-r1_8b", "deepseek-r1_14b", "gemma_7b", "gemma2_9b", "llama3.1_8b", "llama3.2_3b", "mistral_7b", "mistral-nemo_12b", "phi4_14b", "gpt-4o-mini",
-        "deepseek-r1_8b", "deepseek-r1_14b", "gemma_7b", "gemma2_9b", "llama3.1_8b", "llama3.2_3b", "mistral_7b", "mistral-nemo_12b", "phi4_14b", "gpt-4o-mini",
-        "deepseek-r1_8b", "deepseek-r1_14b", "gemma_7b", "gemma2_9b", "llama3.1_8b", "llama3.2_3b", "mistral_7b", "mistral-nemo_12b", "phi4_14b", "gpt-4o-mini",
-        "deepseek-r1_8b", "deepseek-r1_14b", "gemma_7b", "gemma2_9b", "llama3.1_8b", "llama3.2_3b", "mistral_7b", "mistral-nemo_12b", "phi4_14b", "gpt-4o-mini"
+    # Lista de estratégias e modelos
+    strategies = []
+    models = []
+    
+    base_models = [
+        "deepseek-r1_8b", "deepseek-r1_14b", "gemma_7b", "gemma2_9b",
+        "llama3.1_8b", "llama3.2_3b", "mistral_7b", "mistral-nemo_12b",
+        "phi4_14b", "gpt-4o-mini"
     ]
+    
+    # Para cada estratégia, adiciona os modelos
+    for strat in unique_strategies:
+        strategies.extend([strat] * len(base_models))
+        models.extend(base_models)
+
+    # Garantir que os tamanhos batem
+    assert len(strategies) == len(models), "strategies e models devem ter o mesmo tamanho"
+
+    # Modelos únicos
     unique_models = np.unique(models)
 
     # Criando um MultiIndex
@@ -116,10 +122,14 @@ def get_compact_result_table():
     recall = recall_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
     fn = confusion_matrix(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])[0, 1]
     fp = confusion_matrix(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])[1, 0]
+    accuracy = accuracy_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
+    roc_auc = roc_auc_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
 
     result_table.loc[("refined_model", "refined_model"), "precision"] = np.round(precision, 3)
     result_table.loc[("refined_model", "refined_model"), "recall"] = np.round(recall, 3)
     result_table.loc[("refined_model", "refined_model"), "f1-score"] = np.round(f1, 3)
+    result_table.loc[("refined_model", "refined_model"), "accuracy"] = np.round(accuracy, 3)
+    result_table.loc[("refined_model", "refined_model"), "roc_auc"] = np.round(roc_auc, 3)
 
     result_table.loc[("refined_model", "refined_model"), "FP"] = fp
     result_table.loc[("refined_model", "refined_model"), "FN"] = fn
@@ -135,10 +145,14 @@ def get_compact_result_table():
     recall = recall_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
     fn = confusion_matrix(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])[0, 1]
     fp = confusion_matrix(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])[1, 0]
+    accuracy = accuracy_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
+    roc_auc = roc_auc_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
 
     result_table.loc[("toxicr", "toxicr"), "precision"] = np.round(precision, 3)
     result_table.loc[("toxicr", "toxicr"), "recall"] = np.round(recall, 3)
     result_table.loc[("toxicr", "toxicr"), "f1-score"] = np.round(f1, 3)
+    result_table.loc[("toxicr", "toxicr"), "accuracy"] = np.round(accuracy, 3)
+    result_table.loc[("toxicr", "toxicr"), "roc_auc"] = np.round(roc_auc, 3)
 
     result_table.loc[("toxicr", "toxicr"), "FP"] = fp
     result_table.loc[("toxicr", "toxicr"), "FN"] = fn

@@ -1,9 +1,13 @@
 import pandas as pd
 import numpy as np
 import json
+from pathlib import Path
 
+data_path = Path('data')
+df_path = data_path / "final_df_cleaned.csv"
+ 
 # Carregar o DataFrame
-df = pd.read_csv(r'C:\Users\mario\Documents\estudos\ufc\Granularidade Grossa\data\final_df_cleaned.csv')
+df = pd.read_csv(df_path)
 
 # Selecionar exemplos civil
 civil_df = df[df['actual'] == 0].reset_index(drop=True)
