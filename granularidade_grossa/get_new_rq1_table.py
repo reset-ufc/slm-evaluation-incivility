@@ -29,7 +29,8 @@ def get_rq1_table():
 
         # Criando DataFrame
         columns = pd.MultiIndex.from_tuples(
-            [(category, "Model"), (category, "precision"), (category, "recall"), (category, "f1-score"), (category, "accuracy"), (category, "roc_auc"), (category, "FP"), (category, "FN")]
+            #[(category, "Model"), (category, "precision"), (category, "recall"), (category, "f1-score"), (category, "accuracy"), (category, "roc_auc"), (category, "FP"), (category, "FN")]
+            [(category, "Model"), (category, "precision"), (category, "recall"), (category, "f1-score"), (category, "accuracy")]
         )
 
         df = pd.DataFrame(
@@ -37,11 +38,15 @@ def get_rq1_table():
             columns=columns
         )
 
-        best_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmax(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score', 'FP', 'FN']]
+        # best_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmax(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score', 'FP', 'FN']]
+        #                         .sort_values(by='f1-score', ascending=False))
+        best_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmax(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score']]
                                 .sort_values(by='f1-score', ascending=False))
 
+        # worst_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmin(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score', 'FP', 'FN']]
+        #                         .sort_values(by='f1-score', ascending=False))
 
-        worst_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmin(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score', 'FP', 'FN']]
+        worst_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmin(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score']]
                                 .sort_values(by='f1-score', ascending=False))
 
         print(best_models_by_strategy)
@@ -51,7 +56,6 @@ def get_rq1_table():
                 if case == 'Best':
                     #print(best_models_by_strategy.loc[best_models_by_strategy['Strategy'] == strategy.lower(), 'Model'])
                     model = best_models_by_strategy.loc[best_models_by_strategy['Strategy'] == strategy.lower(), 'Model'].values[0]
-                    
                 else:
                     model = worst_models_by_strategy.loc[worst_models_by_strategy['Strategy'] == strategy.lower(), 'Model'].values[0]
                 # print(strategy, case, model)
@@ -61,18 +65,18 @@ def get_rq1_table():
                 precision_value = model_path['precision'].values[0]
                 recall_value = model_path['recall'].values[0]
                 accuracy_value = model_path['accuracy'].values[0]
-                roc_auc_value = model_path['roc_auc'].values[0]
-                fp = model_path['FP'].values[0]
-                fn = model_path['FN'].values[0]
+                # roc_auc_value = model_path['roc_auc'].values[0]
+                # fp = model_path['FP'].values[0]
+                # fn = model_path['FN'].values[0]
 
                 df.loc[(strategy, case), (category, "Model")] = model
                 df.loc[(strategy, case), (category, "precision")] = np.round(precision_value, 2)
                 df.loc[(strategy, case), (category, "recall")] = np.round(recall_value, 2)
                 df.loc[(strategy, case), (category, "f1-score")] = np.round(f1_score_value, 2)
                 df.loc[(strategy, case), (category, "accuracy")] = accuracy_value
-                df.loc[(strategy, case), (category, "roc_auc")] = roc_auc_value
-                df.loc[(strategy, case), (category, "FP")] = fp
-                df.loc[(strategy, case), (category, "FN")] = fn
+                # df.loc[(strategy, case), (category, "roc_auc")] = roc_auc_value
+                # df.loc[(strategy, case), (category, "FP")] = fp
+                # df.loc[(strategy, case), (category, "FN")] = fn
         
         tables.append(df)
     

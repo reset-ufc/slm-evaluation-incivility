@@ -49,15 +49,15 @@ def get_rq1_table(compact_table_path):
             f1_score_value = model_path['f1-score'].values[0]
             precision_value = model_path['precision'].values[0]
             recall_value = model_path['recall'].values[0]
-            fp = model_path['FP'].values[0]
-            fn = model_path['FN'].values[0]
+            # fp = model_path['FP'].values[0]
+            # fn = model_path['FN'].values[0]
 
             rq1_table.loc[(strategy, case), "precision"] = f'{model} ({np.round(precision_value, 2)})'
             rq1_table.loc[(strategy, case), "recall"] = f'{model} ({np.round(recall_value, 2)})'
             rq1_table.loc[(strategy, case), "f1-score"] = f'{model} ({np.round(f1_score_value, 2)})'
 
-            rq1_table.loc[(strategy, case), "FP"] = f'{model} ({fp})'
-            rq1_table.loc[(strategy, case), "FN"] = f'{model} ({fn})'
+            # rq1_table.loc[(strategy, case), "FP"] = f'{model} ({fp})'
+            # rq1_table.loc[(strategy, case), "FN"] = f'{model} ({fn})'
             rq1_table.loc[(strategy, case), "Allucination Rate"] = f'{model} ({np.round(errors_df.loc[(errors_df['model'] == model) & (errors_df['strategy'] == strategy), 'pct_error'].values[0], 2)})'
     
     rq1_table.to_excel(r'C:\Users\mario\Documents\estudos\ufc\Granularidade Grossa\results\rq1_table.xlsx')

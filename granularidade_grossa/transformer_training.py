@@ -63,7 +63,7 @@ results_transformers.mkdir(parents=True, exist_ok=True)
 
 logs_results = results_transformers / 'logs'
 
-# Versão compatível com versões anteriores do Transformers
+
 training_args = TrainingArguments(
     num_train_epochs=3,              # total number of training epochs
     per_device_train_batch_size=16,  # batch size per device during training
