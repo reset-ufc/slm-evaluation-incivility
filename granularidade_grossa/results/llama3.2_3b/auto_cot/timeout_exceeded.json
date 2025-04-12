@@ -1,7 +1,13 @@
 [
     {
         "index": 6248,
-        "message": "Shame! I agree there is a glaring privacy issue \u00f0\u0178\u02dc\u2022  Hope someone picks it up \u00f0\u0178\u2018\u008d ",
+        "message": "Shame! I agree there is a glaring privacy issue ðŸ˜•  Hope someone picks it up ðŸ‘ ",
+        "strategy": "auto_cot",
+        "model": "llama3.2:3b"
+    },
+    {
+        "index": 6248,
+        "message": "Shame! I agree there is a glaring privacy issue ðŸ˜•  Hope someone picks it up ðŸ‘ ",
         "strategy": "auto_cot",
         "model": "llama3.2:3b"
     }

@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-file_path = Path(r'data\exemplos.json')
+file_path = Path(r'data/exemplos.json')
 
 # Ler os exemplos
 with open(file_path, 'r', encoding='utf-8') as f:
@@ -99,4 +99,4 @@ def prompt_factory(input_text, strategy):
     return {'sys_msg': sys_msg, 'user_msg':user_msg}
         
 #strategies = ['zero_shot', 'one_shot', 'few_shot', 'auto_cot', 'role_based', 'role_based_few_shot', 'role_based_auto_cot', 'role_based_one_shot']
-strategies = ['zero_shot']
+strategies = ['role_based_few_shot']

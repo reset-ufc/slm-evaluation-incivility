@@ -1,0 +1,44 @@
+[
+    {
+        "index": 4761,
+        "message": "For those components not included in the initial release, is there an incremental path for people who's apps use those components, or are they just going to have to wait until 3.1 before they can upgrade?",
+        "strategy": "one_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 4763,
+        "message": "> For those components not included in the initial release, is there an incremental path for people who's apps use those components, or are they just going to have to wait until 3.1 before they can upgrade?\nIf you rely on some of the components that aren't going to be in 3.0, I see two choices:\n1. you wait until the release that contains all of the components you use\n2. you replace the missing components with components you build\nI have been waiting for Vuetify 3 so that I can migrate to Vue 3 and Vite, but I have chosen option 1 above. I use most of the components that aren't available in 3.0\n- Data Table\n- Calendar\n- TimePicker\n- date picker\n- v-stepper\n- v-skeleton-loader",
+        "strategy": "one_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 4801,
+        "message": "> > I think that beta is an incorrect tag for the current situation. It should be alpha. So many components doesn't work properly like they worked in 2.6 version. Everything great. Let's just wait. This is great UI framework. I am still waiting my v-data-table component\n> > Which components do not work properly?\nThe Autocomplete in doc is still broken.\n![autocomplete](https://user-images.githubusercontent.com/16066720/171966231-df3e2ca7-8698-4d7e-94a3-e6b5dcacbb3a.png)",
+        "strategy": "one_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 4803,
+        "message": "> > I think that beta is an incorrect tag for the current situation. It should be alpha. So many components doesn't work properly like they worked in 2.6 version. Everything great. Let's just wait. This is great UI framework. I am still waiting my v-data-table component\n> > Which components do not work properly?\nVuetify3 beta3\nComponent breadcrumbs. Has invalid styles and html structure\n![image](https://user-images.githubusercontent.com/5112918/171979191-c0906edb-6461-4dac-b7c1-465308ddb278.png)\nVuetify3 beta3.\nValidation Error should have red color but it is gray.\nIn beta2. It was red\n![image](https://user-images.githubusercontent.com/5112918/171979212-2cc95267-112e-4aee-a0db-58081d7e77f0.png)\nI sm uding vite and latest version of everything. let me know, I can provide more info. Very appreciate for everything",
+        "strategy": "one_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 4805,
+        "message": "> Would like to suggest adding a Nuxt3 plugin to this list as well.\nI will need help with this as I do not use NUXT. Happy to help however I can though.",
+        "strategy": "one_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 4807,
+        "message": "good ideal",
+        "strategy": "one_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    }
+]

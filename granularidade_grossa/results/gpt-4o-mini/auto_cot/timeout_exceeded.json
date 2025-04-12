@@ -1,0 +1,8 @@
+[
+    {
+        "index": 1292,
+        "message": "> Usually, when waiting for a UDP reply the src port isn't taken into consideration. That's not how 99% of UDP protocols work. And definitely not how RADIUS works. This is all documented in RFC 2865.\n> The radsec RFC does not mention that the proxy should be rewriting/translating attributes and recalculating the message authenticator.\nThat's how RADIUS works. This is also clear in RFC 2865. Nothing was changed in later RFCs.\nYour proxy might work for one RADIUS client. It definitely won't work for multiple RADIUS clients. Or, it will, but they all have to use the same shared secret.\nRFC 2865 explains that you find the shared secret by looking up the source IP of the packet. This means that all downstream servers will look up *your* proxy IP to get *one* shared secret. If the originating UDP clients use *multiple* shared secrets, it won't work.\nAnd no, you can't change shared secrets per packet. And no, you can't change shared secrets per destination.\nIf you want to learn other UDP to TCP proxy issues, read RFC 6613. It explains all of these issues in excruciating detail.\nTBH, you can't just write a \"UDP to TCP\" translator for RADIUS and expect it to work. You MUST implement the RADIUS protocol correctly. This involves reading, and following, the RFCs.\nAny short-cut you take means that you have a toy implementation. It might work for simple tests, but it will fall over and die in any real-world environment.",
+        "strategy": "auto_cot",
+        "model": "gpt-4o-mini"
+    }
+]

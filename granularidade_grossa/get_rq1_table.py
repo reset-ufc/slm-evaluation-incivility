@@ -10,16 +10,18 @@ def get_rq1_table(compact_table_path):
     # Definindo os índices (MultiIndex)
     strategies = [
         "zero_shot", "zero_shot", 
+        "one_shot", "one_shot", 
         "few_shot", "few_shot", 
         "auto_cot", "auto_cot", 
         "role_based", "role_based"
     ]
-    unique_strategies = ['zero_shot', 'few_shot', 'auto_cot', 'role_based']
+    unique_strategies = ['zero_shot', "one_shot", 'few_shot', 'auto_cot', 'role_based']
 
     cases = [
         'Best', 'Worst',
         'Best', 'Worst',
         'Best', 'Worst',
+        'Best', 'Worst'
         'Best', 'Worst'
     ]
 

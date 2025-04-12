@@ -11,7 +11,7 @@ cur_dir = Path(os.getcwd())
 data_dir = cur_dir / 'data' / 'final_df.csv'
 results_dir = cur_dir / 'results'
 
-models = ['gemma:7b', 'gemma2:9b', 'mistral-nemo:12b', 'mistral:7b', 'deepseek-r1:8b', 'deepseek-r1:14b', 'llama3.2:3b', 'llama3.1:8b']
+models = ['gemma:7b', 'gemma2:9b', 'mistral-nemo:12b', 'mistral:7b', 'deepseek-r1:8b', 'deepseek-r1:14b', 'llama3.2:3b', 'llama3.1:8b', 'gpt-4o-mini']
 
 for model in models:
     model_path = results_dir / model.replace(':', '_')

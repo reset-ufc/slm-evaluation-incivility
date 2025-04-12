@@ -82,7 +82,7 @@ def classify_pr_with_openai(user_prompt, model, prompt_strategy):
                                 "type": "string"
                             }
                         },
-                        "required": ["label"],
+                        "required": ["label", "reasoning"],
                         "additionalProperties": False
                     },
                     "strict": True
@@ -127,20 +127,18 @@ def classify_pr(user_prompt, model, prompt_strategy):
                 }
     else: 
         response_format = {
-                    "type": "object",
-                    "properties": {
-                        "label": {
-                            "type": "string",
-                            "enum": ["CIVIL", "UNCIVIL"]
-                        },
-                        "reasoning": {
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                    "label"
-                    ]
+            "type": "object",
+            "properties": {
+                "label": {
+                "type": "string",
+                "enum": ["CIVIL", "UNCIVIL"]
+                },
+                "reasoning": {
+                "type": "string"
                 }
+            },
+            "required": ["label", "reasoning"]
+            }
 
     # gpt model
     if 'gpt' in model:
@@ -183,7 +181,7 @@ def target_func(user_prompt, model, queue, prompt_strategy):
     except Exception as e:
         queue.put({'error': str(e)})
 
-def classify_with_timeout(user_prompt, model, prompt_strategy, timeout=60):
+def classify_with_timeout(user_prompt, model, prompt_strategy, timeout=60*30):
     """Runs the classify_pr function with a timeout using multiprocessing."""
     queue = multiprocessing.Queue()
     process = multiprocessing.Process(target=target_func, args=(user_prompt, model, queue, prompt_strategy))
@@ -201,58 +199,90 @@ def classify_with_timeout(user_prompt, model, prompt_strategy, timeout=60):
         return None
 
 
-encoder = tiktoken.encoding_for_model("gpt-4")
+encoder = tiktoken.encoding_for_model("gpt-4o-mini")
 MAX_TOKENS_PER_MINUTE = 200_000
 RESET_INTERVAL = 60
 
-def count_tokens(prompt, response):
+def count_tokens(prompt,):
     """
     Calcula a quantidade de tokens usados no prompt e na resposta.
     """
     prompt_tokens = len(encoder.encode(prompt))
+
+    return prompt_tokens 
+
+def rate_limited_call(prompt, model, strategy, current_tokens, last_reset_time):
+    """
+    Calls the rate-controlled sort function using the official token count.
+    Resets the token counter every minute regardless of whether the limit is reached.
+    """
+    # Verificar se já passou 1 minuto desde o último reset
+    current_time = time.time()
+    if current_time - last_reset_time >= RESET_INTERVAL:
+        print("Renewing rate limit window (1 minute passed)...")
+        current_tokens = 0
+        last_reset_time = current_time
     
-    # Lidar com diferentes formatos de resposta
-    if isinstance(response, dict):
-        if 'response' in response:
-            response_text = response['response']
-        else:
-            response_text = json.dumps(response)
-    else:
-        response_text = str(response)
-        
-    response_tokens = len(encoder.encode(response_text))
-    return prompt_tokens + response_tokens
-
-def rate_limited_call(prompt, model, strategy, current_tokens):
-    """
-    Chama a função de classificação com controle de taxa usando contagem de tokens oficial.
-    """
-    response = classify_with_timeout(prompt, model, strategy)
-
-    if response is None:
-        return None, current_tokens
-
-    tokens_used = count_tokens(prompt, response)
+    tokens_used = count_tokens(prompt)
     current_tokens += tokens_used
-
-    # Se exceder o limite, esperar até a janela de tempo ser renovada
+    
+    # Verificar se vai exceder o limite
     if current_tokens > MAX_TOKENS_PER_MINUTE:
-        print("Limite de tokens atingido. Aguardando renovação...")
-        time.sleep(RESET_INTERVAL)
-        current_tokens = tokens_used  # Resetar contagem após espera
+        # Calcular tempo necessário para esperar até completar o minuto
+        wait_time = RESET_INTERVAL - (current_time - last_reset_time)
+        if wait_time > 0:
+            print(f"Token limit reached. Waiting {wait_time:.2f} seconds for renewal...")
+            time.sleep(wait_time)
+            current_tokens = tokens_used  # Após esperar, contabilizar apenas os tokens desta chamada
+            last_reset_time = time.time()  # Atualizar o timestamp de reset
+        else:
+            # Se já passou o tempo do reset, apenas atualizar os valores
+            current_tokens = tokens_used
+            last_reset_time = current_time
+    
+    response = classify_with_timeout(prompt, model, strategy)
+    
+    if response is None:
+        return None, current_tokens, last_reset_time
+    
+    return response, current_tokens, last_reset_time
 
-    return response, current_tokens
+def carregar_lista_json(arquivo):
+    import json, os
+    if os.path.exists(arquivo):
+        try:
+            with open(arquivo, "r", encoding="utf-8") as f:
+                conteudo = f.read().strip()
+                if not conteudo:
+                    return []
+                dados = json.loads(conteudo)
+                if isinstance(dados, list):
+                    return dados
+        except json.JSONDecodeError:
+            print(f"[Aviso] O arquivo {arquivo} está corrompido ou mal formatado.")
+            return []
+    return []
+
+def adicionar_dado_em_lista_json(arquivo, novo_dado):
+    dados = carregar_lista_json(arquivo)
+    dados.append(novo_dado)
+    with open(arquivo, "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
 
 def main(): 
     data = pd.read_csv(data_dir)
+    # data = data.iloc[5:, :]
 
-    # n_samples = len(data)
-    n_samples = 1
+    n_samples = len(data)
+    # todos os idices
+    all_indexs = set(range(len(data)))
+    # n_samples = 5
 
-    # models = ['gemma:7b', 'gemma2:9b', 'mistral-nemo:12b', 'mistral:7b', 'deepseek-r1:8b', 'deepseek-r1:14b', 'llama3.2:3b', 'llama3.1:8b']
+    # models = ['gemma:7b', 'gemma2:9b', 'mistral-nemo:12b', 'mistral:7b', 'deepseek-r1:8b', 'deepseek-r1:14b', 'llama3.2:3b', 'llama3.1:8b', 'gpt-4o-mini', 'phi4:14b']
 
-    models = ['gpt-4o-mini']
+    models = ['phi4:14b']
     current_tokens = 0 
+    last_reset_time = time.time()  # Iniciar o timestamp
     #models = ['gemma3:1b']
 
     for model in models:
@@ -268,8 +298,8 @@ def main():
             pred_df_file = strategy_path / 'predictions_df.csv'
             errors_file = strategy_path / 'errors.json'
             timeout_file = strategy_path / 'timeout_exceeded.json'
+
             if 'auto_cot' in strategy:
-                # reasonings = []
                 reasonings_file = strategy_path / 'reasonings.json'
 
             cols_pred_df = ['index', 'message', 'prediction', 'actual', 'source']
@@ -284,24 +314,48 @@ def main():
             print('model:', model)
             print('strategy:', strategy)
             
-            # pred_df = pd.DataFrame(columns=cols_pred_df)
-            truth, predictions = [], []
-            # timeout_exceeded, errors = [], []
+            predictions_path = strategy_path / 'predictions_df.csv'
+
+            if predictions_path.exists():
+                pred_df = pd.read_csv(predictions_path, encoding="utf-8")
+            
+                # idices classificados
+                indexes_classified = set(int(i) for i in pred_df['index'].values)
+                #print(indexes_classified)
+
+                # idices que ainda não foram classificados
+                index_to_classify = list(all_indexs - indexes_classified)
+            
+                data_to_classify = data.iloc[index_to_classify]
+                n_samples = len(data_to_classify)
+                # pred_df = pd.DataFrame(columns=cols_pred_df)
+                truth, predictions = [], []
+                # timeout_exceeded, errors = [], []
+            else:
+                data_to_classify = data.copy()
+                n_samples = len(data)
+
 
             with tqdm(total=n_samples, desc=f"Processing strategy '{strategy}' for model '{model}'") as pbar:
-                for index, row in data.iterrows():
+                for index, row in data_to_classify.iterrows():
                     if index == n_samples:
                         break
                     user_prompt = prompt_factory(row['message'], strategy)
 
                     if 'gpt' in model:
-                        response, current_tokens = rate_limited_call(user_prompt['user_msg'], model, strategy, current_tokens)
+                        response, current_tokens, last_reset_time = rate_limited_call(
+                            user_prompt['user_msg'], model, strategy, current_tokens, last_reset_time
+                        )
                     else:
                         response = classify_with_timeout(user_prompt['user_msg'], model, strategy)
 
                     if response is None:
-                        with open(timeout_file, 'w') as f:
-                            json.dump({"index": index, "message": row['message'], "strategy": strategy, "model": model}, f, indent=4)
+                        adicionar_dado_em_lista_json(timeout_file, {
+                            "index": index,
+                            "message": row['message'],
+                            "strategy": strategy,
+                            "model": model
+                        })
                         pbar.update(1)
                         continue
 
@@ -311,11 +365,14 @@ def main():
 
                         if 'auto_cot' in strategy:
                             ### VERIFICAR O FORMATO DE RESPOSTA DA API OPENAI QUANDO COT É UTILIZADO
-                            with open(reasonings_file, mode="w", encoding="utf-8") as arquivo_json:
-                                json.dump({"index": index, "message": row['message'], "strategy": strategy, "model": model, "reasoning": response['reasoning']},
-                                           arquivo_json,
-                                            indent=4)
-
+                            ## PEGAR O ARQUIVO DE REASONINGS E """""ADICIONAR""""" A RESPOSTA, pois atualmente esta reescrevendo a resposta
+                            adicionar_dado_em_lista_json(reasonings_file, {
+                                "index": index,
+                                "message": row['message'],
+                                "strategy": strategy,
+                                "model": model,
+                                "reasoning": response['reasoning']
+                            })
                         pred = extract_label(response)
 
                         truth.append(row['actual'])
@@ -328,16 +385,26 @@ def main():
 
                     except json.JSONDecodeError as e:
                         print("Execution stopped at index:", index)
-                        with open(errors_file, mode="w", encoding="utf-8") as arquivo_json:
-                            error = e.model_dump() if hasattr(e, "model_dump") else str(e)
-                            json.dump({'index': index, 'message': row['message'], 'strategy': strategy, 'model': model, "error": error, 'response': response}, arquivo_json, indent=4)
+                        error = e.model_dump() if hasattr(e, "model_dump") else str(e)
+                        adicionar_dado_em_lista_json(errors_file, {
+                                            "index": index,
+                                            "message": row['message'],
+                                            "strategy": strategy,
+                                            "model": model,
+                                            "error": error
+                                        })
                     
 
                     except Exception as e:
                         print("Execution stopped at index:", index)
-                        with open(errors_file, mode="w", encoding="utf-8") as arquivo_json:
-                            error = e.model_dump() if hasattr(e, "model_dump") else str(e)
-                            json.dump({'index': index, 'message': row['message'], 'strategy': strategy, 'model': model, "error": error, 'response': response}, arquivo_json, indent=4)
+                        error = e.model_dump() if hasattr(e, "model_dump") else str(e)
+                        adicionar_dado_em_lista_json(errors_file, {
+                                            "index": index,
+                                            "message": row['message'],
+                                            "strategy": strategy,
+                                            "model": model,
+                                            "error": error
+                                        })
                     
                     pbar.update(1)
 

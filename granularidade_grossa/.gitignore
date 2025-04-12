@@ -172,3 +172,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+results/distil_bert_results/checkpoint-150/
+results/distil_bert_results/checkpoint-300/
+results/distil_bert_results/checkpoint-450/
+results/distil_bert_results/checkpoint-600/
+results/distil_bert_results/checkpoint-750/
+results/distil_bert_results/checkpoint-894/
+results/distil_bert_results/checkpoint-900/
+results/distil_bert_results/checkpoint-1032/

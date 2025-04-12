@@ -1,0 +1,233 @@
+[
+    {
+        "index": 4022,
+        "message": "also you should be running `bun` and not `./bun`",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 4024,
+        "message": "This is test.js\n```\n#!/usr/bin/env -S ./bun console.log('Hello, World!');\n```",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 4025,
+        "message": "and thats not gonna work for you...",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6041,
+        "message": "Good to hear Lecky.  \n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6070,
+        "message": "oops...\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6072,
+        "message": "The default behavior of ZenHub not to take the current repository when creating a new issue is a pain in the ass.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6048,
+        "message": "Man was not meant to have such power.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6050,
+        "message": "Oh man, this is sweet!",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6078,
+        "message": "forgot to update that. locally its with a $ damn.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6054,
+        "message": "> Thanks for the info, I didn't realized javafx-gradle just calls javapackager, docs are pretty sparse for the plugin.\n\nYeah, I only learned this information myself by reaching out to the plugin's creator (Danno Ferrin), who also works on JavaFX at Oracle, btw. The docs for `javapackager` suck too, though, so at least things are consistent.\n\n> For now I'll just work on creating osx and win7 virtualbox images that can act as slave builders for the main Jenkins node. I'll host the virtualbox images on an extra PC on my home network for now. It shouldn't be too hard to move them to the cloud when we we need to. I expect we'll need 2-3 GB of system RAM for each one.\n\nCool. The second you run into \"missing dll\" issues on windows, let me know. I've spent a stupid amount of time solving that problem, and it should indeed be solved if you're using the current packaging scripts in master, but just in case it shows back up, sound the alarm.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6082,
+        "message": "You can read that file on someone else's phone outside the app only when you have root access on their phone. If you have root access, you can do all kind of other nasty trics which are much more dangerous like intercepting keyboard input or making hidden screenshots.\n\nIf you have root and read it on your own device, I don't see the problem. I can already access my own messages.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6084,
+        "message": "Hi @kjin.\nHonestly, no, there is no technical reason, except losing some chars in the outputted minified JS, as we will have : \n```js\na.readyState<HTMLMediaElement.HAVE_CURRENT_DATA\n```\ninstead of\n```js\na.readyState<a.HAVE_CURRENT_DATA\n```\nIt may count when I have lots of references to this kind of constants.\n\nI know, this is really ugly and over-engineering",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6060,
+        "message": "Please try to be constructive. Describing something as a â€œmonstrosityâ€ is not.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6088,
+        "message": "Please ignore/delete/reject this pull request. I was new and messed things up. I also incorporated suggestions and fixed an oversight in my two newer requests.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6064,
+        "message": "IDK.\nYou should get only one of the â€œdisable typingâ€ or â€œuse input boxâ€ options. On old Androids, removing the former would mean there would always be the input box when there is a {{type:NN}}.\nAlso, the reason why i left the old code in there in the first place was issues with focusing input boxes. An i think that is related to the â€œinput workaroundâ€ setting nearby.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6066,
+        "message": "I agree with you on this wholeheartedly except the very end: no matter what you do, software is insanely complex and we are all humans, we all make mistakes, you can't really avoid it (sometimes software and also hardware make mistakes too).\n\nThis is why we have logs, metrics, distributed tracing, this is why write tests, and also this is why we have Spring Boot Actuator. You can call it information leakage but I would call it \"observability\" instead.\nAgain, I agree on disabling this by default but I disagree on not having it at all.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6094,
+        "message": "I just had to boot an activist from our secure group chat because his account got taken over by some random person, despite him enabling registration lock. Your misleading language is putting users at risk.\n\n> The intention of reglock is to prevent hijacking of numbers you actually own, not to guarantee the number for yourself for life.\n\nThis directly contradicts what is said in UI toggle for registration lock. It says \"require your signal PIN to register your phone number with signal again\". There are no qualifiers or caveots like the ones you just added. It does not say \"require your signal pin to *quickly* register your number with signal again\"\n\n> This is important because phone number can (and are) re-used among cell carriers. If someone gets a new phone number from their carrier, they should not be prevented from registering with Signal indefinitely because the previous owner has reglock.\n\n**Yes, they should. Because otherwise people lose access to their accounts.** \n\nAnd if you don't think that, then you should **stop requiring people to so tightly intertwine their signal accounts with phone numbers in the bloody first place.**",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6070,
+        "message": "oops...\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6098,
+        "message": "Ah darn. Now it no longer misbehaves on macOS but does so on Windows, it seems. Looking back; I seem to remember that it didn't flicker on Windows before your positon fix. I somehow missed to test the PR on Windows after this change. \n\n[This](https://github.com/LWJGLX/lwjgl3-awt/blob/main/test/org/lwjgl/opengl/awt/AWTTest.java) lwjgl3-awt test runs fine on Windows btw, so it seems like the issue is in libGDX code.\n\nThe Hiero issue with this PR is actually separate to the one @obigu mentioned (which, on another note, I can't reproduce, so it is probably caused by one of the installed fonts). Hiero crashes with this PR, because \"No context is current or a function that is not available in the current context was called.\" See the full stacktrace below:\n\n<details>\n  <summary><b><i>Click to show full log</i></b></summary>\n\n```\n> Task :extensions:gdx-tools:Hiero.main() FAILED\nFATAL ERROR in native method: Thread[AWT-EventQueue-0,6,main]: No context is current or a function that is not available in the current context was called. The JVM will abort execution.\n\tat org.lwjgl.opengl.GL11C.nglGenTextures(Native Method)\n\tat org.lwjgl.opengl.GL11C.glGenTextures(GL11C.java:664)\n\tat org.lwjgl.opengl.GL11.glGenTextures(GL11.java:2492)\n\tat com.badlogic.gdx.backends.lwjgl3.Lwjgl3GL20.glGenTexture(Lwjgl3GL20.java:348)\n\tat com.badlogic.gdx.graphics.Texture.<init>(Texture.java:142)\n\tat com.badlogic.gdx.graphics.g2d.PixmapPacker$Page$1.<init>(PixmapPacker.java:504)\n\tat com.badlogic.gdx.graphics.g2d.PixmapPacker$Page.updateTexture(PixmapPacker.java:504)\n\tat com.badlogic.gdx.graphics.g2d.PixmapPacker.updatePageTextures(PixmapPacker.java:410)\n\tat com.badlogic.gdx.graphics.g2d.PixmapPacker.updateTextureRegions(PixmapPacker.java:402)\n\tat com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.generateData(FreeTypeFontGenerator.java:464)\n\tat com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.generateFont(FreeTypeFontGenerator.java:161)\n\tat com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.generateFont(FreeTypeFontGenerator.java:152)\n\tat com.badlogic.gdx.tools.hiero.unicodefont.UnicodeFont.setRenderType(UnicodeFont.java:647)\n\tat com.badlogic.gdx.tools.hiero.Hiero.updateFont(Hiero.java:315)\n\tat com.badlogic.gdx.tools.hiero.Hiero$3.valueChanged(Hiero.java:439)\n\tat javax.swing.JList.fireSelectionValueChanged(JList.java:1802)\n\tat javax.swing.JList$ListSelectionHandler.valueChanged(JList.java:1816)\n\tat javax.swing.DefaultListSelectionModel.fireValueChanged(DefaultListSelectionModel.java:184)\n \tat javax.swing.DefaultListSelectionModel.fireValueChanged(DefaultListSelectionModel.java:164)\n\tat javax.swing.DefaultListSelectionModel.fireValueChanged(DefaultListSelectionModel.java:211)\n\tat javax.swing.DefaultListSelectionModel.changeSelection(DefaultListSelectionModel.java:405)\n\tat javax.swing.DefaultListSelectionModel.changeSelection(DefaultListSelectionModel.java:415)\n\tat javax.swing.DefaultListSelectionModel.setSelectionInterval(DefaultListSelectionModel.java:459)\n\tat javax.swing.JList.setSelectedIndex(JList.java:2216)\n\tat javax.swing.JList.setSelectedValue(JList.java:2366)\n\tat com.badlogic.gdx.tools.hiero.Hiero.<init>(Hiero.java:190)\n\tat com.badlogic.gdx.tools.hiero.Hiero$21.run(Hiero.java:1591)\n\tat java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:311)\n\tat java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)\n\tat java.awt.EventQueue.access$500(EventQueue.java:97)\n\tat java.awt.EventQueue$3.run(EventQueue.java:709)\n\tat java.awt.EventQueue$3.run(EventQueue.java:703)\n\tat java.security.AccessController.doPrivileged(Native Method)\n \tat java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)\n\tat java.awt.EventQueue.dispatchEvent(EventQueue.java:728)\n\tat java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)\n\tat java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)\n\tat java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)\n\tat java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)\n\tat java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)\n\tat java.awt.EventDispatchThread.run(EventDispatchThread.java:82)\n```\n</details>\n\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6074,
+        "message": "@bloodyjuice I think there are no python connectors now, all connectors are based on Java Function. But Pulsar has python functions, I think it's easy to implement a connector based on the python functions. If you are interested in implement it, you are welcome to push a PR.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6101,
+        "message": "Because the more dependencies you introduce the more you relay on the work of others. This can become a hell on some point. Just think if someone foes not want to continue a project (GigaGet great examble), or some destroys or revokes a pavkage/repo. Remember the node.js disaster where someone revoked a package, and brokr hundreds of projects with that.\n\nAlso it blowds things, so im rather against \"repo hording/repo shopping\" :D",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6080,
+        "message": "> The internal issue was routed to the SOC manufacturer, who was unable to reproduce the issue and routed it back to the Google TV team. It's currently on the Google TV team pending next steps. We're continuing to escalate the issue with that team to try and get some more movement on it.\n\nHow an issue thousand of people can reproduce on demand cant be reproduce by the manufacturer ? this is silly and frankly not serious.\njust use the damn Google tv on Plex with any X265 file. Try a subtitle or let it run automatically next episode (for a tv show)\nThe Google tv reboot. All the time.\nthats dont seem THAT difficult to reproduce.\nAnyhow, for me its going back to the vendor, Nvidia seem to be handling the thing way better",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6082,
+        "message": "You can read that file on someone else's phone outside the app only when you have root access on their phone. If you have root access, you can do all kind of other nasty trics which are much more dangerous like intercepting keyboard input or making hidden screenshots.\n\nIf you have root and read it on your own device, I don't see the problem. I can already access my own messages.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6084,
+        "message": "Hi @kjin.\nHonestly, no, there is no technical reason, except losing some chars in the outputted minified JS, as we will have : \n```js\na.readyState<HTMLMediaElement.HAVE_CURRENT_DATA\n```\ninstead of\n```js\na.readyState<a.HAVE_CURRENT_DATA\n```\nIt may count when I have lots of references to this kind of constants.\n\nI know, this is really ugly and over-engineering",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6110,
+        "message": "Thank you. Branch 2.9 is back to the expected Bookie behavior.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6087,
+        "message": "> NACK lack of code formatting.\n\nHi, fixed and squashed.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6089,
+        "message": "> attempt to copy the image in by it's original name, use that if unique\n\nPerfect!\n\n> only if not unique rename to \"original name (N).extension\" where 'N' is the number required to be unique, incrementing past whatever number was there previously?\n\nPerfect!\n\n> I suppose we would need to message that to the user somehow, perhaps a quick 'we did this\" with only \"OK\" dialog is sufficient?\n\nAnki desktop doesn't do this. But yes, a message that \"xyz.jpg\" already exists and thus was renamed to \"xyz (n).jpg\" would be a hell of a clean approach.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6091,
+        "message": "Holy Cow! You right click and select auto-format! I can't believe I just found how to do it in 2021.",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6093,
+        "message": "aww i think I have a fix.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6120,
+        "message": "Did that fix the issue for you?\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6097,
+        "message": "No way, they are already too fast, it's unfair ðŸ˜„ ",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6124,
+        "message": "I'm not entirely qualified to add too much as I don't know the space as deeply as you all, and I was mostly trying to scratch my own itch over a couple of things with rosettamesh and generally making a mess of the issue. I agree with so many sentiments in the article: 1) Being independent of core and its own jar 2) A base layer would be an elegant ideal 3) Chaining is fun 4) Some kind of underlying just grid of numbers or matrix like space like R's data frames or NumPy's matrices. \n\nSome of the things I still don't understand because of my own inexperience were like what to do about normals, but also Quads vs. Tris, and perhaps the need for \"remeshing\" things, a feature prominent in 3d tools like Blender. Anar+ does this cool thing where it goes on with the show even if your mesh is broken or invalid. Java 3D is surprisingly exhaustive of a lot of core structures.\n\nI do work with systems integration quite a bit, and I can say that it sucks but sometimes your new system winds up usually being all of the other systems now just all together, and again like expressed before, is now its own system which is yet another thing to deal with. It could be nice to try to think future proof ideas like to be able to pivot around the n-th dimensions of a hyperplane or hypersurface, or if LLVM and other such compilation/translation/vm type stuff is the future for Java, how does one make sure that the solution is as pure of logic as possible so as to not tie itself further to machine or even environment specifics. \n\nI also like how the newer work by @codeanticode where the vectors are stored in the GPU. It would be cool to treat the GPU as your vertex database storage and accelerated manipulation engine. \n\nAnyway, all I have is inspiration and it came from you all, so I really am excited to see the kinds of things you guys all figure out.\n",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    },
+    {
+        "index": 6101,
+        "message": "Because the more dependencies you introduce the more you relay on the work of others. This can become a hell on some point. Just think if someone foes not want to continue a project (GigaGet great examble), or some destroys or revokes a pavkage/repo. Remember the node.js disaster where someone revoked a package, and brokr hundreds of projects with that.\n\nAlso it blowds things, so im rather against \"repo hording/repo shopping\" :D",
+        "strategy": "few_shot",
+        "model": "gpt-4o-mini",
+        "error": "cannot access local variable 'class_name' where it is not associated with a value"
+    }
+]
