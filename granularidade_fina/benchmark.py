@@ -15,6 +15,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn import metrics
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
+from sklearn.ensemble import AdaBoostClassifier
 from pathlib import Path
 
 def convert_ndarray(obj):
@@ -178,7 +179,8 @@ def do_benchmark(grid_search=False, data_balance='OD', cv_criteria='roc_auc', se
     
     train_models = {"MNB":MultinomialNB(), 
               "LRC":LogisticRegression(max_iter=10**7),              
-              "RFC":RandomForestClassifier()}
+              "RFC":RandomForestClassifier(),
+              "ADA": AdaBoostClassifier()}
 
     models = {i:train_models[i] for i in train_models if i in selected_models}
               
@@ -223,5 +225,5 @@ if __name__ == '__main__':
     comments = True
     CV = 10
        
-    do_benchmark(grid_search, data_balance, 'recall', ['LRC', 'MNB', 'RFC'])
+    do_benchmark(grid_search, data_balance, 'recall', ["ADA"])
     

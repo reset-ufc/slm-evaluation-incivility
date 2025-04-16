@@ -1,0 +1,11 @@
+Strategy,Modelo,Tbdf,Precision,Recall,Accuracy,F1-score,Real_samples,Predicted_samples,Fp,Fn,Allucination Rate
+role_based_auto_cot,deepseek-14b,bitter frustration,0.17906746031746032,0.733739837398374,0.733739837398374,0.2878787878787879,492.0,2016.0,1655.0,131.0,0.0
+role_based_auto_cot,deepseek-14b,impatience,0.0,0.0,0.0,0.0,266.0,7.0,7.0,266.0,0.0
+role_based_auto_cot,deepseek-14b,mocking,0.1897810218978102,0.29545454545454547,0.29545454545454547,0.2311111111111111,176.0,274.0,222.0,124.0,0.0
+role_based_auto_cot,deepseek-14b,irony,0.0,0.0,0.0,0.0,64.0,0.0,0.0,64.0,0.0
+role_based_auto_cot,deepseek-14b,vulgarity,0.47058823529411764,0.11267605633802817,0.11267605633802817,0.18181818181818182,71.0,17.0,9.0,63.0,0.0
+role_based_auto_cot,deepseek-14b,threat,0.75,0.13043478260869565,0.13043478260869565,0.2222222222222222,23.0,4.0,1.0,20.0,0.0
+role_based_auto_cot,deepseek-14b,identify attack/name calling,0.5,0.03571428571428571,0.03571428571428571,0.06666666666666667,28.0,2.0,1.0,27.0,0.0
+role_based_auto_cot,deepseek-14b,none,0.9137785291631445,0.7195473707566008,0.7195473707566008,0.8051142005958292,4507.0,3549.0,306.0,1264.0,0.0
+role_based_auto_cot,deepseek-14b,entitlement,0.0,0.0,0.0,0.0,70.0,1.0,1.0,70.0,0.0
+role_based_auto_cot,deepseek-14b,insulting,0.0,0.0,0.0,0.0,174.0,1.0,1.0,174.0,0.0

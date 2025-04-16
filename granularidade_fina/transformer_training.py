@@ -8,7 +8,7 @@ import json
 from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification
 from transformers import Trainer, TrainingArguments
 
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import label_binarize
@@ -103,7 +103,7 @@ label_mapping = {'none': 0, 'entitlement': 1, 'impatience': 2,
 
 num_classes = len(dataset['tbdf'].unique())
 
-skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=51)
+skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=51)
 X, y = dataset['comment_body'], dataset['tbdf_label']
 folds = {}
 
@@ -175,8 +175,21 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
         folds[i]['auc'] = 0.0
     
     # Salvando as previsões para posterior análise se necessário
+    report = classification_report(test_labels_encoded, preds, output_dict=True, zero_division=0)
+    for cls in range(num_classes):
+        cls_str = str(cls)
+        folds[i][f'f1_cls_{cls_str}'] = report[cls_str]['f1-score']
+        folds[i][f'pre_cls_{cls_str}'] = report[cls_str]['precision']
+        folds[i][f'rec_cls_{cls_str}'] = report[cls_str]['recall']
+        folds[i][f'support_cls_{cls_str}'] = report[cls_str]['support']
+
+    # Salvando previsões e probabilidades
     folds[i]['predictions'] = preds.tolist()
-    folds[i]['probabilities'] = probas
+
+    results_transformers_probs = results_transformers / 'probas'
+    results_transformers_probs.mkdir(parents=True, exist_ok=True)
+    np.save(results_transformers_probs / f'fold_{i}_probas.npy', probas)
+    folds[i]['probabilities'] = f'fold_{i}_probas.npy'
 
     print(f"Fold {i+1}=> PRE: {folds[i]['pre']:.4f}; REC: {folds[i]['rec']:.4f}; ACC: {folds[i]['acc']:.4f}; F1S: {folds[i]['f1']:.4f}; AUC: {folds[i]['auc']:.4f}")
 
@@ -194,7 +207,7 @@ def convert_ndarrays(obj):
 
 folds_serializable = convert_ndarrays(folds)
 
-with open("folds.json", "w") as fp:
+with open(results_transformers / "DistilBert-10folds_results.json", "w") as fp:
     json.dump(folds_serializable, fp, indent=2)
 
 
@@ -202,6 +215,6 @@ with open("folds.json", "w") as fp:
 metrics = ['pre', 'rec', 'acc', 'f1', 'auc']
 avg_metrics = {metric: sum(folds[i][metric] for i in folds) / len(folds) for metric in metrics}
 
-print("\nMétricas médias dos 5 folds:")
+print("\nMétricas médias dos 10 folds:")
 for metric, value in avg_metrics.items():
     print(f"{metric.upper()}: {value:.4f}")
