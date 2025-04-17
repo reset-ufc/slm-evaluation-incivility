@@ -7,7 +7,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC,LinearSVC
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.model_selection import GridSearchCV, train_test_split
 from imblearn.over_sampling import SMOTE
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
@@ -78,12 +78,12 @@ def compute_metrics_scores_multiclass(y_test, y_pred, y_proba) :
               "classification_report":metrics.classification_report(y_test, y_pred)}
     return scores
 
-def run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, word_embedding, cv_criteria):
+def run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, word_embedding, cv_criteria, n_splits=10):
     dataset.dropna(subset = [x_atributes], inplace=True)
     X = dataset[x_atributes]
     y = dataset[y_label]
 
-    skf = StratifiedKFold(n_splits=10)
+    skf = StratifiedKFold(n_splits=n_splits)
     folds = []
     results_path = Path("results")
     resulst_ml_models_path = results_path / "ml_models"
@@ -171,14 +171,15 @@ def run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_par
 
     return folds
 
-def do_benchmark(grid_search=False, data_balance='OD', cv_criteria='roc_auc', selected_models=['SVC', 'MNB', 'LRC', 'RFC']):    
+def do_benchmark(grid_search=False, data_balance='OD', cv_criteria='roc_auc', selected_models=['SVC', 'MNB', 'LRC', 'RFC'], n_splits=10):    
     x_atributes = 'message'
     y_label = 'actual'
     dataset =  load_incivility_dataset(y_label)
     
     train_models = {"MNB":MultinomialNB(), 
               "LRC":LogisticRegression(max_iter=10**7),              
-              "RFC":RandomForestClassifier()}
+              "RFC":RandomForestClassifier(),
+              "ADA": AdaBoostClassifier()}
 
     models = {i:train_models[i] for i in train_models if i in selected_models}
               
@@ -202,10 +203,10 @@ def do_benchmark(grid_search=False, data_balance='OD', cv_criteria='roc_auc', se
     else:
         grid_params_list = {"MNB":{},"LRC":{"max_iter":[10**7]}, "RFC":{}}
     
-    fold_results = run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, 'BoW', cv_criteria)
+    fold_results = run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, 'BoW', cv_criteria, n_splits=n_splits)
     print("#### BoW ####")
     print(fold_results)
-    fold_results = run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, 'TF-IDF', cv_criteria)
+    fold_results = run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, 'TF-IDF', cv_criteria, n_splits=n_splits)
     print("#### TF-IDF ####")
     print(fold_results)
 
@@ -221,7 +222,7 @@ if __name__ == '__main__':
     grid_search = False
     data_balance= 'OD'
     comments = True
-    CV = 10
+    CV = 5
        
-    do_benchmark(grid_search, data_balance, 'recall', ['LRC', 'MNB', 'RFC'])
+    do_benchmark(grid_search, data_balance, 'recall', ["ADA"], n_splits=CV)
     

@@ -1,6 +1,5 @@
 import pandas as pd 
 import numpy as np
-from get_quantity_errors import get_quantity_errors
 from pathlib import Path
 
 def get_rq2_table(rq1_table_path, compact_table_path):
@@ -30,8 +29,9 @@ def get_rq2_table(rq1_table_path, compact_table_path):
     columns = ["precision", "recall", "f1-score", "accuracy"]
 
     # extract worst models
-    worst_models = rq1_table.loc[rq1_table.isin(strategies).any(axis=1), ['f1-score', 'Case', 'Model']]
-    worst_models = worst_models.loc[worst_models['Case'] == 'Worst']['Model'].values.tolist()
+    # worst_models = rq1_table.loc[rq1_table.isin(strategies).any(axis=1), ['f1-score', 'Case', 'Model']]
+    # worst_models = worst_models.loc[worst_models['Case'] == 'Worst']['Model'].values.tolist()
+    worst_models = ['gemma_7b', 'gemma2_9b', 'mistral-nemo_12b', 'mistral_7b', 'deepseek-r1_8b', 'deepseek-r1_14b', 'llama3.2_3b', 'llama3.1_8b', 'gpt-4o-mini', 'phi4_14b']
 
     strategies.remove('role_based')
 
@@ -78,10 +78,10 @@ def get_rq2_table(rq1_table_path, compact_table_path):
 
         
     results_path = Path('results')    
-    rq2_table.to_excel(results_path / 'rq2_table_worst.xlsx')
+    rq2_table.to_excel(results_path / 'rq2_table_geral_civil.xlsx')
 
 results_path = Path('results')
 rq1_table_path = results_path / 'new_rq1_table.xlsx'
-compact_table_path = results_path / 'compact_result_table_uncivil_without_duplicates.xlsx'
+compact_table_path = results_path / 'compact_result_table_civil_without_duplicates.xlsx'
 
 get_rq2_table(rq1_table_path, compact_table_path)

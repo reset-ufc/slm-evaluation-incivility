@@ -1,6 +1,5 @@
 import pandas as pd 
 import numpy as np
-from get_quantity_errors import get_quantity_errors
 from pathlib import Path
 
 def get_rq2_table(rq1_table_path, compact_table_path):
@@ -30,8 +29,10 @@ def get_rq2_table(rq1_table_path, compact_table_path):
     columns = ["precision", "recall", "f1-score", "accuracy"]
 
     # extract best models
-    best_models = rq1_table.loc[rq1_table.isin(strategies).any(axis=1), ['f1-score', 'Case', 'Model']]
-    best_models = best_models.loc[best_models['Case'] == 'Best']['Model'].values.tolist()
+    # best_models = rq1_table.loc[rq1_table.isin(strategies).any(axis=1), ['f1-score', 'Case', 'Model']]
+    # best_models = best_models.loc[best_models['Case'] == 'Best']['Model'].values.tolist()]
+    best_models = ['mistral-nemo_12b', 'llama3.2_3b']
+
 
     strategies.remove('role_based')
 

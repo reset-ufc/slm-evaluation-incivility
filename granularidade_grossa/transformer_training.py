@@ -63,7 +63,7 @@ results_transformers.mkdir(parents=True, exist_ok=True)
 
 logs_results = results_transformers / 'logs'
 
-
+# Versão compatível com versões anteriores do Transformers
 training_args = TrainingArguments(
     num_train_epochs=3,              # total number of training epochs
     per_device_train_batch_size=16,  # batch size per device during training
@@ -89,7 +89,7 @@ print("Tipo dos rótulos:", type(dataset['actual'].iloc[0]))
 # Adaptando para aceitar tanto strings quanto inteiros/floats
 label_mapping = {'incivility': 1, 'civility': 0, 1: 1, 0: 0, '1': 1, '0': 0}
 
-skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=51)
+skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=51)
 X, y = dataset['message'], dataset['actual']
 folds = {}
 
@@ -155,14 +155,35 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
     folds[i]['f1'] = f1_score(test_labels_encoded, preds)
     
     # Salvando as previsões para posterior análise se necessário
-    folds[i]['predictions'] = preds.tolist()
-    folds[i]['probabilities'] = probas
+    # Calculando métricas para ambas as classes
+    results_transformers_probs = results_transformers / 'probas'
+    results_transformers_probs.mkdir(parents=True, exist_ok=True)
+    np.save(results_transformers_probs / f'fold_{i}_probas.npy', probas)
+    precision = precision_score(test_labels_encoded, preds, average=None, labels=[0, 1])
+    recall = recall_score(test_labels_encoded, preds, average=None, labels=[0, 1])
+    f1 = f1_score(test_labels_encoded, preds, average=None, labels=[0, 1])
 
-    print(f"Fold {i+1}=> PRE: {folds[i]['pre']:.4f}; REC: {folds[i]['rec']:.4f}; ACC: {folds[i]['acc']:.4f}; F1S: {folds[i]['f1']:.4f}; AUC: {folds[i]['auc']:.4f}")
+    folds[i] = {
+        'pre_0': precision[0],
+        'pre_1': precision[1],
+        'rec_0': recall[0],
+        'rec_1': recall[1],
+        'f1_0': f1[0],
+        'f1_1': f1[1],
+        'acc': accuracy_score(test_labels_encoded, preds),
+        'auc': roc_auc_score(test_labels_encoded, probas),
+        'predictions': preds.tolist(),
+        'probabilities': f'fold_{i}_probas.npy'
+    }
+
+    print(f"Fold {i+1}=> "
+          f"PRE_0: {folds[i]['pre_0']:.4f}; REC_0: {folds[i]['rec_0']:.4f}; F1_0: {folds[i]['f1_0']:.4f} | "
+          f"PRE_1: {folds[i]['pre_1']:.4f}; REC_1: {folds[i]['rec_1']:.4f}; F1_1: {folds[i]['f1_1']:.4f} | "
+          f"ACC: {folds[i]['acc']:.4f}; AUC: {folds[i]['auc']:.4f}")
 
 
 # Salvando os resultados em um arquivo JSON
-with open(results_transformers / 'DistilBert-5folds_results.json', 'w') as fp:
+with open(results_transformers / 'DistilBert-10folds_results.json', 'w') as fp:
     json.dump(folds, fp)
 
 # Calculando e imprimindo métricas médias
