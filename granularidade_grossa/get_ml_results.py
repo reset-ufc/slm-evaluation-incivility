@@ -5,7 +5,7 @@ import json
 
 # Caminhos principais
 results_path = Path('results')
-ml_results_path = results_path / 'ml_models'
+ml_results_path = results_path / 'ml_models_tuning_balancing'
 folds_path = ml_results_path / 'folds'
 
 # Modelos que vamos buscar
@@ -92,5 +92,5 @@ df_civil = df_civil.round(2)
 df_uncivil = df_uncivil.round(2)
 
 # Salvar os dados
-df_civil.to_excel(results_path / 'civil_ml_metric_means_results.xlsx')
-df_uncivil.to_excel(results_path / 'uncivil_ml_metric_means_results.xlsx')
+df_civil.to_excel(results_path / 'civil_ml_metric_means_results_tuning_balancing.xlsx')
+df_uncivil.to_excel(results_path / 'uncivil_ml_metric_means_results_tuning_balancing.xlsx')

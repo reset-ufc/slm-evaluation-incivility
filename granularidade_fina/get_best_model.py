@@ -30,7 +30,7 @@ for cls in classes:
         strategy = config['Strategy']
 
         best_configs.append(f'{model} + {strategy}')
-    
+        
     for i, config in best_config_cls_pr.iterrows():
         model = config['Modelo']
         strategy = config['Strategy']

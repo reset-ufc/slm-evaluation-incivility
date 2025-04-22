@@ -3,85 +3,38 @@ import numpy as np
 from pathlib import Path
 
 def get_rq1_table():
+    results_path = Path('results')
+    compact_table_path_uncivil = results_path / 'compact_result_table_uncivil_without_duplicates.xlsx'
+    compact_table_path_civil = results_path / 'compact_result_table_civil_without_duplicates.xlsx'
 
-    # Definindo MultiIndex
-    cases = ["Best", "Worst"]
-    strategies = ["zero_shot", "one_shot", "few_shot", "auto_cot", "role_based"]
-    categories = ["CIVIL", "UNCIVIL"]
-    tables = []
+    uncivil = pd.read_excel(compact_table_path_uncivil)
+    uncivil = uncivil.ffill()
+    uncivil = uncivil.loc[~uncivil['Model'].isin(['toxicr', 'refined_model']).values]
+    uncivil = uncivil.rename(columns={'precision': 'Precision', 'recall': 'Recall', 'f1-score': 'F1-score'})
+    uncivil_sem_combinacoes = uncivil.loc[~uncivil['Strategy'].str.contains('role_based_')].copy()  # excluir combinações com role-based
 
-    for category in categories:
-        results_path = Path(r"results")
-        table_name = f"compact_result_table_{category.lower()}_without_duplicates.xlsx"
-        compact_table_path = results_path / table_name
-        compact_table = pd.read_excel(compact_table_path)
-        compact_table = compact_table.ffill()
+    civil = pd.read_excel(compact_table_path_civil)
+    civil = civil.ffill()
+    civil = civil.loc[~civil['Model'].isin(['toxicr', 'refined_model']).values]
+    civil = civil.rename(columns={'precision': 'Precision', 'recall': 'Recall', 'f1-score': 'F1-score'})
+    civil_sem_combinacoes = civil.loc[~civil['Strategy'].str.contains('role_based_')].copy()  # excluir combinações com role-based
 
-        # Criando MultiIndex
+    uncivil_data = uncivil_sem_combinacoes.groupby('Model')[['F1-score', 'Precision', 'Recall']].mean().reset_index().copy()
+    civil_data = civil_sem_combinacoes.groupby('Model')[['F1-score', 'Precision', 'Recall']].mean().reset_index().copy()
 
-        index = pd.MultiIndex.from_product(
-            [
-                strategies,  # Strategy
-                cases  # Case
-            ],
-            names=["Strategy", "Case"]
-        )
+    models = ['phi4:14b', 'deepseek-r1:14b', 'mistral-nemo:12b', 'gemma2:9b', 'llama3.1:8b', 'deepseek-r1:8b', 'gemma:7b', 'mistral:7b', 'llama3.2:3b', 'gpt-4o-mini']
 
-        # Criando DataFrame
-        columns = pd.MultiIndex.from_tuples(
-            #[(category, "Model"), (category, "precision"), (category, "recall"), (category, "f1-score"), (category, "accuracy"), (category, "roc_auc"), (category, "FP"), (category, "FN")]
-            [(category, "Model"), (category, "precision"), (category, "recall"), (category, "f1-score"), (category, "accuracy")]
-        )
+    models = [m.replace(':', '_') for m in models]
 
-        df = pd.DataFrame(
-            index=index,
-            columns=columns
-        )
-
-        # best_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmax(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score', 'FP', 'FN']]
-        #                         .sort_values(by='f1-score', ascending=False))
-        best_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmax(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score']]
-                                .sort_values(by='f1-score', ascending=False))
-
-        # worst_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmin(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score', 'FP', 'FN']]
-        #                         .sort_values(by='f1-score', ascending=False))
-
-        worst_models_by_strategy = (compact_table.loc[compact_table.groupby('Strategy')['f1-score'].idxmin(), ['Strategy', 'Model', 'precision', 'recall', 'f1-score']]
-                                .sort_values(by='f1-score', ascending=False))
-
-        print(best_models_by_strategy)
-        for strategy in strategies:
-            for case in cases:
-                #print(strategy, case)
-                if case == 'Best':
-                    #print(best_models_by_strategy.loc[best_models_by_strategy['Strategy'] == strategy.lower(), 'Model'])
-                    model = best_models_by_strategy.loc[best_models_by_strategy['Strategy'] == strategy.lower(), 'Model'].values[0]
-                else:
-                    model = worst_models_by_strategy.loc[worst_models_by_strategy['Strategy'] == strategy.lower(), 'Model'].values[0]
-                # print(strategy, case, model)
-                
-                model_path = compact_table.loc[(compact_table['Strategy'] == strategy) & (compact_table['Model'] == model)]
-                f1_score_value = model_path['f1-score'].values[0]
-                precision_value = model_path['precision'].values[0]
-                recall_value = model_path['recall'].values[0]
-                accuracy_value = model_path['accuracy'].values[0]
-                # roc_auc_value = model_path['roc_auc'].values[0]
-                # fp = model_path['FP'].values[0]
-                # fn = model_path['FN'].values[0]
-
-                df.loc[(strategy, case), (category, "Model")] = model
-                df.loc[(strategy, case), (category, "precision")] = np.round(precision_value, 2)
-                df.loc[(strategy, case), (category, "recall")] = np.round(recall_value, 2)
-                df.loc[(strategy, case), (category, "f1-score")] = np.round(f1_score_value, 2)
-                df.loc[(strategy, case), (category, "accuracy")] = accuracy_value
-                # df.loc[(strategy, case), (category, "roc_auc")] = roc_auc_value
-                # df.loc[(strategy, case), (category, "FP")] = fp
-                # df.loc[(strategy, case), (category, "FN")] = fn
-        
-        tables.append(df)
+    uncivil_data = uncivil_data.set_index('Model').loc[models, ['Precision', 'Recall', 'F1-score']].reset_index()
+    civil_data = civil_data.set_index('Model').loc[models, ['Precision', 'Recall', 'F1-score']].reset_index()
     
-    with pd.ExcelWriter(results_path / 'new_rq1_table.xlsx') as writer:
-        for i, table in enumerate(tables):
+    uncivil_data = uncivil_sem_combinacoes.groupby('Model')[['Precision', 'Recall', 'F1-score']].mean().reset_index().copy()
+    civil_data = civil_sem_combinacoes.groupby('Model')[['Precision', 'Recall', 'F1-score']].mean().reset_index().copy()
+    
+    categories = ['Civil', 'Uncivil']
+    with pd.ExcelWriter(results_path / 'rq1_table.xlsx') as writer:
+        for i, table in enumerate([civil_data, uncivil_data]):
             table.to_excel(writer, sheet_name=categories[i])
 
 get_rq1_table()

@@ -78,6 +78,8 @@ def compute_metrics_scores_multiclass(y_test, y_pred, y_proba) :
               "classification_report":metrics.classification_report(y_test, y_pred)}
     return scores
 
+best_params_all_folds = {}
+
 def run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, word_embedding, cv_criteria, n_splits=10):
     dataset.dropna(subset = [x_atributes], inplace=True)
     X = dataset[x_atributes]
@@ -122,22 +124,33 @@ def run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_par
         fold_path = resulst_ml_models_path_folds / f"fold-{i+1}"
         os.makedirs(fold_path, exist_ok=True)
 
+        best_params_all_folds[f"fold-{i+1}"] = {}
+
         for model in models:
             print(f"{word_embedding}: {model}")
             print("All features...")
-            curr_model = models[model]                       
-            curr_model.fit(X_train, y_train)
-            y_pred = curr_model.predict(X_test)
+            if grid_params_list:
+                grid_model = GridSearchCV(models[model],
+                                           grid_params_list[model],
+                                             cv=StratifiedKFold(n_splits=5, shuffle=True, random_state=42),
+                                               scoring=cv_criteria)
+            else:
+                grid_model =  models[model]                       
+            grid_model.fit(X_train, y_train)
+            y_pred = grid_model.predict(X_test)
+
+            if isinstance(grid_model, GridSearchCV):
+                best_params_all_folds[f"fold-{i+1}"][model] = grid_model.best_params_
 
             results['fold'] = i+1   
             if y_label == 'tbdf':
                 try:
                     # tenta pegar as probabilidades
-                    y_proba = curr_model.predict_proba(X_test)
+                    y_proba = grid_model.predict_proba(X_test)
                 except AttributeError:
                     # fallback para decision_function
                     try:
-                        y_proba = curr_model.decision_function(X_test)
+                        y_proba = grid_model.decision_function(X_test)
                     except AttributeError:
                         print(f"Modelo {model} não suporta predict_proba nem decision_function.")
                         y_proba = None
@@ -160,7 +173,10 @@ def run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_par
                 classification_report_path = word_embedding_path / f"classification_report-{word_embedding}-{cv_criteria}-{data_balance}-{model}-fold-{i+1}.csv"
                 classification_report_df = compute_and_save_classification_report(y_test, y_pred)
                 classification_report_df.to_csv(classification_report_path, index=True)
-
+            
+            best_params_path = fold_path / f"best_params-{word_embedding}-{cv_criteria}-{data_balance}-fold-{i+1}.json"
+            with open(best_params_path, 'w') as f:
+                json.dump(best_params_all_folds[f"fold-{i+1}"], f, indent=4)
 
         folds.append(results)
     print(folds)
@@ -177,7 +193,7 @@ def do_benchmark(grid_search=False, data_balance='OD', cv_criteria='roc_auc', se
     dataset =  load_incivility_dataset(y_label)
     
     train_models = {"MNB":MultinomialNB(), 
-              "LRC":LogisticRegression(max_iter=10**7),              
+              "LRC":LogisticRegression(),              
               "RFC":RandomForestClassifier(),
               "ADA": AdaBoostClassifier()}
 
@@ -185,9 +201,9 @@ def do_benchmark(grid_search=False, data_balance='OD', cv_criteria='roc_auc', se
               
     if grid_search:            
         grid_params_list = {
-                            "MNB":{'alpha': [0.00001, 0.00005, 0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1.0, 5, 10.0, 15, 20, 25, 30, 35, 40]},
+                            "MNB":{'alpha': [0.00001, 0.0001, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1.0, 5, 10.0, 20, 30, 40]},
                             
-                            "LRC":{"C":[0.001,0.005,0.01,0.05, 0.1, 0.5, 1, 5, 10], 
+                            "LRC":{"C":[0.001,0.01, 0.1, 0.5, 1, 5, 10], 
                                 "penalty":["l1","l2"],                            
                                 "max_iter":[10**7],
                                 "fit_intercept":[True],
@@ -196,12 +212,13 @@ def do_benchmark(grid_search=False, data_balance='OD', cv_criteria='roc_auc', se
                             "RFC":{"n_estimators":[5,30,50,75, 100, 150, 200],
                                 "max_depth": [4,6,7]},             
             
-                            "SVC":{"C":[0.01, 0.05, 0.1, 0.5, 1, 5, 10],
-                                "max_iter":[10**7]},                             
-                             
+                            "ADA":{
+                                'n_estimators': [50, 100],
+                                'learning_rate': [0.01, 0.1, 0.5],
+                            },                                                        
                             }
     else:
-        grid_params_list = {"MNB":{},"LRC":{"max_iter":[10**7]}, "RFC":{}}
+        grid_params_list = None
     
     fold_results = run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_params_list, 'BoW', cv_criteria, n_splits=n_splits)
     print("#### BoW ####")
@@ -219,10 +236,10 @@ if __name__ == '__main__':
     
     '''
     #setup the training params
-    grid_search = False
+    grid_search = True
     data_balance= 'OD'
     comments = True
-    CV = 5
+    CV = 10
        
-    do_benchmark(grid_search, data_balance, 'recall', ["ADA"], n_splits=CV)
+    do_benchmark(grid_search, data_balance, 'f1-score', ["ADA", "MNB", "RFC", "LRC"], n_splits=CV)
     

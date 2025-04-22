@@ -34516,7 +34516,3 @@ The final issue is complaining:
 > In my view a failure of this kind is usually a failure in the software, either configuration or build. Maybe. But since you failed to provide a build log which contained *errors*, it's impossible to tell.
 > As such it was right to refer it back to the development team rather than post to a users mailing list. i.e. despite being told otherwise by the developers, you still think you're right.
 Part of being a software developer is learning from experience. I suggest trying it. It's very handy!",Impatience
-853,"The Stack Overflow tag is ""jinja2"", ""jinja"" is a synonym that gets invisbly converted. Despite my efforts towards the opposite. (This happened a year or so ago.)
-I really want to drop the ""2"" from the name. Start adding v2 builds to the ""jinja"" PyPI page. Deprecate the ""jinja2"" import and go back to the ""jinja"" namespace.",error
-853,"The Stack Overflow tag is ""jinja2"", ""jinja"" is a synonym that gets invisbly converted. Despite my efforts towards the opposite. (This happened a year or so ago.)
-I really want to drop the ""2"" from the name. Start adding v2 builds to the ""jinja"" PyPI page. Deprecate the ""jinja2"" import and go back to the ""jinja"" namespace.",error
