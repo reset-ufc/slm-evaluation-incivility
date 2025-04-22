@@ -118,7 +118,7 @@ def classify_pr(user_prompt, model,prompt_strategy):
                 }
             },
             "required": [
-            "label"
+            "label", "reasoning"
             ]
             }
     if 'gpt' in model:
