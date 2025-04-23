@@ -21,7 +21,7 @@ cached_model_directory_name = 'distilbert-incivility'
 
 # Data Loading and basic processing
 data_path = Path('data')
-dataset = pd.read_csv(data_path, 'reference_dataset_fg.csv')
+dataset = pd.read_csv(data_path / 'reference_dataset_fg.csv', na_values=[""], keep_default_na=False, dtype={'tbdf': str})
 
 tokenizer = DistilBertTokenizerFast.from_pretrained(model_name) # The model_name needs to match our pre-trained model.
 
