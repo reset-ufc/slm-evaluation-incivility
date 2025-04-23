@@ -3,11 +3,11 @@ from pathlib import Path
 
 data_path = Path('data') 
 
-# Ler os exemplos
+# read the json file with examples
 with open(data_path / 'exemplos.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-# Acessar os exemplos
+# load the examples
 civil_examples = data["civil"]
 uncivil_examples = data["uncivil"]
 
@@ -98,5 +98,4 @@ def prompt_factory(input_text, strategy):
 
     return {'sys_msg': sys_msg, 'user_msg':user_msg}
         
-#strategies = ['zero_shot', 'one_shot', 'few_shot', 'auto_cot', 'role_based', 'role_based_few_shot', 'role_based_auto_cot', 'role_based_one_shot']
-strategies = ['role_based_few_shot']
+strategies = ['zero_shot', 'one_shot', 'few_shot', 'auto_cot', 'role_based', 'role_based_few_shot', 'role_based_auto_cot', 'role_based_one_shot']

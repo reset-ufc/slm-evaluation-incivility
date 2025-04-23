@@ -47,18 +47,6 @@ for cls in classes:
 
         best_configs.append(f'{model} + {strategy}')
 
-    # best_model_cls_f1 = best_config_cls_f1.loc[:, 'Modelo']
-    # best_strategy_cls_f1 = best_config_cls_f1.loc[:, 'Strategy']
-
-    # best_model_cls_pr = best_config_cls_pr.loc[:, 'Modelo']
-    # best_strategy_cls_pr = best_config_cls_pr.loc[:, 'Strategy']
-
-    # print(f'On {cls}, the best model was {best_model_cls_f1} and the best strategy was {best_strategy_cls_f1} on F1-score')
-    # print(f'On {cls}, the best model was {best_model_cls_pr} and the best strategy was {best_strategy_cls_pr} on Precision')
-
-    # best_configs[cls + ' F1'] = f'{best_model_cls_f1} + {best_strategy_cls_f1}'
-    # best_configs[cls + ' Pr'] = f'{best_model_cls_pr} + {best_strategy_cls_pr}'
-
 print("Tamanho do dicionario de melhores configs:", len(best_configs))
 
 contagem = Counter(best_configs).most_common(3)

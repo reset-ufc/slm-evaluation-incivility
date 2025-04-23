@@ -3,23 +3,22 @@ import numpy as np
 from pathlib import Path
 import json
 
-# Caminhos principais
+# Main paths
 results_path = Path('results')
 ml_results_path = results_path / 'ml_models_tuning_balancing'
 folds_path = ml_results_path / 'folds'
 
-# Modelos que vamos buscar
 models = ['ADA', 'LRC', 'MNB', 'RFC']
 representations = ['BoW', 'TF-IDF']
 
-# Dicionário para armazenar resultados por modelo e representação
+# Dictionary to store results by model and representation
 results = {
     f"{model}_{rep}": {'civil': {'precision': [], 'recall': [], 'f1': []},
                        'uncivil': {'precision': [], 'recall': [], 'f1': []}}
     for model in models for rep in representations
 }
 
-# Itera por cada fold
+# Iterate through each fold directory and read the CSV files
 for fold_dir in folds_path.iterdir():
     for rep in representations:
         rep_path = fold_dir / rep
@@ -44,13 +43,13 @@ for fold_dir in folds_path.iterdir():
                     results[key]['uncivil']['f1'].append(f1_uncivil)
                     break
 
-# Calcular médias
+# calculate the mean for each metric
 mean_results = {k: {
     'civil': {metric: np.mean(v['civil'][metric]) for metric in ['precision', 'recall', 'f1']},
     'uncivil': {metric: np.mean(v['uncivil'][metric]) for metric in ['precision', 'recall', 'f1']}
 } for k, v in results.items()}
 
-# Resultados do DistilBERT
+# DistilBERT Results
 bert_results_path = results_path / 'distil_bert_results'
 with open(bert_results_path / 'DistilBert-10folds_results.json', 'r') as f:
     bert_data = json.load(f)
@@ -72,10 +71,9 @@ for label in ['civil', 'uncivil']:
     for metric in ['precision', 'recall', 'f1']:
         bert_metrics[label][metric] /= num_folds
 
-# Adiciona ao dicionário de médias
 mean_results['DistilBERT'] = bert_metrics
 
-# Geração dos DataFrames finais
+# Generate DataFrames for civil and uncivil
 def build_df(label):
     rows = []
     indices = []

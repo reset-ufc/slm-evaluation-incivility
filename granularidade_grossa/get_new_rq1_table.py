@@ -11,13 +11,13 @@ def get_rq1_table():
     uncivil = uncivil.ffill()
     uncivil = uncivil.loc[~uncivil['Model'].isin(['toxicr', 'refined_model']).values]
     uncivil = uncivil.rename(columns={'precision': 'Precision', 'recall': 'Recall', 'f1-score': 'F1-score'})
-    uncivil_sem_combinacoes = uncivil.loc[~uncivil['Strategy'].str.contains('role_based_')].copy()  # excluir combinações com role-based
+    uncivil_sem_combinacoes = uncivil.loc[~uncivil['Strategy'].str.contains('role_based_')].copy()  # exclude combinations with role-based
 
     civil = pd.read_excel(compact_table_path_civil)
     civil = civil.ffill()
     civil = civil.loc[~civil['Model'].isin(['toxicr', 'refined_model']).values]
     civil = civil.rename(columns={'precision': 'Precision', 'recall': 'Recall', 'f1-score': 'F1-score'})
-    civil_sem_combinacoes = civil.loc[~civil['Strategy'].str.contains('role_based_')].copy()  # excluir combinações com role-based
+    civil_sem_combinacoes = civil.loc[~civil['Strategy'].str.contains('role_based_')].copy() # exclude combinations with role-based
 
     uncivil_data = uncivil_sem_combinacoes.groupby('Model')[['F1-score', 'Precision', 'Recall']].mean().reset_index().copy()
     civil_data = civil_sem_combinacoes.groupby('Model')[['F1-score', 'Precision', 'Recall']].mean().reset_index().copy()

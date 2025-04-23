@@ -98,37 +98,34 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
     X_train, X_test = X.iloc[train_index], X.iloc[test_index]
     y_train, y_test = y.iloc[train_index], y.iloc[test_index]
 
-    # Convertendo para string caso não seja
+    # Converting to string to avoid issues with non-string types
     X_train = [str(i) for i in X_train]
     X_test = [str(i) for i in X_test]
 
-    # Tokenização dos dados
+    # Tokenizing the data
     train_encodings = tokenizer(X_train, truncation=True, padding=True, max_length=max_length)
     test_encodings = tokenizer(X_test, truncation=True, padding=True, max_length=max_length)
 
-    # Função segura para converter rótulos
+    # Safe conversion of labels
     def safe_convert_label(label):
-        # Tenta converter para float se for uma string numérica
         if isinstance(label, str) and label.isdigit():
             label = int(label)
             
-        # Verifica se o rótulo está no dicionário
         if label in label_mapping:
             return float(label_mapping[label])
         else:
             print(f"Rótulo inesperado encontrado: {label}, tipo: {type(label)}")
-            # Retorna 0 como valor padrão ou levanta uma exceção
             return 0.0
 
-    # Codificando os rótulos com tratamento de erro
+    # Encoding labels
     train_labels_encoded = [safe_convert_label(yi) for yi in y_train]
     test_labels_encoded = [safe_convert_label(yi) for yi in y_test]
 
-    # Criando datasets
+    # Building datasets
     train_dataset = MyDataset(train_encodings, train_labels_encoded)
     test_dataset = MyDataset(test_encodings, test_labels_encoded)
 
-    # Criando e treinando o modelo
+    # Building and training the model
     model = DistilBertForSequenceClassification.from_pretrained(model_name, num_labels=1).to(device_name)
     trainer = Trainer(
       model=model,
@@ -140,13 +137,13 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
     trainer.train()
     trainer.evaluate()
     
-    # Fazendo previsões e salvando métricas
+    # Making predictions
     predicted_results = trainer.predict(test_dataset)
     outputs = predicted_results.predictions.flatten().tolist()
     probas = [cap_number(x) for x in outputs]
     preds = np.array(np.array(probas) > 0.5, dtype=int)
 
-    # Calculando e armazenando métricas
+    # Calculating and saving metrics
     folds[i] = {}
     folds[i]['pre'] = precision_score(test_labels_encoded, preds)
     folds[i]['rec'] = recall_score(test_labels_encoded, preds)
@@ -154,8 +151,7 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
     folds[i]['auc'] = roc_auc_score(test_labels_encoded, probas)
     folds[i]['f1'] = f1_score(test_labels_encoded, preds)
     
-    # Salvando as previsões para posterior análise se necessário
-    # Calculando métricas para ambas as classes
+    # Calculating metrics for each class
     results_transformers_probs = results_transformers / 'probas'
     results_transformers_probs.mkdir(parents=True, exist_ok=True)
     np.save(results_transformers_probs / f'fold_{i}_probas.npy', probas)
@@ -182,11 +178,11 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
           f"ACC: {folds[i]['acc']:.4f}; AUC: {folds[i]['auc']:.4f}")
 
 
-# Salvando os resultados em um arquivo JSON
+# Saving the results to a JSON file
 with open(results_transformers / 'DistilBert-10folds_results.json', 'w') as fp:
     json.dump(folds, fp)
 
-# Calculando e imprimindo métricas médias
+# Calculating and printing average metrics
 metrics = ['pre', 'rec', 'acc', 'f1', 'auc']
 avg_metrics = {metric: sum(folds[i][metric] for i in folds) / len(folds) for metric in metrics}
 
