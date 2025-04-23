@@ -79,7 +79,7 @@ This indicates that the environment is set up correctly and the code is executin
 
 > **Note**: Some scripts require access to local or cloud-based SLMs.  
 > For **local execution**, ensure [Ollama](https://ollama.com) is installed and configured properly.  
-> For **cloud-based execution**, you’ll need an OpenAI API key, which should be set in your environment variables (e.g., `OPENAI_API_KEY`).
+> For **cloud-based execution**, you’ll need an OpenAI API key, which should be set in your environment variables (e.g., `OPENAI_KEY`).
 
 ---
 
