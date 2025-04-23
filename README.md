@@ -31,7 +31,7 @@ To get started, follow the steps below:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/slm-incivility-detector.git
+git clone git@github.com:reset-ufc/slm-evaluation-incivility.git
 cd slm-incivility-detector
 ```
 
