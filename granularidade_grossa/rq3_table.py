@@ -21,13 +21,11 @@ civil_sem_combinacoes = civil.loc[~civil['Strategy'].str.contains('role_based_')
 uncivil_sem_combinacoes["Class"] = "Uncivil"
 civil_sem_combinacoes["Class"] = "Civil"
 
-df = pd.concat([uncivil_sem_combinacoes, civil_sem_combinacoes])
+df_geral = pd.concat([uncivil_sem_combinacoes, civil_sem_combinacoes])
 
-df['Precision'] = df['Precision'].round(2)
-df['Recall'] = df['Recall'].round(2)
+df_geral['Precision'] = df_geral['Precision'].round(2)
+df_geral['Recall'] = df_geral['Recall'].round(2)
 
-
-# Categorias (colunas maiores)
 categorias = [
     "Civil", "Uncivil"
 ]
@@ -36,19 +34,13 @@ def read_xlsx_files_from_folder(folder_path):
     xlsx_files = [f for f in os.listdir(folder_path) if f.endswith('.xlsx')]
     dataframes = {}
 
-    for file in xlsx_files:
-        file_path = os.path.join(folder_path, file)
+    civil_path = results_path / "civil_ml_metric_means_results.xlsx"
+    uncivil_path = results_path / "uncivil_ml_metric_means_results.xlsx"
+    civil_df = pd.read_excel(civil_path)   
+    uncivil_df = pd.read_excel(uncivil_path)
 
-        # Aqui pegamos o valor da lista que está no nome do arquivo
-       
-        categoria = next((x for x in categorias if x.upper().replace(" ", "_").replace("/", "_") in file.upper()), None)
-
-        # Lê o arquivo
-        dataframe = pd.read_excel(file_path)
-        dataframes[file] = [dataframe,categoria]
-
-        # Opcional: exibir qual valor foi detectado no nome
-        print(f"Arquivo: {file} | Categoria detectada: {categoria}")
+    dataframes["civil_ml_metric_means_results.xlsx"] = [civil_df, "Civil"]
+    dataframes["uncivil_ml_metric_means_results.xlsx"] = [uncivil_df, "Uncivil"]
 
     return dataframes
 
@@ -62,8 +54,6 @@ for file_name, vector in excel_data.items():
     print(vector[0].head())
 
 import pandas as pd
-
-# Lista de modelos
 modelos = [
     "Adaptive Boosting + BoW",
     "Logistic Regression + BoW",
@@ -76,29 +66,26 @@ modelos = [
     "DistilBERT"
 ]
 
-# Subcolunas para cada categoria
 subcolunas = ["Pr-diff", "Re-diff", "F1-diff"]
 
-# Construir MultiIndex das colunas (tuplas com (categoria, subcoluna))
+# Build MultiIndex from columns (tuples with (category, subcolumn))
 colunas = pd.MultiIndex.from_product([categorias, subcolunas])
 
-# Criar DataFrame vazio com as colunas compostas e os modelos como índice
+# Create empty DataFrame with composite columns and models as index
 df = pd.DataFrame(index=modelos, columns=colunas)
 
-# Resetar o índice e renomear para 'Model'
 df.reset_index(inplace=True)
 df.rename(columns={'index': 'Model'}, inplace=True)
 
-# Exibir as primeiras linhas (tudo estará vazio por enquanto)
 print(df.head())
 
 best_model = 'gpt-4o-mini + role_based'
 print(best_model)
 
 
-#comparar
-results_concat = df.copy()
-modelos = results_concat['Model'].unique()
+results_concat = df_geral.copy()
+print(results_concat.head())
+modelos = results_concat['Modelo'].unique()
 estrategias = results_concat['Strategy'].unique()
 print(modelos)
 modelo_slm = next((x for x in modelos if x in best_model),None)
@@ -128,11 +115,10 @@ def calcular_diff():
         if categoria is None:
             continue
 
-        categoria_normalizada = categoria.lower()
-        linha = df_metrics_slm[df_metrics_slm['Tbdf'] == categoria_normalizada]
+        linha = df_metrics_slm[df_metrics_slm['Class'] == categoria]
 
         if linha.empty:
-            print(f"Nenhum dado encontrado para categoria '{categoria_normalizada}'")
+            print(f"Nenhum dado encontrado para categoria '{categoria}'")
             continue
 
         for _, row in dataframe_ml.iterrows():
@@ -150,8 +136,6 @@ def calcular_diff():
             df.loc[df['Model'] == model_ml, (categoria, "Pr-diff")] = pr_diff
             df.loc[df['Model'] == model_ml, (categoria, "Re-diff")] = re_diff
             df.loc[df['Model'] == model_ml, (categoria, "F1-diff")] = f1_diff
-
-
 
 calcular_diff()
 print(df.head())

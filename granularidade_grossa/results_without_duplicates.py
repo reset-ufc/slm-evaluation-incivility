@@ -34,14 +34,12 @@ def get_compact_result_table():
     cur_dir = Path(os.getcwd())
     results_dir = cur_dir / 'results'
 
-    # Estratégias únicas
     unique_strategies = [
         "zero_shot", "one_shot", "few_shot", "auto_cot",
         "role_based", "role_based_few_shot",
         "role_based_one_shot", "role_based_auto_cot"
     ]
     
-    # Lista de estratégias e modelos
     strategies = []
     models = []
     
@@ -51,24 +49,23 @@ def get_compact_result_table():
         "phi4_14b", "gpt-4o-mini"
     ]
     
-    # Para cada estratégia, adiciona os modelos
+    # For each strategy, add the models
     for strat in unique_strategies:
         strategies.extend([strat] * len(base_models))
         models.extend(base_models)
 
-    # Garantir que os tamanhos batem
+    # Ensure sizes match
     assert len(strategies) == len(models), "strategies e models devem ter o mesmo tamanho"
 
-    # Modelos únicos
     unique_models = np.unique(models)
 
-    # Criando um MultiIndex
+    # Building the MultiIndex
     index = pd.MultiIndex.from_tuples(list(zip(strategies, models)), names=["Strategy", "Model"])
 
-    # Criando o DataFrame com o MultiIndex
+    # Building the result table
     result_table = pd.DataFrame(index=index, columns=["precision", "recall", "f1-score", "accuracy", "roc_auc", "FP", "FN"])
 
-    # Preenchendo o DataFrame com os resultados
+    # Filling the result table
     for strategy in unique_strategies:
         for model in unique_models:
             model_path = results_dir / model
@@ -77,10 +74,9 @@ def get_compact_result_table():
 
             print(predictions_path)
             pred_df = pd.read_csv(predictions_path) 
-            #pred_df = pred_df.loc[~pred_df['index'].isin(get_errors())] # removendo os indices dos erros
-            pred_df = pred_df.drop_duplicates(subset=['message']) # removendo os duplicados
+            pred_df = pred_df.drop_duplicates(subset=['message']) # removing duplicates
 
-            # **casos em que há partes da mensagem na predição**
+            # **cases where there are parts of the message in the prediction**
             overwrited = pred_df[~pred_df['prediction'].isin(['0', '1', 0, 1])].copy()
             #print(overwrited)
             if len(overwrited) > 0:
@@ -111,7 +107,7 @@ def get_compact_result_table():
             result_table.loc[(strategy, model), "FP"] = fp 
             result_table.loc[(strategy, model), "FN"] = fn
      
-    # Preenchendo os valores do refined model
+    # Filling the values for the refined model
     refined_model_path = results_dir / "refined_model"
     refined_model_pred_path = refined_model_path / "pred_by_refined_model.csv"
     refined_model_pred_df = pd.read_csv(refined_model_pred_path)
@@ -134,7 +130,7 @@ def get_compact_result_table():
     result_table.loc[("refined_model", "refined_model"), "FP"] = fp
     result_table.loc[("refined_model", "refined_model"), "FN"] = fn
 
-    # Preenchendo os valores do toxicr
+    # Filling the values for the toxicr model
     toxicr_path = results_dir / "toxicr"
     toxicr_pred_path = toxicr_path / "pred_toxicr.csv"
     toxicr_pred_df = pd.read_csv(toxicr_pred_path)
@@ -158,38 +154,38 @@ def get_compact_result_table():
     result_table.loc[("toxicr", "toxicr"), "FN"] = fn
 
     
-    # Salvar como Excel
+    # Save the result table to an Excel file
     excel_path = results_dir / table_name
     result_table.to_excel(excel_path, index=True)
 
-    # Carregar o arquivo para aplicar estilos
+    # load the workbook and select the active worksheet
     wb = load_workbook(excel_path)
     ws = wb.active
 
-    # Estilos
+    # Styles
     bold_font = Font(bold=True)
     thin_border = Border(left=Side(style="thin"), right=Side(style="thin"), top=Side(style="thin"), bottom=Side(style="thin"))
 
-    # Aplicar negrito nos títulos das colunas
+    # Apply bold font and borders to the header row
     for col in range(1, ws.max_column + 1):
         cell = ws.cell(row=1, column=col)
         cell.font = bold_font
         cell.border = thin_border  # Aplicar borda
 
-    # Aplicar negrito nos índices e bordas nas células
+    # Apply bold font and borders to the index columns
     for row in range(2, ws.max_row + 1):
-        ws.cell(row=row, column=1).font = bold_font  # Negrito no índice "Strategy"
-        ws.cell(row=row, column=2).font = bold_font  # Negrito no índice "Model"
-        ws.cell(row=row, column=1).border = thin_border  # Borda no índice
-        ws.cell(row=row, column=2).border = thin_border  # Borda no índice
+        ws.cell(row=row, column=1).font = bold_font  
+        ws.cell(row=row, column=2).font = bold_font  
+        ws.cell(row=row, column=1).border = thin_border  
+        ws.cell(row=row, column=2).border = thin_border  
 
         for col in range(3, ws.max_column + 1):  
             cell = ws.cell(row=row, column=col)
-            cell.border = thin_border  # Adicionar borda
+            cell.border = thin_border  # add border to all cells
             if cell.value and isinstance(cell.value, (int, float)) and cell.value > 0.7:
-                cell.font = bold_font  # Negrito para valores > 0.7
+                cell.font = bold_font  
 
-    # Salvar o arquivo Excel com as formatações
+    # Save excel file with the applied styles
     wb.save(excel_path)
 
 get_compact_result_table()

@@ -194,7 +194,7 @@ def classify_with_timeout(user_prompt, model, prompt_strategy, timeout=60*30):
         return None
 
     try:
-        return queue.get(timeout=1)  # Timeout evita bloqueio
+        return queue.get(timeout=1)  # Timeout 
     except:
         return None
 
@@ -216,7 +216,7 @@ def rate_limited_call(prompt, model, strategy, current_tokens, last_reset_time):
     Calls the rate-controlled sort function using the official token count.
     Resets the token counter every minute regardless of whether the limit is reached.
     """
-    # Verificar se já passou 1 minuto desde o último reset
+    # Check if 1 minute has passed since the last reset
     current_time = time.time()
     if current_time - last_reset_time >= RESET_INTERVAL:
         print("Renewing rate limit window (1 minute passed)...")
@@ -226,17 +226,17 @@ def rate_limited_call(prompt, model, strategy, current_tokens, last_reset_time):
     tokens_used = count_tokens(prompt)
     current_tokens += tokens_used
     
-    # Verificar se vai exceder o limite
+    # Check if it will exceed the limit
     if current_tokens > MAX_TOKENS_PER_MINUTE:
-        # Calcular tempo necessário para esperar até completar o minuto
+        # Calculate the time needed to wait until the minute is complete
         wait_time = RESET_INTERVAL - (current_time - last_reset_time)
         if wait_time > 0:
             print(f"Token limit reached. Waiting {wait_time:.2f} seconds for renewal...")
             time.sleep(wait_time)
-            current_tokens = tokens_used  # Após esperar, contabilizar apenas os tokens desta chamada
-            last_reset_time = time.time()  # Atualizar o timestamp de reset
+            current_tokens = tokens_used  # After waiting, count only the tokens from this call
+            last_reset_time = time.time()  # Update the reset timestamp
         else:
-            # Se já passou o tempo do reset, apenas atualizar os valores
+            # If the reset time has passed, just update the values
             current_tokens = tokens_used
             last_reset_time = current_time
     
@@ -278,12 +278,10 @@ def main():
     all_indexs = set(range(len(data)))
     # n_samples = 5
 
-    # models = ['gemma:7b', 'gemma2:9b', 'mistral-nemo:12b', 'mistral:7b', 'deepseek-r1:8b', 'deepseek-r1:14b', 'llama3.2:3b', 'llama3.1:8b', 'gpt-4o-mini', 'phi4:14b']
+    models = ['gemma:7b', 'gemma2:9b', 'mistral-nemo:12b', 'mistral:7b', 'deepseek-r1:8b', 'deepseek-r1:14b', 'llama3.2:3b', 'llama3.1:8b', 'gpt-4o-mini', 'phi4:14b']
 
-    models = ['phi4:14b']
     current_tokens = 0 
-    last_reset_time = time.time()  # Iniciar o timestamp
-    #models = ['gemma3:1b']
+    last_reset_time = time.time()  # Initialize the last reset time
 
     for model in models:
         model_path = results_dir / model.replace(':', '_')
@@ -294,7 +292,6 @@ def main():
             strategy_path = model_path / strategy
             strategy_path.mkdir(parents=True, exist_ok=True)
 
-            # criar o arquivo de predicoes em csv
             pred_df_file = strategy_path / 'predictions_df.csv'
             errors_file = strategy_path / 'errors.json'
             timeout_file = strategy_path / 'timeout_exceeded.json'
@@ -303,7 +300,6 @@ def main():
                 reasonings_file = strategy_path / 'reasonings.json'
 
             cols_pred_df = ['index', 'message', 'prediction', 'actual', 'source']
-            # pred_df = pd.DataFrame(columns=cols_pred_df)
             try:
                 with open(pred_df_file, mode="x", newline="", encoding="utf-8") as arquivo_csv:
                     escritor = csv.writer(arquivo_csv)
@@ -319,11 +315,11 @@ def main():
             if predictions_path.exists():
                 pred_df = pd.read_csv(predictions_path, encoding="utf-8")
             
-                # idices classificados
+                # classified indexes
                 indexes_classified = set(int(i) for i in pred_df['index'].values)
                 #print(indexes_classified)
 
-                # idices que ainda não foram classificados
+                # indexes that have not yet been classified
                 index_to_classify = list(all_indexs - indexes_classified)
             
                 data_to_classify = data.iloc[index_to_classify]
@@ -364,8 +360,6 @@ def main():
                             response = json.loads(response['response'])
 
                         if 'auto_cot' in strategy:
-                            ### VERIFICAR O FORMATO DE RESPOSTA DA API OPENAI QUANDO COT É UTILIZADO
-                            ## PEGAR O ARQUIVO DE REASONINGS E """""ADICIONAR""""" A RESPOSTA, pois atualmente esta reescrevendo a resposta
                             adicionar_dado_em_lista_json(reasonings_file, {
                                 "index": index,
                                 "message": row['message'],
@@ -378,7 +372,7 @@ def main():
                         truth.append(row['actual'])
                         predictions.append(pred)
 
-                        # adicionar as predições no arquivo csv
+                        # add the predictions to the csv file
                         with open(pred_df_file, mode="a", newline="", encoding="utf-8") as arquivo_csv:
                             escritor = csv.writer(arquivo_csv)
                             escritor.writerow([index, row['message'], pred, row['actual'], row['source']])
