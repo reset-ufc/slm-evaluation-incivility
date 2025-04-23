@@ -14,7 +14,7 @@ It also evaluates how different prompting strategies affect model performance on
 
 ## 🧪 Methodology
 
-- **Models**: 10 SLMs (3B–14B parameters)
+- **Models**: 10 SLMs ranging from 3B to 14B parameters, including [**DeepSeek-R1** (8B, 14B)](https://ollama.com/library/deepseek-r1), [**Mistral** (7B)](https://ollama.com/library/mistral), [**Mistral-Nemo** (12B)](https://ollama.com/library/mistral-nemo), [**Gemma** (7B)](https://ollama.com/library/gemma), [**Gemma 2** (9B)](https://ollama.com/library/gemma2), [**LLaMA 3.1** (8B)](https://ollama.com/library/llama3.1), [**LLaMA 3.2** (3B)](https://ollama.com/library/llama3.2), [**Phi-4** (14B)](https://ollama.com/library/phi4), and **GPT-4o-mini** (with OpenAI API).
 - **Prompting Strategies**: 
   - Zero-shot
   - One-shot
@@ -98,22 +98,22 @@ Cloud-based executions were performed using OpenAI's optimized infrastructure.
 - **`coarse_granularity/`**  
   - **`data/`**: Input datasets for coarse-grained analysis  
   - **`results/`**: Raw and intermediate outputs  
-  - `benchmark.py`: Benchmarks traditional ML models  
+  - `benchmark.py`: Script to benchmark different ML models  
   - `choice_examples.py`: Examples used for prompting in coarse analysis  
   - `generate_visualizations_and_results.py`: Visualization and results export  
   - `get_best_model.py`: Identifies best-performing model  
   - `get_ml_results.py`: Gathers outputs from traditional ML models  
-  - `get_new_rq1_table.py`: Reformats RQ1 results  
-  - `get_rq2_table.py`: Gathers RQ2 results  
+  - `get_rq1_cg.py`: Gathers results for research question 1  
+  - `get_rq2_cg.py`: Gathers results for research question 2
+  - `get_rq2_cg.py`: Gathers results for research question 3  
   - `main.py`: Main script to run the coarse-grained pipeline  
-  - `merge_dados.ipynb`: Notebook to merge and clean datasets  
-  - `prompt.py`: Prompt management and definitions  
+  - `merge_data.ipynb`: Notebook to merge and clean datasets  
+  - `prompts.py`: Prompt management and definitions  
   - `results_without_duplicates.py`: Filters duplicate results and get compact result tables 
-  - `rq3_table.py`: Handles outputs for RQ3  
   - `tokens.py`: Token counting and prompt length control  
   - `transformer_training.py`: Training logic for transformer models  
-  - `verificando_resultados.py`: Results validation script  
-  - `visu.ipynb/`: Visualizations and exploratory notebook  
+  - `verify_results.py`: Results validation script  
+  - `visus.ipynb/`: Visualizations and exploratory notebook  
 
 - **`fine_granularity/`**  
   - **`data/`**: Input dataset for fine-grained analysis  
@@ -121,16 +121,16 @@ Cloud-based executions were performed using OpenAI's optimized infrastructure.
   - **`results_table/`**: Results formatted into tables for reporting  
   - `benchmark.py`: Script to benchmark different ML models  
   - `choice_examples.py`: Example prompts and choices used in evaluations  
-  - `excluir_erros_timeouts.py`: Filters out timeouts and erroneous results  
-  - `get_best_model.py`: Retrieves best performing models  
-  - `get_rq1_results.py`: Gathers results for research question 1  
-  - `get_rq1_fg_table.py`: Formats fine-grained results for RQ1  
-  - `get_rq2_fg_table_worst.py`: Retrieves worst-case results for RQ2  
-  - `main_prompt.py`: Core prompt management script  
+  - `delete_errors_timeouts.py`: Filters out timeouts and erroneous results  
+  - `get_best_model.py`: Retrieves best performing models
+  - `get_rq1_fg.py`: Gathers results for research question 1  
+  - `get_rq2_fg.py`: Gathers results for research question 2
+  - `get_rq2_fg.py`: Gathers results for research question 3
+  - `main.py`: Core prompt management script  
   - `prompts.py`: All prompt templates and configurations  
-  - `summarizar_resultados.py`: Script to summarize results  
-  - `transformer_training.py`: Model fine-tuning and training logic  
-  - `verificando_resultados.py`: Verifies and validates result outputs  
+  - `summarize_results.py`: Script to summarize results  
+  - `transformer_training.py`: Training logic for transformer models  
+  - `verify_results.py`: Verifies and validates result outputs  
 
 - **`requirements.txt`**: List of required Python packages  
 - **`README.md`**: Project overview and usage instructions
