@@ -97,8 +97,8 @@ print(best_model)
 
 
 #comparar
-results_concat = pd.read_csv("results_table/results_concat.csv")
-modelos = results_concat['Modelo'].unique()
+results_concat = df.copy()
+modelos = results_concat['Model'].unique()
 estrategias = results_concat['Strategy'].unique()
 print(modelos)
 modelo_slm = next((x for x in modelos if x in best_model),None)
@@ -155,5 +155,5 @@ def calcular_diff():
 
 calcular_diff()
 print(df.head())
-df.to_excel("RQ3.xlsx", index=True)
+df.to_excel(results_path / "rq3_table.xlsx", index=True)
         
