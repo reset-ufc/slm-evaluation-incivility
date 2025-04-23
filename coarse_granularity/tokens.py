@@ -1,6 +1,7 @@
 import pandas as pd
 import tiktoken
 from prompts import prompt_factory
+from pathlib import Path
 
 strategies = ['zero_shot', 'one_shot', 'few_shot', 'auto_cot', 'role_based', 'role_based_few_shot', 'role_based_auto_cot', 'role_based_one_shot']
 
@@ -9,7 +10,8 @@ def contar_tokens(texto, modelo="gpt-4o-mini"):
     encoding = tiktoken.encoding_for_model(modelo)
     return len(encoding.encode(texto))
 
-data = pd.read_csv(r"C:\Users\mario\Documents\estudos\ufc\LLM-TESTS\granularidade_grossa\data\final_df_cleaned.csv")
+data_path = Path('data')
+data = pd.read_csv(data_path / "final_df_cleaned.csv")
 
 for strategy in strategies:
     print(f"strategy: {strategy}")

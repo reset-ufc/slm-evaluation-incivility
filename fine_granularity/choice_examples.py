@@ -31,7 +31,7 @@ data = {
 }
 
 # Caminho do arquivo JSON
-file_path = r'./granularidade_fina/data/examples_fg.json'
+file_path = data_path / 'examples_fg.json'
 
 # Salvar como JSON
 with open(file_path, 'w', encoding='utf-8') as f:
