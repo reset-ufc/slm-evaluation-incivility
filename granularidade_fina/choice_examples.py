@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
 import json
+from pathlib import Path
 
 # Load the dataset
-df = pd.read_csv(r'granularidade_fina/reference_dataset_fg.csv')
+data_path = Path('data')
+df = pd.read_csv(data_path / 'reference_dataset_fg.csv')
 
 # Function to select examples from each class
 def selecionar_exemplos(df, classe, n=3):

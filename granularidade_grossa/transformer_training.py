@@ -19,7 +19,8 @@ max_length = 512
 cached_model_directory_name = 'distilbert-incivility'
 
 # Data Loading and basic processing
-dataset = pd.read_csv(r'./data/final_df_cleaned.csv')
+data_path = Path('./data')
+dataset = pd.read_csv(data_path / 'final_df_cleaned.csv')
 
 
 tokenizer = DistilBertTokenizerFast.from_pretrained(model_name) # The model_name needs to match our pre-trained model.

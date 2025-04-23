@@ -25,7 +25,9 @@ strategy_map = {
 }
 
 # Load the CSV file with results
-df_real = pd.read_csv("results_table/results_concat.csv")
+results_table_path = Path('results_table')
+results_table_path.mkdir(parents=True, exist_ok=True)
+df_real = pd.read_csv(results_table_path / "results_concat.csv")
 
 # Rename columns for consistency
 df_real['Strategy'] = df_real['Strategy'].map(strategy_map)
@@ -58,5 +60,5 @@ df_final = df_final.astype(float)
 df_final.loc['Average'] = df_final.mean(numeric_only=True)
 
 # Export to Excel
-path = Path('results_table') / 'rq2.xlsx'
+path = results_table_path / 'rq2.xlsx'
 df_final.to_excel(path, index=True, sheet_name='RQ2', engine='openpyxl')

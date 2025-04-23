@@ -67,8 +67,10 @@ print(df.head())
 best_model = get_best_model()
 print(best_model)
 
+results_table_path = Path('results_table')
+results_table_path.mkdir(parents=True, exist_ok=True)
+results_concat = pd.read_csv(results_table_path / "results_concat.csv")
 
-results_concat = pd.read_csv("results_table/results_concat.csv")
 modelos = results_concat['Modelo'].unique()
 estrategias = results_concat['Strategy'].unique()
 print(modelos)
@@ -126,6 +128,6 @@ def calcular_diff():
 
 calcular_diff()
 print(df.head())
-path = Path('results_table') / 'rq3.xlsx'
+path = results_table_path / 'rq3.xlsx'
 df.to_excel(path, index=True)
         

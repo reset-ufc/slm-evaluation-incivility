@@ -51,12 +51,13 @@ class GeradorResultados:
         resultados = self.ler_resultados_csv(pasta)
         lista_resultados = [] 
         pasta_saida = "results"
+        data_path = Path('data')
         
         for nome_arquivo_csv, df_pred in resultados.items():
             if nome_arquivo_csv in ['mistral-nemo_12b_role_based_auto_cot']:
                 continue
             print(f"\nAnalisando: {nome_arquivo_csv}")
-            reference_dataset_fg = pd.read_csv("./data/reference_dataset_fg.csv", na_values=[""], keep_default_na=False, dtype={'tbdf': str})
+            reference_dataset_fg = pd.read_csv(data_path / "reference_dataset_fg.csv", na_values=[""], keep_default_na=False, dtype={'tbdf': str})
 
             reference_dataset_fg["tbdf"] = reference_dataset_fg["tbdf"].astype(str).str.strip().str.lower()
             df_pred["Tbdf"] = df_pred["Tbdf"].fillna("None").astype(str).str.strip().str.lower()
@@ -173,12 +174,9 @@ class GeradorResultados:
                 estrategia = nome_base  # If no model is identified, the entire string will be treated as strategy
 
             # Sets the output path correctly
-            pasta_saida = f"results/{estrategia}/{modelos_pasta.get(modelo_escolhido, 'outros')}"
-
-
-
-
             
+            # pasta_saida = f"results/{estrategia}/{modelos_pasta.get(modelo_escolhido, 'outros')}"
+            pasta_saida = Path("results") / estrategia / modelos_pasta.get(modelo_escolhido, 'outros')
                 
             # Convert dic in df and add model name column
             os.makedirs(pasta_saida, exist_ok=True)

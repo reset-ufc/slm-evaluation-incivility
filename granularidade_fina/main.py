@@ -383,7 +383,11 @@ def classificador_runner(model_list, strategies, comments):
 
 if __name__ == "__main__":
     # Load dataset
-    reference_dataset_fg = pd.read_csv("data/reference_dataset_fg.csv")
+    data_path = Path("data")
+    if not data_path.exists():
+        os.makedirs(data_path)
+        
+    reference_dataset_fg = pd.read_csv(data_path / "reference_dataset_fg.csv")
     comments = reference_dataset_fg.dropna(subset=['comment_body'])
 
     
