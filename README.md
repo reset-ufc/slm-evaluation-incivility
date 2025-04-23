@@ -49,10 +49,10 @@ pip install -r requirements.txt
 ```
 
 ### 4. Set up environment variables
-Create a `.env` file in the root directory of the project with the following content:
+Create a `.env` file inside either the `fine_granularity/` or `coarse_granularity/` directory, depending on which granularity you intend to run. The file should contain the following:
 
 ```ini
-OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_KEY=your_openai_api_key_here
 ```
 
 This key is required to use cloud-based models like `gpt-4o-mini` via the OpenAI API.

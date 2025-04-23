@@ -17,7 +17,7 @@ from pathlib import Path
 
 dotenv.load_dotenv()
 
-key = os.getenv('OPENAI_KEY2')
+key = os.getenv('OPENAI_KEY')
 
 client_openAI = openai.OpenAI(api_key=key)
 
