@@ -1,4 +1,4 @@
-# Incivility Detection in GitHub Conversations Using Small Language Models (SLMs)
+# 404: Civility Not Found? Evaluating the Effectiveness of Small Language Models in Detecting Incivility in GitHub Conversations
 
 ## 📚 Context
 
@@ -23,6 +23,75 @@ It also evaluates how different prompting strategies affect model performance on
   - Role-based
 - **Baseline Comparison**: 5 traditional ML models using Bag-of-Words and TF-IDF
 - **Dataset**: 6K+ labeled GitHub conversations
+
+## 💻 Installation & Usage
+
+To get started, follow the steps below:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/slm-incivility-detector.git
+cd slm-incivility-detector
+```
+
+### 2. Create a virtual environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set up environment variables
+Create a `.env` file in the root directory of the project with the following content:
+
+```ini
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+This key is required to use cloud-based models like `gpt-4o-mini` via the OpenAI API.
+Make sure to keep this file private and never commit it to version control.
+
+### 5. Test the setup
+
+To confirm that everything is working, try running the following command:
+
+```bash
+python fine_granularity/get_best_model.py
+```
+
+You should see output similar to:
+
+```
+Tamanho do dicionario de melhores configs: 24 
+Best config: deepseek-14b + role_based aparecendo 5 vezes 
+Second Best config: gpt-4o-mini + few_shot_3 aparecendo 4 vezes
+Third Best config: llama3.1_8b + auto_cot aparecendo 2 vezes
+```
+
+This indicates that the environment is set up correctly and the code is executing as expected.
+
+> **Note**: Some scripts require access to local or cloud-based SLMs.  
+> For **local execution**, ensure [Ollama](https://ollama.com) is installed and configured properly.  
+> For **cloud-based execution**, you’ll need an OpenAI API key, which should be set in your environment variables (e.g., `OPENAI_API_KEY`).
+
+---
+
+### ⚙️ System Requirements
+
+To run local models effectively, we used a machine with the following specifications:
+
+- **CPU**: AMD Ryzen 7 7700 (8 cores, 16 threads)
+- **RAM**: 64 GB DDR5
+- **GPU**: NVIDIA RTX 4070 Ti Super (16 GB VRAM)
+
+Cloud-based executions were performed using OpenAI's optimized infrastructure.
 
 ## 📁 Repository Structure
 
@@ -63,4 +132,5 @@ It also evaluates how different prompting strategies affect model performance on
   - `transformer_training.py`: Model fine-tuning and training logic  
   - `verificando_resultados.py`: Verifies and validates result outputs  
 
+- **`requirements.txt`**: List of required Python packages  
 - **`README.md`**: Project overview and usage instructions
