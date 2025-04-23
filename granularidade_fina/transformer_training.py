@@ -82,14 +82,14 @@ training_args = TrainingArguments(
     save_steps=150,                  # save model every 150 steps
 )
 
-# Imprimindo os primeiros elementos para debug
+# Printing the first elements for debug
 print("Primeiros elementos de dataset['tbdf_label']:", dataset['tbdf_label'].iloc[:5])
 
-# Verificar o tipo dos rótulos
+# Check the type of labels
 print("Tipo dos rótulos:", type(dataset['tbdf_label'].iloc[0]))
 
-# Definindo mapeamento de rótulos
-# Adaptando para aceitar tanto strings quanto inteiros/floats
+# Defining label mapping
+# Calculating and printing average metrics
 #  label_mapping = {'incivility': 1, 'civility': 0, 1: 1, 0: 0, '1': 1, '0': 0}
 label_mapping = {'none': 0, 'entitlement': 1, 'impatience': 2,
                  'bitter frustration': 3, 'mocking': 4,
@@ -112,37 +112,34 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
     X_train, X_test = X.iloc[train_index], X.iloc[test_index]
     y_train, y_test = y.iloc[train_index], y.iloc[test_index]
 
-    # Convertendo para string caso não seja
+    # Converting to string to avoid issues with tokenization
     X_train = [str(i) for i in X_train]
     X_test = [str(i) for i in X_test]
 
-    # Tokenização dos dados
+    # Tokenizing the data
     train_encodings = tokenizer(X_train, truncation=True, padding=True, max_length=max_length)
     test_encodings = tokenizer(X_test, truncation=True, padding=True, max_length=max_length)
 
-    # Função segura para converter rótulos
+    # Safe conversion of labels 
     def safe_convert_label(label):
-        # Tenta converter para float se for uma string numérica
         if isinstance(label, str) and label.isdigit():
             label = int(label)
             
-        # Verifica se o rótulo está no dicionário
         if label in label_mapping:
             return int(label_mapping[label])
         else:
             print(f"Rótulo inesperado encontrado: {label}, tipo: {type(label)}")
-            # Retorna 0 como valor padrão ou levanta uma exceção
             return 0.0
 
-    # Codificando os rótulos com tratamento de erro
+    # Encoding labels
     train_labels_encoded = [safe_convert_label(yi) for yi in y_train]
     test_labels_encoded = [safe_convert_label(yi) for yi in y_test]
 
-    # Criando datasets
+    # Building the dataset
     train_dataset = MyDataset(train_encodings, train_labels_encoded)
     test_dataset = MyDataset(test_encodings, test_labels_encoded)
 
-    # Criando e treinando o modelo
+    # Building and training the model
     model = DistilBertForSequenceClassification.from_pretrained(model_name, num_labels=num_classes).to(device_name)
     trainer = Trainer(
       model=model,
@@ -154,19 +151,19 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
     trainer.train()
     trainer.evaluate()
     
-    # Fazendo previsões e salvando métricas
+    # Making predictions for each class
     predicted_results = trainer.predict(test_dataset)
     probas = predicted_results.predictions
     preds = np.argmax(probas, axis=1)
 
-    # Calculando e armazenando métricas
+    # Calculating and saving metrics
     folds[i] = {}
     folds[i]['pre'] = precision_score(test_labels_encoded, preds, average='weighted', zero_division=0)
     folds[i]['rec'] = recall_score(test_labels_encoded, preds, average='weighted', zero_division=0)
     folds[i]['acc'] = accuracy_score(test_labels_encoded, preds)
     folds[i]['f1'] = f1_score(test_labels_encoded, preds, average='weighted', zero_division=0)
 
-    # AUC multiclasse (usando one-vs-rest)
+    # AUC multiclass
     try:
         y_true_bin = label_binarize(test_labels_encoded, classes=list(range(num_classes)))
         folds[i]['auc'] = roc_auc_score(y_true_bin, probas, average='weighted', multi_class='ovr')
@@ -174,7 +171,7 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
         print("Erro ao calcular AUC:", e)
         folds[i]['auc'] = 0.0
     
-    # Salvando as previsões para posterior análise se necessário
+    # Saving predictions for later analysis if needed
     report = classification_report(test_labels_encoded, preds, output_dict=True, zero_division=0)
     for cls in range(num_classes):
         cls_str = str(cls)
@@ -183,7 +180,7 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
         folds[i][f'rec_cls_{cls_str}'] = report[cls_str]['recall']
         folds[i][f'support_cls_{cls_str}'] = report[cls_str]['support']
 
-    # Salvando previsões e probabilidades
+    # Saving predictions and probabilities
     folds[i]['predictions'] = preds.tolist()
 
     results_transformers_probs = results_transformers / 'probas'
@@ -194,7 +191,7 @@ for i, (train_index, test_index) in enumerate(skf.split(X, y)):
     print(f"Fold {i+1}=> PRE: {folds[i]['pre']:.4f}; REC: {folds[i]['rec']:.4f}; ACC: {folds[i]['acc']:.4f}; F1S: {folds[i]['f1']:.4f}; AUC: {folds[i]['auc']:.4f}")
 
 
-# Salvando os resultados em um arquivo JSON
+# Saving the results to a JSON file
 def convert_ndarrays(obj):
     if isinstance(obj, dict):
         return {k: convert_ndarrays(v) for k, v in obj.items()}
@@ -211,7 +208,7 @@ with open(results_transformers / "DistilBert-10folds_results.json", "w") as fp:
     json.dump(folds_serializable, fp, indent=2)
 
 
-# Calculando e imprimindo métricas médias
+# Calculating and printing average metrics
 metrics = ['pre', 'rec', 'acc', 'f1', 'auc']
 avg_metrics = {metric: sum(folds[i][metric] for i in folds) / len(folds) for metric in metrics}
 

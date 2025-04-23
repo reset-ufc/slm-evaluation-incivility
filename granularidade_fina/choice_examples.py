@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 import json
 
-# Carregar o DataFrame
+# Load the dataset
 df = pd.read_csv(r'granularidade_fina/reference_dataset_fg.csv')
 
-# Função para selecionar comentários aleatórios de cada classe
+# Function to select examples from each class
 def selecionar_exemplos(df, classe, n=3):
     subset = df[df['tbdf'] == classe]
     if len(subset) >= n:

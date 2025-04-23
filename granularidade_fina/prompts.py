@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 
-file_path = Path('data/examples_fg.json')
+data_path = Path('data')
+file_path = data_path / 'examples_fg.json'
 
-# Ler os exemplos
+# Read the JSON file with examples
 with open(file_path, 'r', encoding='utf-8') as f:
     data = json.load(f)
     

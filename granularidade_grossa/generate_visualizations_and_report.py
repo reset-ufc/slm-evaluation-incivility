@@ -1,4 +1,4 @@
-from prompt import prompt_factory, strategies
+from prompts import prompt_factory, strategies
 import json
 import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix

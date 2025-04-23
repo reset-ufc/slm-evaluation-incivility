@@ -10,16 +10,16 @@ class GeradorResultados:
         self.tbdf_classes_set = set(tbdf_classes)
         self.tbdf_aliases = {
             "identify attacks/name calling": [
-                r"^identify attack$",             # Exato: "identify attack"
-                r"^identify attacks$",            # Exato: "identify attacks"
-                r"^identify attack \(ia\)$",      # Exato: "identify attack (ia)"
-                r"^identify attacks \(ia\)$",     # Exato: "identify attacks (ia)"
-                r"^identify attack\/ia$",         # Exato: "identify attack/ia" (escapando o /)
-                r"^identify attacks\/ia$",        # Exato: "identify attacks/ia" (escapando o /)
-                r"^identify attack/name calling$", # Exato: "identify attack/name calling" (escapando o /)
-                "ia (name calling)",              # Alias literal
-                r"^ia - identify attack$",        # Exato: "ia - identify attack"
-                r"^ia$",                          # Exato: "ia"
+                r"^identify attack$",             # Exact: "identify attack"
+                r"^identify attacks$",            # Exact: "identify attacks"
+                r"^identify attack \(ia\)$",      # Exact: "identify attack (ia)"
+                r"^identify attacks \(ia\)$",     # Exact: "identify attacks (ia)"
+                r"^identify attack\/ia$",         # Exact: "identify attack/ia" (escapando o /)
+                r"^identify attacks\/ia$",        # Exact: "identify attacks/ia" (escapando o /)
+                r"^identify attack/name calling$", # Exact: "identify attack/name calling" (escapando o /)
+                "ia (name calling)",              # literal alias
+                r"^ia - identify attack$",        # Exact: "ia - identify attack"
+                r"^ia$",                          # Exact: "ia"
             ],
 
         }
@@ -40,7 +40,7 @@ class GeradorResultados:
                 # print(f"Lendo: {file_path} (modelo: {nome_modelo} | strategy: {nome_strategy})")
                 df = pd.read_csv(file_path, na_values=[""], keep_default_na=False, dtype={'tbdf': str})
 
-                resultados[nome_modelo_strategy] = df  # Apenas 1 DataFrame por chave
+                resultados[nome_modelo_strategy] = df  
             else:
                 print("isso é um result")
                 
@@ -65,11 +65,11 @@ class GeradorResultados:
             df_pred['Comments'] = df_pred['Comments'].str.replace(r"[\r]", "", regex=True)
             df_pred = df_pred.drop_duplicates(subset="Comments")
 
-            #pegando casos em que o comentario é separado em mais de uma coluna
+            #catching cases where the comment is separated into more than one column
             if nome_arquivo_csv == "gemma_7b_auto_cot" or nome_arquivo_csv == 'gpt-4o-mini_auto_cot':
                 if "index" in df_pred.columns:
                     if len(df_pred.columns) == 5:
-                        # valores com erro na coluna 4
+                        # values ​​with error in column 4
                         unnamed_column_3 = df_pred.iloc[:, 3]
                         valores_com_erros_3 = df_pred[~unnamed_column_3.isna().values]
                         indice_valores_com_erros_3 = valores_com_erros_3.index
@@ -101,9 +101,7 @@ class GeradorResultados:
 
             y_true = df_merged['tbdf'].astype(str)
             y_pred = df_merged['Tbdf'].astype(str)
-
-            #print("Rótulos únicos em y_true:", set(y_true.unique()))
-            #print("Rótulos únicos em y_pred:", set(y_pred.unique()))          
+         
                 
             # Generate class report in dic format
             report_dict = classification_report(y_true, y_pred, labels=self.tbdf_classes, zero_division=0, output_dict=True)
@@ -120,7 +118,7 @@ class GeradorResultados:
                 false_negatives = ((y_true == label) & (y_pred != label)).sum()
                 true_positives = ((y_true == label) & (y_pred == label)).sum()
                 
-                # Cálculo manual da acurácia por classe
+                # Manual calculation of accuracy by class
                 if real_samples_forlabel > 0:
                     accuracy = true_positives / real_samples_forlabel
                 else:
@@ -141,16 +139,16 @@ class GeradorResultados:
             modelo = '_'.join(partes[:2])
             estrategia = '_'.join(partes[2:])
             
-            # Normaliza o nome do arquivo para usar underscores
+            # Normalizes the file name to use underscores
             nome_base = nome_arquivo_csv.replace('.csv', '').replace('-', '_')
 
-            # Dicionário corrigido com os nomes desejados para as pastas
+            # Normalizes the file name to use underscores
             modelos_pasta = {
                 "gemma_7b": "gemma_7b",
                 "gemma2_9b": "gemma2_9b",
                 "mistral_7b": "mistral_7b",
-                "deepseek_8b": "deepseek-8b",  # Nome ajustado para a pasta
-                "deepseek_14b": "deepseek-14b",  # Nome ajustado para a pasta
+                "deepseek_8b": "deepseek-8b",  # Adjusted name for folder
+                "deepseek_14b": "deepseek-14b",  # Adjusted name for folder
                 "llama3.2_3b": "llama3.2_3b",
                 "mistral_nemo_12b": "mistral-nemo_12b",
                 "llama3.1_8b": "llama3.1_8b",
@@ -159,7 +157,7 @@ class GeradorResultados:
                 "gpt_4o_mini": "gpt-4o-mini"
             }
 
-            # Encontra qual modelo está no nome do arquivo
+            # Find which model is in the file name
             modelo_escolhido = next((modelo for modelo in modelos_pasta.keys() if modelo in nome_base), "outros")
                 
             if "deepseek_8b" in modelo_escolhido:
@@ -168,13 +166,13 @@ class GeradorResultados:
                 modelo = "deepseek-14b"
             if "gpt_4o_mini" in modelo_escolhido:
                 modelo = "gpt-4o-mini"
-            # Se um modelo foi encontrado, removemos ele do nome_base para obter a estratégia corretamente
+            # If a model was found, we remove it from the nome_base to get the strategy correctly.
             if modelo_escolhido != "outros":
                 estrategia = nome_base.replace(modelo_escolhido, '').strip('_')
             else:
-                estrategia = nome_base  # Se nenhum modelo for identificado, toda a string será tratada como estratégia
+                estrategia = nome_base  # If no model is identified, the entire string will be treated as strategy
 
-            # Define o caminho de saída corretamente
+            # Sets the output path correctly
             pasta_saida = f"results/{estrategia}/{modelos_pasta.get(modelo_escolhido, 'outros')}"
 
 
@@ -201,9 +199,9 @@ class GeradorResultados:
         nome_arquivo = "results_concat.csv"
         pasta_concat = "./results_table"
         df_final.to_csv(os.path.join(pasta_concat, nome_arquivo), index=True)  
-        # print("Duplicatas no df_pred (baseado na coluna 'Comments'):", df_pred.duplicated(subset='Comments').sum())
-        # print("Duplicatas no reference_dataset_fg (baseado em 'comment_body'):", reference_dataset_fg.duplicated(subset='comment_body').sum())
-        # print("Duplicatas no df_merged (baseado em 'comment_body'):", df_merged.duplicated(subset='comment_body').sum())
+        print("Duplicatas no df_pred (baseado na coluna 'Comments'):", df_pred.duplicated(subset='Comments').sum())
+        print("Duplicatas no reference_dataset_fg (baseado em 'comment_body'):", reference_dataset_fg.duplicated(subset='comment_body').sum())
+        print("Duplicatas no df_merged (baseado em 'comment_body'):", df_merged.duplicated(subset='comment_body').sum())
         
 
 
@@ -213,7 +211,7 @@ class GeradorResultados:
         return df_final
 
 
-# Definição das classes tbdf
+# Definition of tbdf classes
 tbdf_classes = ['bitter frustration', 'impatience', 'mocking', 'irony', 'vulgarity', 'threat', 'identify attack/name calling', 'none', 'entitlement','insulting']
 
 # INIT SCRIPT FOR READ CSV FILES

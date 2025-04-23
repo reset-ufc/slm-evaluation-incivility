@@ -1,13 +1,13 @@
 import pandas as pd
 import pathlib
 from pathlib import Path
-# Carrega o CSV com os resultados
+# Load the csv with the results
 path = Path('results_table') / 'results_concat.csv'
 if not path.exists():
     raise FileNotFoundError(f"File not found: {path}")
 df = pd.read_csv(path)
 
-# Ordem desejada
+# right order
 incivilities = [
     "Bitter Frustration", "Impatience", "Vulgarity", "Irony", "Identify Attack/Name Calling",
     "Threat", "Insulting", "Entitlement", "Mocking", "None"
@@ -17,7 +17,7 @@ models = ['deepseek-14b', 'deepseek-8b', 'gemma2_9b', 'gemma_7b', 'gpt-4o-mini',
 
 incivility_rename_map = {
     "Identify Attack/Name Calling": "Identify Attack",
-    # os outros permanecem como estão
+    # maintain the others
 }
 model_name_map = {
     'gemma_7b': 'gemma:7b',
@@ -29,8 +29,8 @@ model_name_map = {
     'llama3.2_3b': 'llama3.2:3b',
     'llama3.1_8b': 'llama3.1:8b',
     'phi4_14b': 'phi4:14b',
-    'gpt-4o-mini': 'gpt-4o-mini',  # já está no formato certo
-    'Average': 'Average'  # mantém igual
+    'gpt-4o-mini': 'gpt-4o-mini', # stay the same
+    'Average': 'Average'  # stay the same
 }
 
 df.rename(columns={'Tbdf': 'Type', 'Modelo': 'Model'}, inplace=True)
@@ -59,15 +59,14 @@ for incivility in incivilities:
 
 
 
-# Cria dataframe com MultiIndex nas colunas
+# Build the DataFrame with MultiIndex columns
 final_df = pd.DataFrame(multi_col_data, index=index)
 final_df.columns = pd.MultiIndex.from_tuples(final_df.columns)
 
 
-# Aplica nomes bonitos ao índice
+# Apply the renaming to the index
 final_df.index = final_df.index.map(lambda x: model_name_map.get(x, x))
 final_df.index.name = 'Model'  # Dá nome à coluna do índice
 
-# Exporta com o índice, o Excel vai mostrar "Model" no canto superior esquerdo
 output_path = Path('results_table') / 'rq1.xlsx'
 final_df.to_excel(output_path, index=True, sheet_name='RQ1', engine='openpyxl')

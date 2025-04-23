@@ -3,18 +3,17 @@ import numpy as np
 from pathlib import Path
 import json
 
-# Caminhos principais
+# Main paths
 results_path = Path('results')
 ml_results_path = results_path / 'ml_models'
 folds_path = ml_results_path / 'folds'
 
-# Modelos que vamos buscar
 models = ['ADA', 'LRC', 'MNB', 'RFC']
 representations = ['BoW', 'TF-IDF']
 
 encoder = {'none': 0, 'entitlement': 1, 'impatience': 2, 'bitter frustration': 3, 'mocking': 4, 'irony': 5, 'vulgarity': 6, 'identify attack/name calling': 7, 'insulting': 8, 'threat': 9}
 
-# Dicionário para armazenar resultados por modelo e representação
+# Dict to store results
 results = {
     f"{model}_{rep}": {'none': {'precision': [], 'recall': [], 'f1': []},
                        'entitlement': {'precision': [], 'recall': [], 'f1': []},
@@ -30,7 +29,7 @@ results = {
     for model in models for rep in representations
 }
 
-# Itera por cada fold
+# Iterate to each fold and representation
 for fold_dir in folds_path.iterdir():
     for rep in representations:
         rep_path = fold_dir / rep
@@ -96,7 +95,7 @@ for fold_dir in folds_path.iterdir():
                     results[key]['threat']['f1'].append(f1_threat)
                     break
 
-# Calcular médias
+# Calculate the mean for each class and model
 mean_results = {k: {
     'none': {metric: np.mean(v['none'][metric]) for metric in ['precision', 'recall', 'f1']},
     'entitlement': {metric: np.mean(v['entitlement'][metric]) for metric in ['precision', 'recall', 'f1']},
@@ -110,7 +109,7 @@ mean_results = {k: {
     'threat': {metric: np.mean(v['threat'][metric]) for metric in ['precision', 'recall', 'f1']}
 } for k, v in results.items()}
 
-# Resultados do DistilBERT
+# DistilBERT Results
 bert_results_path = results_path / 'distil_bert_results'
 with open(bert_results_path / 'DistilBert-10folds_results.json', 'r') as f:
     bert_data = json.load(f)
@@ -139,10 +138,9 @@ for label in list(bert_metrics.keys()):
     for metric in ['precision', 'recall', 'f1']:
         bert_metrics[label][metric] /= num_folds
 
-# Adiciona ao dicionário de médias
 mean_results['DistilBERT'] = bert_metrics
 
-# Geração dos DataFrames finais
+# Generate the DataFrames 
 def build_df(label):
     rows = []
     indices = []

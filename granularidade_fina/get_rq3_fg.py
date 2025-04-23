@@ -2,7 +2,7 @@ import os
 import pandas as pd
 from get_best_model import get_best_model
 from pathlib import Path
-# Categorias (colunas maiores)
+# Categories
 categorias = [
     "Bitter Frustration", "Impatience", "Vulgarity", "Irony","Identify Attack/Name Calling","Threat","Insulting","Entitlement","Mocking","None"
 ]
@@ -14,20 +14,20 @@ def read_xlsx_files_from_folder(folder_path):
     for file in xlsx_files:
         file_path = os.path.join(folder_path, file)
 
-        # Aqui pegamos o valor da lista que está no nome do arquivo
+        # get the value from the list which is not in the file name
        
         categoria = next((x for x in categorias if x.upper().replace(" ", "_").replace("/", "_") in file.upper()), None)
 
-        # Lê o arquivo
+        # read the Excel file
         dataframe = pd.read_excel(file_path)
         dataframes[file] = [dataframe,categoria]
 
-        # Opcional: exibir qual valor foi detectado no nome
+        # print the category detected
         print(f"Arquivo: {file} | Categoria detectada: {categoria}")
 
     return dataframes
 
-# Exemplo de uso
+
 folder_path = Path('results')
 excel_data = read_xlsx_files_from_folder(folder_path)
 
@@ -37,7 +37,6 @@ for file_name, vector in excel_data.items():
     print(vector[0].head())
 
 
-# Lista de modelos
 modelos = [
     "Adaptive Boosting + BoW",
     "Logistic Regression + BoW",
@@ -50,27 +49,25 @@ modelos = [
     "DistilBERT"
 ]
 
-# Subcolunas para cada categoria
+# Subcolumns for each category
 subcolunas = ["Pr-diff", "Re-diff", "F1-diff"]
 
-# Construir MultiIndex das colunas (tuplas com (categoria, subcoluna))
+# Build MultiIndex from columns (tuples with (category, subcolumn))
 colunas = pd.MultiIndex.from_product([categorias, subcolunas])
 
-# Criar DataFrame vazio com as colunas compostas e os modelos como índice
+# Build DataFrame with models as index and MultiIndex columns
 df = pd.DataFrame(index=modelos, columns=colunas)
 
-# Resetar o índice e renomear para 'Model'
+# Reset the index and rename to 'Model'
 df.reset_index(inplace=True)
 df.rename(columns={'index': 'Model'}, inplace=True)
 
-# Exibir as primeiras linhas (tudo estará vazio por enquanto)
 print(df.head())
 
 best_model = get_best_model()
 print(best_model)
 
 
-#comparar
 results_concat = pd.read_csv("results_table/results_concat.csv")
 modelos = results_concat['Modelo'].unique()
 estrategias = results_concat['Strategy'].unique()

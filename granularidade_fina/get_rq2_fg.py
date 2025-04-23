@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from pathlib import Path
-# Modelos, Categorias, Estratégias e Métricas
+
 models = ['deepseek-14b', 'deepseek-8b', 'gemma2_9b', 'gemma_7b', 'gpt-4o-mini',
  'llama3.1_8b', 'llama3.2_3b', 'mistral-nemo_12b', 'mistral_7b', 'phi4_14b']
 categories = [
@@ -9,12 +9,13 @@ categories = [
     "Irony", "Identify Attack/Name Calling", "Threat",
     "Insulting", "Entitlement", "Mocking"
 ]
-categories = [cat.lower() for cat in categories]  # Normaliza para minúsculas
+categories = [cat.lower() for cat in categories]  # Normalize to lowercase
 methods = ["Zero-shot", "One-shot", "Few-shot", "Auto-CoT", "Role-based"]
 metrics = ["Pr", "Re", "F1"]
 
 
-# Mapeamento de nomes conforme aparecem no CSV
+# Mapping for strategy names
+# This is a dictionary that maps the strategy names in the CSV to more readable names.
 strategy_map = {
     "zero_shot": "Zero-shot",
     "one_shot": "One-shot",
@@ -23,10 +24,10 @@ strategy_map = {
     "role_based": "Role-based"
 }
 
-# Carregar CSV com dados reais
+# Load the CSV file with results
 df_real = pd.read_csv("results_table/results_concat.csv")
 
-# Padronizar nomes
+# Rename columns for consistency
 df_real['Strategy'] = df_real['Strategy'].map(strategy_map)
 df_real = df_real.rename(columns={
     'Modelo': 'Model',
@@ -36,11 +37,11 @@ df_real = df_real.rename(columns={
     'F1-score': 'F1'
 })
 
-# Criar a estrutura vazia
+# Build the DataFrame structure with MultiIndex
 columns = pd.MultiIndex.from_product([categories, methods, metrics])
 df_final = pd.DataFrame(index=models, columns=columns)
 
-# Preencher a estrutura
+# Fill the DataFrame with values from df_real
 for _, row in df_real.iterrows():
     model = row['Model']
     cat = row['Category']
@@ -50,12 +51,12 @@ for _, row in df_real.iterrows():
         for metric in metrics:
             df_final.loc[model, (cat, strat, metric)] = row[metric]
 
-# Converter valores para float
+# Convert to float
 df_final = df_final.astype(float)
 
-# Adicionar linha de média
+# Add the average row
 df_final.loc['Average'] = df_final.mean(numeric_only=True)
 
-# Exportar para Excel
+# Export to Excel
 path = Path('results_table') / 'rq2.xlsx'
 df_final.to_excel(path, index=True, sheet_name='RQ2', engine='openpyxl')

@@ -22,8 +22,6 @@ def get_best_model():
         df_cls = df.loc[df['Tbdf'] == cls].reset_index()
         best_config_cls_f1 = df_cls.loc[df_cls['F1-score'] == df_cls['F1-score'].max(), :]
         best_config_cls_pr = df_cls.loc[df_cls['Precision'] == df_cls['Precision'].max(), :]
-        # print(len(best_config_cls_f1))
-        # print(len(best_config_cls_pr))
 
         for i, config in best_config_cls_f1.iterrows():
             model = config['Modelo']
@@ -37,17 +35,6 @@ def get_best_model():
 
             best_configs.append(f'{model} + {strategy}')
 
-        # best_model_cls_f1 = best_config_cls_f1.loc[:, 'Modelo']
-        # best_strategy_cls_f1 = best_config_cls_f1.loc[:, 'Strategy']
-
-        # best_model_cls_pr = best_config_cls_pr.loc[:, 'Modelo']
-        # best_strategy_cls_pr = best_config_cls_pr.loc[:, 'Strategy']
-
-        # print(f'On {cls}, the best model was {best_model_cls_f1} and the best strategy was {best_strategy_cls_f1} on F1-score')
-        # print(f'On {cls}, the best model was {best_model_cls_pr} and the best strategy was {best_strategy_cls_pr} on Precision')
-
-        # best_configs[cls + ' F1'] = f'{best_model_cls_f1} + {best_strategy_cls_f1}'
-        # best_configs[cls + ' Pr'] = f'{best_model_cls_pr} + {best_strategy_cls_pr}'
 
     print("Tamanho do dicionario de melhores configs:", len(best_configs))
 

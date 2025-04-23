@@ -1,6 +1,6 @@
 import pandas as pd
 import tiktoken
-from prompt import prompt_factory
+from prompts import prompt_factory
 
 strategies = ['zero_shot', 'one_shot', 'few_shot', 'auto_cot', 'role_based', 'role_based_few_shot', 'role_based_auto_cot', 'role_based_one_shot']
 

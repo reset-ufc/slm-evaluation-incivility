@@ -3,7 +3,7 @@ import ollama
 from ollama import chat, Options
 from prompts import prompt_factory
 import json
-from tqdm import tqdm  # Barra de progresso
+from tqdm import tqdm  # Progress bar
 import re
 import openai
 import dotenv
@@ -138,7 +138,7 @@ def classify_pr(user_prompt, model,prompt_strategy):
         return {"label": "error"}
 
 
-# Função com timeout
+# Timeout function
 def classify_pr_with_timeout(user_prompt, model, prompt_strategy,timeout=60*20):
     """Executa `classify_pr` com um limite de tempo usando processos."""
     try:
@@ -187,7 +187,7 @@ def rate_limited_call(prompt, model, strategy, current_tokens, last_reset_time):
     Calls the rate-controlled sort function using the official token count.
     Resets the token counter every minute regardless of whether the limit is reached.
     """
-    # Verificar se já passou 1 minuto desde o último reset
+    # Check if 1 minute has passed since the last reset
     current_time = time.time()
     if current_time - last_reset_time >= RESET_INTERVAL:
         print("Renewing rate limit window (1 minute passed)...")
@@ -197,17 +197,17 @@ def rate_limited_call(prompt, model, strategy, current_tokens, last_reset_time):
     tokens_used = count_tokens(prompt)
     current_tokens += tokens_used
     
-    # Verificar se vai exceder o limite
+    # Check if it will exceed the limit
     if current_tokens > MAX_TOKENS_PER_MINUTE:
-        # Calcular tempo necessário para esperar até completar o minuto
+        # Calculate the time needed to wait until the minute is complete
         wait_time = RESET_INTERVAL - (current_time - last_reset_time)
         if wait_time > 0:
             print(f"Token limit reached. Waiting {wait_time:.2f} seconds for renewal...")
             time.sleep(wait_time)
-            current_tokens = tokens_used  # Após esperar, contabilizar apenas os tokens desta chamada
-            last_reset_time = time.time()  # Atualizar o timestamp de reset
+            current_tokens = tokens_used  # After waiting, count only the tokens from this call
+            last_reset_time = time.time()  # Update the reset timestamp
         else:
-            # Se já passou o tempo do reset, apenas atualizar os valores
+            # If the reset time has passed, just update the values
             current_tokens = tokens_used
             last_reset_time = current_time
     
@@ -240,7 +240,7 @@ def adicionar_dado_em_lista_json(arquivo, novo_dado):
     with open(arquivo, "w", encoding="utf-8") as f:
         json.dump(dados, f, indent=4, ensure_ascii=False)
 
-# Classe do classificador
+# Classifier class
 class Classifier:
     def __init__(self, model, texts):
         self.model = model
@@ -248,7 +248,7 @@ class Classifier:
 
     def run_classifier(self, system_strategy, tbdf_new, path_csv, reasoning_path):
         current_tokens = 0 
-        last_reset_time = time.time()  # Iniciar o timestamp
+        last_reset_time = time.time()  # initialize the last reset time
 
         with tqdm(total=len(self.texts), desc=f"Progress for {self.model} in {system_strategy}", unit="task") as progress_bar:
             for i, row in self.texts.iterrows():
@@ -318,11 +318,7 @@ def classificador_runner(model_list, strategies, comments):
                 try:
                     sanitized_model_name = re.sub(r'[^\w\-_]', '_', modelo)
             
-                    # Salvar resultados no CSV
-                    # num_items = len(tbdf_new)
-                    # aligned_comments = comments[:num_items]
-                    # df = pd.DataFrame({'Comments': aligned_comments, 'Tbdf': tbdf_new})
-                    # Caminho da pasta de destino
+                    # Destination folder path
                     if modelo == "gemma:7b":
                         folder_path = f"results/{system_strategy}/gemma_7b"
                     elif modelo == "gemma2:9b":
@@ -362,7 +358,7 @@ def classificador_runner(model_list, strategies, comments):
 
                     classifier_instance = Classifier(modelo, comments_to_classify)
                     tbdf_new = []
-                    # Cria a pasta (e subpastas) se não existirem ainda
+                    # Creates the folder (and subfolders) if they do not already exist
 
                     os.makedirs(folder_path, exist_ok=True)
 
@@ -385,15 +381,13 @@ def classificador_runner(model_list, strategies, comments):
             #if tbdf_new[-1] == "error":
             #    break
 
-# Proteção para subprocessos no Windows
 if __name__ == "__main__":
-    # Carregar dataset
+    # Load dataset
     reference_dataset_fg = pd.read_csv("data/reference_dataset_fg.csv")
     comments = reference_dataset_fg.dropna(subset=['comment_body'])
 
-    # comments = comments[:1]
     
-    # Configurações
+    # Configs
     strategies = ['zero_shot','one_shot','few_shot_3', 'role_based', 'auto_cot','role_based_one_shot','role_based_few_shot_3','role_based_auto_cot']
     model_list = [
      'gemma:7b',
@@ -408,7 +402,7 @@ if __name__ == "__main__":
      "gpt-4o-mini"
 ]
 
-    # Executar classificadores
+    # Run classifiers
     
     classificador_runner(model_list, strategies, comments)
     print("Processamento concluído.")

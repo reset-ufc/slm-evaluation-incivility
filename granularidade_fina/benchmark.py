@@ -145,10 +145,10 @@ def run_experiment(dataset, x_atributes, data_balance, y_label, models, grid_par
             results['fold'] = i+1   
             if y_label == 'tbdf':
                 try:
-                    # tenta pegar as probabilidades
+                    # try to get the probability estimates
                     y_proba = grid_model.predict_proba(X_test)
                 except AttributeError:
-                    # fallback para decision_function
+                    # fallback for decision_function
                     try:
                         y_proba = grid_model.decision_function(X_test)
                     except AttributeError:
