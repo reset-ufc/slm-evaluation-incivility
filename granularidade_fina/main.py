@@ -284,8 +284,6 @@ class Classifier:
                     
                     progress_bar.update(1)
                     
-                    # if response['label'] == "timeout":
-                    #    continue
 
                     if 'auto_cot' in system_strategy:
                         adicionar_dado_em_lista_json(reasoning_path, {
@@ -350,7 +348,6 @@ def classificador_runner(model_list, strategies, comments):
                         idxs_classified = set(preds['index'].to_list())
                         index_to_classify = list(all_idxs - idxs_classified)
                         comments_to_classify = comments.iloc[index_to_classify]
-                        #print(index_to_classify)
 
                     else:
                         comments_to_classify = comments.copy()
