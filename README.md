@@ -21,7 +21,7 @@ It also evaluates how different prompting strategies affect model performance on
   - Few-shot
   - Auto Chain-of-Thought (Auto-CoT)
   - Role-based
-- **Baseline Comparison**: 5 traditional ML models using Bag-of-Words and TF-IDF
+- **Baseline Comparison**: 5 traditional ML models (**Multinomial Naive Bayes**, **Logistic Regression Classifier**, **Random Forest Classifier**, **AdaBoost Classifier**, and **DistilBERT (DBERT)**) using Bag-of-Words and TF-IDF
 - **Dataset**: 6K+ labeled GitHub conversations
 
 ## 💻 Installation & Usage
