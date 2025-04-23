@@ -14029,7 +14029,6 @@ iptables -t nat -X CNI-fe647aec064bf60036a312df
 2287,"Hey folks, we update issues when we're working on them. I can say this is on our roadmap but I can't really give a timeline.",,,
 2288,What are we supposed to do in the meantime?,Impatience,,
 2289,This issue is pretty devastating for the use case at my PoB. Is there a workaround that can be implemented until an official fix comes out? At the moment we have to do full reboots of Nomad and take our whole network offline when we run into it.,Bitter Frustration,,
-2290,@johnalotoski has posted a process above, if you were to run that as a periodic task (or just a cron job) that'd clean up the iptables.,,
 2291,"Little bit difficult to script around that honestly, since you're also having to compare to what allocations exist, and what host they are on",Impatience,,
 2292,"Okay, we're moving on from this, we can't support our org with this",Impatience,,
 2293,"Hello, thanks for your help over the weekend (3025), you were right - there was 2 SSLs installed on machine. I have re-build platform (Slackware 14.1) and installed MySQL 5.0.24 from source, for freeradius 3,0.19 attempted built form source with configure and make errors. I attache configure and make logs. [configure.log](https://github.com/FreeRADIUS/freeradius-server/files/3695913/configure.log)
@@ -14593,7 +14592,6 @@ This PR tries to fix that by adding new constants:
 * DateTimeInterface::RFC3339_FRACTION
 * DateTimeInterface::ISO8601_FRACTION
 All these are based on their fraction-less counterparts and have added the "".u"" modifier after the ""s"" and before the offset-notation",,,
-2389,The test failure is legit, could you please fix it?,,
 2390,Sure. Will do ASAP,Impatience,,
 2391,"Fractions are part of the original RFC3339, and are optional. Why does there need to be a separate constant for this?
 Also, see [bug report][bug-79305].
@@ -16208,7 +16206,6 @@ co-authored-by: Wes Todd @wesleytodd",,,
 2593,"@dougwilson - I have addressed all the review comments, mostly following your suggestions `AS IS`. Please have a look and do the needful!",,,
 2594,it has been 11 days since the last update. can we take this forward?,Impatience,,
 2595,"Thanks @gireeshpunathil ! As we discussed on the TC meeting, it should be in the format as the current commit on `master` and our guide: the message on the first line, a blank line, a reference to the PR in the form ""`closes #PR`"". I can make the said changes if you need. LMK",,,
-2596,@dougwilson - made the changes to the commit message as per the guidelines, PTAL.,,
 2597,"Ok... It still does not seem to be in the form from my comment... ? I can just update if you need, let me know. If I can better clarify how the message should be constructed let me know as well. I believe it was clear, and provided an example of a previous comment message, but if I can provide better guidance for the format, I certainly can.
 I am circling around on this because I would like this to get merged, but I recall that you wanted to do the commit editing so I could just do the fast-forward merge, but it's not in the correct state for that. I can make those edits if you like, but don't want to force push on your branch without you being aware as per our previous conversation :)",Impatience,,
 2598,"@dougwilson - - thanks - yes, I prefer to be advised over edits if possible, towards improving my own knowledge on those areas.
@@ -19132,7 +19129,6 @@ It also ships with a few fixes that were not merged upstream but are still neede
 3174,"For more information - I have developed a linter plugin for this issue, just trying to figure out how to contribute it.
 https://github.com/computamike/remark-link-escape
 Do I close this issue, or is that something that the team needs to do?",,,
-3175,Let's leave it open, hopefully it will be addressed together with #5031,,
 3176,"It seems that the | in the link breaks the rendering
 ![C#](https://user-images.githubusercontent.com/464876/99858549-b73ff980-2b85-11eb-81bc-0cd2dcb04e77.png)
 Renders correctly when viewing the page within GitHub editing tools, but renders incorrectly on the GH Pages site.",,,
@@ -19408,7 +19404,6 @@ conda config --set channel_priority strict
 Under: [Information Introduction to Python](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Informal_Intro_Python.html) and under [Jupyter Notebooks](https://www.pythonlikeyoumeanit.com/Module1_GettingStartedWithPython/Jupyter_Notebooks.html)",,,
 3255,"@rsokl Actually, anaconda fixed their repo data as well, so now it works out of the box again 🥳",,,
 3256,Nice! I just confirmed this on my end. I guess I'll keep those callout boxes up on PLYMI for a bit in case folks had already installed anaconda.,,,
-3257,I'll try to release 7.20 soon, I've make it compatible with jedi 0.18 as pip also use a resolver and so pinning is not an option as pip would be free to downgrade IPython and keep jedi 0.18 which will brake. Right now the limiting factor for the release is writing the what's new.,,
 3258,"> I'll try to release 7.20 soon; I've make it compatible with jedi 0.18 as pip also use a resolver and so pinning is not an option as pip would be free to downgrade IPython and keep jedi 0.18 which will brake.
 > > Right now the limiting factor for the release is writing the what's new.
 I am really disappointed that the maintainer of a great product as Ipython has such a limited knowledge about the problem.
@@ -25917,7 +25912,6 @@ ft_to_parser.someft = ""python"" -- the someft filetype will use the python pars
 4346,"#2763 deprecates `ensure_install='maintained'`, with removal slated for **April 30, 2022**. Either specify an explicit list of actually used parsers or `'all'` (not recommended).
 Rationale: Over time, the category `'maintained'` (which only indicates that a parser has a maintainer listed) has lost its usefulness, as it has become impossible to guarantee the sort of stability that is implied by ""maintained"".",,,
 4347,"As of https://github.com/nvim-treesitter/nvim-treesitter/pull/2806, Nvim-treesitter **requires Neovim 0.7.0 or later**. This is technically not breaking (only verified in `:checkhealth`), but it will allow us to make breaking changes for earlier versions in the coming days (see https://github.com/nvim-treesitter/nvim-treesitter/issues/2793).",,,
-4348,#2808 removed all bundled filetype detection and ftplugins. These should be handled by Neovim (which includes them as of 0.7.0), new ones are easy to add via the new `vim.filetype.add()` function in Neovim.,,
 4349,"This issue is used to announce breaking changes (and possibly other critical info). Users are strongly encouraged to subscribe to this issue to get notified of such changes.
 Every breaking change is added as a new comment.",,,
 4350,#2809 **removes** `ensure_install='maintained'`. Specify an explicit list of parsers (or use `'all'` in combination with `ignore_install`).,,,
@@ -34374,7 +34368,6 @@ That is not a topic here. Anyone's programming tasks, styles or stuff like that 
 Why is it wrong to allow an offset that isn't in use by some (named) timezone? Why must it only allow offsets that can be found applied in (named) timezones?",Mocking,,
 5927,"Well, because of your 'human readability' - 'user-friendliness' etc. Why would I as a developer risk using PHP DateTime object (DateTimeImmutable), without being sure it'll do all the jobs, because I do not want some Carbon datetime library to mess with my RFC 3339 datetime standards implementation, with my ISO 8601 datetime standards implementation and with WHATWG HTML living standard datetime standard implementation. That's why. But I am flexible. On constructive part of it. And I will always find a solution. This I consider a bug. There's only 37/38 timezone offsets that should have been properly parsed by those functions. Our planet Earth is only so big.",Bitter Frustration,,
 5928,"And again, 'that was a lot...' - you are wasting my time.",Impatience,,
-5929,The offset `-1:10` does exist, it's 1050 nautical miles west of Greenwich meridian (measuring from the equator). There just doesn't happen to be a timezone that maps to it at present.,,
 5930,"> The offset `-1:10` does exist; it's 1050 nautical miles west of Greenwich meridian (measuring from the equator). There just doesn't happen to be a timezone that maps to it at present.
 Can you really be more STUPID? No one should be so stupid. What thef is wrong with you?",Identify Attack/Name Calling,,
 5931,"Why would anybody talk about things they do not understand or even comment about it? Why did you delete my last comment? Abuse? Abuse of stupidity? Well, delete everything here. You have my license to do so. F-word.
@@ -34516,4 +34509,12 @@ The final issue is complaining:
 > In my view a failure of this kind is usually a failure in the software, either configuration or build. Maybe. But since you failed to provide a build log which contained *errors*, it's impossible to tell.
 > As such it was right to refer it back to the development team rather than post to a users mailing list. i.e. despite being told otherwise by the developers, you still think you're right.
 Part of being a software developer is learning from experience. I suggest trying it. It's very handy!",Impatience,,
-853,"The Stack Overflow tag is ""jinja2"", ""jinja"" is a synonym that gets invisbly converted. Despite my efforts towards the opposite. (This happened a year or so ago.) I really want to drop the ""2"" from the name. Start adding v2 builds to the ""jinja"" PyPI page. Deprecate the ""jinja2"" import and go back to the ""jinja"" namespace.",Bitter Frustration,,
+853,"The Stack Overflow tag is ""jinja2"", ""jinja"" is a synonym that gets invisbly converted. Despite my efforts towards the opposite. (This happened a year or so ago.)
+I really want to drop the ""2"" from the name. Start adding v2 builds to the ""jinja"" PyPI page. Deprecate the ""jinja2"" import and go back to the ""jinja"" namespace.",Bitter Frustration,,
+2596,@dougwilson - made the changes to the commit message as per the guidelines, PTAL.,None,
+3175,Let's leave it open, hopefully it will be addressed together with #5031,None,
+5929,The offset `-1:10` does exist, it's 1050 nautical miles west of Greenwich meridian (measuring from the equator). There just doesn't happen to be a timezone that maps to it at present.,None,
+2290,@johnalotoski has posted a process above, if you were to run that as a periodic task (or just a cron job) that'd clean up the iptables.,None,
+2389,The test failure is legit, could you please fix it?,None,
+3257,I'll try to release 7.20 soon, I've make it compatible with jedi 0.18 as pip also use a resolver and so pinning is not an option as pip would be free to downgrade IPython and keep jedi 0.18 which will brake. Right now the limiting factor for the release is writing the what's new.,None,
+4348,#2808 removed all bundled filetype detection and ftplugins. These should be handled by Neovim (which includes them as of 0.7.0), new ones are easy to add via the new `vim.filetype.add()` function in Neovim.,None,

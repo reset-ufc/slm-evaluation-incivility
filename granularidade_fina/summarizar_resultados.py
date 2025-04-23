@@ -29,73 +29,81 @@ class GeradorResultados:
         print(f"essa é a pasta: ", pasta)
 
         for path in Path('./results').rglob('*.csv'):
+            #print(path)
             file_path = path.resolve()
 
             nome_strategy = path.parent.parent.name
             nome_modelo = path.parent.name
             nome_modelo_strategy = f"{nome_modelo}_{nome_strategy}"
 
-            if not path.name.startswith(prefixo):
-                continue
+            if path.name.startswith(prefixo):
+                # print(f"Lendo: {file_path} (modelo: {nome_modelo} | strategy: {nome_strategy})")
+                df = pd.read_csv(file_path, na_values=[""], keep_default_na=False, dtype={'tbdf': str})
 
-            print(f"Lendo: {file_path} (modelo: {nome_modelo} | strategy: {nome_strategy})")
-            df = pd.read_csv(file_path)
-
-            resultados[nome_modelo_strategy] = df  # Apenas 1 DataFrame por chave
-
+                resultados[nome_modelo_strategy] = df  # Apenas 1 DataFrame por chave
+            else:
+                print("isso é um result")
+                
         return resultados
-
-    def extrair_classe(self, texto):
-        texto = texto.lower().strip()
-
-        # Verifica se texto bate com algum alias conhecido
-        for classe, aliases in self.tbdf_aliases.items():
-            if texto == classe:
-                return classe
-            for alias in aliases:
-                if re.fullmatch(alias, texto):  # Usando fullmatch para correspondência exata
-                    return classe
-
-        # Verificação direta com as classes conhecidas
-        for tbdf in self.tbdf_classes:
-            if texto == tbdf:
-                return tbdf
-            # Verifica se o texto contém a classe com asteriscos, se necessário
-            padrao_asteriscos = re.escape(f"**{tbdf}**")
-            if re.search(padrao_asteriscos, texto):  # Continua utilizando search para asteriscos
-                return tbdf
-
-        return "desconhecido"
-
-
 
     def analisar_resultados(self, pasta=".", salvar_csv=False):
         
         resultados = self.ler_resultados_csv(pasta)
-        print(resultados)
         lista_resultados = [] 
         pasta_saida = "results"
         
         for nome_arquivo_csv, df_pred in resultados.items():
+            if nome_arquivo_csv in ['mistral-nemo_12b_role_based_auto_cot']:
+                continue
             print(f"\nAnalisando: {nome_arquivo_csv}")
             reference_dataset_fg = pd.read_csv("./data/reference_dataset_fg.csv", na_values=[""], keep_default_na=False, dtype={'tbdf': str})
-            
+
             reference_dataset_fg["tbdf"] = reference_dataset_fg["tbdf"].astype(str).str.strip().str.lower()
             df_pred["Tbdf"] = df_pred["Tbdf"].fillna("None").astype(str).str.strip().str.lower()
             reference_dataset_fg = reference_dataset_fg.drop_duplicates(subset="comment_body")
+            reference_dataset_fg['comment_body'] = reference_dataset_fg['comment_body'].str.replace(r"[\r]", "", regex=True)
+            df_pred['Comments'] = df_pred['Comments'].str.replace(r"[\r]", "", regex=True)
             df_pred = df_pred.drop_duplicates(subset="Comments")
 
-            
+            #pegando casos em que o comentario é separado em mais de uma coluna
+            if nome_arquivo_csv == "gemma_7b_auto_cot" or nome_arquivo_csv == 'gpt-4o-mini_auto_cot':
+                if "index" in df_pred.columns:
+                    if len(df_pred.columns) == 5:
+                        # valores com erro na coluna 4
+                        unnamed_column_3 = df_pred.iloc[:, 3]
+                        valores_com_erros_3 = df_pred[~unnamed_column_3.isna().values]
+                        indice_valores_com_erros_3 = valores_com_erros_3.index
+
+                        unnamed_column_4 = df_pred.iloc[:, 4]
+                        valores_com_erros_4 = df_pred[~unnamed_column_4.isna().values]
+                        indice_valores_com_erros_4 = valores_com_erros_4.index
+
+                        todos_indices = list(set(indice_valores_com_erros_3).union(set(indice_valores_com_erros_4)))
+                        df_pred.loc[todos_indices, "Comments"] = reference_dataset_fg.loc[todos_indices, "comment_body"]
+                        df_pred.loc[indice_valores_com_erros_3, "Tbdf"] = df_pred.loc[indice_valores_com_erros_3, "Unnamed: 3"]
+                        df_pred.loc[indice_valores_com_erros_4, "Tbdf"] = df_pred.loc[indice_valores_com_erros_4, "Unnamed: 4"]
+                        
+
             df_merged = reference_dataset_fg.merge(df_pred, left_on="comment_body", right_on="Comments", how="inner")
-            print(df_merged.columns)
             print("Qtd de linhas em reference_dataset_fg:", len(reference_dataset_fg))
             print("Qtd de linhas em df_pred:", len(df_pred))
             print("Qtd de linhas em df_merged:", len(df_merged))
+
+            if len(df_merged) != len(df_pred) and len(df_merged) != len(reference_dataset_fg):
+                print(f"E {nome_arquivo_csv}:")
+                print("Atenção: O número de linhas em df_merged é diferente do número de linhas em df_pred. Isso pode indicar que houve perda de dados durante o merge.")
+                print("Qtd de linhas em reference_dataset_fg:", len(reference_dataset_fg))
+                print(f"Qtd de linhas em df_merged: {len(df_merged)}")
+                print(f"Qtd de linhas em df_pred: {len(df_pred)}")
+
+
+        
+
             y_true = df_merged['tbdf'].astype(str)
             y_pred = df_merged['Tbdf'].astype(str)
 
-            print("Rótulos únicos em y_true:", set(y_true.unique()))
-            print("Rótulos únicos em y_pred:", set(y_pred.unique()))          
+            #print("Rótulos únicos em y_true:", set(y_true.unique()))
+            #print("Rótulos únicos em y_pred:", set(y_pred.unique()))          
                 
             # Generate class report in dic format
             report_dict = classification_report(y_true, y_pred, labels=self.tbdf_classes, zero_division=0, output_dict=True)
@@ -147,7 +155,8 @@ class GeradorResultados:
                 "mistral_nemo_12b": "mistral-nemo_12b",
                 "llama3.1_8b": "llama3.1_8b",
                 "phi3_3.8b": "phi3_3.8b",
-                "phi4_14b": "phi4_14b"
+                "phi4_14b": "phi4_14b",
+                "gpt_4o_mini": "gpt-4o-mini"
             }
 
             # Encontra qual modelo está no nome do arquivo
@@ -157,6 +166,8 @@ class GeradorResultados:
                 modelo = "deepseek-8b"
             if "deepseek_14b" in modelo_escolhido:
                 modelo = "deepseek-14b"
+            if "gpt_4o_mini" in modelo_escolhido:
+                modelo = "gpt-4o-mini"
             # Se um modelo foi encontrado, removemos ele do nome_base para obter a estratégia corretamente
             if modelo_escolhido != "outros":
                 estrategia = nome_base.replace(modelo_escolhido, '').strip('_')
@@ -166,7 +177,7 @@ class GeradorResultados:
             # Define o caminho de saída corretamente
             pasta_saida = f"results/{estrategia}/{modelos_pasta.get(modelo_escolhido, 'outros')}"
 
-            print(pasta_saida)  # Apenas para testar o resultado
+
 
 
             
@@ -186,15 +197,13 @@ class GeradorResultados:
         if not resultados:
             print("Nenhum resultado encontrado!")
             
-
-        print(lista_resultados)
         df_final = pd.concat(lista_resultados,ignore_index=True)
         nome_arquivo = "results_concat.csv"
         pasta_concat = "./results_table"
         df_final.to_csv(os.path.join(pasta_concat, nome_arquivo), index=True)  
-        print("Duplicatas no df_pred (baseado na coluna 'Comments'):", df_pred.duplicated(subset='Comments').sum())
-        print("Duplicatas no reference_dataset_fg (baseado em 'comment_body'):", reference_dataset_fg.duplicated(subset='comment_body').sum())
-        print("Duplicatas no df_merged (baseado em 'comment_body'):", df_merged.duplicated(subset='comment_body').sum())
+        # print("Duplicatas no df_pred (baseado na coluna 'Comments'):", df_pred.duplicated(subset='Comments').sum())
+        # print("Duplicatas no reference_dataset_fg (baseado em 'comment_body'):", reference_dataset_fg.duplicated(subset='comment_body').sum())
+        # print("Duplicatas no df_merged (baseado em 'comment_body'):", df_merged.duplicated(subset='comment_body').sum())
         
 
 

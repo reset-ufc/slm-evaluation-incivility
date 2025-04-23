@@ -26,7 +26,6 @@ df = pd.concat([uncivil_sem_combinacoes, civil_sem_combinacoes])
 df['Precision'] = df['Precision'].round(2)
 df['Recall'] = df['Recall'].round(2)
 
-print(df)
 
 classes = df['Class'].unique()
 best_configs = []
