@@ -24,7 +24,7 @@ data = {
 }
 
 # Caminho do arquivo JSON
-file_path = r'C:\Users\mario\Documents\estudos\ufc\Granularidade Grossa\data\exemplos.json'
+file_path = data_path / 'exemplos.json'
 
 # Salvar como JSON
 with open(file_path, 'w', encoding='utf-8') as f:
