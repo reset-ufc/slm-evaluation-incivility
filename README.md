@@ -89,8 +89,7 @@ This indicates that the environment is set up correctly and the code is executin
 
 ---
 
-### ⚙️ System Requirements
-
+### ⚙️ Hardware Setup Used To Experimentation
 To run local models effectively, we used a machine with the following specifications:
 
 - **CPU**: AMD Ryzen 7 7700 (8 cores, 16 threads)
