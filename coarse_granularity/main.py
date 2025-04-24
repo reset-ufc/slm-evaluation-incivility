@@ -274,7 +274,7 @@ def main():
     # data = data.iloc[5:, :]
 
     n_samples = len(data)
-    # todos os idices
+    # all indexes
     all_indexs = set(range(len(data)))
     # n_samples = 5
 

@@ -30,8 +30,7 @@ categorias = [
     "Civil", "Uncivil"
 ]
 
-def read_xlsx_files_from_folder(folder_path):
-    xlsx_files = [f for f in os.listdir(folder_path) if f.endswith('.xlsx')]
+def read_xlsx_files_from_folder():
     dataframes = {}
 
     civil_path = results_path / "civil_ml_metric_means_results.xlsx"
@@ -44,9 +43,7 @@ def read_xlsx_files_from_folder(folder_path):
 
     return dataframes
 
-# Exemplo de uso
-folder_path = 'results'
-excel_data = read_xlsx_files_from_folder(folder_path)
+excel_data = read_xlsx_files_from_folder()
 
 for file_name, vector in excel_data.items():
     print(f"Contents of {file_name}:")
