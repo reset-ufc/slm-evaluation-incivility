@@ -106,53 +106,6 @@ def get_compact_result_table():
 
             result_table.loc[(strategy, model), "FP"] = fp 
             result_table.loc[(strategy, model), "FN"] = fn
-     
-    # Filling the values for the refined model
-    refined_model_path = results_dir / "refined_model"
-    refined_model_pred_path = refined_model_path / "pred_by_refined_model.csv"
-    refined_model_pred_df = pd.read_csv(refined_model_pred_path)
-    refined_model_pred_df = refined_model_pred_df.drop_duplicates(subset=['message'])
-
-    f1 = f1_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
-    precision = precision_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
-    recall = recall_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
-    fn = confusion_matrix(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])[0, 1]
-    fp = confusion_matrix(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])[1, 0]
-    accuracy = accuracy_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
-    roc_auc = roc_auc_score(refined_model_pred_df['actual'], refined_model_pred_df['pred_by_refined_model'])
-
-    result_table.loc[("refined_model", "refined_model"), "precision"] = np.round(precision, 3)
-    result_table.loc[("refined_model", "refined_model"), "recall"] = np.round(recall, 3)
-    result_table.loc[("refined_model", "refined_model"), "f1-score"] = np.round(f1, 3)
-    result_table.loc[("refined_model", "refined_model"), "accuracy"] = np.round(accuracy, 3)
-    result_table.loc[("refined_model", "refined_model"), "roc_auc"] = np.round(roc_auc, 3)
-
-    result_table.loc[("refined_model", "refined_model"), "FP"] = fp
-    result_table.loc[("refined_model", "refined_model"), "FN"] = fn
-
-    # Filling the values for the toxicr model
-    toxicr_path = results_dir / "toxicr"
-    toxicr_pred_path = toxicr_path / "pred_toxicr.csv"
-    toxicr_pred_df = pd.read_csv(toxicr_pred_path)
-    toxicr_pred_df = toxicr_pred_df.drop_duplicates(subset=['message'])
-
-    f1 = f1_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
-    precision = precision_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
-    recall = recall_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
-    fn = confusion_matrix(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])[0, 1]
-    fp = confusion_matrix(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])[1, 0]
-    accuracy = accuracy_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
-    roc_auc = roc_auc_score(toxicr_pred_df['actual'], toxicr_pred_df['pred_by_refined_model'])
-
-    result_table.loc[("toxicr", "toxicr"), "precision"] = np.round(precision, 3)
-    result_table.loc[("toxicr", "toxicr"), "recall"] = np.round(recall, 3)
-    result_table.loc[("toxicr", "toxicr"), "f1-score"] = np.round(f1, 3)
-    result_table.loc[("toxicr", "toxicr"), "accuracy"] = np.round(accuracy, 3)
-    result_table.loc[("toxicr", "toxicr"), "roc_auc"] = np.round(roc_auc, 3)
-
-    result_table.loc[("toxicr", "toxicr"), "FP"] = fp
-    result_table.loc[("toxicr", "toxicr"), "FN"] = fn
-
     
     # Save the result table to an Excel file
     excel_path = results_dir / table_name
