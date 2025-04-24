@@ -3,14 +3,12 @@ import pandas as pd
 from get_best_model import get_best_model
 from pathlib import Path
 
-# Categorias originais
 categorias = [
     "Bitter Frustration", "Impatience", "Vulgarity", "Irony",
     "Identify Attack/Name Calling", "Threat", "Insulting",
     "Entitlement", "Mocking", "None"
 ]
 
-# (Opcional) renomear categorias para apresentação
 incivility_rename_map = {
     "Identify Attack/Name Calling": "Identify Attack"
 }
@@ -114,13 +112,12 @@ def calcular_diff():
 calcular_diff()
 print(df.head())
 
-# Exportar DataFrame com colunas renomeadas (apresentação)
+# Export the DataFrame to Excel
 df_export = df.copy()
 df_export.columns = pd.MultiIndex.from_tuples([
     (incivility_rename_map.get(cat, cat), metric) for cat, metric in df.columns
 ])
 df_export.set_index("Model", inplace=True)
 
-# Caminho de exportação
 path = results_table_path / 'rq3.xlsx'
 df_export.to_excel(path)
