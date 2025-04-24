@@ -66,7 +66,7 @@ final_df.columns = pd.MultiIndex.from_tuples(final_df.columns)
 
 # Apply the renaming to the index
 final_df.index = final_df.index.map(lambda x: model_name_map.get(x, x))
-final_df.index.name = 'Model'  # Dá nome à coluna do índice
+final_df.index.name = 'Model'  
 
 output_path = Path('results_table') / 'rq1.xlsx'
 final_df.to_excel(output_path, index=True, sheet_name='RQ1', engine='openpyxl')

@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 
-# Modelos, categorias, métodos e métricas
+# Models, categories, methods, and metrics
 models = ['deepseek-14b', 'deepseek-8b', 'gemma2_9b', 'gemma_7b', 'gpt-4o-mini',
           'llama3.1_8b', 'llama3.2_3b', 'mistral-nemo_12b', 'mistral_7b', 'phi4_14b']
 
@@ -14,13 +14,13 @@ original_categories = [
 methods = ["Zero-shot", "One-shot", "Few-shot", "Auto-CoT", "Role-based"]
 metrics = ["Pr", "Re", "F1"]
 
-# Renomear apenas no MultiIndex final
+# Rename categories
 incivility_rename_map = {
     "Identify Attack/Name Calling": "Identify Attack"
 }
 export_categories = [incivility_rename_map.get(cat, cat).lower() for cat in original_categories]
 
-# Mapas de nomes
+# Mapping for strategies and models
 strategy_map = {
     "zero_shot": "Zero-shot",
     "one_shot": "One-shot",
@@ -43,12 +43,12 @@ model_name_map = {
     'Average': 'Average'
 }
 
-# Leitura do CSV
+# Read the CSV file with results
 results_table_path = Path('results_table')
 results_table_path.mkdir(parents=True, exist_ok=True)
 df_real = pd.read_csv(results_table_path / "results_concat.csv")
 
-# Renomear colunas e estratégia
+# Rename columns and map strategies
 df_real['Strategy'] = df_real['Strategy'].map(strategy_map)
 df_real = df_real.rename(columns={
     'Modelo': 'Model',
@@ -59,11 +59,11 @@ df_real = df_real.rename(columns={
 })
 df_real['Category'] = df_real['Category'].str.lower()
 
-# Criar estrutura do dataframe final com nomes "exportáveis"
+# Build DataFrame with models as index and MultiIndex columns
 columns = pd.MultiIndex.from_product([export_categories, methods, metrics])
 df_final = pd.DataFrame(index=models, columns=columns)
 
-# Preencher os dados
+# Filling the DataFrame with values
 for _, row in df_real.iterrows():
     model = row['Model']
     cat = row['Category']
@@ -73,14 +73,14 @@ for _, row in df_real.iterrows():
         for metric in metrics:
             df_final.loc[model, (export_cat, strat, metric)] = row[metric]
 
-# Conversão e média
+# Round the values and calculate the average
 df_final = df_final.astype(float)
 df_final = df_final.round(2)
 df_final.loc['Average'] = df_final.mean(numeric_only=True)
 
-# Renomear modelos na exportação
+# Rename models in the index
 df_final.rename(index=model_name_map, inplace=True)
 
-# Exportar para Excel
+# Export the DataFrame to Excel
 path = results_table_path / 'rq2.xlsx'
 df_final.to_excel(path, index=True, sheet_name='RQ2', engine='openpyxl')

@@ -178,7 +178,7 @@ class GeradorResultados:
             # pasta_saida = f"results/{estrategia}/{modelos_pasta.get(modelo_escolhido, 'outros')}"
             pasta_saida = Path("results") / estrategia / modelos_pasta.get(modelo_escolhido, 'outros')
                 
-            # Convert dic in df and add model name column
+            # Convert dict in df and add model name column
             os.makedirs(pasta_saida, exist_ok=True)
             df_result = pd.DataFrame(custom_report).transpose()
             df_result.reset_index(inplace=True)

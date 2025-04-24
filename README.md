@@ -28,6 +28,12 @@ It also evaluates how different prompting strategies affect model performance on
 
 To get started, follow the steps below:
 
+### ✅ Requirements
+
+- **Python 3.10+**
+- Optional: [Ollama](https://ollama.com) (for running local SLMs)
+- OpenAI API key (for cloud-based models like GPT-4o-mini)
+
 ### 1. Clone the repository
 
 ```bash
