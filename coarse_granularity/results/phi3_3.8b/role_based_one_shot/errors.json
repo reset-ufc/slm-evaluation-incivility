@@ -1,3 +1,0 @@
-[
-    "{'index': 3061, 'message': 'Any ideas and feedbacks are welcome. Please make your comments [here in dicussion](https://github.com/vuepress-theme-hope/vuepress-theme-hope/discussions/601). \u2764', 'strategy': 'role_based_one_shot', 'model': 'phi3:3.8b', 'error': 'POST predict: Post \"http://127.0.0.1:37007/completion\": EOF (status code: 500)', 'response': {'error': 'POST predict: Post \"http://127.0.0.1:37007/completion\": EOF (status code: 500)'}}"
-]

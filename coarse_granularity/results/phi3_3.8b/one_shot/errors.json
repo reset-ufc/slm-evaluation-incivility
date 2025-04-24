@@ -1,3 +1,0 @@
-[
-    "{'index': 4098, 'message': \"If you compile the project using CMake, you should also use CMake to link against glog. There's a [dedicated section](https://github.com/google/glog#consuming-glog-in-a-cmake-project) in the readme how to achieve this.\\nIn case you cannot use CMake to consume glog, it is your responsibility to reconstruct the CMake configuration (flags, compiler and linker options, etc.) because simply linking against glog is generally not sufficient.\", 'strategy': 'one_shot', 'model': 'phi3:3.8b', 'error': 'POST predict: Post \"http://127.0.0.1:42307/completion\": EOF (status code: 500)', 'response': {'error': 'POST predict: Post \"http://127.0.0.1:42307/completion\": EOF (status code: 500)'}}"
-]
