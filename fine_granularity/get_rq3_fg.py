@@ -16,7 +16,8 @@ incivility_rename_map = {
 }
 
 def read_xlsx_files_from_folder(folder_path):
-    xlsx_files = [f for f in os.listdir(folder_path) if f.endswith('.xlsx')]
+    # xlsx_files = [f for f in os.listdir(folder_path) if f.endswith('.xlsx')]
+    xlsx_files = [f for f in os.listdir(folder_path) if f.endswith('.xlsx') and 'balancing' in f]
     dataframes = {}
 
     for file in xlsx_files:
@@ -143,5 +144,5 @@ df_export.columns = pd.MultiIndex.from_tuples([
 df_export.set_index("Model", inplace=True)
 
 # Save to Excel
-path = results_table_path / 'rq3.xlsx'
+path = results_table_path / 'rq3_balancing.xlsx'
 df_export.to_excel(path)
