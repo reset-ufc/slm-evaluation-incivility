@@ -110,7 +110,7 @@ Cloud-based executions were performed using OpenAI's optimized infrastructure.
   - `get_ml_results.py`: Gathers outputs from traditional ML models  
   - `get_rq1_cg.py`: Gathers results for research question 1  
   - `get_rq2_cg.py`: Gathers results for research question 2
-  - `get_rq2_cg.py`: Gathers results for research question 3  
+  - `get_rq3_cg.py`: Gathers results for research question 3  
   - `main.py`: Main script to run the coarse-grained pipeline  
   - `merge_data.ipynb`: Notebook to merge and clean datasets  
   - `prompts.py`: All prompt templates and configurations   
@@ -119,6 +119,7 @@ Cloud-based executions were performed using OpenAI's optimized infrastructure.
   - `transformer_training.py`: Training logic for transformer models  
   - `verify_results.py`: Results validation script  
   - `visus.ipynb/`: Visualizations and exploratory notebook  
+  - `test_coarse_grained.ipynb`: Jupyter notebook with statistical tests for coarse-grained incivility
 
 - **`fine_granularity/`**  
   - **`data/`**: Input dataset for fine-grained analysis  
@@ -128,9 +129,11 @@ Cloud-based executions were performed using OpenAI's optimized infrastructure.
   - `choice_examples.py`: Examples used for prompting in fine-grained incivility
   - `delete_errors_timeouts.py`: Filters out timeouts and erroneous results  
   - `get_best_model.py`: Identifies best-performing model 
+  - `get_ml_results.py`: Gathers outputs from traditional ML models  
   - `get_rq1_fg.py`: Gathers results for research question 1  
   - `get_rq2_fg.py`: Gathers results for research question 2
-  - `get_rq2_fg.py`: Gathers results for research question 3
+  - `get_rq3_fg.py`: Gathers results for research question 3
+  - `test_fine_grained.ipynb`: Jupyter notebook with statistical tests for fine-grained incivility
   - `main.py`: Main script to run the fine-grained pipeline   
   - `prompts.py`: All prompt templates and configurations  
   - `summarize_results.py`: Script to summarize results  
