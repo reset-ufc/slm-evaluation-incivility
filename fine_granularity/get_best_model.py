@@ -36,7 +36,7 @@ def get_best_model():
             best_configs.append(f'{model} + {strategy}')
 
 
-    print("Tamanho do dicionario de melhores configs:", len(best_configs))
+    print("Best Settings Dictionary Size:", len(best_configs))
 
     contagem = Counter(best_configs).most_common(3)
 

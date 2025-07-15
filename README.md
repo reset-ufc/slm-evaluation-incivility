@@ -76,7 +76,7 @@ python get_best_model.py
 You should see output similar to:
 
 ```
-Tamanho do dicionario de melhores configs: 24 
+Best Settings Dictionary Size: 24 
 Best config: deepseek-14b + role_based aparecendo 5 vezes 
 Second Best config: gpt-4o-mini + few_shot_3 aparecendo 4 vezes
 Third Best config: llama3.1_8b + auto_cot aparecendo 2 vezes
