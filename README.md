@@ -77,9 +77,9 @@ You should see output similar to:
 
 ```
 Best Settings Dictionary Size: 24 
-Best config: deepseek-14b + role_based aparecendo 5 vezes 
-Second Best config: gpt-4o-mini + few_shot_3 aparecendo 4 vezes
-Third Best config: llama3.1_8b + auto_cot aparecendo 2 vezes
+Best config: deepseek-14b + role_based appearing 5 times 
+Second Best config: gpt-4o-mini + few_shot_3 appearing 4 times
+Third Best config: llama3.1_8b + auto_cot appearing 2 times
 ```
 
 This indicates that the environment is set up correctly and the code is executing as expected.

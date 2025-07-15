@@ -40,11 +40,11 @@ def get_best_model():
 
     contagem = Counter(best_configs).most_common(3)
 
-    print('Best config:', contagem[0][0], 'aparecendo', contagem[0][1], 'vezes')
+    print('Best config:', contagem[0][0], 'appearing', contagem[0][1], 'times')
 
-    print('Second Best config:', contagem[1][0], 'aparecendo', contagem[1][1], 'vezes')
+    print('Second Best config:', contagem[1][0], 'appearing', contagem[1][1], 'times')
 
-    print('Third Best config:', contagem[2][0], 'aparecendo', contagem[2][1], 'vezes')
+    print('Third Best config:', contagem[2][0], 'appearing', contagem[2][1], 'times')
 
     return contagem[0][0]
 get_best_model()
