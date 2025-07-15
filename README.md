@@ -2,7 +2,7 @@
 
 ## 📚 Context
 
-Incivility in open-source software (OSS) platforms like GitHub can hinder collaboration, reduce contributor participation, and affect code quality. Although existing Machine Learning (ML) and Natural Language Processing (NLP) tools attempt to moderate such content, they often fail to detect subtle or implicit forms of incivility.
+Incivility in open-source software (OSS) platforms like GitHub can hinder collaboration, reduce contributor participation, and affect code quality. Although existing Machine Learning (ML) and Natural Language Processing (NLP) tools attempt to moderate such content, they often fail to detect subtle or implicit forms of incivility. In our paper “404: Civility Not Found? Evaluating the Effectiveness of Small Language Models in Detecting Incivility in GitHub Conversations,” we investigate this challenge. This repository contains the replication package associated with the study, including code, data, and instructions to reproduce our results.
 
 ## 🎯 Goal
 
@@ -69,7 +69,8 @@ Make sure to keep this file private and never commit it to version control.
 To confirm that everything is working, try running the following command:
 
 ```bash
-python fine_granularity/get_best_model.py
+cd fine_granularity
+python get_best_model.py
 ```
 
 You should see output similar to:
