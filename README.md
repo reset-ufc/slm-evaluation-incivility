@@ -109,7 +109,7 @@ These models are suitable for GPU-constrained environments and can run efficient
 
 - [**Phi‑3 Mini (3.8B)**](https://ollama.com/library/phi3:3.8b)
 - [**Gemma 3-1B**](https://ollama.com/library/gemma3:1b)
-https://ollama.com/library/phi3:3.8b
+
 ### 🧠 CPU-only Setups
 
 For environments without GPU access, the following CPU-optimized models are available via the **steamdj** collection on [Ollama](https://ollama.com):
