@@ -99,18 +99,18 @@ To run local models effectively, we used a machine with the following specificat
 
 Cloud-based executions were performed using OpenAI's optimized infrastructure.
 
-## 🧩 Model Recommendations for Resource-Constrained Environments
+### 🧩 Model Recommendations for Resource-Constrained Environments
 
 For users with limited hardware resources, we recommend the following Small Language Models (SLMs):
 
-### 🖥️ Setups with ≤8GB VRAM
+#### 🖥️ Setups with ≤8GB VRAM
 
 These models are suitable for GPU-constrained environments and can run efficiently using tools like [Ollama](https://ollama.com):
 
 - [**Phi‑3 Mini (3.8B)**](https://ollama.com/library/phi3:3.8b)
 - [**Gemma 3-1B**](https://ollama.com/library/gemma3:1b)
 
-### 🧠 CPU-only Setups
+#### 🧠 CPU-only Setups
 
 For environments without GPU access, the following CPU-optimized models are available via the **steamdj** collection on [Ollama](https://ollama.com):
 
