@@ -2,7 +2,7 @@
 
 ## 📚 Context
 
-Incivility in open-source software (OSS) platforms like GitHub can hinder collaboration, reduce contributor participation, and affect code quality. Although existing Machine Learning (ML) and Natural Language Processing (NLP) tools attempt to moderate such content, they often fail to detect subtle or implicit forms of incivility. In our paper [“404: Civility Not Found? Evaluating the Effectiveness of Small Language Models in Detecting Incivility in GitHub Conversations”](paper/_Revision__SBES_2025___Evaluating_the_Effectiveness_of_Small_Language_Models_in_Detecting_Incivility_in_GitHub_Conversations.pdf), we investigate this challenge. This repository contains the replication package associated with the study, including code, data, and instructions to reproduce our results.
+Incivility in open-source software (OSS) platforms like GitHub can hinder collaboration, reduce contributor participation, and affect code quality. Although existing Machine Learning (ML) and Natural Language Processing (NLP) tools attempt to moderate such content, they often fail to detect subtle or implicit forms of incivility. In our paper [“404: Civility Not Found? Evaluating the Effectiveness of Small Language Models in Detecting Incivility in GitHub Conversations”](paper/Evaluating_the_Effectiveness_of_Small_Language_Models_in_Detecting_Incivility_in_GitHub_Conversations_SBES_2025.pdf), we investigate this challenge. This repository contains the replication package associated with the study, including code, data, and instructions to reproduce our results.
 
 ## 🎯 Goal
 
@@ -103,14 +103,14 @@ Cloud-based executions were performed using OpenAI's optimized infrastructure.
 
 For users with limited hardware resources, we recommend the following Small Language Models (SLMs):
 
-#### 🖥️ Setups with ≤8GB VRAM
+### 🖥️ Setups with ≤8GB VRAM
 
 These models are suitable for GPU-constrained environments and can run efficiently using tools like [Ollama](https://ollama.com):
 
 - [**Phi‑3 Mini (3.8B)**](https://ollama.com/library/phi3:3.8b)
 - [**Gemma 3-1B**](https://ollama.com/library/gemma3:1b)
 
-#### 🧠 CPU-only Setups
+### 🧠 CPU-only Setups
 
 For environments without GPU access, the following CPU-optimized models are available via the **steamdj** collection on [Ollama](https://ollama.com):
 
